@@ -6,3 +6,9 @@ build.log
 # signing keys (kept in ~/.android-keys, never in the repo)
 *.jks
 *.keystore
+
+# iOS native build artifacts & local signing
+xcuserdata/
+*.xcuserstate
+DerivedData/
+Signing.local.xcconfig

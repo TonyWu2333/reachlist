@@ -1,0 +1,23 @@
+// Config/ —— 签名与工程配置集中处（§9 / OPEN-06=B / OPEN-17 / OPEN-02=A）
+// 免费 Personal Team：证书、App ID、描述文件全部由 Xcode 自动管理，
+// 不把 Team 信息散落进源码。上架前只需替换本文件的签名主体。
+//
+// OPEN-06=B：开发期 ATS 域名例外集中在 Config/，并带「上架前移除」注释。
+// VERIFY-03 已于 2026-11-14 在真机实测最小例外键名（见 §7.2.2 / §12 v0.24），
+// 据此引入下列配置；上架前移除本 include 与 Info.plist 的 NSAppTransportSecurity 段。
+
+#include "Version.xcconfig"
+#include "ATS-Development.xcconfig"
+
+// OPEN-17：按 com.tonywu.reach.<noun> 系列规则新建，与 Android com.tonywu.planner 不同。
+PRODUCT_BUNDLE_IDENTIFIER = com.tonywu.reach.list
+
+// OPEN-02=A：最低部署目标仅 iOS 26+，不做低版本降级分支。
+IPHONEOS_DEPLOYMENT_TARGET = 26.0
+
+DEVELOPMENT_TEAM = YOUR_TEAM_ID
+CODE_SIGN_STYLE = Automatic
+CODE_SIGN_IDENTITY = Apple Development
+
+// 本阶段以个人 iPhone 为唯一验证设备（OPEN-01=A / OPEN-05=D）。
+TARGETED_DEVICE_FAMILY = 1
