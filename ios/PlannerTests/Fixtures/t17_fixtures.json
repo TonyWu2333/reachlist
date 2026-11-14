@@ -1,0 +1,2756 @@
+{
+  "baseline": "97a7c4c17602327a42d30110806a6a1e6fa0e798",
+  "generator": "generate_t17_fixtures.mjs",
+  "today": "2026-11-13",
+  "fixedLocalTime": "2026-11-13T12:00:00",
+  "tasks": [
+    {
+      "id": "plain",
+      "title": "写周报",
+      "note": "记得 附上 数据",
+      "date": "2026-11-13",
+      "time": "14:00",
+      "important": true,
+      "urgent": true,
+      "done": false,
+      "dropped": false,
+      "createdAt": 1793495700000,
+      "doneAt": null,
+      "repeat": "",
+      "doneDates": [],
+      "skipDates": [],
+      "remind": 15,
+      "parentId": "",
+      "updatedAt": 1793495700000
+    },
+    {
+      "id": "nodate",
+      "title": "随手记",
+      "note": "",
+      "date": "",
+      "time": "",
+      "important": false,
+      "urgent": false,
+      "done": false,
+      "dropped": false,
+      "createdAt": 1793495700000,
+      "doneAt": null,
+      "repeat": "",
+      "doneDates": [],
+      "skipDates": [],
+      "remind": null,
+      "parentId": "",
+      "updatedAt": 1793495700000
+    },
+    {
+      "id": "done",
+      "title": "已完成的报告",
+      "note": "",
+      "date": "2026-11-12",
+      "time": "",
+      "important": false,
+      "urgent": false,
+      "done": true,
+      "dropped": false,
+      "createdAt": 1793495700000,
+      "doneAt": 1794472800000,
+      "repeat": "",
+      "doneDates": [],
+      "skipDates": [],
+      "remind": null,
+      "parentId": "",
+      "updatedAt": 1793495700000
+    },
+    {
+      "id": "dropped",
+      "title": "放弃的旧计划",
+      "note": "",
+      "date": "2026-11-10",
+      "time": "",
+      "important": false,
+      "urgent": false,
+      "done": true,
+      "dropped": true,
+      "createdAt": 1793495700000,
+      "doneAt": 1794269100000,
+      "repeat": "",
+      "doneDates": [],
+      "skipDates": [],
+      "remind": null,
+      "parentId": "",
+      "updatedAt": 1793495700000
+    },
+    {
+      "id": "repeat",
+      "title": "每天背单词",
+      "note": "",
+      "date": "2026-11-03",
+      "time": "07:30",
+      "important": false,
+      "urgent": false,
+      "done": false,
+      "dropped": false,
+      "createdAt": 1793495700000,
+      "doneAt": null,
+      "repeat": "d1",
+      "doneDates": [
+        "2026-11-13",
+        "2026-11-12",
+        "2026-11-11"
+      ],
+      "skipDates": [],
+      "remind": null,
+      "parentId": "",
+      "updatedAt": 1793495700000
+    },
+    {
+      "id": "repeat-until",
+      "title": "每周五复盘",
+      "note": "",
+      "date": "2026-10-02",
+      "time": "",
+      "important": false,
+      "urgent": false,
+      "done": false,
+      "dropped": false,
+      "createdAt": 1793495700000,
+      "doneAt": null,
+      "repeat": "w1:5~2026-12-31",
+      "doneDates": [
+        "2026-11-06"
+      ],
+      "skipDates": [],
+      "remind": null,
+      "parentId": "",
+      "updatedAt": 1793495700000
+    },
+    {
+      "id": "parent",
+      "title": "准备发布会",
+      "note": "",
+      "date": "2026-11-13",
+      "time": "",
+      "important": true,
+      "urgent": false,
+      "done": false,
+      "dropped": false,
+      "createdAt": 1793495700000,
+      "doneAt": null,
+      "repeat": "",
+      "doneDates": [],
+      "skipDates": [],
+      "remind": null,
+      "parentId": "",
+      "updatedAt": 1793495700000
+    },
+    {
+      "id": "child-one",
+      "title": "订场地",
+      "note": "",
+      "date": "2026-11-13",
+      "time": "",
+      "important": false,
+      "urgent": false,
+      "done": false,
+      "dropped": false,
+      "createdAt": 1793495700000,
+      "doneAt": null,
+      "repeat": "",
+      "doneDates": [],
+      "skipDates": [],
+      "remind": null,
+      "parentId": "parent",
+      "updatedAt": 1793495700000
+    },
+    {
+      "id": "child-repeat",
+      "title": "发提醒",
+      "note": "",
+      "date": "",
+      "time": "",
+      "important": false,
+      "urgent": false,
+      "done": false,
+      "dropped": false,
+      "createdAt": 1793495700000,
+      "doneAt": null,
+      "repeat": "",
+      "doneDates": [
+        "2026-11-13"
+      ],
+      "skipDates": [],
+      "remind": null,
+      "parentId": "repeat",
+      "updatedAt": 1793495700000
+    },
+    {
+      "id": "child-dropped",
+      "title": "不做的子任务",
+      "note": "",
+      "date": "",
+      "time": "",
+      "important": false,
+      "urgent": false,
+      "done": true,
+      "dropped": true,
+      "createdAt": 1793495700000,
+      "doneAt": null,
+      "repeat": "",
+      "doneDates": [],
+      "skipDates": [],
+      "remind": null,
+      "parentId": "parent",
+      "updatedAt": 1793495700000
+    }
+  ],
+  "quickAdd": [
+    {
+      "name": "plain",
+      "lang": "zh",
+      "case": {
+        "name": "plain",
+        "text": "买牛奶"
+      },
+      "expected": {
+        "title": "买牛奶",
+        "parsedDate": "",
+        "parsedTime": "",
+        "parsedRepeat": "",
+        "hits": [],
+        "effDate": "2026-11-13",
+        "effTime": "",
+        "effRepeat": "",
+        "recognized": false,
+        "whenLabel": "今天",
+        "when": "今天",
+        "before": "已识别 ",
+        "after": "，标题「买牛奶」",
+        "canSend": true,
+        "submit": {
+          "title": "买牛奶",
+          "note": "",
+          "date": "2026-11-13",
+          "time": "",
+          "repeat": "",
+          "important": false,
+          "urgent": false
+        },
+        "toast": "已添加到今天"
+      }
+    },
+    {
+      "name": "parsed-tomorrow",
+      "lang": "zh",
+      "case": {
+        "name": "parsed-tomorrow",
+        "text": "明天下午3点开会"
+      },
+      "expected": {
+        "title": "开会",
+        "parsedDate": "2026-11-14",
+        "parsedTime": "15:00",
+        "parsedRepeat": "",
+        "hits": [
+          "明天",
+          "下午3点"
+        ],
+        "effDate": "2026-11-14",
+        "effTime": "15:00",
+        "effRepeat": "",
+        "recognized": true,
+        "whenLabel": "明天",
+        "when": "明天 15:00",
+        "before": "已识别 ",
+        "after": "，标题「开会」",
+        "canSend": true,
+        "submit": {
+          "title": "开会",
+          "note": "",
+          "date": "2026-11-14",
+          "time": "15:00",
+          "repeat": "",
+          "important": false,
+          "urgent": false
+        },
+        "toast": "已添加到明天"
+      }
+    },
+    {
+      "name": "parsed-repeat",
+      "lang": "zh",
+      "case": {
+        "name": "parsed-repeat",
+        "text": "每天 跑步 到12月31日"
+      },
+      "expected": {
+        "title": "跑步",
+        "parsedDate": "2026-11-13",
+        "parsedTime": "",
+        "parsedRepeat": "d1~2026-12-31",
+        "hits": [
+          "每天",
+          "到12月31日"
+        ],
+        "effDate": "2026-11-13",
+        "effTime": "",
+        "effRepeat": "d1~2026-12-31",
+        "recognized": true,
+        "whenLabel": "每天",
+        "when": "每天",
+        "before": "已识别 ",
+        "after": "，标题「跑步」",
+        "canSend": true,
+        "submit": {
+          "title": "跑步",
+          "note": "",
+          "date": "2026-11-13",
+          "time": "",
+          "repeat": "d1~2026-12-31",
+          "important": false,
+          "urgent": false
+        },
+        "toast": "已添加 · 每天"
+      }
+    },
+    {
+      "name": "parsed-week",
+      "lang": "zh",
+      "case": {
+        "name": "parsed-week",
+        "text": "下周一 9:30 例会"
+      },
+      "expected": {
+        "title": "例会",
+        "parsedDate": "2026-11-16",
+        "parsedTime": "09:30",
+        "parsedRepeat": "",
+        "hits": [
+          "下周一",
+          "9:30"
+        ],
+        "effDate": "2026-11-16",
+        "effTime": "09:30",
+        "effRepeat": "",
+        "recognized": true,
+        "whenLabel": "下周一",
+        "when": "下周一 09:30",
+        "before": "已识别 ",
+        "after": "，标题「例会」",
+        "canSend": true,
+        "submit": {
+          "title": "例会",
+          "note": "",
+          "date": "2026-11-16",
+          "time": "09:30",
+          "repeat": "",
+          "important": false,
+          "urgent": false
+        },
+        "toast": "已添加到下周一"
+      }
+    },
+    {
+      "name": "default-date-q",
+      "lang": "zh",
+      "case": {
+        "name": "default-date-q",
+        "text": "写方案",
+        "defaults": {
+          "date": "2026-11-15",
+          "q": 1
+        }
+      },
+      "expected": {
+        "title": "写方案",
+        "parsedDate": "",
+        "parsedTime": "",
+        "parsedRepeat": "",
+        "hits": [],
+        "effDate": "2026-11-15",
+        "effTime": "",
+        "effRepeat": "",
+        "recognized": false,
+        "whenLabel": "后天",
+        "when": "后天",
+        "before": "已识别 ",
+        "after": "，标题「写方案」",
+        "canSend": true,
+        "submit": {
+          "title": "写方案",
+          "note": "",
+          "date": "2026-11-15",
+          "time": "",
+          "repeat": "",
+          "important": true,
+          "urgent": true
+        },
+        "toast": "已添加到后天"
+      }
+    },
+    {
+      "name": "default-repeat",
+      "lang": "zh",
+      "case": {
+        "name": "default-repeat",
+        "text": "喝水",
+        "defaults": {
+          "repeat": "d1"
+        }
+      },
+      "expected": {
+        "title": "喝水",
+        "parsedDate": "",
+        "parsedTime": "",
+        "parsedRepeat": "",
+        "hits": [],
+        "effDate": "2026-11-13",
+        "effTime": "",
+        "effRepeat": "d1",
+        "recognized": false,
+        "whenLabel": "每天",
+        "when": "每天",
+        "before": "已识别 ",
+        "after": "，标题「喝水」",
+        "canSend": true,
+        "submit": {
+          "title": "喝水",
+          "note": "",
+          "date": "2026-11-13",
+          "time": "",
+          "repeat": "d1",
+          "important": false,
+          "urgent": false
+        },
+        "toast": "已添加 · 每天"
+      }
+    },
+    {
+      "name": "default-repeat-no-date",
+      "lang": "zh",
+      "case": {
+        "name": "default-repeat-no-date",
+        "text": "喝水",
+        "defaults": {
+          "repeat": "d1",
+          "date": ""
+        }
+      },
+      "expected": {
+        "title": "喝水",
+        "parsedDate": "",
+        "parsedTime": "",
+        "parsedRepeat": "",
+        "hits": [],
+        "effDate": "",
+        "effTime": "",
+        "effRepeat": "d1",
+        "recognized": false,
+        "whenLabel": "每天",
+        "when": "每天",
+        "before": "已识别 ",
+        "after": "，标题「喝水」",
+        "canSend": true,
+        "submit": {
+          "title": "喝水",
+          "note": "",
+          "date": "",
+          "time": "",
+          "repeat": "d1",
+          "important": false,
+          "urgent": false
+        },
+        "toast": "已添加 · 每天"
+      }
+    },
+    {
+      "name": "manual-date",
+      "lang": "zh",
+      "case": {
+        "name": "manual-date",
+        "text": "明天 交报告",
+        "state": {
+          "date": "2026-11-20"
+        },
+        "manual": {
+          "date": true
+        }
+      },
+      "expected": {
+        "title": "交报告",
+        "parsedDate": "2026-11-14",
+        "parsedTime": "",
+        "parsedRepeat": "",
+        "hits": [
+          "明天"
+        ],
+        "effDate": "2026-11-20",
+        "effTime": "",
+        "effRepeat": "",
+        "recognized": true,
+        "whenLabel": "11月20日",
+        "when": "11月20日",
+        "before": "已识别 ",
+        "after": "，标题「交报告」",
+        "canSend": true,
+        "submit": {
+          "title": "交报告",
+          "note": "",
+          "date": "2026-11-20",
+          "time": "",
+          "repeat": "",
+          "important": false,
+          "urgent": false
+        },
+        "toast": "已添加到11月20日"
+      }
+    },
+    {
+      "name": "manual-time",
+      "lang": "zh",
+      "case": {
+        "name": "manual-time",
+        "text": "明天下午3点 买菜",
+        "state": {
+          "time": "20:00"
+        },
+        "manual": {
+          "time": true
+        }
+      },
+      "expected": {
+        "title": "买菜",
+        "parsedDate": "2026-11-14",
+        "parsedTime": "15:00",
+        "parsedRepeat": "",
+        "hits": [
+          "明天",
+          "下午3点"
+        ],
+        "effDate": "2026-11-14",
+        "effTime": "20:00",
+        "effRepeat": "",
+        "recognized": true,
+        "whenLabel": "明天",
+        "when": "明天 20:00",
+        "before": "已识别 ",
+        "after": "，标题「买菜」",
+        "canSend": true,
+        "submit": {
+          "title": "买菜",
+          "note": "",
+          "date": "2026-11-14",
+          "time": "20:00",
+          "repeat": "",
+          "important": false,
+          "urgent": false
+        },
+        "toast": "已添加到明天"
+      }
+    },
+    {
+      "name": "manual-repeat",
+      "lang": "zh",
+      "case": {
+        "name": "manual-repeat",
+        "text": "每天 跑步",
+        "state": {
+          "repeat": "w1:135"
+        },
+        "manual": {
+          "repeat": true
+        }
+      },
+      "expected": {
+        "title": "跑步",
+        "parsedDate": "2026-11-13",
+        "parsedTime": "",
+        "parsedRepeat": "d1",
+        "hits": [
+          "每天"
+        ],
+        "effDate": "2026-11-13",
+        "effTime": "",
+        "effRepeat": "w1:135",
+        "recognized": true,
+        "whenLabel": "每周一、三、五",
+        "when": "每周一、三、五",
+        "before": "已识别 ",
+        "after": "，标题「跑步」",
+        "canSend": true,
+        "submit": {
+          "title": "跑步",
+          "note": "",
+          "date": "2026-11-13",
+          "time": "",
+          "repeat": "w1:135",
+          "important": false,
+          "urgent": false
+        },
+        "toast": "已添加 · 每周一、三、五"
+      }
+    },
+    {
+      "name": "manual-all",
+      "lang": "zh",
+      "case": {
+        "name": "manual-all",
+        "text": "明天下午3点 每天 跑步",
+        "state": {
+          "date": "2026-11-18",
+          "time": "08:00",
+          "repeat": "d3"
+        },
+        "manual": {
+          "date": true,
+          "time": true,
+          "repeat": true
+        }
+      },
+      "expected": {
+        "title": "明天 跑步",
+        "parsedDate": "2026-11-13",
+        "parsedTime": "15:00",
+        "parsedRepeat": "d1",
+        "hits": [
+          "每天",
+          "下午3点"
+        ],
+        "effDate": "2026-11-18",
+        "effTime": "08:00",
+        "effRepeat": "d3",
+        "recognized": false,
+        "whenLabel": "每3天",
+        "when": "每3天 08:00",
+        "before": "已识别 ",
+        "after": "，标题「明天 跑步」",
+        "canSend": true,
+        "submit": {
+          "title": "明天 跑步",
+          "note": "",
+          "date": "2026-11-18",
+          "time": "08:00",
+          "repeat": "d3",
+          "important": false,
+          "urgent": false
+        },
+        "toast": "已添加 · 每3天 08:00"
+      }
+    },
+    {
+      "name": "undo-parse",
+      "lang": "zh",
+      "case": {
+        "name": "undo-parse",
+        "text": "明天 交报告",
+        "useParse": false
+      },
+      "expected": {
+        "title": "明天 交报告",
+        "parsedDate": "",
+        "parsedTime": "",
+        "parsedRepeat": "",
+        "hits": [],
+        "effDate": "2026-11-13",
+        "effTime": "",
+        "effRepeat": "",
+        "recognized": false,
+        "whenLabel": "今天",
+        "when": "今天",
+        "before": "已识别 ",
+        "after": "，标题「明天 交报告」",
+        "canSend": true,
+        "submit": {
+          "title": "明天 交报告",
+          "note": "",
+          "date": "2026-11-13",
+          "time": "",
+          "repeat": "",
+          "important": false,
+          "urgent": false
+        },
+        "toast": "已添加到今天"
+      }
+    },
+    {
+      "name": "empty",
+      "lang": "zh",
+      "case": {
+        "name": "empty",
+        "text": ""
+      },
+      "expected": {
+        "title": "",
+        "parsedDate": "",
+        "parsedTime": "",
+        "parsedRepeat": "",
+        "hits": [],
+        "effDate": "2026-11-13",
+        "effTime": "",
+        "effRepeat": "",
+        "recognized": false,
+        "whenLabel": "今天",
+        "when": "今天",
+        "before": "已识别 ",
+        "after": "，标题「」",
+        "canSend": false,
+        "submit": {
+          "title": "",
+          "note": "",
+          "date": "2026-11-13",
+          "time": "",
+          "repeat": "",
+          "important": false,
+          "urgent": false
+        },
+        "toast": "已添加到今天"
+      }
+    },
+    {
+      "name": "spaces",
+      "lang": "zh",
+      "case": {
+        "name": "spaces",
+        "text": "   "
+      },
+      "expected": {
+        "title": "",
+        "parsedDate": "",
+        "parsedTime": "",
+        "parsedRepeat": "",
+        "hits": [],
+        "effDate": "2026-11-13",
+        "effTime": "",
+        "effRepeat": "",
+        "recognized": false,
+        "whenLabel": "今天",
+        "when": "今天",
+        "before": "已识别 ",
+        "after": "，标题「」",
+        "canSend": false,
+        "submit": {
+          "title": "",
+          "note": "",
+          "date": "2026-11-13",
+          "time": "",
+          "repeat": "",
+          "important": false,
+          "urgent": false
+        },
+        "toast": "已添加到今天"
+      }
+    },
+    {
+      "name": "no-date",
+      "lang": "zh",
+      "case": {
+        "name": "no-date",
+        "text": "随手记",
+        "state": {
+          "date": ""
+        }
+      },
+      "expected": {
+        "title": "随手记",
+        "parsedDate": "",
+        "parsedTime": "",
+        "parsedRepeat": "",
+        "hits": [],
+        "effDate": "",
+        "effTime": "",
+        "effRepeat": "",
+        "recognized": false,
+        "whenLabel": "",
+        "when": "",
+        "before": "已识别 ",
+        "after": "，标题「随手记」",
+        "canSend": true,
+        "submit": {
+          "title": "随手记",
+          "note": "",
+          "date": "",
+          "time": "",
+          "repeat": "",
+          "important": false,
+          "urgent": false
+        },
+        "toast": "已添加（无日期）"
+      }
+    },
+    {
+      "name": "with-note",
+      "lang": "zh",
+      "case": {
+        "name": "with-note",
+        "text": "写周报",
+        "note": "带上 数据 附件"
+      },
+      "expected": {
+        "title": "写周报",
+        "parsedDate": "",
+        "parsedTime": "",
+        "parsedRepeat": "",
+        "hits": [],
+        "effDate": "2026-11-13",
+        "effTime": "",
+        "effRepeat": "",
+        "recognized": false,
+        "whenLabel": "今天",
+        "when": "今天",
+        "before": "已识别 ",
+        "after": "，标题「写周报」",
+        "canSend": true,
+        "submit": {
+          "title": "写周报",
+          "note": "带上 数据 附件",
+          "date": "2026-11-13",
+          "time": "",
+          "repeat": "",
+          "important": false,
+          "urgent": false
+        },
+        "toast": "已添加到今天"
+      }
+    },
+    {
+      "name": "monthly",
+      "lang": "zh",
+      "case": {
+        "name": "monthly",
+        "text": "每月15号还信用卡"
+      },
+      "expected": {
+        "title": "还信用卡",
+        "parsedDate": "2026-11-15",
+        "parsedTime": "",
+        "parsedRepeat": "m1",
+        "hits": [
+          "每月15号"
+        ],
+        "effDate": "2026-11-15",
+        "effTime": "",
+        "effRepeat": "m1",
+        "recognized": true,
+        "whenLabel": "每月15日",
+        "when": "每月15日",
+        "before": "已识别 ",
+        "after": "，标题「还信用卡」",
+        "canSend": true,
+        "submit": {
+          "title": "还信用卡",
+          "note": "",
+          "date": "2026-11-15",
+          "time": "",
+          "repeat": "m1",
+          "important": false,
+          "urgent": false
+        },
+        "toast": "已添加 · 每月15日"
+      }
+    },
+    {
+      "name": "yearly",
+      "lang": "zh",
+      "case": {
+        "name": "yearly",
+        "text": "每年5月20日 纪念日"
+      },
+      "expected": {
+        "title": "纪念日",
+        "parsedDate": "2027-05-20",
+        "parsedTime": "",
+        "parsedRepeat": "y1",
+        "hits": [
+          "每年5月20日"
+        ],
+        "effDate": "2027-05-20",
+        "effTime": "",
+        "effRepeat": "y1",
+        "recognized": true,
+        "whenLabel": "每年5月20日",
+        "when": "每年5月20日",
+        "before": "已识别 ",
+        "after": "，标题「纪念日」",
+        "canSend": true,
+        "submit": {
+          "title": "纪念日",
+          "note": "",
+          "date": "2027-05-20",
+          "time": "",
+          "repeat": "y1",
+          "important": false,
+          "urgent": false
+        },
+        "toast": "已添加 · 每年5月20日"
+      }
+    },
+    {
+      "name": "plain",
+      "lang": "en",
+      "case": {
+        "name": "plain",
+        "text": "买牛奶"
+      },
+      "expected": {
+        "title": "买牛奶",
+        "parsedDate": "",
+        "parsedTime": "",
+        "parsedRepeat": "",
+        "hits": [],
+        "effDate": "2026-11-13",
+        "effTime": "",
+        "effRepeat": "",
+        "recognized": false,
+        "whenLabel": "Today",
+        "when": "Today",
+        "before": "Detected ",
+        "after": ", title “买牛奶”",
+        "canSend": true,
+        "submit": {
+          "title": "买牛奶",
+          "note": "",
+          "date": "2026-11-13",
+          "time": "",
+          "repeat": "",
+          "important": false,
+          "urgent": false
+        },
+        "toast": "Added to Today"
+      }
+    },
+    {
+      "name": "parsed-tomorrow",
+      "lang": "en",
+      "case": {
+        "name": "parsed-tomorrow",
+        "text": "明天下午3点开会"
+      },
+      "expected": {
+        "title": "开会",
+        "parsedDate": "2026-11-14",
+        "parsedTime": "15:00",
+        "parsedRepeat": "",
+        "hits": [
+          "明天",
+          "下午3点"
+        ],
+        "effDate": "2026-11-14",
+        "effTime": "15:00",
+        "effRepeat": "",
+        "recognized": true,
+        "whenLabel": "Tomorrow",
+        "when": "Tomorrow 15:00",
+        "before": "Detected ",
+        "after": ", title “开会”",
+        "canSend": true,
+        "submit": {
+          "title": "开会",
+          "note": "",
+          "date": "2026-11-14",
+          "time": "15:00",
+          "repeat": "",
+          "important": false,
+          "urgent": false
+        },
+        "toast": "Added to Tomorrow"
+      }
+    },
+    {
+      "name": "parsed-repeat",
+      "lang": "en",
+      "case": {
+        "name": "parsed-repeat",
+        "text": "每天 跑步 到12月31日"
+      },
+      "expected": {
+        "title": "跑步",
+        "parsedDate": "2026-11-13",
+        "parsedTime": "",
+        "parsedRepeat": "d1~2026-12-31",
+        "hits": [
+          "每天",
+          "到12月31日"
+        ],
+        "effDate": "2026-11-13",
+        "effTime": "",
+        "effRepeat": "d1~2026-12-31",
+        "recognized": true,
+        "whenLabel": "Daily",
+        "when": "Daily",
+        "before": "Detected ",
+        "after": ", title “跑步”",
+        "canSend": true,
+        "submit": {
+          "title": "跑步",
+          "note": "",
+          "date": "2026-11-13",
+          "time": "",
+          "repeat": "d1~2026-12-31",
+          "important": false,
+          "urgent": false
+        },
+        "toast": "Added · Daily"
+      }
+    },
+    {
+      "name": "parsed-week",
+      "lang": "en",
+      "case": {
+        "name": "parsed-week",
+        "text": "下周一 9:30 例会"
+      },
+      "expected": {
+        "title": "例会",
+        "parsedDate": "2026-11-16",
+        "parsedTime": "09:30",
+        "parsedRepeat": "",
+        "hits": [
+          "下周一",
+          "9:30"
+        ],
+        "effDate": "2026-11-16",
+        "effTime": "09:30",
+        "effRepeat": "",
+        "recognized": true,
+        "whenLabel": "Next Mon",
+        "when": "Next Mon 09:30",
+        "before": "Detected ",
+        "after": ", title “例会”",
+        "canSend": true,
+        "submit": {
+          "title": "例会",
+          "note": "",
+          "date": "2026-11-16",
+          "time": "09:30",
+          "repeat": "",
+          "important": false,
+          "urgent": false
+        },
+        "toast": "Added to Next Mon"
+      }
+    },
+    {
+      "name": "default-date-q",
+      "lang": "en",
+      "case": {
+        "name": "default-date-q",
+        "text": "写方案",
+        "defaults": {
+          "date": "2026-11-15",
+          "q": 1
+        }
+      },
+      "expected": {
+        "title": "写方案",
+        "parsedDate": "",
+        "parsedTime": "",
+        "parsedRepeat": "",
+        "hits": [],
+        "effDate": "2026-11-15",
+        "effTime": "",
+        "effRepeat": "",
+        "recognized": false,
+        "whenLabel": "Sun",
+        "when": "Sun",
+        "before": "Detected ",
+        "after": ", title “写方案”",
+        "canSend": true,
+        "submit": {
+          "title": "写方案",
+          "note": "",
+          "date": "2026-11-15",
+          "time": "",
+          "repeat": "",
+          "important": true,
+          "urgent": true
+        },
+        "toast": "Added to Sun"
+      }
+    },
+    {
+      "name": "default-repeat",
+      "lang": "en",
+      "case": {
+        "name": "default-repeat",
+        "text": "喝水",
+        "defaults": {
+          "repeat": "d1"
+        }
+      },
+      "expected": {
+        "title": "喝水",
+        "parsedDate": "",
+        "parsedTime": "",
+        "parsedRepeat": "",
+        "hits": [],
+        "effDate": "2026-11-13",
+        "effTime": "",
+        "effRepeat": "d1",
+        "recognized": false,
+        "whenLabel": "Daily",
+        "when": "Daily",
+        "before": "Detected ",
+        "after": ", title “喝水”",
+        "canSend": true,
+        "submit": {
+          "title": "喝水",
+          "note": "",
+          "date": "2026-11-13",
+          "time": "",
+          "repeat": "d1",
+          "important": false,
+          "urgent": false
+        },
+        "toast": "Added · Daily"
+      }
+    },
+    {
+      "name": "default-repeat-no-date",
+      "lang": "en",
+      "case": {
+        "name": "default-repeat-no-date",
+        "text": "喝水",
+        "defaults": {
+          "repeat": "d1",
+          "date": ""
+        }
+      },
+      "expected": {
+        "title": "喝水",
+        "parsedDate": "",
+        "parsedTime": "",
+        "parsedRepeat": "",
+        "hits": [],
+        "effDate": "",
+        "effTime": "",
+        "effRepeat": "d1",
+        "recognized": false,
+        "whenLabel": "Daily",
+        "when": "Daily",
+        "before": "Detected ",
+        "after": ", title “喝水”",
+        "canSend": true,
+        "submit": {
+          "title": "喝水",
+          "note": "",
+          "date": "",
+          "time": "",
+          "repeat": "d1",
+          "important": false,
+          "urgent": false
+        },
+        "toast": "Added · Daily"
+      }
+    },
+    {
+      "name": "manual-date",
+      "lang": "en",
+      "case": {
+        "name": "manual-date",
+        "text": "明天 交报告",
+        "state": {
+          "date": "2026-11-20"
+        },
+        "manual": {
+          "date": true
+        }
+      },
+      "expected": {
+        "title": "交报告",
+        "parsedDate": "2026-11-14",
+        "parsedTime": "",
+        "parsedRepeat": "",
+        "hits": [
+          "明天"
+        ],
+        "effDate": "2026-11-20",
+        "effTime": "",
+        "effRepeat": "",
+        "recognized": true,
+        "whenLabel": "Nov 20",
+        "when": "Nov 20",
+        "before": "Detected ",
+        "after": ", title “交报告”",
+        "canSend": true,
+        "submit": {
+          "title": "交报告",
+          "note": "",
+          "date": "2026-11-20",
+          "time": "",
+          "repeat": "",
+          "important": false,
+          "urgent": false
+        },
+        "toast": "Added to Nov 20"
+      }
+    },
+    {
+      "name": "manual-time",
+      "lang": "en",
+      "case": {
+        "name": "manual-time",
+        "text": "明天下午3点 买菜",
+        "state": {
+          "time": "20:00"
+        },
+        "manual": {
+          "time": true
+        }
+      },
+      "expected": {
+        "title": "买菜",
+        "parsedDate": "2026-11-14",
+        "parsedTime": "15:00",
+        "parsedRepeat": "",
+        "hits": [
+          "明天",
+          "下午3点"
+        ],
+        "effDate": "2026-11-14",
+        "effTime": "20:00",
+        "effRepeat": "",
+        "recognized": true,
+        "whenLabel": "Tomorrow",
+        "when": "Tomorrow 20:00",
+        "before": "Detected ",
+        "after": ", title “买菜”",
+        "canSend": true,
+        "submit": {
+          "title": "买菜",
+          "note": "",
+          "date": "2026-11-14",
+          "time": "20:00",
+          "repeat": "",
+          "important": false,
+          "urgent": false
+        },
+        "toast": "Added to Tomorrow"
+      }
+    },
+    {
+      "name": "manual-repeat",
+      "lang": "en",
+      "case": {
+        "name": "manual-repeat",
+        "text": "每天 跑步",
+        "state": {
+          "repeat": "w1:135"
+        },
+        "manual": {
+          "repeat": true
+        }
+      },
+      "expected": {
+        "title": "跑步",
+        "parsedDate": "2026-11-13",
+        "parsedTime": "",
+        "parsedRepeat": "d1",
+        "hits": [
+          "每天"
+        ],
+        "effDate": "2026-11-13",
+        "effTime": "",
+        "effRepeat": "w1:135",
+        "recognized": true,
+        "whenLabel": "Every Mon, Wed, Fri",
+        "when": "Every Mon, Wed, Fri",
+        "before": "Detected ",
+        "after": ", title “跑步”",
+        "canSend": true,
+        "submit": {
+          "title": "跑步",
+          "note": "",
+          "date": "2026-11-13",
+          "time": "",
+          "repeat": "w1:135",
+          "important": false,
+          "urgent": false
+        },
+        "toast": "Added · Every Mon, Wed, Fri"
+      }
+    },
+    {
+      "name": "manual-all",
+      "lang": "en",
+      "case": {
+        "name": "manual-all",
+        "text": "明天下午3点 每天 跑步",
+        "state": {
+          "date": "2026-11-18",
+          "time": "08:00",
+          "repeat": "d3"
+        },
+        "manual": {
+          "date": true,
+          "time": true,
+          "repeat": true
+        }
+      },
+      "expected": {
+        "title": "明天 跑步",
+        "parsedDate": "2026-11-13",
+        "parsedTime": "15:00",
+        "parsedRepeat": "d1",
+        "hits": [
+          "每天",
+          "下午3点"
+        ],
+        "effDate": "2026-11-18",
+        "effTime": "08:00",
+        "effRepeat": "d3",
+        "recognized": false,
+        "whenLabel": "Every 3 days",
+        "when": "Every 3 days 08:00",
+        "before": "Detected ",
+        "after": ", title “明天 跑步”",
+        "canSend": true,
+        "submit": {
+          "title": "明天 跑步",
+          "note": "",
+          "date": "2026-11-18",
+          "time": "08:00",
+          "repeat": "d3",
+          "important": false,
+          "urgent": false
+        },
+        "toast": "Added · Every 3 days 08:00"
+      }
+    },
+    {
+      "name": "undo-parse",
+      "lang": "en",
+      "case": {
+        "name": "undo-parse",
+        "text": "明天 交报告",
+        "useParse": false
+      },
+      "expected": {
+        "title": "明天 交报告",
+        "parsedDate": "",
+        "parsedTime": "",
+        "parsedRepeat": "",
+        "hits": [],
+        "effDate": "2026-11-13",
+        "effTime": "",
+        "effRepeat": "",
+        "recognized": false,
+        "whenLabel": "Today",
+        "when": "Today",
+        "before": "Detected ",
+        "after": ", title “明天 交报告”",
+        "canSend": true,
+        "submit": {
+          "title": "明天 交报告",
+          "note": "",
+          "date": "2026-11-13",
+          "time": "",
+          "repeat": "",
+          "important": false,
+          "urgent": false
+        },
+        "toast": "Added to Today"
+      }
+    },
+    {
+      "name": "empty",
+      "lang": "en",
+      "case": {
+        "name": "empty",
+        "text": ""
+      },
+      "expected": {
+        "title": "",
+        "parsedDate": "",
+        "parsedTime": "",
+        "parsedRepeat": "",
+        "hits": [],
+        "effDate": "2026-11-13",
+        "effTime": "",
+        "effRepeat": "",
+        "recognized": false,
+        "whenLabel": "Today",
+        "when": "Today",
+        "before": "Detected ",
+        "after": ", title “”",
+        "canSend": false,
+        "submit": {
+          "title": "",
+          "note": "",
+          "date": "2026-11-13",
+          "time": "",
+          "repeat": "",
+          "important": false,
+          "urgent": false
+        },
+        "toast": "Added to Today"
+      }
+    },
+    {
+      "name": "spaces",
+      "lang": "en",
+      "case": {
+        "name": "spaces",
+        "text": "   "
+      },
+      "expected": {
+        "title": "",
+        "parsedDate": "",
+        "parsedTime": "",
+        "parsedRepeat": "",
+        "hits": [],
+        "effDate": "2026-11-13",
+        "effTime": "",
+        "effRepeat": "",
+        "recognized": false,
+        "whenLabel": "Today",
+        "when": "Today",
+        "before": "Detected ",
+        "after": ", title “”",
+        "canSend": false,
+        "submit": {
+          "title": "",
+          "note": "",
+          "date": "2026-11-13",
+          "time": "",
+          "repeat": "",
+          "important": false,
+          "urgent": false
+        },
+        "toast": "Added to Today"
+      }
+    },
+    {
+      "name": "no-date",
+      "lang": "en",
+      "case": {
+        "name": "no-date",
+        "text": "随手记",
+        "state": {
+          "date": ""
+        }
+      },
+      "expected": {
+        "title": "随手记",
+        "parsedDate": "",
+        "parsedTime": "",
+        "parsedRepeat": "",
+        "hits": [],
+        "effDate": "",
+        "effTime": "",
+        "effRepeat": "",
+        "recognized": false,
+        "whenLabel": "",
+        "when": "",
+        "before": "Detected ",
+        "after": ", title “随手记”",
+        "canSend": true,
+        "submit": {
+          "title": "随手记",
+          "note": "",
+          "date": "",
+          "time": "",
+          "repeat": "",
+          "important": false,
+          "urgent": false
+        },
+        "toast": "Added (no date)"
+      }
+    },
+    {
+      "name": "with-note",
+      "lang": "en",
+      "case": {
+        "name": "with-note",
+        "text": "写周报",
+        "note": "带上 数据 附件"
+      },
+      "expected": {
+        "title": "写周报",
+        "parsedDate": "",
+        "parsedTime": "",
+        "parsedRepeat": "",
+        "hits": [],
+        "effDate": "2026-11-13",
+        "effTime": "",
+        "effRepeat": "",
+        "recognized": false,
+        "whenLabel": "Today",
+        "when": "Today",
+        "before": "Detected ",
+        "after": ", title “写周报”",
+        "canSend": true,
+        "submit": {
+          "title": "写周报",
+          "note": "带上 数据 附件",
+          "date": "2026-11-13",
+          "time": "",
+          "repeat": "",
+          "important": false,
+          "urgent": false
+        },
+        "toast": "Added to Today"
+      }
+    },
+    {
+      "name": "monthly",
+      "lang": "en",
+      "case": {
+        "name": "monthly",
+        "text": "每月15号还信用卡"
+      },
+      "expected": {
+        "title": "还信用卡",
+        "parsedDate": "2026-11-15",
+        "parsedTime": "",
+        "parsedRepeat": "m1",
+        "hits": [
+          "每月15号"
+        ],
+        "effDate": "2026-11-15",
+        "effTime": "",
+        "effRepeat": "m1",
+        "recognized": true,
+        "whenLabel": "Monthly on the 15th",
+        "when": "Monthly on the 15th",
+        "before": "Detected ",
+        "after": ", title “还信用卡”",
+        "canSend": true,
+        "submit": {
+          "title": "还信用卡",
+          "note": "",
+          "date": "2026-11-15",
+          "time": "",
+          "repeat": "m1",
+          "important": false,
+          "urgent": false
+        },
+        "toast": "Added · Monthly on the 15th"
+      }
+    },
+    {
+      "name": "yearly",
+      "lang": "en",
+      "case": {
+        "name": "yearly",
+        "text": "每年5月20日 纪念日"
+      },
+      "expected": {
+        "title": "纪念日",
+        "parsedDate": "2027-05-20",
+        "parsedTime": "",
+        "parsedRepeat": "y1",
+        "hits": [
+          "每年5月20日"
+        ],
+        "effDate": "2027-05-20",
+        "effTime": "",
+        "effRepeat": "y1",
+        "recognized": true,
+        "whenLabel": "Yearly on May 20",
+        "when": "Yearly on May 20",
+        "before": "Detected ",
+        "after": ", title “纪念日”",
+        "canSend": true,
+        "submit": {
+          "title": "纪念日",
+          "note": "",
+          "date": "2027-05-20",
+          "time": "",
+          "repeat": "y1",
+          "important": false,
+          "urgent": false
+        },
+        "toast": "Added · Yearly on May 20"
+      }
+    }
+  ],
+  "detail": [
+    {
+      "name": "plain",
+      "lang": "zh",
+      "case": {
+        "name": "plain",
+        "rootId": "plain",
+        "rootOcc": ""
+      },
+      "expected": {
+        "occDay": "",
+        "parentOcc": "",
+        "isDone": false,
+        "canDrop": true,
+        "dateText": "今天 · 11月13日 周五",
+        "footer": "创建于 11月1日 09:15",
+        "remindValue": "提前 15 分钟",
+        "repeatValue": "不重复",
+        "droppedText": "已放弃 · 1月1日 08:00",
+        "progress": [
+          0,
+          0
+        ],
+        "subView": [],
+        "deleteMessages": [
+          "已删除「写周报」",
+          "已删除「写周报」及2 个子任务",
+          "已删除「写周报」及以后的重复",
+          "已删除「写周报」及以后的重复和3 个子任务"
+        ]
+      }
+    },
+    {
+      "name": "nodate",
+      "lang": "zh",
+      "case": {
+        "name": "nodate",
+        "rootId": "nodate",
+        "rootOcc": ""
+      },
+      "expected": {
+        "occDay": "",
+        "parentOcc": "",
+        "isDone": false,
+        "canDrop": true,
+        "dateText": "无日期",
+        "footer": "创建于 11月1日 09:15",
+        "remindValue": "先设时间",
+        "repeatValue": "不重复",
+        "droppedText": "已放弃 · 1月1日 08:00",
+        "progress": [
+          0,
+          0
+        ],
+        "subView": [],
+        "deleteMessages": [
+          "已删除「随手记」",
+          "已删除「随手记」及2 个子任务",
+          "已删除「随手记」及以后的重复",
+          "已删除「随手记」及以后的重复和3 个子任务"
+        ]
+      }
+    },
+    {
+      "name": "done",
+      "lang": "zh",
+      "case": {
+        "name": "done",
+        "rootId": "done",
+        "rootOcc": ""
+      },
+      "expected": {
+        "occDay": "",
+        "parentOcc": "",
+        "isDone": true,
+        "canDrop": false,
+        "dateText": "昨天 · 11月12日 周四",
+        "footer": "创建于 11月1日 09:15 · 完成于 11月12日 16:40",
+        "remindValue": "先设时间",
+        "repeatValue": "不重复",
+        "droppedText": "已放弃 · 11月12日 16:40",
+        "progress": [
+          0,
+          0
+        ],
+        "subView": [],
+        "deleteMessages": [
+          "已删除「已完成的报告」",
+          "已删除「已完成的报告」及2 个子任务",
+          "已删除「已完成的报告」及以后的重复",
+          "已删除「已完成的报告」及以后的重复和3 个子任务"
+        ]
+      }
+    },
+    {
+      "name": "dropped",
+      "lang": "zh",
+      "case": {
+        "name": "dropped",
+        "rootId": "dropped",
+        "rootOcc": ""
+      },
+      "expected": {
+        "occDay": "",
+        "parentOcc": "",
+        "isDone": true,
+        "canDrop": false,
+        "dateText": "11月10日 周二",
+        "footer": "创建于 11月1日 09:15",
+        "remindValue": "先设时间",
+        "repeatValue": "不重复",
+        "droppedText": "已放弃 · 11月10日 08:05",
+        "progress": [
+          0,
+          0
+        ],
+        "subView": [],
+        "deleteMessages": [
+          "已删除「放弃的旧计划」",
+          "已删除「放弃的旧计划」及2 个子任务",
+          "已删除「放弃的旧计划」及以后的重复",
+          "已删除「放弃的旧计划」及以后的重复和3 个子任务"
+        ]
+      }
+    },
+    {
+      "name": "repeat",
+      "lang": "zh",
+      "case": {
+        "name": "repeat",
+        "rootId": "repeat",
+        "rootOcc": ""
+      },
+      "expected": {
+        "occDay": "2026-11-13",
+        "parentOcc": "",
+        "isDone": true,
+        "canDrop": false,
+        "dateText": "11月3日 周二",
+        "footer": "创建于 11月1日 09:15 · 已完成 3 次",
+        "remindValue": "不提醒",
+        "repeatValue": "每天",
+        "droppedText": "已放弃 · 1月1日 08:00",
+        "progress": [
+          1,
+          1
+        ],
+        "subView": [
+          {
+            "id": "child-repeat",
+            "done": true
+          }
+        ],
+        "deleteMessages": [
+          "已删除「每天背单词」",
+          "已删除「每天背单词」及2 个子任务",
+          "已删除「每天背单词」及以后的重复",
+          "已删除「每天背单词」及以后的重复和3 个子任务"
+        ]
+      }
+    },
+    {
+      "name": "repeat-occ",
+      "lang": "zh",
+      "case": {
+        "name": "repeat-occ",
+        "rootId": "repeat",
+        "rootOcc": "2026-11-12"
+      },
+      "expected": {
+        "occDay": "2026-11-12",
+        "parentOcc": "",
+        "isDone": true,
+        "canDrop": false,
+        "dateText": "11月3日 周二",
+        "footer": "创建于 11月1日 09:15 · 已完成 3 次",
+        "remindValue": "不提醒",
+        "repeatValue": "每天",
+        "droppedText": "已放弃 · 1月1日 08:00",
+        "progress": [
+          0,
+          1
+        ],
+        "subView": [
+          {
+            "id": "child-repeat",
+            "done": false
+          }
+        ],
+        "deleteMessages": [
+          "已删除「每天背单词」",
+          "已删除「每天背单词」及2 个子任务",
+          "已删除「每天背单词」及以后的重复",
+          "已删除「每天背单词」及以后的重复和3 个子任务"
+        ]
+      }
+    },
+    {
+      "name": "repeat-until",
+      "lang": "zh",
+      "case": {
+        "name": "repeat-until",
+        "rootId": "repeat-until",
+        "rootOcc": ""
+      },
+      "expected": {
+        "occDay": "2026-11-13",
+        "parentOcc": "",
+        "isDone": false,
+        "canDrop": false,
+        "dateText": "10月2日 周五",
+        "footer": "创建于 11月1日 09:15 · 已完成 1 次",
+        "remindValue": "先设时间",
+        "repeatValue": "每周五，到12月31日",
+        "droppedText": "已放弃 · 1月1日 08:00",
+        "progress": [
+          0,
+          0
+        ],
+        "subView": [],
+        "deleteMessages": [
+          "已删除「每周五复盘」",
+          "已删除「每周五复盘」及2 个子任务",
+          "已删除「每周五复盘」及以后的重复",
+          "已删除「每周五复盘」及以后的重复和3 个子任务"
+        ]
+      }
+    },
+    {
+      "name": "parent",
+      "lang": "zh",
+      "case": {
+        "name": "parent",
+        "rootId": "parent",
+        "rootOcc": ""
+      },
+      "expected": {
+        "occDay": "",
+        "parentOcc": "",
+        "isDone": false,
+        "canDrop": true,
+        "dateText": "今天 · 11月13日 周五",
+        "footer": "创建于 11月1日 09:15",
+        "remindValue": "先设时间",
+        "repeatValue": "不重复",
+        "droppedText": "已放弃 · 1月1日 08:00",
+        "progress": [
+          0,
+          1
+        ],
+        "subView": [
+          {
+            "id": "child-one",
+            "done": false
+          },
+          {
+            "id": "child-dropped",
+            "done": true
+          }
+        ],
+        "deleteMessages": [
+          "已删除「准备发布会」",
+          "已删除「准备发布会」及2 个子任务",
+          "已删除「准备发布会」及以后的重复",
+          "已删除「准备发布会」及以后的重复和3 个子任务"
+        ]
+      }
+    },
+    {
+      "name": "child-one",
+      "lang": "zh",
+      "case": {
+        "name": "child-one",
+        "rootId": "child-one",
+        "rootOcc": ""
+      },
+      "expected": {
+        "occDay": "",
+        "parentOcc": "",
+        "isDone": false,
+        "canDrop": true,
+        "dateText": "今天 · 11月13日 周五",
+        "footer": "创建于 11月1日 09:15",
+        "remindValue": "先设时间",
+        "repeatValue": "不重复",
+        "droppedText": "已放弃 · 1月1日 08:00",
+        "progress": [
+          0,
+          0
+        ],
+        "subView": [],
+        "deleteMessages": [
+          "已删除「订场地」",
+          "已删除「订场地」及2 个子任务",
+          "已删除「订场地」及以后的重复",
+          "已删除「订场地」及以后的重复和3 个子任务"
+        ]
+      }
+    },
+    {
+      "name": "child-repeat",
+      "lang": "zh",
+      "case": {
+        "name": "child-repeat",
+        "rootId": "child-repeat",
+        "rootOcc": ""
+      },
+      "expected": {
+        "occDay": "",
+        "parentOcc": "2026-11-13",
+        "isDone": true,
+        "canDrop": false,
+        "dateText": "无日期",
+        "footer": "创建于 11月1日 09:15",
+        "remindValue": "先设时间",
+        "repeatValue": "不重复",
+        "droppedText": "已放弃 · 1月1日 08:00",
+        "progress": [
+          0,
+          0
+        ],
+        "subView": [],
+        "deleteMessages": [
+          "已删除「发提醒」",
+          "已删除「发提醒」及2 个子任务",
+          "已删除「发提醒」及以后的重复",
+          "已删除「发提醒」及以后的重复和3 个子任务"
+        ]
+      }
+    },
+    {
+      "name": "plain",
+      "lang": "en",
+      "case": {
+        "name": "plain",
+        "rootId": "plain",
+        "rootOcc": ""
+      },
+      "expected": {
+        "occDay": "",
+        "parentOcc": "",
+        "isDone": false,
+        "canDrop": true,
+        "dateText": "Today · Fri, Nov 13",
+        "footer": "Created Nov 1, 09:15",
+        "remindValue": "15 minutes before",
+        "repeatValue": "Never",
+        "droppedText": "Dropped · Jan 1, 08:00",
+        "progress": [
+          0,
+          0
+        ],
+        "subView": [],
+        "deleteMessages": [
+          "Deleted “写周报”",
+          "Deleted “写周报” and 2 subtasks",
+          "Deleted “写周报” and future repeats",
+          "Deleted “写周报”, future repeats and 3 subtasks"
+        ]
+      }
+    },
+    {
+      "name": "nodate",
+      "lang": "en",
+      "case": {
+        "name": "nodate",
+        "rootId": "nodate",
+        "rootOcc": ""
+      },
+      "expected": {
+        "occDay": "",
+        "parentOcc": "",
+        "isDone": false,
+        "canDrop": true,
+        "dateText": "No date",
+        "footer": "Created Nov 1, 09:15",
+        "remindValue": "Set a time first",
+        "repeatValue": "Never",
+        "droppedText": "Dropped · Jan 1, 08:00",
+        "progress": [
+          0,
+          0
+        ],
+        "subView": [],
+        "deleteMessages": [
+          "Deleted “随手记”",
+          "Deleted “随手记” and 2 subtasks",
+          "Deleted “随手记” and future repeats",
+          "Deleted “随手记”, future repeats and 3 subtasks"
+        ]
+      }
+    },
+    {
+      "name": "done",
+      "lang": "en",
+      "case": {
+        "name": "done",
+        "rootId": "done",
+        "rootOcc": ""
+      },
+      "expected": {
+        "occDay": "",
+        "parentOcc": "",
+        "isDone": true,
+        "canDrop": false,
+        "dateText": "Yesterday · Thu, Nov 12",
+        "footer": "Created Nov 1, 09:15 · Completed Nov 12, 16:40",
+        "remindValue": "Set a time first",
+        "repeatValue": "Never",
+        "droppedText": "Dropped · Nov 12, 16:40",
+        "progress": [
+          0,
+          0
+        ],
+        "subView": [],
+        "deleteMessages": [
+          "Deleted “已完成的报告”",
+          "Deleted “已完成的报告” and 2 subtasks",
+          "Deleted “已完成的报告” and future repeats",
+          "Deleted “已完成的报告”, future repeats and 3 subtasks"
+        ]
+      }
+    },
+    {
+      "name": "dropped",
+      "lang": "en",
+      "case": {
+        "name": "dropped",
+        "rootId": "dropped",
+        "rootOcc": ""
+      },
+      "expected": {
+        "occDay": "",
+        "parentOcc": "",
+        "isDone": true,
+        "canDrop": false,
+        "dateText": "Tue, Nov 10",
+        "footer": "Created Nov 1, 09:15",
+        "remindValue": "Set a time first",
+        "repeatValue": "Never",
+        "droppedText": "Dropped · Nov 10, 08:05",
+        "progress": [
+          0,
+          0
+        ],
+        "subView": [],
+        "deleteMessages": [
+          "Deleted “放弃的旧计划”",
+          "Deleted “放弃的旧计划” and 2 subtasks",
+          "Deleted “放弃的旧计划” and future repeats",
+          "Deleted “放弃的旧计划”, future repeats and 3 subtasks"
+        ]
+      }
+    },
+    {
+      "name": "repeat",
+      "lang": "en",
+      "case": {
+        "name": "repeat",
+        "rootId": "repeat",
+        "rootOcc": ""
+      },
+      "expected": {
+        "occDay": "2026-11-13",
+        "parentOcc": "",
+        "isDone": true,
+        "canDrop": false,
+        "dateText": "Tue, Nov 3",
+        "footer": "Created Nov 1, 09:15 · Done 3 times",
+        "remindValue": "No reminder",
+        "repeatValue": "Daily",
+        "droppedText": "Dropped · Jan 1, 08:00",
+        "progress": [
+          1,
+          1
+        ],
+        "subView": [
+          {
+            "id": "child-repeat",
+            "done": true
+          }
+        ],
+        "deleteMessages": [
+          "Deleted “每天背单词”",
+          "Deleted “每天背单词” and 2 subtasks",
+          "Deleted “每天背单词” and future repeats",
+          "Deleted “每天背单词”, future repeats and 3 subtasks"
+        ]
+      }
+    },
+    {
+      "name": "repeat-occ",
+      "lang": "en",
+      "case": {
+        "name": "repeat-occ",
+        "rootId": "repeat",
+        "rootOcc": "2026-11-12"
+      },
+      "expected": {
+        "occDay": "2026-11-12",
+        "parentOcc": "",
+        "isDone": true,
+        "canDrop": false,
+        "dateText": "Tue, Nov 3",
+        "footer": "Created Nov 1, 09:15 · Done 3 times",
+        "remindValue": "No reminder",
+        "repeatValue": "Daily",
+        "droppedText": "Dropped · Jan 1, 08:00",
+        "progress": [
+          0,
+          1
+        ],
+        "subView": [
+          {
+            "id": "child-repeat",
+            "done": false
+          }
+        ],
+        "deleteMessages": [
+          "Deleted “每天背单词”",
+          "Deleted “每天背单词” and 2 subtasks",
+          "Deleted “每天背单词” and future repeats",
+          "Deleted “每天背单词”, future repeats and 3 subtasks"
+        ]
+      }
+    },
+    {
+      "name": "repeat-until",
+      "lang": "en",
+      "case": {
+        "name": "repeat-until",
+        "rootId": "repeat-until",
+        "rootOcc": ""
+      },
+      "expected": {
+        "occDay": "2026-11-13",
+        "parentOcc": "",
+        "isDone": false,
+        "canDrop": false,
+        "dateText": "Fri, Oct 2",
+        "footer": "Created Nov 1, 09:15 · Done once",
+        "remindValue": "Set a time first",
+        "repeatValue": "Every Fri, until Dec 31",
+        "droppedText": "Dropped · Jan 1, 08:00",
+        "progress": [
+          0,
+          0
+        ],
+        "subView": [],
+        "deleteMessages": [
+          "Deleted “每周五复盘”",
+          "Deleted “每周五复盘” and 2 subtasks",
+          "Deleted “每周五复盘” and future repeats",
+          "Deleted “每周五复盘”, future repeats and 3 subtasks"
+        ]
+      }
+    },
+    {
+      "name": "parent",
+      "lang": "en",
+      "case": {
+        "name": "parent",
+        "rootId": "parent",
+        "rootOcc": ""
+      },
+      "expected": {
+        "occDay": "",
+        "parentOcc": "",
+        "isDone": false,
+        "canDrop": true,
+        "dateText": "Today · Fri, Nov 13",
+        "footer": "Created Nov 1, 09:15",
+        "remindValue": "Set a time first",
+        "repeatValue": "Never",
+        "droppedText": "Dropped · Jan 1, 08:00",
+        "progress": [
+          0,
+          1
+        ],
+        "subView": [
+          {
+            "id": "child-one",
+            "done": false
+          },
+          {
+            "id": "child-dropped",
+            "done": true
+          }
+        ],
+        "deleteMessages": [
+          "Deleted “准备发布会”",
+          "Deleted “准备发布会” and 2 subtasks",
+          "Deleted “准备发布会” and future repeats",
+          "Deleted “准备发布会”, future repeats and 3 subtasks"
+        ]
+      }
+    },
+    {
+      "name": "child-one",
+      "lang": "en",
+      "case": {
+        "name": "child-one",
+        "rootId": "child-one",
+        "rootOcc": ""
+      },
+      "expected": {
+        "occDay": "",
+        "parentOcc": "",
+        "isDone": false,
+        "canDrop": true,
+        "dateText": "Today · Fri, Nov 13",
+        "footer": "Created Nov 1, 09:15",
+        "remindValue": "Set a time first",
+        "repeatValue": "Never",
+        "droppedText": "Dropped · Jan 1, 08:00",
+        "progress": [
+          0,
+          0
+        ],
+        "subView": [],
+        "deleteMessages": [
+          "Deleted “订场地”",
+          "Deleted “订场地” and 2 subtasks",
+          "Deleted “订场地” and future repeats",
+          "Deleted “订场地”, future repeats and 3 subtasks"
+        ]
+      }
+    },
+    {
+      "name": "child-repeat",
+      "lang": "en",
+      "case": {
+        "name": "child-repeat",
+        "rootId": "child-repeat",
+        "rootOcc": ""
+      },
+      "expected": {
+        "occDay": "",
+        "parentOcc": "2026-11-13",
+        "isDone": true,
+        "canDrop": false,
+        "dateText": "No date",
+        "footer": "Created Nov 1, 09:15",
+        "remindValue": "Set a time first",
+        "repeatValue": "Never",
+        "droppedText": "Dropped · Jan 1, 08:00",
+        "progress": [
+          0,
+          0
+        ],
+        "subView": [],
+        "deleteMessages": [
+          "Deleted “发提醒”",
+          "Deleted “发提醒” and 2 subtasks",
+          "Deleted “发提醒” and future repeats",
+          "Deleted “发提醒”, future repeats and 3 subtasks"
+        ]
+      }
+    }
+  ],
+  "nav": [
+    {
+      "name": "push-pop",
+      "rootId": "parent",
+      "actions": [
+        "push:child-one",
+        "back"
+      ],
+      "expected": [
+        "child-one",
+        "parent"
+      ]
+    },
+    {
+      "name": "root-child-back-to-parent",
+      "rootId": "child-one",
+      "actions": [
+        "back"
+      ],
+      "expected": [
+        "parent"
+      ]
+    },
+    {
+      "name": "two-level",
+      "rootId": "parent",
+      "actions": [
+        "push:child-one",
+        "push:child-one",
+        "back",
+        "back"
+      ],
+      "expected": [
+        "child-one",
+        "child-one",
+        "child-one",
+        "parent"
+      ]
+    }
+  ],
+  "strings": [
+    {
+      "key": "未命名任务",
+      "lang": "zh",
+      "params": {},
+      "value": "未命名任务"
+    },
+    {
+      "key": "任务标题",
+      "lang": "zh",
+      "params": {},
+      "value": "任务标题"
+    },
+    {
+      "key": "已放弃 · {time}",
+      "lang": "zh",
+      "params": {
+        "time": "11月10日 08:05"
+      },
+      "value": "已放弃 · 11月10日 08:05"
+    },
+    {
+      "key": "开始日期",
+      "lang": "zh",
+      "params": {},
+      "value": "开始日期"
+    },
+    {
+      "key": "先设时间",
+      "lang": "zh",
+      "params": {},
+      "value": "先设时间"
+    },
+    {
+      "key": "已关闭全部提醒",
+      "lang": "zh",
+      "params": {},
+      "value": "已关闭全部提醒"
+    },
+    {
+      "key": "不重复",
+      "lang": "zh",
+      "params": {},
+      "value": "不重复"
+    },
+    {
+      "key": "子任务",
+      "lang": "zh",
+      "params": {},
+      "value": "子任务"
+    },
+    {
+      "key": "添加子任务，可以写“明天下午3点 买菜”",
+      "lang": "zh",
+      "params": {},
+      "value": "添加子任务，可以写“明天下午3点 买菜”"
+    },
+    {
+      "key": "象限",
+      "lang": "zh",
+      "params": {},
+      "value": "象限"
+    },
+    {
+      "key": "备注",
+      "lang": "zh",
+      "params": {},
+      "value": "备注"
+    },
+    {
+      "key": "添加备注…",
+      "lang": "zh",
+      "params": {},
+      "value": "添加备注…"
+    },
+    {
+      "key": "创建于 {time}",
+      "lang": "zh",
+      "params": {
+        "time": "11月1日 09:15"
+      },
+      "value": "创建于 11月1日 09:15"
+    },
+    {
+      "key": "已完成 {n} 次",
+      "lang": "zh",
+      "params": {
+        "n": 1
+      },
+      "value": "已完成 1 次"
+    },
+    {
+      "key": "已完成 {n} 次",
+      "lang": "zh",
+      "params": {
+        "n": 7
+      },
+      "value": "已完成 7 次"
+    },
+    {
+      "key": "完成于 {time}",
+      "lang": "zh",
+      "params": {
+        "time": "11月12日 16:40"
+      },
+      "value": "完成于 11月12日 16:40"
+    },
+    {
+      "key": "子任务都完成了",
+      "lang": "zh",
+      "params": {},
+      "value": "子任务都完成了"
+    },
+    {
+      "key": "完成任务",
+      "lang": "zh",
+      "params": {},
+      "value": "完成任务"
+    },
+    {
+      "key": "已删除子任务「{title}」",
+      "lang": "zh",
+      "params": {
+        "title": "订场地"
+      },
+      "value": "已删除子任务「订场地」"
+    },
+    {
+      "key": "已删除「{title}」",
+      "lang": "zh",
+      "params": {
+        "title": "写周报"
+      },
+      "value": "已删除「写周报」"
+    },
+    {
+      "key": "已删除「{title}」及以后的重复",
+      "lang": "zh",
+      "params": {
+        "title": "每天背单词"
+      },
+      "value": "已删除「每天背单词」及以后的重复"
+    },
+    {
+      "key": "已删除「{title}」及{n} 个子任务",
+      "lang": "zh",
+      "params": {
+        "title": "准备发布会",
+        "n": 2
+      },
+      "value": "已删除「准备发布会」及2 个子任务"
+    },
+    {
+      "key": "已删除「{title}」及以后的重复和{n} 个子任务",
+      "lang": "zh",
+      "params": {
+        "title": "每天背单词",
+        "n": 1
+      },
+      "value": "已删除「每天背单词」及以后的重复和1 个子任务"
+    },
+    {
+      "key": "已放弃「{title}」",
+      "lang": "zh",
+      "params": {
+        "title": "写周报"
+      },
+      "value": "已放弃「写周报」"
+    },
+    {
+      "key": "准备做点什么？",
+      "lang": "zh",
+      "params": {},
+      "value": "准备做点什么？"
+    },
+    {
+      "key": "已识别 {when}，标题「{title}」",
+      "lang": "zh",
+      "params": {
+        "title": "买菜"
+      },
+      "value": "已识别 {when}，标题「买菜」"
+    },
+    {
+      "key": "撤销识别",
+      "lang": "zh",
+      "params": {},
+      "value": "撤销识别"
+    },
+    {
+      "key": "添加",
+      "lang": "zh",
+      "params": {},
+      "value": "添加"
+    },
+    {
+      "key": "已添加 · {when}",
+      "lang": "zh",
+      "params": {
+        "when": "每天 07:30"
+      },
+      "value": "已添加 · 每天 07:30"
+    },
+    {
+      "key": "已添加到{when}",
+      "lang": "zh",
+      "params": {
+        "when": "明天"
+      },
+      "value": "已添加到明天"
+    },
+    {
+      "key": "已添加（无日期）",
+      "lang": "zh",
+      "params": {},
+      "value": "已添加（无日期）"
+    },
+    {
+      "key": "不提醒",
+      "lang": "zh",
+      "params": {},
+      "value": "不提醒"
+    },
+    {
+      "key": "准时",
+      "lang": "zh",
+      "params": {},
+      "value": "准时"
+    },
+    {
+      "key": "提前 {n} 小时",
+      "lang": "zh",
+      "params": {
+        "n": 1
+      },
+      "value": "提前 1 小时"
+    },
+    {
+      "key": "提前 {n} 分钟",
+      "lang": "zh",
+      "params": {
+        "n": 15
+      },
+      "value": "提前 15 分钟"
+    },
+    {
+      "key": "未命名任务",
+      "lang": "en",
+      "params": {},
+      "value": "Untitled task"
+    },
+    {
+      "key": "任务标题",
+      "lang": "en",
+      "params": {},
+      "value": "Title"
+    },
+    {
+      "key": "已放弃 · {time}",
+      "lang": "en",
+      "params": {
+        "time": "11月10日 08:05"
+      },
+      "value": "Dropped · 11月10日 08:05"
+    },
+    {
+      "key": "开始日期",
+      "lang": "en",
+      "params": {},
+      "value": "Start date"
+    },
+    {
+      "key": "先设时间",
+      "lang": "en",
+      "params": {},
+      "value": "Set a time first"
+    },
+    {
+      "key": "已关闭全部提醒",
+      "lang": "en",
+      "params": {},
+      "value": "All reminders off"
+    },
+    {
+      "key": "不重复",
+      "lang": "en",
+      "params": {},
+      "value": "Never"
+    },
+    {
+      "key": "子任务",
+      "lang": "en",
+      "params": {},
+      "value": "Subtasks"
+    },
+    {
+      "key": "添加子任务，可以写“明天下午3点 买菜”",
+      "lang": "en",
+      "params": {},
+      "value": "Add a subtask"
+    },
+    {
+      "key": "象限",
+      "lang": "en",
+      "params": {},
+      "value": "Quadrant"
+    },
+    {
+      "key": "备注",
+      "lang": "en",
+      "params": {},
+      "value": "Notes"
+    },
+    {
+      "key": "添加备注…",
+      "lang": "en",
+      "params": {},
+      "value": "Add notes…"
+    },
+    {
+      "key": "创建于 {time}",
+      "lang": "en",
+      "params": {
+        "time": "11月1日 09:15"
+      },
+      "value": "Created 11月1日 09:15"
+    },
+    {
+      "key": "已完成 {n} 次",
+      "lang": "en",
+      "params": {
+        "n": 1
+      },
+      "value": "Done once"
+    },
+    {
+      "key": "已完成 {n} 次",
+      "lang": "en",
+      "params": {
+        "n": 7
+      },
+      "value": "Done 7 times"
+    },
+    {
+      "key": "完成于 {time}",
+      "lang": "en",
+      "params": {
+        "time": "11月12日 16:40"
+      },
+      "value": "Completed 11月12日 16:40"
+    },
+    {
+      "key": "子任务都完成了",
+      "lang": "en",
+      "params": {},
+      "value": "All subtasks done"
+    },
+    {
+      "key": "完成任务",
+      "lang": "en",
+      "params": {},
+      "value": "Complete task"
+    },
+    {
+      "key": "已删除子任务「{title}」",
+      "lang": "en",
+      "params": {
+        "title": "订场地"
+      },
+      "value": "Deleted subtask “订场地”"
+    },
+    {
+      "key": "已删除「{title}」",
+      "lang": "en",
+      "params": {
+        "title": "写周报"
+      },
+      "value": "Deleted “写周报”"
+    },
+    {
+      "key": "已删除「{title}」及以后的重复",
+      "lang": "en",
+      "params": {
+        "title": "每天背单词"
+      },
+      "value": "Deleted “每天背单词” and future repeats"
+    },
+    {
+      "key": "已删除「{title}」及{n} 个子任务",
+      "lang": "en",
+      "params": {
+        "title": "准备发布会",
+        "n": 2
+      },
+      "value": "Deleted “准备发布会” and 2 subtasks"
+    },
+    {
+      "key": "已删除「{title}」及以后的重复和{n} 个子任务",
+      "lang": "en",
+      "params": {
+        "title": "每天背单词",
+        "n": 1
+      },
+      "value": "Deleted “每天背单词”, future repeats and 1 subtask"
+    },
+    {
+      "key": "已放弃「{title}」",
+      "lang": "en",
+      "params": {
+        "title": "写周报"
+      },
+      "value": "Dropped “写周报”"
+    },
+    {
+      "key": "准备做点什么？",
+      "lang": "en",
+      "params": {},
+      "value": "New task"
+    },
+    {
+      "key": "已识别 {when}，标题「{title}」",
+      "lang": "en",
+      "params": {
+        "title": "买菜"
+      },
+      "value": "Detected {when}, title “买菜”"
+    },
+    {
+      "key": "撤销识别",
+      "lang": "en",
+      "params": {},
+      "value": "Undo"
+    },
+    {
+      "key": "添加",
+      "lang": "en",
+      "params": {},
+      "value": "Add"
+    },
+    {
+      "key": "已添加 · {when}",
+      "lang": "en",
+      "params": {
+        "when": "每天 07:30"
+      },
+      "value": "Added · 每天 07:30"
+    },
+    {
+      "key": "已添加到{when}",
+      "lang": "en",
+      "params": {
+        "when": "明天"
+      },
+      "value": "Added to 明天"
+    },
+    {
+      "key": "已添加（无日期）",
+      "lang": "en",
+      "params": {},
+      "value": "Added (no date)"
+    },
+    {
+      "key": "不提醒",
+      "lang": "en",
+      "params": {},
+      "value": "No reminder"
+    },
+    {
+      "key": "准时",
+      "lang": "en",
+      "params": {},
+      "value": "On time"
+    },
+    {
+      "key": "提前 {n} 小时",
+      "lang": "en",
+      "params": {
+        "n": 1
+      },
+      "value": "1 hour before"
+    },
+    {
+      "key": "提前 {n} 分钟",
+      "lang": "en",
+      "params": {
+        "n": 15
+      },
+      "value": "15 minutes before"
+    }
+  ]
+}
