@@ -1,0 +1,218 @@
+{
+  "meta": {
+    "baseline_commit": "97a7c4c17602327a42d30110806a6a1e6fa0e798",
+    "generator": "ios/PlannerTests/Fixtures/generate_sync_fixtures.mjs",
+    "oracle": "/tmp/t10_oracle/sync.mjs (运行副本，仅替换 1 行 import)",
+    "oracle_changed_lines": 3,
+    "parse_case_count": 22,
+    "timezone": "Asia/Shanghai",
+    "note": "parseCode / 文案 / 载荷编码的期望值均由真实上游源码产出；载荷 deleted 按 key 排序规范化。"
+  },
+  "parseCode": [
+    {
+      "code": "",
+      "expected": null
+    },
+    {
+      "code": null,
+      "expected": null
+    },
+    {
+      "code": null,
+      "expected": null
+    },
+    {
+      "code": "   ",
+      "expected": null
+    },
+    {
+      "code": "http://127.0.0.1:18787#abcdefghijklmnop",
+      "expected": {
+        "url": "http://127.0.0.1:18787",
+        "token": "abcdefghijklmnop"
+      }
+    },
+    {
+      "code": "https://example.com#abcdefghijklmnop",
+      "expected": {
+        "url": "https://example.com",
+        "token": "abcdefghijklmnop"
+      }
+    },
+    {
+      "code": "http://example.com/#abcdefghijklmnop",
+      "expected": {
+        "url": "http://example.com",
+        "token": "abcdefghijklmnop"
+      }
+    },
+    {
+      "code": "  http://x:1#abcdefghijklmnop  ",
+      "expected": {
+        "url": "http://x:1",
+        "token": "abcdefghijklmnop"
+      }
+    },
+    {
+      "code": "http://x/path/sub#abcdefghijklmnop",
+      "expected": {
+        "url": "http://x/path/sub",
+        "token": "abcdefghijklmnop"
+      }
+    },
+    {
+      "code": "http://x#abc._~-0123456789",
+      "expected": {
+        "url": "http://x",
+        "token": "abc._~-0123456789"
+      }
+    },
+    {
+      "code": "http://x#abcdefghijklmno",
+      "expected": null
+    },
+    {
+      "code": "http://x#abcdefghijklmnopextra",
+      "expected": {
+        "url": "http://x",
+        "token": "abcdefghijklmnopextra"
+      }
+    },
+    {
+      "code": "ftp://x#abcdefghijklmnop",
+      "expected": null
+    },
+    {
+      "code": "http://x#has space in token",
+      "expected": null
+    },
+    {
+      "code": "http://x#bad!token1234567",
+      "expected": null
+    },
+    {
+      "code": "https://#abcdefghijklmnop",
+      "expected": null
+    },
+    {
+      "code": "http://x",
+      "expected": null
+    },
+    {
+      "code": "http://x#",
+      "expected": null
+    },
+    {
+      "code": "http://x#abcdefghijklmnop#more",
+      "expected": null
+    },
+    {
+      "code": "HTTP://x#abcdefghijklmnop",
+      "expected": null
+    },
+    {
+      "code": "http://x y#abcdefghijklmnop",
+      "expected": null
+    },
+    {
+      "code": "http://x#abcdefghijklmnop\n",
+      "expected": {
+        "url": "http://x",
+        "token": "abcdefghijklmnop"
+      }
+    }
+  ],
+  "strings": [
+    {
+      "key": "令牌不对",
+      "zh": "令牌不对",
+      "en": "Wrong token"
+    },
+    {
+      "key": "服务器返回 {code}",
+      "zh": "服务器返回 500",
+      "en": "Server returned 500"
+    },
+    {
+      "key": "连不上服务器",
+      "zh": "连不上服务器",
+      "en": "Can't reach the server"
+    },
+    {
+      "key": "连接码格式不对：应该是 地址#令牌",
+      "zh": "连接码格式不对：应该是 地址#令牌",
+      "en": "Invalid connection code. It should look like address#token"
+    },
+    {
+      "key": "正在同步…",
+      "zh": "正在同步…",
+      "en": "Syncing…"
+    },
+    {
+      "key": "还没同步过",
+      "zh": "还没同步过",
+      "en": "Not synced yet"
+    },
+    {
+      "key": "同步完成",
+      "zh": "同步完成",
+      "en": "Sync complete"
+    }
+  ],
+  "payloads": [
+    {
+      "tasks": [],
+      "deleted": {},
+      "tz": "Asia/Shanghai",
+      "expected": "{\"tasks\":[],\"deleted\":{},\"meta\":{\"tz\":\"Asia/Shanghai\"}}"
+    },
+    {
+      "tasks": [
+        {
+          "id": "a1",
+          "title": "开会",
+          "note": "",
+          "date": "2026-11-13",
+          "time": "09:00",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": null,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        },
+        {
+          "id": "a2",
+          "title": "带/斜杠",
+          "note": "http://x/y",
+          "date": "2026-11-13",
+          "time": "09:00",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "d1",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": null,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        }
+      ],
+      "deleted": {
+        "gone": 1600000000000,
+        "a2": 1500000000000
+      },
+      "tz": "America/New_York",
+      "expected": "{\"tasks\":[{\"id\":\"a1\",\"title\":\"开会\",\"note\":\"\",\"date\":\"2026-11-13\",\"time\":\"09:00\",\"important\":false,\"urgent\":false,\"done\":false,\"dropped\":false,\"createdAt\":1700000000000,\"doneAt\":null,\"repeat\":\"\",\"doneDates\":[],\"skipDates\":[],\"remind\":null,\"parentId\":\"\",\"updatedAt\":1700000000000},{\"id\":\"a2\",\"title\":\"带/斜杠\",\"note\":\"http://x/y\",\"date\":\"2026-11-13\",\"time\":\"09:00\",\"important\":false,\"urgent\":false,\"done\":false,\"dropped\":false,\"createdAt\":1700000000000,\"doneAt\":null,\"repeat\":\"d1\",\"doneDates\":[],\"skipDates\":[],\"remind\":null,\"parentId\":\"\",\"updatedAt\":1700000000000}],\"deleted\":{\"a2\":1500000000000,\"gone\":1600000000000},\"meta\":{\"tz\":\"America/New_York\"}}"
+    }
+  ]
+}

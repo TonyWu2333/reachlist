@@ -1,0 +1,14 @@
+// 开发期 ATS 域名例外（OPEN-06=B）—— 上架前移除本文件，并删掉
+// Signing.xcconfig 里的 #include 与 Info.plist 里的 NSAppTransportSecurity 段。
+//
+// 不使用 NSAllowsArbitraryLoads 全局例外（保 F-15.3，服务器零改动）。
+// 最小键名由 VERIFY-03 真机实测确定：NSExceptionDomains.<domain>.NSExceptionAllowsInsecureHTTPLoads = true
+// 即可放行域名明文 HTTP；不加该键时真机返回 NSURLErrorDomain -1022（§7.2.2 v0.7 基线）。
+//
+// 域名按实际同步地址替换；本地联调用裸 IP（192.168.x.x），v0.7 已实测不受 -1022 拦截，
+// 因此 OPEN-13=A 的本地临时 server 联调不依赖本例外。
+//
+// 实测（VERIFY-03）：Xcode 的 INFOPLIST_EXPAND_BUILD_SETTINGS 不展开 xcconfig 二级 include
+// 的自定义变量，Info.plist 里写 $(ATS_EXCEPTION_DOMAIN) 会在产物中留下字面量、匹配不到域名。
+// 故 Info.plist 中的 NSExceptionDomains 键写字面域名；本变量作为配置真源，改域名时两处同步。
+ATS_EXCEPTION_DOMAIN = example.com
