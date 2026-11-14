@@ -1,0 +1,609 @@
+{
+  "meta": {
+    "baseline": "97a7c4c17602327a42d30110806a6a1e6fa0e798",
+    "oracle": "src/lib/backup.js (function bodies verbatim; 6 import lines replaced by stubs)",
+    "generatedBy": "node ios/PlannerTests/Fixtures/generate_backup_fixtures.mjs",
+    "fixedMs": 1794640646123,
+    "tz": "Asia/Shanghai",
+    "exportCases": 8,
+    "importCases": 18
+  },
+  "exportCases": [
+    {
+      "lang": "zh",
+      "name": "empty",
+      "tasks": [],
+      "fixedMs": 1794640646123,
+      "tz": "Asia/Shanghai",
+      "expected": {
+        "fileName": "planner-backup-20261114.json",
+        "text": "{\n  \"version\": 1,\n  \"exportedAt\": \"2026-11-14T07:17:26.123Z\",\n  \"tasks\": []\n}",
+        "directory": "CACHE",
+        "encoding": "utf8",
+        "shareTitle": "可及清单备份",
+        "shareFiles": [
+          "file:///cache/planner-backup-20261114.json"
+        ]
+      }
+    },
+    {
+      "lang": "zh",
+      "name": "one",
+      "tasks": [
+        {
+          "id": "a1",
+          "title": "开会",
+          "note": "",
+          "date": "2026-11-14",
+          "time": "09:00",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 0,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        }
+      ],
+      "fixedMs": 1794640646123,
+      "tz": "Asia/Shanghai",
+      "expected": {
+        "fileName": "planner-backup-20261114.json",
+        "text": "{\n  \"version\": 1,\n  \"exportedAt\": \"2026-11-14T07:17:26.123Z\",\n  \"tasks\": [\n    {\n      \"id\": \"a1\",\n      \"title\": \"开会\",\n      \"note\": \"\",\n      \"date\": \"2026-11-14\",\n      \"time\": \"09:00\",\n      \"important\": false,\n      \"urgent\": false,\n      \"done\": false,\n      \"dropped\": false,\n      \"createdAt\": 1700000000000,\n      \"doneAt\": null,\n      \"repeat\": \"\",\n      \"doneDates\": [],\n      \"skipDates\": [],\n      \"remind\": 0,\n      \"parentId\": \"\",\n      \"updatedAt\": 1700000000000\n    }\n  ]\n}",
+        "directory": "CACHE",
+        "encoding": "utf8",
+        "shareTitle": "可及清单备份",
+        "shareFiles": [
+          "file:///cache/planner-backup-20261114.json"
+        ]
+      }
+    },
+    {
+      "lang": "zh",
+      "name": "mixed",
+      "tasks": [
+        {
+          "id": "a1",
+          "title": "带/斜杠与\"引号\"",
+          "note": "http://x/y?a=1&b=2",
+          "date": "2026-11-14",
+          "time": "09:00",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 15,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        },
+        {
+          "id": "a2",
+          "title": "多行\n与制表\t继续",
+          "note": "U+2028   结束",
+          "date": "2026-11-15",
+          "time": "18:30",
+          "important": true,
+          "urgent": true,
+          "done": true,
+          "dropped": true,
+          "createdAt": 1700000000000.5,
+          "doneAt": 1763120000000,
+          "repeat": "d1",
+          "doneDates": [
+            "2026-11-14",
+            "2026-11-15"
+          ],
+          "skipDates": [
+            "2026-11-16"
+          ],
+          "remind": 60,
+          "parentId": "p0",
+          "updatedAt": 1700000000000
+        },
+        {
+          "id": "😀",
+          "title": "emoji 与中文",
+          "note": "",
+          "date": "2026-11-14",
+          "time": "09:00",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": 0,
+          "repeat": "",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": null,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        }
+      ],
+      "fixedMs": 1794640646123,
+      "tz": "Asia/Shanghai",
+      "expected": {
+        "fileName": "planner-backup-20261114.json",
+        "text": "{\n  \"version\": 1,\n  \"exportedAt\": \"2026-11-14T07:17:26.123Z\",\n  \"tasks\": [\n    {\n      \"id\": \"a1\",\n      \"title\": \"带/斜杠与\\\"引号\\\"\",\n      \"note\": \"http://x/y?a=1&b=2\",\n      \"date\": \"2026-11-14\",\n      \"time\": \"09:00\",\n      \"important\": false,\n      \"urgent\": false,\n      \"done\": false,\n      \"dropped\": false,\n      \"createdAt\": 1700000000000,\n      \"doneAt\": null,\n      \"repeat\": \"\",\n      \"doneDates\": [],\n      \"skipDates\": [],\n      \"remind\": 15,\n      \"parentId\": \"\",\n      \"updatedAt\": 1700000000000\n    },\n    {\n      \"id\": \"a2\",\n      \"title\": \"多行\\n与制表\\t继续\",\n      \"note\": \"U+2028   结束\",\n      \"date\": \"2026-11-15\",\n      \"time\": \"18:30\",\n      \"important\": true,\n      \"urgent\": true,\n      \"done\": true,\n      \"dropped\": true,\n      \"createdAt\": 1700000000000.5,\n      \"doneAt\": 1763120000000,\n      \"repeat\": \"d1\",\n      \"doneDates\": [\n        \"2026-11-14\",\n        \"2026-11-15\"\n      ],\n      \"skipDates\": [\n        \"2026-11-16\"\n      ],\n      \"remind\": 60,\n      \"parentId\": \"p0\",\n      \"updatedAt\": 1700000000000\n    },\n    {\n      \"id\": \"😀\",\n      \"title\": \"emoji 与中文\",\n      \"note\": \"\",\n      \"date\": \"2026-11-14\",\n      \"time\": \"09:00\",\n      \"important\": false,\n      \"urgent\": false,\n      \"done\": false,\n      \"dropped\": false,\n      \"createdAt\": 1700000000000,\n      \"doneAt\": 0,\n      \"repeat\": \"\",\n      \"doneDates\": [],\n      \"skipDates\": [],\n      \"remind\": null,\n      \"parentId\": \"\",\n      \"updatedAt\": 1700000000000\n    }\n  ]\n}",
+        "directory": "CACHE",
+        "encoding": "utf8",
+        "shareTitle": "可及清单备份",
+        "shareFiles": [
+          "file:///cache/planner-backup-20261114.json"
+        ]
+      }
+    },
+    {
+      "lang": "zh",
+      "name": "null-and-empty",
+      "tasks": [
+        {
+          "id": "z",
+          "title": "",
+          "note": "",
+          "date": "",
+          "time": "",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": null,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        }
+      ],
+      "fixedMs": 1794640646123,
+      "tz": "Asia/Shanghai",
+      "expected": {
+        "fileName": "planner-backup-20261114.json",
+        "text": "{\n  \"version\": 1,\n  \"exportedAt\": \"2026-11-14T07:17:26.123Z\",\n  \"tasks\": [\n    {\n      \"id\": \"z\",\n      \"title\": \"\",\n      \"note\": \"\",\n      \"date\": \"\",\n      \"time\": \"\",\n      \"important\": false,\n      \"urgent\": false,\n      \"done\": false,\n      \"dropped\": false,\n      \"createdAt\": 1700000000000,\n      \"doneAt\": null,\n      \"repeat\": \"\",\n      \"doneDates\": [],\n      \"skipDates\": [],\n      \"remind\": null,\n      \"parentId\": \"\",\n      \"updatedAt\": 1700000000000\n    }\n  ]\n}",
+        "directory": "CACHE",
+        "encoding": "utf8",
+        "shareTitle": "可及清单备份",
+        "shareFiles": [
+          "file:///cache/planner-backup-20261114.json"
+        ]
+      }
+    },
+    {
+      "lang": "en",
+      "name": "empty",
+      "tasks": [],
+      "fixedMs": 1794640646123,
+      "tz": "Asia/Shanghai",
+      "expected": {
+        "fileName": "planner-backup-20261114.json",
+        "text": "{\n  \"version\": 1,\n  \"exportedAt\": \"2026-11-14T07:17:26.123Z\",\n  \"tasks\": []\n}",
+        "directory": "CACHE",
+        "encoding": "utf8",
+        "shareTitle": "Reach List backup",
+        "shareFiles": [
+          "file:///cache/planner-backup-20261114.json"
+        ]
+      }
+    },
+    {
+      "lang": "en",
+      "name": "one",
+      "tasks": [
+        {
+          "id": "a1",
+          "title": "开会",
+          "note": "",
+          "date": "2026-11-14",
+          "time": "09:00",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 0,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        }
+      ],
+      "fixedMs": 1794640646123,
+      "tz": "Asia/Shanghai",
+      "expected": {
+        "fileName": "planner-backup-20261114.json",
+        "text": "{\n  \"version\": 1,\n  \"exportedAt\": \"2026-11-14T07:17:26.123Z\",\n  \"tasks\": [\n    {\n      \"id\": \"a1\",\n      \"title\": \"开会\",\n      \"note\": \"\",\n      \"date\": \"2026-11-14\",\n      \"time\": \"09:00\",\n      \"important\": false,\n      \"urgent\": false,\n      \"done\": false,\n      \"dropped\": false,\n      \"createdAt\": 1700000000000,\n      \"doneAt\": null,\n      \"repeat\": \"\",\n      \"doneDates\": [],\n      \"skipDates\": [],\n      \"remind\": 0,\n      \"parentId\": \"\",\n      \"updatedAt\": 1700000000000\n    }\n  ]\n}",
+        "directory": "CACHE",
+        "encoding": "utf8",
+        "shareTitle": "Reach List backup",
+        "shareFiles": [
+          "file:///cache/planner-backup-20261114.json"
+        ]
+      }
+    },
+    {
+      "lang": "en",
+      "name": "mixed",
+      "tasks": [
+        {
+          "id": "a1",
+          "title": "带/斜杠与\"引号\"",
+          "note": "http://x/y?a=1&b=2",
+          "date": "2026-11-14",
+          "time": "09:00",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 15,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        },
+        {
+          "id": "a2",
+          "title": "多行\n与制表\t继续",
+          "note": "U+2028   结束",
+          "date": "2026-11-15",
+          "time": "18:30",
+          "important": true,
+          "urgent": true,
+          "done": true,
+          "dropped": true,
+          "createdAt": 1700000000000.5,
+          "doneAt": 1763120000000,
+          "repeat": "d1",
+          "doneDates": [
+            "2026-11-14",
+            "2026-11-15"
+          ],
+          "skipDates": [
+            "2026-11-16"
+          ],
+          "remind": 60,
+          "parentId": "p0",
+          "updatedAt": 1700000000000
+        },
+        {
+          "id": "😀",
+          "title": "emoji 与中文",
+          "note": "",
+          "date": "2026-11-14",
+          "time": "09:00",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": 0,
+          "repeat": "",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": null,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        }
+      ],
+      "fixedMs": 1794640646123,
+      "tz": "Asia/Shanghai",
+      "expected": {
+        "fileName": "planner-backup-20261114.json",
+        "text": "{\n  \"version\": 1,\n  \"exportedAt\": \"2026-11-14T07:17:26.123Z\",\n  \"tasks\": [\n    {\n      \"id\": \"a1\",\n      \"title\": \"带/斜杠与\\\"引号\\\"\",\n      \"note\": \"http://x/y?a=1&b=2\",\n      \"date\": \"2026-11-14\",\n      \"time\": \"09:00\",\n      \"important\": false,\n      \"urgent\": false,\n      \"done\": false,\n      \"dropped\": false,\n      \"createdAt\": 1700000000000,\n      \"doneAt\": null,\n      \"repeat\": \"\",\n      \"doneDates\": [],\n      \"skipDates\": [],\n      \"remind\": 15,\n      \"parentId\": \"\",\n      \"updatedAt\": 1700000000000\n    },\n    {\n      \"id\": \"a2\",\n      \"title\": \"多行\\n与制表\\t继续\",\n      \"note\": \"U+2028   结束\",\n      \"date\": \"2026-11-15\",\n      \"time\": \"18:30\",\n      \"important\": true,\n      \"urgent\": true,\n      \"done\": true,\n      \"dropped\": true,\n      \"createdAt\": 1700000000000.5,\n      \"doneAt\": 1763120000000,\n      \"repeat\": \"d1\",\n      \"doneDates\": [\n        \"2026-11-14\",\n        \"2026-11-15\"\n      ],\n      \"skipDates\": [\n        \"2026-11-16\"\n      ],\n      \"remind\": 60,\n      \"parentId\": \"p0\",\n      \"updatedAt\": 1700000000000\n    },\n    {\n      \"id\": \"😀\",\n      \"title\": \"emoji 与中文\",\n      \"note\": \"\",\n      \"date\": \"2026-11-14\",\n      \"time\": \"09:00\",\n      \"important\": false,\n      \"urgent\": false,\n      \"done\": false,\n      \"dropped\": false,\n      \"createdAt\": 1700000000000,\n      \"doneAt\": 0,\n      \"repeat\": \"\",\n      \"doneDates\": [],\n      \"skipDates\": [],\n      \"remind\": null,\n      \"parentId\": \"\",\n      \"updatedAt\": 1700000000000\n    }\n  ]\n}",
+        "directory": "CACHE",
+        "encoding": "utf8",
+        "shareTitle": "Reach List backup",
+        "shareFiles": [
+          "file:///cache/planner-backup-20261114.json"
+        ]
+      }
+    },
+    {
+      "lang": "en",
+      "name": "null-and-empty",
+      "tasks": [
+        {
+          "id": "z",
+          "title": "",
+          "note": "",
+          "date": "",
+          "time": "",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": null,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        }
+      ],
+      "fixedMs": 1794640646123,
+      "tz": "Asia/Shanghai",
+      "expected": {
+        "fileName": "planner-backup-20261114.json",
+        "text": "{\n  \"version\": 1,\n  \"exportedAt\": \"2026-11-14T07:17:26.123Z\",\n  \"tasks\": [\n    {\n      \"id\": \"z\",\n      \"title\": \"\",\n      \"note\": \"\",\n      \"date\": \"\",\n      \"time\": \"\",\n      \"important\": false,\n      \"urgent\": false,\n      \"done\": false,\n      \"dropped\": false,\n      \"createdAt\": 1700000000000,\n      \"doneAt\": null,\n      \"repeat\": \"\",\n      \"doneDates\": [],\n      \"skipDates\": [],\n      \"remind\": null,\n      \"parentId\": \"\",\n      \"updatedAt\": 1700000000000\n    }\n  ]\n}",
+        "directory": "CACHE",
+        "encoding": "utf8",
+        "shareTitle": "Reach List backup",
+        "shareFiles": [
+          "file:///cache/planner-backup-20261114.json"
+        ]
+      }
+    }
+  ],
+  "importCases": [
+    {
+      "lang": "zh",
+      "name": "broken-json",
+      "fileText": "{oops",
+      "currentCount": 5,
+      "confirm": true,
+      "expected": {
+        "ok": false,
+        "message": "这不是有效的备份文件",
+        "count": null,
+        "confirmText": null,
+        "replacedCount": null
+      }
+    },
+    {
+      "lang": "zh",
+      "name": "no-tasks",
+      "fileText": "{\"version\":1}",
+      "currentCount": 5,
+      "confirm": true,
+      "expected": {
+        "ok": false,
+        "message": "这不是有效的备份文件",
+        "count": null,
+        "confirmText": null,
+        "replacedCount": null
+      }
+    },
+    {
+      "lang": "zh",
+      "name": "tasks-not-array",
+      "fileText": "{\"tasks\":\"x\"}",
+      "currentCount": 5,
+      "confirm": true,
+      "expected": {
+        "ok": false,
+        "message": "这不是有效的备份文件",
+        "count": null,
+        "confirmText": null,
+        "replacedCount": null
+      }
+    },
+    {
+      "lang": "zh",
+      "name": "null-root",
+      "fileText": "null",
+      "currentCount": 5,
+      "confirm": true,
+      "expected": {
+        "ok": false,
+        "message": "这不是有效的备份文件",
+        "count": null,
+        "confirmText": null,
+        "replacedCount": null
+      }
+    },
+    {
+      "lang": "zh",
+      "name": "user-cancels",
+      "fileText": "{\n  \"version\": 1,\n  \"exportedAt\": \"2026-11-01T00:00:00.000Z\",\n  \"tasks\": [\n    {\n      \"id\": \"i1\",\n      \"title\": \"开会\",\n      \"note\": \"\",\n      \"date\": \"2026-11-14\",\n      \"time\": \"09:00\",\n      \"important\": false,\n      \"urgent\": false,\n      \"done\": false,\n      \"dropped\": false,\n      \"createdAt\": 1700000000000,\n      \"doneAt\": null,\n      \"repeat\": \"\",\n      \"doneDates\": [],\n      \"skipDates\": [],\n      \"remind\": 0,\n      \"parentId\": \"\",\n      \"updatedAt\": 1700000000000\n    },\n    {\n      \"id\": \"i2\",\n      \"title\": \"开会\",\n      \"note\": \"\",\n      \"date\": \"2026-11-14\",\n      \"time\": \"09:00\",\n      \"important\": false,\n      \"urgent\": false,\n      \"done\": false,\n      \"dropped\": false,\n      \"createdAt\": 1700000000000,\n      \"doneAt\": null,\n      \"repeat\": \"\",\n      \"doneDates\": [],\n      \"skipDates\": [],\n      \"remind\": 0,\n      \"parentId\": \"\",\n      \"updatedAt\": 1700000000000\n    },\n    {\n      \"id\": \"i3\",\n      \"title\": \"开会\",\n      \"note\": \"\",\n      \"date\": \"2026-11-14\",\n      \"time\": \"09:00\",\n      \"important\": false,\n      \"urgent\": false,\n      \"done\": false,\n      \"dropped\": false,\n      \"createdAt\": 1700000000000,\n      \"doneAt\": null,\n      \"repeat\": \"\",\n      \"doneDates\": [],\n      \"skipDates\": [],\n      \"remind\": 0,\n      \"parentId\": \"\",\n      \"updatedAt\": 1700000000000\n    }\n  ]\n}",
+      "currentCount": 5,
+      "confirm": false,
+      "expected": {
+        "ok": false,
+        "message": null,
+        "count": null,
+        "confirmText": "用备份里的 3 条任务替换当前的 5 条？",
+        "replacedCount": null
+      }
+    },
+    {
+      "lang": "zh",
+      "name": "replace-3-into-5",
+      "fileText": "{\n  \"version\": 1,\n  \"exportedAt\": \"2026-11-01T00:00:00.000Z\",\n  \"tasks\": [\n    {\n      \"id\": \"i1\",\n      \"title\": \"开会\",\n      \"note\": \"\",\n      \"date\": \"2026-11-14\",\n      \"time\": \"09:00\",\n      \"important\": false,\n      \"urgent\": false,\n      \"done\": false,\n      \"dropped\": false,\n      \"createdAt\": 1700000000000,\n      \"doneAt\": null,\n      \"repeat\": \"\",\n      \"doneDates\": [],\n      \"skipDates\": [],\n      \"remind\": 0,\n      \"parentId\": \"\",\n      \"updatedAt\": 1700000000000\n    },\n    {\n      \"id\": \"i2\",\n      \"title\": \"开会\",\n      \"note\": \"\",\n      \"date\": \"2026-11-14\",\n      \"time\": \"09:00\",\n      \"important\": false,\n      \"urgent\": false,\n      \"done\": false,\n      \"dropped\": false,\n      \"createdAt\": 1700000000000,\n      \"doneAt\": null,\n      \"repeat\": \"\",\n      \"doneDates\": [],\n      \"skipDates\": [],\n      \"remind\": 0,\n      \"parentId\": \"\",\n      \"updatedAt\": 1700000000000\n    },\n    {\n      \"id\": \"i3\",\n      \"title\": \"开会\",\n      \"note\": \"\",\n      \"date\": \"2026-11-14\",\n      \"time\": \"09:00\",\n      \"important\": false,\n      \"urgent\": false,\n      \"done\": false,\n      \"dropped\": false,\n      \"createdAt\": 1700000000000,\n      \"doneAt\": null,\n      \"repeat\": \"\",\n      \"doneDates\": [],\n      \"skipDates\": [],\n      \"remind\": 0,\n      \"parentId\": \"\",\n      \"updatedAt\": 1700000000000\n    }\n  ]\n}",
+      "currentCount": 5,
+      "confirm": true,
+      "expected": {
+        "ok": true,
+        "message": "已恢复 3 条任务",
+        "count": null,
+        "confirmText": "用备份里的 3 条任务替换当前的 5 条？",
+        "replacedCount": 3
+      }
+    },
+    {
+      "lang": "zh",
+      "name": "replace-1-into-1",
+      "fileText": "{\"version\":1,\"tasks\":[{\"id\":\"only\",\"title\":\"开会\",\"note\":\"\",\"date\":\"2026-11-14\",\"time\":\"09:00\",\"important\":false,\"urgent\":false,\"done\":false,\"dropped\":false,\"createdAt\":1700000000000,\"doneAt\":null,\"repeat\":\"\",\"doneDates\":[],\"skipDates\":[],\"remind\":0,\"parentId\":\"\",\"updatedAt\":1700000000000}]}",
+      "currentCount": 1,
+      "confirm": true,
+      "expected": {
+        "ok": true,
+        "message": "已恢复 1 条任务",
+        "count": null,
+        "confirmText": "用备份里的 1 条任务替换当前的 1 条？",
+        "replacedCount": 1
+      }
+    },
+    {
+      "lang": "zh",
+      "name": "replace-empty",
+      "fileText": "{\"version\":1,\"tasks\":[]}",
+      "currentCount": 7,
+      "confirm": true,
+      "expected": {
+        "ok": true,
+        "message": "已恢复 0 条任务",
+        "count": null,
+        "confirmText": "用备份里的 0 条任务替换当前的 7 条？",
+        "replacedCount": 0
+      }
+    },
+    {
+      "lang": "zh",
+      "name": "into-empty-current",
+      "fileText": "{\n  \"version\": 1,\n  \"exportedAt\": \"2026-11-01T00:00:00.000Z\",\n  \"tasks\": [\n    {\n      \"id\": \"i1\",\n      \"title\": \"开会\",\n      \"note\": \"\",\n      \"date\": \"2026-11-14\",\n      \"time\": \"09:00\",\n      \"important\": false,\n      \"urgent\": false,\n      \"done\": false,\n      \"dropped\": false,\n      \"createdAt\": 1700000000000,\n      \"doneAt\": null,\n      \"repeat\": \"\",\n      \"doneDates\": [],\n      \"skipDates\": [],\n      \"remind\": 0,\n      \"parentId\": \"\",\n      \"updatedAt\": 1700000000000\n    },\n    {\n      \"id\": \"i2\",\n      \"title\": \"开会\",\n      \"note\": \"\",\n      \"date\": \"2026-11-14\",\n      \"time\": \"09:00\",\n      \"important\": false,\n      \"urgent\": false,\n      \"done\": false,\n      \"dropped\": false,\n      \"createdAt\": 1700000000000,\n      \"doneAt\": null,\n      \"repeat\": \"\",\n      \"doneDates\": [],\n      \"skipDates\": [],\n      \"remind\": 0,\n      \"parentId\": \"\",\n      \"updatedAt\": 1700000000000\n    },\n    {\n      \"id\": \"i3\",\n      \"title\": \"开会\",\n      \"note\": \"\",\n      \"date\": \"2026-11-14\",\n      \"time\": \"09:00\",\n      \"important\": false,\n      \"urgent\": false,\n      \"done\": false,\n      \"dropped\": false,\n      \"createdAt\": 1700000000000,\n      \"doneAt\": null,\n      \"repeat\": \"\",\n      \"doneDates\": [],\n      \"skipDates\": [],\n      \"remind\": 0,\n      \"parentId\": \"\",\n      \"updatedAt\": 1700000000000\n    }\n  ]\n}",
+      "currentCount": 0,
+      "confirm": true,
+      "expected": {
+        "ok": true,
+        "message": "已恢复 3 条任务",
+        "count": null,
+        "confirmText": "用备份里的 3 条任务替换当前的 0 条？",
+        "replacedCount": 3
+      }
+    },
+    {
+      "lang": "en",
+      "name": "broken-json",
+      "fileText": "{oops",
+      "currentCount": 5,
+      "confirm": true,
+      "expected": {
+        "ok": false,
+        "message": "This isn't a valid backup file",
+        "count": null,
+        "confirmText": null,
+        "replacedCount": null
+      }
+    },
+    {
+      "lang": "en",
+      "name": "no-tasks",
+      "fileText": "{\"version\":1}",
+      "currentCount": 5,
+      "confirm": true,
+      "expected": {
+        "ok": false,
+        "message": "This isn't a valid backup file",
+        "count": null,
+        "confirmText": null,
+        "replacedCount": null
+      }
+    },
+    {
+      "lang": "en",
+      "name": "tasks-not-array",
+      "fileText": "{\"tasks\":\"x\"}",
+      "currentCount": 5,
+      "confirm": true,
+      "expected": {
+        "ok": false,
+        "message": "This isn't a valid backup file",
+        "count": null,
+        "confirmText": null,
+        "replacedCount": null
+      }
+    },
+    {
+      "lang": "en",
+      "name": "null-root",
+      "fileText": "null",
+      "currentCount": 5,
+      "confirm": true,
+      "expected": {
+        "ok": false,
+        "message": "This isn't a valid backup file",
+        "count": null,
+        "confirmText": null,
+        "replacedCount": null
+      }
+    },
+    {
+      "lang": "en",
+      "name": "user-cancels",
+      "fileText": "{\n  \"version\": 1,\n  \"exportedAt\": \"2026-11-01T00:00:00.000Z\",\n  \"tasks\": [\n    {\n      \"id\": \"i1\",\n      \"title\": \"开会\",\n      \"note\": \"\",\n      \"date\": \"2026-11-14\",\n      \"time\": \"09:00\",\n      \"important\": false,\n      \"urgent\": false,\n      \"done\": false,\n      \"dropped\": false,\n      \"createdAt\": 1700000000000,\n      \"doneAt\": null,\n      \"repeat\": \"\",\n      \"doneDates\": [],\n      \"skipDates\": [],\n      \"remind\": 0,\n      \"parentId\": \"\",\n      \"updatedAt\": 1700000000000\n    },\n    {\n      \"id\": \"i2\",\n      \"title\": \"开会\",\n      \"note\": \"\",\n      \"date\": \"2026-11-14\",\n      \"time\": \"09:00\",\n      \"important\": false,\n      \"urgent\": false,\n      \"done\": false,\n      \"dropped\": false,\n      \"createdAt\": 1700000000000,\n      \"doneAt\": null,\n      \"repeat\": \"\",\n      \"doneDates\": [],\n      \"skipDates\": [],\n      \"remind\": 0,\n      \"parentId\": \"\",\n      \"updatedAt\": 1700000000000\n    },\n    {\n      \"id\": \"i3\",\n      \"title\": \"开会\",\n      \"note\": \"\",\n      \"date\": \"2026-11-14\",\n      \"time\": \"09:00\",\n      \"important\": false,\n      \"urgent\": false,\n      \"done\": false,\n      \"dropped\": false,\n      \"createdAt\": 1700000000000,\n      \"doneAt\": null,\n      \"repeat\": \"\",\n      \"doneDates\": [],\n      \"skipDates\": [],\n      \"remind\": 0,\n      \"parentId\": \"\",\n      \"updatedAt\": 1700000000000\n    }\n  ]\n}",
+      "currentCount": 5,
+      "confirm": false,
+      "expected": {
+        "ok": false,
+        "message": null,
+        "count": null,
+        "confirmText": "Replace your 5 tasks with the 3 tasks in the backup?",
+        "replacedCount": null
+      }
+    },
+    {
+      "lang": "en",
+      "name": "replace-3-into-5",
+      "fileText": "{\n  \"version\": 1,\n  \"exportedAt\": \"2026-11-01T00:00:00.000Z\",\n  \"tasks\": [\n    {\n      \"id\": \"i1\",\n      \"title\": \"开会\",\n      \"note\": \"\",\n      \"date\": \"2026-11-14\",\n      \"time\": \"09:00\",\n      \"important\": false,\n      \"urgent\": false,\n      \"done\": false,\n      \"dropped\": false,\n      \"createdAt\": 1700000000000,\n      \"doneAt\": null,\n      \"repeat\": \"\",\n      \"doneDates\": [],\n      \"skipDates\": [],\n      \"remind\": 0,\n      \"parentId\": \"\",\n      \"updatedAt\": 1700000000000\n    },\n    {\n      \"id\": \"i2\",\n      \"title\": \"开会\",\n      \"note\": \"\",\n      \"date\": \"2026-11-14\",\n      \"time\": \"09:00\",\n      \"important\": false,\n      \"urgent\": false,\n      \"done\": false,\n      \"dropped\": false,\n      \"createdAt\": 1700000000000,\n      \"doneAt\": null,\n      \"repeat\": \"\",\n      \"doneDates\": [],\n      \"skipDates\": [],\n      \"remind\": 0,\n      \"parentId\": \"\",\n      \"updatedAt\": 1700000000000\n    },\n    {\n      \"id\": \"i3\",\n      \"title\": \"开会\",\n      \"note\": \"\",\n      \"date\": \"2026-11-14\",\n      \"time\": \"09:00\",\n      \"important\": false,\n      \"urgent\": false,\n      \"done\": false,\n      \"dropped\": false,\n      \"createdAt\": 1700000000000,\n      \"doneAt\": null,\n      \"repeat\": \"\",\n      \"doneDates\": [],\n      \"skipDates\": [],\n      \"remind\": 0,\n      \"parentId\": \"\",\n      \"updatedAt\": 1700000000000\n    }\n  ]\n}",
+      "currentCount": 5,
+      "confirm": true,
+      "expected": {
+        "ok": true,
+        "message": "Restored 3 tasks",
+        "count": null,
+        "confirmText": "Replace your 5 tasks with the 3 tasks in the backup?",
+        "replacedCount": 3
+      }
+    },
+    {
+      "lang": "en",
+      "name": "replace-1-into-1",
+      "fileText": "{\"version\":1,\"tasks\":[{\"id\":\"only\",\"title\":\"开会\",\"note\":\"\",\"date\":\"2026-11-14\",\"time\":\"09:00\",\"important\":false,\"urgent\":false,\"done\":false,\"dropped\":false,\"createdAt\":1700000000000,\"doneAt\":null,\"repeat\":\"\",\"doneDates\":[],\"skipDates\":[],\"remind\":0,\"parentId\":\"\",\"updatedAt\":1700000000000}]}",
+      "currentCount": 1,
+      "confirm": true,
+      "expected": {
+        "ok": true,
+        "message": "Restored 1 task",
+        "count": null,
+        "confirmText": "Replace your 1 task with the 1 task in the backup?",
+        "replacedCount": 1
+      }
+    },
+    {
+      "lang": "en",
+      "name": "replace-empty",
+      "fileText": "{\"version\":1,\"tasks\":[]}",
+      "currentCount": 7,
+      "confirm": true,
+      "expected": {
+        "ok": true,
+        "message": "Restored 0 tasks",
+        "count": null,
+        "confirmText": "Replace your 7 tasks with the 0 tasks in the backup?",
+        "replacedCount": 0
+      }
+    },
+    {
+      "lang": "en",
+      "name": "into-empty-current",
+      "fileText": "{\n  \"version\": 1,\n  \"exportedAt\": \"2026-11-01T00:00:00.000Z\",\n  \"tasks\": [\n    {\n      \"id\": \"i1\",\n      \"title\": \"开会\",\n      \"note\": \"\",\n      \"date\": \"2026-11-14\",\n      \"time\": \"09:00\",\n      \"important\": false,\n      \"urgent\": false,\n      \"done\": false,\n      \"dropped\": false,\n      \"createdAt\": 1700000000000,\n      \"doneAt\": null,\n      \"repeat\": \"\",\n      \"doneDates\": [],\n      \"skipDates\": [],\n      \"remind\": 0,\n      \"parentId\": \"\",\n      \"updatedAt\": 1700000000000\n    },\n    {\n      \"id\": \"i2\",\n      \"title\": \"开会\",\n      \"note\": \"\",\n      \"date\": \"2026-11-14\",\n      \"time\": \"09:00\",\n      \"important\": false,\n      \"urgent\": false,\n      \"done\": false,\n      \"dropped\": false,\n      \"createdAt\": 1700000000000,\n      \"doneAt\": null,\n      \"repeat\": \"\",\n      \"doneDates\": [],\n      \"skipDates\": [],\n      \"remind\": 0,\n      \"parentId\": \"\",\n      \"updatedAt\": 1700000000000\n    },\n    {\n      \"id\": \"i3\",\n      \"title\": \"开会\",\n      \"note\": \"\",\n      \"date\": \"2026-11-14\",\n      \"time\": \"09:00\",\n      \"important\": false,\n      \"urgent\": false,\n      \"done\": false,\n      \"dropped\": false,\n      \"createdAt\": 1700000000000,\n      \"doneAt\": null,\n      \"repeat\": \"\",\n      \"doneDates\": [],\n      \"skipDates\": [],\n      \"remind\": 0,\n      \"parentId\": \"\",\n      \"updatedAt\": 1700000000000\n    }\n  ]\n}",
+      "currentCount": 0,
+      "confirm": true,
+      "expected": {
+        "ok": true,
+        "message": "Restored 3 tasks",
+        "count": null,
+        "confirmText": "Replace your 0 tasks with the 3 tasks in the backup?",
+        "replacedCount": 3
+      }
+    }
+  ]
+}
