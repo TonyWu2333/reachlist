@@ -1,0 +1,2510 @@
+{
+  "baseline": "97a7c4c17602327a42d30110806a6a1e6fa0e798",
+  "generator": "generate_t16_fixtures.mjs",
+  "today": "2026-11-13",
+  "fixedLocalTime": "2026-11-13T12:00:00",
+  "tasks": [
+    {
+      "id": "q1-open",
+      "title": "交季度报表",
+      "note": "财务 报表 复核",
+      "date": "2026-11-13",
+      "time": "09:00",
+      "important": true,
+      "urgent": true,
+      "done": false,
+      "dropped": false,
+      "createdAt": 1793498400000,
+      "doneAt": null,
+      "repeat": "",
+      "doneDates": [],
+      "skipDates": [],
+      "remind": null,
+      "parentId": "",
+      "updatedAt": 1793498400000
+    },
+    {
+      "id": "q2-open",
+      "title": "写规划文档",
+      "note": "长期 规划",
+      "date": "2026-11-16",
+      "time": "14:00",
+      "important": true,
+      "urgent": false,
+      "done": false,
+      "dropped": false,
+      "createdAt": 1793584800000,
+      "doneAt": null,
+      "repeat": "",
+      "doneDates": [],
+      "skipDates": [],
+      "remind": null,
+      "parentId": "",
+      "updatedAt": 1793498400000
+    },
+    {
+      "id": "q3-open",
+      "title": "回复客户电话",
+      "note": "",
+      "date": "2026-11-11",
+      "time": "",
+      "important": false,
+      "urgent": true,
+      "done": false,
+      "dropped": false,
+      "createdAt": 1793498400000,
+      "doneAt": null,
+      "repeat": "",
+      "doneDates": [],
+      "skipDates": [],
+      "remind": null,
+      "parentId": "",
+      "updatedAt": 1793498400000
+    },
+    {
+      "id": "q4-open",
+      "title": "整理桌面",
+      "note": "",
+      "date": "2026-11-22",
+      "time": "",
+      "important": false,
+      "urgent": false,
+      "done": false,
+      "dropped": false,
+      "createdAt": 1793498400000,
+      "doneAt": null,
+      "repeat": "",
+      "doneDates": [],
+      "skipDates": [],
+      "remind": null,
+      "parentId": "",
+      "updatedAt": 1793498400000
+    },
+    {
+      "id": "no-date",
+      "title": "随手记 会议想法",
+      "note": "没有日期 也可以搜索",
+      "date": "",
+      "time": "",
+      "important": false,
+      "urgent": false,
+      "done": false,
+      "dropped": false,
+      "createdAt": 1793498400000,
+      "doneAt": null,
+      "repeat": "",
+      "doneDates": [],
+      "skipDates": [],
+      "remind": null,
+      "parentId": "",
+      "updatedAt": 1793498400000
+    },
+    {
+      "id": "done-one",
+      "title": "完成的项目报告",
+      "note": "报告 已归档",
+      "date": "2026-11-13",
+      "time": "",
+      "important": false,
+      "urgent": false,
+      "done": true,
+      "dropped": false,
+      "createdAt": 1793498400000,
+      "doneAt": 1794529800000,
+      "repeat": "",
+      "doneDates": [],
+      "skipDates": [],
+      "remind": null,
+      "parentId": "",
+      "updatedAt": 1793498400000
+    },
+    {
+      "id": "dropped-one",
+      "title": "放弃的旧报告",
+      "note": "",
+      "date": "2026-11-12",
+      "time": "",
+      "important": false,
+      "urgent": false,
+      "done": true,
+      "dropped": true,
+      "createdAt": 1793498400000,
+      "doneAt": 1794445200000,
+      "repeat": "",
+      "doneDates": [],
+      "skipDates": [],
+      "remind": null,
+      "parentId": "",
+      "updatedAt": 1793498400000
+    },
+    {
+      "id": "child",
+      "title": "打印会议材料",
+      "note": "会议 材料",
+      "date": "2026-11-13",
+      "time": "",
+      "important": false,
+      "urgent": false,
+      "done": false,
+      "dropped": false,
+      "createdAt": 1793498400000,
+      "doneAt": null,
+      "repeat": "",
+      "doneDates": [],
+      "skipDates": [],
+      "remind": null,
+      "parentId": "q1-open",
+      "updatedAt": 1793498400000
+    },
+    {
+      "id": "daily",
+      "title": "每天跑步",
+      "note": "运动 打卡",
+      "date": "2026-11-03",
+      "time": "07:30",
+      "important": false,
+      "urgent": false,
+      "done": false,
+      "dropped": false,
+      "createdAt": 1792461600000,
+      "doneAt": null,
+      "repeat": "d1",
+      "doneDates": [
+        "2026-11-13",
+        "2026-11-12"
+      ],
+      "skipDates": [],
+      "remind": null,
+      "parentId": "",
+      "updatedAt": 1793498400000
+    },
+    {
+      "id": "weekdays",
+      "title": "工作日站会",
+      "note": "",
+      "date": "2026-10-24",
+      "time": "09:30",
+      "important": false,
+      "urgent": false,
+      "done": false,
+      "dropped": false,
+      "createdAt": 1792548000000,
+      "doneAt": null,
+      "repeat": "w1:12345",
+      "doneDates": [],
+      "skipDates": [],
+      "remind": null,
+      "parentId": "",
+      "updatedAt": 1793498400000
+    },
+    {
+      "id": "weekly",
+      "title": "周会",
+      "note": "",
+      "date": "2026-10-30",
+      "time": "18:00",
+      "important": false,
+      "urgent": false,
+      "done": false,
+      "dropped": false,
+      "createdAt": 1792634400000,
+      "doneAt": null,
+      "repeat": "w1:5",
+      "doneDates": [
+        "2026-11-06"
+      ],
+      "skipDates": [],
+      "remind": null,
+      "parentId": "",
+      "updatedAt": 1793498400000
+    },
+    {
+      "id": "monthly",
+      "title": "月度复盘",
+      "note": "",
+      "date": "2026-01-31",
+      "time": "",
+      "important": false,
+      "urgent": false,
+      "done": false,
+      "dropped": false,
+      "createdAt": 1792720800000,
+      "doneAt": null,
+      "repeat": "m1",
+      "doneDates": [],
+      "skipDates": [],
+      "remind": null,
+      "parentId": "",
+      "updatedAt": 1793498400000
+    },
+    {
+      "id": "yearly",
+      "title": "纪念日",
+      "note": "",
+      "date": "2020-05-20",
+      "time": "",
+      "important": false,
+      "urgent": false,
+      "done": false,
+      "dropped": false,
+      "createdAt": 1792807200000,
+      "doneAt": null,
+      "repeat": "y1",
+      "doneDates": [],
+      "skipDates": [],
+      "remind": null,
+      "parentId": "",
+      "updatedAt": 1793498400000
+    },
+    {
+      "id": "ended",
+      "title": "已结束的每天打卡",
+      "note": "",
+      "date": "2026-10-14",
+      "time": "",
+      "important": false,
+      "urgent": false,
+      "done": false,
+      "dropped": false,
+      "createdAt": 1792893600000,
+      "doneAt": null,
+      "repeat": "d1~2026-11-10",
+      "doneDates": [],
+      "skipDates": [],
+      "remind": null,
+      "parentId": "",
+      "updatedAt": 1793498400000
+    },
+    {
+      "id": "interval",
+      "title": "每三天浇花",
+      "note": "",
+      "date": "2026-11-07",
+      "time": "",
+      "important": false,
+      "urgent": false,
+      "done": false,
+      "dropped": false,
+      "createdAt": 1792980000000,
+      "doneAt": null,
+      "repeat": "d3",
+      "doneDates": [],
+      "skipDates": [],
+      "remind": null,
+      "parentId": "",
+      "updatedAt": 1793498400000
+    }
+  ],
+  "quadrant": [
+    {
+      "range": "all",
+      "showDone": false,
+      "groups": {
+        "1": [
+          "q1-open"
+        ],
+        "2": [
+          "q2-open"
+        ],
+        "3": [
+          "q3-open"
+        ],
+        "4": [
+          "q4-open",
+          "no-date"
+        ]
+      },
+      "counts": {
+        "1": 1,
+        "2": 1,
+        "3": 1,
+        "4": 2
+      }
+    },
+    {
+      "range": "all",
+      "showDone": true,
+      "groups": {
+        "1": [
+          "q1-open"
+        ],
+        "2": [
+          "q2-open"
+        ],
+        "3": [
+          "q3-open"
+        ],
+        "4": [
+          "q4-open",
+          "no-date",
+          "dropped-one",
+          "done-one"
+        ]
+      },
+      "counts": {
+        "1": 1,
+        "2": 1,
+        "3": 1,
+        "4": 2
+      }
+    },
+    {
+      "range": "today",
+      "showDone": false,
+      "groups": {
+        "1": [
+          "q1-open"
+        ],
+        "2": [],
+        "3": [
+          "q3-open"
+        ],
+        "4": [
+          "no-date"
+        ]
+      },
+      "counts": {
+        "1": 1,
+        "2": 0,
+        "3": 1,
+        "4": 1
+      }
+    },
+    {
+      "range": "today",
+      "showDone": true,
+      "groups": {
+        "1": [
+          "q1-open"
+        ],
+        "2": [],
+        "3": [
+          "q3-open"
+        ],
+        "4": [
+          "no-date",
+          "dropped-one",
+          "done-one"
+        ]
+      },
+      "counts": {
+        "1": 1,
+        "2": 0,
+        "3": 1,
+        "4": 1
+      }
+    },
+    {
+      "range": "week",
+      "showDone": false,
+      "groups": {
+        "1": [
+          "q1-open"
+        ],
+        "2": [],
+        "3": [
+          "q3-open"
+        ],
+        "4": [
+          "no-date"
+        ]
+      },
+      "counts": {
+        "1": 1,
+        "2": 0,
+        "3": 1,
+        "4": 1
+      }
+    },
+    {
+      "range": "week",
+      "showDone": true,
+      "groups": {
+        "1": [
+          "q1-open"
+        ],
+        "2": [],
+        "3": [
+          "q3-open"
+        ],
+        "4": [
+          "no-date",
+          "dropped-one",
+          "done-one"
+        ]
+      },
+      "counts": {
+        "1": 1,
+        "2": 0,
+        "3": 1,
+        "4": 1
+      }
+    }
+  ],
+  "routine": [
+    {
+      "lang": "zh",
+      "headline": "今天还剩 3 项",
+      "detail": "今天 1/4 · 共 7 项打卡",
+      "progress": 0.25,
+      "groups": [
+        {
+          "key": "daily",
+          "label": "每天",
+          "items": [
+            {
+              "id": "daily",
+              "occ": "2026-11-13",
+              "isToday": true,
+              "streak": 2,
+              "unit": "天",
+              "date": "2026-11-13",
+              "done": true
+            }
+          ],
+          "labelText": "每天"
+        },
+        {
+          "key": "interval",
+          "label": "每隔几天",
+          "items": [
+            {
+              "id": "interval",
+              "occ": "2026-11-13",
+              "isToday": true,
+              "streak": 0,
+              "unit": "次",
+              "date": "2026-11-13",
+              "done": false
+            }
+          ],
+          "labelText": "每隔几天"
+        },
+        {
+          "key": "weekly",
+          "label": "每周",
+          "items": [
+            {
+              "id": "weekdays",
+              "occ": "2026-11-13",
+              "isToday": true,
+              "streak": 0,
+              "unit": "次",
+              "date": "2026-11-13",
+              "done": false
+            },
+            {
+              "id": "weekly",
+              "occ": "2026-11-13",
+              "isToday": true,
+              "streak": 1,
+              "unit": "周",
+              "date": "2026-11-13",
+              "done": false
+            }
+          ],
+          "labelText": "每周"
+        },
+        {
+          "key": "monthly",
+          "label": "每月",
+          "items": [
+            {
+              "id": "monthly",
+              "occ": "2026-11-30",
+              "isToday": false,
+              "streak": 0,
+              "unit": "个月",
+              "date": "2026-11-30",
+              "done": false
+            }
+          ],
+          "labelText": "每月"
+        },
+        {
+          "key": "yearly",
+          "label": "每年",
+          "items": [
+            {
+              "id": "yearly",
+              "occ": "2027-05-20",
+              "isToday": false,
+              "streak": 0,
+              "unit": "年",
+              "date": "2027-05-20",
+              "done": false
+            }
+          ],
+          "labelText": "每年"
+        },
+        {
+          "key": "ended",
+          "label": "已结束",
+          "items": [
+            {
+              "id": "ended",
+              "occ": "",
+              "isToday": false,
+              "streak": 0,
+              "unit": "天",
+              "date": "2026-10-14",
+              "done": false
+            }
+          ],
+          "labelText": "已结束"
+        }
+      ]
+    },
+    {
+      "lang": "en",
+      "headline": "3 left today",
+      "detail": "Today 1/4 · 7 routines",
+      "progress": 0.25,
+      "groups": [
+        {
+          "key": "daily",
+          "label": "每天",
+          "items": [
+            {
+              "id": "daily",
+              "occ": "2026-11-13",
+              "isToday": true,
+              "streak": 2,
+              "unit": "天",
+              "date": "2026-11-13",
+              "done": true
+            }
+          ],
+          "labelText": "Daily"
+        },
+        {
+          "key": "interval",
+          "label": "每隔几天",
+          "items": [
+            {
+              "id": "interval",
+              "occ": "2026-11-13",
+              "isToday": true,
+              "streak": 0,
+              "unit": "次",
+              "date": "2026-11-13",
+              "done": false
+            }
+          ],
+          "labelText": "Every few days"
+        },
+        {
+          "key": "weekly",
+          "label": "每周",
+          "items": [
+            {
+              "id": "weekdays",
+              "occ": "2026-11-13",
+              "isToday": true,
+              "streak": 0,
+              "unit": "次",
+              "date": "2026-11-13",
+              "done": false
+            },
+            {
+              "id": "weekly",
+              "occ": "2026-11-13",
+              "isToday": true,
+              "streak": 1,
+              "unit": "周",
+              "date": "2026-11-13",
+              "done": false
+            }
+          ],
+          "labelText": "Weekly"
+        },
+        {
+          "key": "monthly",
+          "label": "每月",
+          "items": [
+            {
+              "id": "monthly",
+              "occ": "2026-11-30",
+              "isToday": false,
+              "streak": 0,
+              "unit": "个月",
+              "date": "2026-11-30",
+              "done": false
+            }
+          ],
+          "labelText": "Monthly"
+        },
+        {
+          "key": "yearly",
+          "label": "每年",
+          "items": [
+            {
+              "id": "yearly",
+              "occ": "2027-05-20",
+              "isToday": false,
+              "streak": 0,
+              "unit": "年",
+              "date": "2027-05-20",
+              "done": false
+            }
+          ],
+          "labelText": "Yearly"
+        },
+        {
+          "key": "ended",
+          "label": "已结束",
+          "items": [
+            {
+              "id": "ended",
+              "occ": "",
+              "isToday": false,
+              "streak": 0,
+              "unit": "天",
+              "date": "2026-10-14",
+              "done": false
+            }
+          ],
+          "labelText": "Ended"
+        }
+      ]
+    }
+  ],
+  "search": [
+    {
+      "lang": "zh",
+      "q": "报告",
+      "open": [],
+      "done": [
+        "done-one",
+        "dropped-one"
+      ],
+      "marks": [
+        {
+          "text": "完成的项目",
+          "hit": false
+        },
+        {
+          "text": "报告",
+          "hit": true
+        }
+      ],
+      "snippet": "报告 已归档",
+      "subs": [
+        "今天",
+        "已放弃 · 昨天"
+      ],
+      "noResult": "没有找到包含「报告」的任务"
+    },
+    {
+      "lang": "zh",
+      "q": "会议",
+      "open": [
+        "child",
+        "no-date"
+      ],
+      "done": [],
+      "marks": [
+        {
+          "text": "打印",
+          "hit": false
+        },
+        {
+          "text": "会议",
+          "hit": true
+        },
+        {
+          "text": "材料",
+          "hit": false
+        }
+      ],
+      "snippet": "会议 材料",
+      "subs": [
+        "今天 · ↳ 交季度报表",
+        "无日期"
+      ],
+      "noResult": "没有找到包含「会议」的任务"
+    },
+    {
+      "lang": "zh",
+      "q": "会议 材料",
+      "open": [
+        "child"
+      ],
+      "done": [],
+      "marks": [
+        {
+          "text": "打印",
+          "hit": false
+        },
+        {
+          "text": "会议",
+          "hit": true
+        },
+        {
+          "text": "材料",
+          "hit": true
+        }
+      ],
+      "snippet": "会议 材料",
+      "subs": [
+        "今天 · ↳ 交季度报表"
+      ],
+      "noResult": "没有找到包含「会议 材料」的任务"
+    },
+    {
+      "lang": "zh",
+      "q": "运动 打卡",
+      "open": [
+        "daily"
+      ],
+      "done": [],
+      "marks": [
+        {
+          "text": "每天跑步",
+          "hit": false
+        }
+      ],
+      "snippet": "运动 打卡",
+      "subs": [
+        "每天 · 07:30"
+      ],
+      "noResult": "没有找到包含「运动 打卡」的任务"
+    },
+    {
+      "lang": "zh",
+      "q": "REPORT",
+      "open": [],
+      "done": [],
+      "marks": [],
+      "snippet": "",
+      "subs": [],
+      "noResult": "没有找到包含「REPORT」的任务"
+    },
+    {
+      "lang": "zh",
+      "q": "财务  复核",
+      "open": [
+        "q1-open"
+      ],
+      "done": [],
+      "marks": [
+        {
+          "text": "交季度报表",
+          "hit": false
+        }
+      ],
+      "snippet": "财务 报表 复核",
+      "subs": [
+        "今天 · 09:00"
+      ],
+      "noResult": "没有找到包含「财务  复核」的任务"
+    },
+    {
+      "lang": "zh",
+      "q": "不存在",
+      "open": [],
+      "done": [],
+      "marks": [],
+      "snippet": "",
+      "subs": [],
+      "noResult": "没有找到包含「不存在」的任务"
+    },
+    {
+      "lang": "zh",
+      "q": "",
+      "open": [],
+      "done": [],
+      "marks": [],
+      "snippet": "",
+      "subs": [],
+      "noResult": "没有找到包含「」的任务"
+    },
+    {
+      "lang": "zh",
+      "q": "   ",
+      "open": [],
+      "done": [],
+      "marks": [],
+      "snippet": "",
+      "subs": [],
+      "noResult": "没有找到包含「」的任务"
+    },
+    {
+      "lang": "en",
+      "q": "报告",
+      "open": [],
+      "done": [
+        "done-one",
+        "dropped-one"
+      ],
+      "marks": [
+        {
+          "text": "完成的项目",
+          "hit": false
+        },
+        {
+          "text": "报告",
+          "hit": true
+        }
+      ],
+      "snippet": "报告 已归档",
+      "subs": [
+        "Today",
+        "Dropped · Yesterday"
+      ],
+      "noResult": "No tasks matching “报告”"
+    },
+    {
+      "lang": "en",
+      "q": "会议",
+      "open": [
+        "child",
+        "no-date"
+      ],
+      "done": [],
+      "marks": [
+        {
+          "text": "打印",
+          "hit": false
+        },
+        {
+          "text": "会议",
+          "hit": true
+        },
+        {
+          "text": "材料",
+          "hit": false
+        }
+      ],
+      "snippet": "会议 材料",
+      "subs": [
+        "Today · ↳ 交季度报表",
+        "No date"
+      ],
+      "noResult": "No tasks matching “会议”"
+    },
+    {
+      "lang": "en",
+      "q": "会议 材料",
+      "open": [
+        "child"
+      ],
+      "done": [],
+      "marks": [
+        {
+          "text": "打印",
+          "hit": false
+        },
+        {
+          "text": "会议",
+          "hit": true
+        },
+        {
+          "text": "材料",
+          "hit": true
+        }
+      ],
+      "snippet": "会议 材料",
+      "subs": [
+        "Today · ↳ 交季度报表"
+      ],
+      "noResult": "No tasks matching “会议 材料”"
+    },
+    {
+      "lang": "en",
+      "q": "运动 打卡",
+      "open": [
+        "daily"
+      ],
+      "done": [],
+      "marks": [
+        {
+          "text": "每天跑步",
+          "hit": false
+        }
+      ],
+      "snippet": "运动 打卡",
+      "subs": [
+        "Daily · 07:30"
+      ],
+      "noResult": "No tasks matching “运动 打卡”"
+    },
+    {
+      "lang": "en",
+      "q": "REPORT",
+      "open": [],
+      "done": [],
+      "marks": [],
+      "snippet": "",
+      "subs": [],
+      "noResult": "No tasks matching “REPORT”"
+    },
+    {
+      "lang": "en",
+      "q": "财务  复核",
+      "open": [
+        "q1-open"
+      ],
+      "done": [],
+      "marks": [
+        {
+          "text": "交季度报表",
+          "hit": false
+        }
+      ],
+      "snippet": "财务 报表 复核",
+      "subs": [
+        "Today · 09:00"
+      ],
+      "noResult": "No tasks matching “财务  复核”"
+    },
+    {
+      "lang": "en",
+      "q": "不存在",
+      "open": [],
+      "done": [],
+      "marks": [],
+      "snippet": "",
+      "subs": [],
+      "noResult": "No tasks matching “不存在”"
+    },
+    {
+      "lang": "en",
+      "q": "",
+      "open": [],
+      "done": [],
+      "marks": [],
+      "snippet": "",
+      "subs": [],
+      "noResult": "No tasks matching “”"
+    },
+    {
+      "lang": "en",
+      "q": "   ",
+      "open": [],
+      "done": [],
+      "marks": [],
+      "snippet": "",
+      "subs": [],
+      "noResult": "No tasks matching “”"
+    }
+  ],
+  "me": [
+    {
+      "lang": "zh",
+      "greetings": [
+        "夜深了",
+        "早上好",
+        "中午好",
+        "下午好",
+        "晚上好"
+      ],
+      "summary": "今天还有 5 个任务待完成",
+      "doneTotal": "2 / 7 已完成",
+      "ratio": 0.2857142857142857,
+      "weekDone": 3,
+      "pendingAll": 9,
+      "overdue": 1,
+      "last7": [
+        {
+          "d": "2026-11-07",
+          "n": 0,
+          "h": 0,
+          "label": "六"
+        },
+        {
+          "d": "2026-11-08",
+          "n": 0,
+          "h": 0,
+          "label": "日"
+        },
+        {
+          "d": "2026-11-09",
+          "n": 0,
+          "h": 0,
+          "label": "一"
+        },
+        {
+          "d": "2026-11-10",
+          "n": 0,
+          "h": 0,
+          "label": "二"
+        },
+        {
+          "d": "2026-11-11",
+          "n": 0,
+          "h": 0,
+          "label": "三"
+        },
+        {
+          "d": "2026-11-12",
+          "n": 1,
+          "h": 0.5,
+          "label": "四"
+        },
+        {
+          "d": "2026-11-13",
+          "n": 2,
+          "h": 1,
+          "label": "今"
+        }
+      ],
+      "last7Total": "共 3 个",
+      "langLabels": [
+        "跟随系统",
+        "中文",
+        "English"
+      ],
+      "replaceHint": "会替换当前全部 15 条任务"
+    },
+    {
+      "lang": "en",
+      "greetings": [
+        "It's late",
+        "Good morning",
+        "Hello",
+        "Good afternoon",
+        "Good evening"
+      ],
+      "summary": "5 tasks left today",
+      "doneTotal": "2 / 7 done",
+      "ratio": 0.2857142857142857,
+      "weekDone": 3,
+      "pendingAll": 9,
+      "overdue": 1,
+      "last7": [
+        {
+          "d": "2026-11-07",
+          "n": 0,
+          "h": 0,
+          "label": "S"
+        },
+        {
+          "d": "2026-11-08",
+          "n": 0,
+          "h": 0,
+          "label": "S"
+        },
+        {
+          "d": "2026-11-09",
+          "n": 0,
+          "h": 0,
+          "label": "M"
+        },
+        {
+          "d": "2026-11-10",
+          "n": 0,
+          "h": 0,
+          "label": "T"
+        },
+        {
+          "d": "2026-11-11",
+          "n": 0,
+          "h": 0,
+          "label": "W"
+        },
+        {
+          "d": "2026-11-12",
+          "n": 1,
+          "h": 0.5,
+          "label": "T"
+        },
+        {
+          "d": "2026-11-13",
+          "n": 2,
+          "h": 1,
+          "label": "Today"
+        }
+      ],
+      "last7Total": "3 total",
+      "langLabels": [
+        "System",
+        "中文",
+        "English"
+      ],
+      "replaceHint": "Replaces all 15 current tasks"
+    }
+  ],
+  "sync": [
+    {
+      "lang": "zh",
+      "settings": {
+        "syncOn": false,
+        "syncCode": ""
+      },
+      "state": {
+        "busy": false,
+        "at": 0,
+        "error": ""
+      },
+      "status": ""
+    },
+    {
+      "lang": "zh",
+      "settings": {
+        "syncOn": false,
+        "syncCode": ""
+      },
+      "state": {
+        "busy": true,
+        "at": 0,
+        "error": ""
+      },
+      "status": ""
+    },
+    {
+      "lang": "zh",
+      "settings": {
+        "syncOn": false,
+        "syncCode": ""
+      },
+      "state": {
+        "busy": false,
+        "at": 0,
+        "error": "Can't reach the server"
+      },
+      "status": ""
+    },
+    {
+      "lang": "zh",
+      "settings": {
+        "syncOn": false,
+        "syncCode": ""
+      },
+      "state": {
+        "busy": false,
+        "at": 1794549900000,
+        "error": ""
+      },
+      "status": ""
+    },
+    {
+      "lang": "zh",
+      "settings": {
+        "syncOn": true,
+        "syncCode": ""
+      },
+      "state": {
+        "busy": false,
+        "at": 0,
+        "error": ""
+      },
+      "status": "填入服务器启动时打印的连接码"
+    },
+    {
+      "lang": "zh",
+      "settings": {
+        "syncOn": true,
+        "syncCode": ""
+      },
+      "state": {
+        "busy": true,
+        "at": 0,
+        "error": ""
+      },
+      "status": "填入服务器启动时打印的连接码"
+    },
+    {
+      "lang": "zh",
+      "settings": {
+        "syncOn": true,
+        "syncCode": ""
+      },
+      "state": {
+        "busy": false,
+        "at": 0,
+        "error": "Can't reach the server"
+      },
+      "status": "填入服务器启动时打印的连接码"
+    },
+    {
+      "lang": "zh",
+      "settings": {
+        "syncOn": true,
+        "syncCode": ""
+      },
+      "state": {
+        "busy": false,
+        "at": 1794549900000,
+        "error": ""
+      },
+      "status": "填入服务器启动时打印的连接码"
+    },
+    {
+      "lang": "zh",
+      "settings": {
+        "syncOn": true,
+        "syncCode": "bad-code"
+      },
+      "state": {
+        "busy": false,
+        "at": 0,
+        "error": ""
+      },
+      "status": "连接码格式不对：应该是 地址#令牌"
+    },
+    {
+      "lang": "zh",
+      "settings": {
+        "syncOn": true,
+        "syncCode": "bad-code"
+      },
+      "state": {
+        "busy": true,
+        "at": 0,
+        "error": ""
+      },
+      "status": "连接码格式不对：应该是 地址#令牌"
+    },
+    {
+      "lang": "zh",
+      "settings": {
+        "syncOn": true,
+        "syncCode": "bad-code"
+      },
+      "state": {
+        "busy": false,
+        "at": 0,
+        "error": "Can't reach the server"
+      },
+      "status": "连接码格式不对：应该是 地址#令牌"
+    },
+    {
+      "lang": "zh",
+      "settings": {
+        "syncOn": true,
+        "syncCode": "bad-code"
+      },
+      "state": {
+        "busy": false,
+        "at": 1794549900000,
+        "error": ""
+      },
+      "status": "连接码格式不对：应该是 地址#令牌"
+    },
+    {
+      "lang": "zh",
+      "settings": {
+        "syncOn": true,
+        "syncCode": "http://192.168.1.5:18787#abcdefghijklmnop"
+      },
+      "state": {
+        "busy": false,
+        "at": 0,
+        "error": ""
+      },
+      "status": "还没同步过"
+    },
+    {
+      "lang": "zh",
+      "settings": {
+        "syncOn": true,
+        "syncCode": "http://192.168.1.5:18787#abcdefghijklmnop"
+      },
+      "state": {
+        "busy": true,
+        "at": 0,
+        "error": ""
+      },
+      "status": "正在同步…"
+    },
+    {
+      "lang": "zh",
+      "settings": {
+        "syncOn": true,
+        "syncCode": "http://192.168.1.5:18787#abcdefghijklmnop"
+      },
+      "state": {
+        "busy": false,
+        "at": 0,
+        "error": "Can't reach the server"
+      },
+      "status": "同步失败：Can't reach the server"
+    },
+    {
+      "lang": "zh",
+      "settings": {
+        "syncOn": true,
+        "syncCode": "http://192.168.1.5:18787#abcdefghijklmnop"
+      },
+      "state": {
+        "busy": false,
+        "at": 1794549900000,
+        "error": ""
+      },
+      "status": "已同步 · 14:05 · 192.168.1.5:18787"
+    },
+    {
+      "lang": "en",
+      "settings": {
+        "syncOn": false,
+        "syncCode": ""
+      },
+      "state": {
+        "busy": false,
+        "at": 0,
+        "error": ""
+      },
+      "status": ""
+    },
+    {
+      "lang": "en",
+      "settings": {
+        "syncOn": false,
+        "syncCode": ""
+      },
+      "state": {
+        "busy": true,
+        "at": 0,
+        "error": ""
+      },
+      "status": ""
+    },
+    {
+      "lang": "en",
+      "settings": {
+        "syncOn": false,
+        "syncCode": ""
+      },
+      "state": {
+        "busy": false,
+        "at": 0,
+        "error": "Can't reach the server"
+      },
+      "status": ""
+    },
+    {
+      "lang": "en",
+      "settings": {
+        "syncOn": false,
+        "syncCode": ""
+      },
+      "state": {
+        "busy": false,
+        "at": 1794549900000,
+        "error": ""
+      },
+      "status": ""
+    },
+    {
+      "lang": "en",
+      "settings": {
+        "syncOn": true,
+        "syncCode": ""
+      },
+      "state": {
+        "busy": false,
+        "at": 0,
+        "error": ""
+      },
+      "status": "Enter the connection code the server printed at startup"
+    },
+    {
+      "lang": "en",
+      "settings": {
+        "syncOn": true,
+        "syncCode": ""
+      },
+      "state": {
+        "busy": true,
+        "at": 0,
+        "error": ""
+      },
+      "status": "Enter the connection code the server printed at startup"
+    },
+    {
+      "lang": "en",
+      "settings": {
+        "syncOn": true,
+        "syncCode": ""
+      },
+      "state": {
+        "busy": false,
+        "at": 0,
+        "error": "Can't reach the server"
+      },
+      "status": "Enter the connection code the server printed at startup"
+    },
+    {
+      "lang": "en",
+      "settings": {
+        "syncOn": true,
+        "syncCode": ""
+      },
+      "state": {
+        "busy": false,
+        "at": 1794549900000,
+        "error": ""
+      },
+      "status": "Enter the connection code the server printed at startup"
+    },
+    {
+      "lang": "en",
+      "settings": {
+        "syncOn": true,
+        "syncCode": "bad-code"
+      },
+      "state": {
+        "busy": false,
+        "at": 0,
+        "error": ""
+      },
+      "status": "Invalid connection code. It should look like address#token"
+    },
+    {
+      "lang": "en",
+      "settings": {
+        "syncOn": true,
+        "syncCode": "bad-code"
+      },
+      "state": {
+        "busy": true,
+        "at": 0,
+        "error": ""
+      },
+      "status": "Invalid connection code. It should look like address#token"
+    },
+    {
+      "lang": "en",
+      "settings": {
+        "syncOn": true,
+        "syncCode": "bad-code"
+      },
+      "state": {
+        "busy": false,
+        "at": 0,
+        "error": "Can't reach the server"
+      },
+      "status": "Invalid connection code. It should look like address#token"
+    },
+    {
+      "lang": "en",
+      "settings": {
+        "syncOn": true,
+        "syncCode": "bad-code"
+      },
+      "state": {
+        "busy": false,
+        "at": 1794549900000,
+        "error": ""
+      },
+      "status": "Invalid connection code. It should look like address#token"
+    },
+    {
+      "lang": "en",
+      "settings": {
+        "syncOn": true,
+        "syncCode": "http://192.168.1.5:18787#abcdefghijklmnop"
+      },
+      "state": {
+        "busy": false,
+        "at": 0,
+        "error": ""
+      },
+      "status": "Not synced yet"
+    },
+    {
+      "lang": "en",
+      "settings": {
+        "syncOn": true,
+        "syncCode": "http://192.168.1.5:18787#abcdefghijklmnop"
+      },
+      "state": {
+        "busy": true,
+        "at": 0,
+        "error": ""
+      },
+      "status": "Syncing…"
+    },
+    {
+      "lang": "en",
+      "settings": {
+        "syncOn": true,
+        "syncCode": "http://192.168.1.5:18787#abcdefghijklmnop"
+      },
+      "state": {
+        "busy": false,
+        "at": 0,
+        "error": "Can't reach the server"
+      },
+      "status": "Sync failed: Can't reach the server"
+    },
+    {
+      "lang": "en",
+      "settings": {
+        "syncOn": true,
+        "syncCode": "http://192.168.1.5:18787#abcdefghijklmnop"
+      },
+      "state": {
+        "busy": false,
+        "at": 1794549900000,
+        "error": ""
+      },
+      "status": "Synced · 14:05 · 192.168.1.5:18787"
+    }
+  ],
+  "strings": [
+    {
+      "key": "全部",
+      "lang": "zh",
+      "params": {},
+      "value": "全部"
+    },
+    {
+      "key": "本周",
+      "lang": "zh",
+      "params": {},
+      "value": "本周"
+    },
+    {
+      "key": "已完成",
+      "lang": "zh",
+      "params": {},
+      "value": "已完成"
+    },
+    {
+      "key": "今天",
+      "lang": "zh",
+      "params": {},
+      "value": "今天"
+    },
+    {
+      "key": "在{name}里新建",
+      "lang": "zh",
+      "params": {
+        "name": "重要且紧急"
+      },
+      "value": "在重要且紧急里新建"
+    },
+    {
+      "key": "已移到「{name}」",
+      "lang": "zh",
+      "params": {
+        "name": "不重要不紧急"
+      },
+      "value": "已移到「不重要不紧急」"
+    },
+    {
+      "key": "没有需要马上处理的事",
+      "lang": "zh",
+      "params": {},
+      "value": "没有需要马上处理的事"
+    },
+    {
+      "key": "清清爽爽",
+      "lang": "zh",
+      "params": {},
+      "value": "清清爽爽"
+    },
+    {
+      "key": "长按任务拖到其他象限 · 点击查看详情",
+      "lang": "zh",
+      "params": {},
+      "value": "长按任务拖到其他象限 · 点击查看详情"
+    },
+    {
+      "key": "每天",
+      "lang": "zh",
+      "params": {},
+      "value": "每天"
+    },
+    {
+      "key": "每隔几天",
+      "lang": "zh",
+      "params": {},
+      "value": "每隔几天"
+    },
+    {
+      "key": "每周",
+      "lang": "zh",
+      "params": {},
+      "value": "每周"
+    },
+    {
+      "key": "每月",
+      "lang": "zh",
+      "params": {},
+      "value": "每月"
+    },
+    {
+      "key": "每年",
+      "lang": "zh",
+      "params": {},
+      "value": "每年"
+    },
+    {
+      "key": "已结束",
+      "lang": "zh",
+      "params": {},
+      "value": "已结束"
+    },
+    {
+      "key": "今天还剩 {n} 项",
+      "lang": "zh",
+      "params": {
+        "n": 1
+      },
+      "value": "今天还剩 1 项"
+    },
+    {
+      "key": "今天还剩 {n} 项",
+      "lang": "zh",
+      "params": {
+        "n": 3
+      },
+      "value": "今天还剩 3 项"
+    },
+    {
+      "key": "今天 {done}/{total} · 共 {n} 项打卡",
+      "lang": "zh",
+      "params": {
+        "done": 1,
+        "total": 3,
+        "n": 1
+      },
+      "value": "今天 1/3 · 共 1 项打卡"
+    },
+    {
+      "key": "今天 {done}/{total} · 共 {n} 项打卡",
+      "lang": "zh",
+      "params": {
+        "done": 2,
+        "total": 4,
+        "n": 5
+      },
+      "value": "今天 2/4 · 共 5 项打卡"
+    },
+    {
+      "key": "已删除「{title}」及 {n} 个子任务",
+      "lang": "zh",
+      "params": {
+        "title": "周会",
+        "n": 1
+      },
+      "value": "已删除「周会」及 1 个子任务"
+    },
+    {
+      "key": "已删除「{title}」及 {n} 个子任务",
+      "lang": "zh",
+      "params": {
+        "title": "周会",
+        "n": 3
+      },
+      "value": "已删除「周会」及 3 个子任务"
+    },
+    {
+      "key": "今天没有要打卡的",
+      "lang": "zh",
+      "params": {},
+      "value": "今天没有要打卡的"
+    },
+    {
+      "key": "今天的卡都打完了",
+      "lang": "zh",
+      "params": {},
+      "value": "今天的卡都打完了"
+    },
+    {
+      "key": "还没有打卡任务",
+      "lang": "zh",
+      "params": {},
+      "value": "还没有打卡任务"
+    },
+    {
+      "key": "今天这次已跳过",
+      "lang": "zh",
+      "params": {},
+      "value": "今天这次已跳过"
+    },
+    {
+      "key": "下一次已跳过",
+      "lang": "zh",
+      "params": {},
+      "value": "下一次已跳过"
+    },
+    {
+      "key": "夜深了",
+      "lang": "zh",
+      "params": {},
+      "value": "夜深了"
+    },
+    {
+      "key": "早上好",
+      "lang": "zh",
+      "params": {},
+      "value": "早上好"
+    },
+    {
+      "key": "中午好",
+      "lang": "zh",
+      "params": {},
+      "value": "中午好"
+    },
+    {
+      "key": "下午好",
+      "lang": "zh",
+      "params": {},
+      "value": "下午好"
+    },
+    {
+      "key": "晚上好",
+      "lang": "zh",
+      "params": {},
+      "value": "晚上好"
+    },
+    {
+      "key": "今天还没有安排任务",
+      "lang": "zh",
+      "params": {},
+      "value": "今天还没有安排任务"
+    },
+    {
+      "key": "今天的任务全部完成了，真棒",
+      "lang": "zh",
+      "params": {},
+      "value": "今天的任务全部完成了，真棒"
+    },
+    {
+      "key": "今天还有 {n} 个任务待完成",
+      "lang": "zh",
+      "params": {
+        "n": 1
+      },
+      "value": "今天还有 1 个任务待完成"
+    },
+    {
+      "key": "今天还有 {n} 个任务待完成",
+      "lang": "zh",
+      "params": {
+        "n": 4
+      },
+      "value": "今天还有 4 个任务待完成"
+    },
+    {
+      "key": "{done} / {total} 已完成",
+      "lang": "zh",
+      "params": {
+        "done": 2,
+        "total": 5
+      },
+      "value": "2 / 5 已完成"
+    },
+    {
+      "key": "本周完成",
+      "lang": "zh",
+      "params": {},
+      "value": "本周完成"
+    },
+    {
+      "key": "待办总数",
+      "lang": "zh",
+      "params": {},
+      "value": "待办总数"
+    },
+    {
+      "key": "已过期",
+      "lang": "zh",
+      "params": {},
+      "value": "已过期"
+    },
+    {
+      "key": "近 7 天完成",
+      "lang": "zh",
+      "params": {},
+      "value": "近 7 天完成"
+    },
+    {
+      "key": "共 {n} 个",
+      "lang": "zh",
+      "params": {
+        "n": 1
+      },
+      "value": "共 1 个"
+    },
+    {
+      "key": "共 {n} 个",
+      "lang": "zh",
+      "params": {
+        "n": 7
+      },
+      "value": "共 7 个"
+    },
+    {
+      "key": "跟随系统",
+      "lang": "zh",
+      "params": {},
+      "value": "跟随系统"
+    },
+    {
+      "key": "通用",
+      "lang": "zh",
+      "params": {},
+      "value": "通用"
+    },
+    {
+      "key": "日历显示",
+      "lang": "zh",
+      "params": {},
+      "value": "日历显示"
+    },
+    {
+      "key": "农历与节气",
+      "lang": "zh",
+      "params": {},
+      "value": "农历与节气"
+    },
+    {
+      "key": "法定节假日与调休",
+      "lang": "zh",
+      "params": {},
+      "value": "法定节假日与调休"
+    },
+    {
+      "key": "到点提醒",
+      "lang": "zh",
+      "params": {},
+      "value": "到点提醒"
+    },
+    {
+      "key": "新任务默认提醒",
+      "lang": "zh",
+      "params": {},
+      "value": "新任务默认提醒"
+    },
+    {
+      "key": "会替换当前全部 {n} 条任务",
+      "lang": "zh",
+      "params": {
+        "n": 1
+      },
+      "value": "会替换当前全部 1 条任务"
+    },
+    {
+      "key": "会替换当前全部 {n} 条任务",
+      "lang": "zh",
+      "params": {
+        "n": 12
+      },
+      "value": "会替换当前全部 12 条任务"
+    },
+    {
+      "key": "会替换当前全部 {n} 条任务",
+      "lang": "zh",
+      "params": {
+        "n": 0
+      },
+      "value": "会替换当前全部 0 条任务"
+    },
+    {
+      "key": "用备份里的 {a} 条任务替换当前的 {b} 条？",
+      "lang": "zh",
+      "params": {
+        "a": 3,
+        "b": 1
+      },
+      "value": "用备份里的 3 条任务替换当前的 1 条？"
+    },
+    {
+      "key": "已恢复 {n} 条任务",
+      "lang": "zh",
+      "params": {
+        "n": 1
+      },
+      "value": "已恢复 1 条任务"
+    },
+    {
+      "key": "已恢复 {n} 条任务",
+      "lang": "zh",
+      "params": {
+        "n": 5
+      },
+      "value": "已恢复 5 条任务"
+    },
+    {
+      "key": "连接码格式不对：应该是 地址#令牌",
+      "lang": "zh",
+      "params": {},
+      "value": "连接码格式不对：应该是 地址#令牌"
+    },
+    {
+      "key": "填入服务器启动时打印的连接码",
+      "lang": "zh",
+      "params": {},
+      "value": "填入服务器启动时打印的连接码"
+    },
+    {
+      "key": "正在同步…",
+      "lang": "zh",
+      "params": {},
+      "value": "正在同步…"
+    },
+    {
+      "key": "同步失败：{msg}",
+      "lang": "zh",
+      "params": {
+        "msg": "Wrong token"
+      },
+      "value": "同步失败：Wrong token"
+    },
+    {
+      "key": "已同步 · {time} · {host}",
+      "lang": "zh",
+      "params": {
+        "time": "14:05",
+        "host": "192.168.1.5:18787"
+      },
+      "value": "已同步 · 14:05 · 192.168.1.5:18787"
+    },
+    {
+      "key": "还没同步过",
+      "lang": "zh",
+      "params": {},
+      "value": "还没同步过"
+    },
+    {
+      "key": "同步完成",
+      "lang": "zh",
+      "params": {},
+      "value": "同步完成"
+    },
+    {
+      "key": "已删除「{title}」及{n} 个子任务",
+      "lang": "zh",
+      "params": {
+        "title": "项目",
+        "n": 2
+      },
+      "value": "已删除「项目」及2 个子任务"
+    },
+    {
+      "key": "已删除「{title}」及以后的重复和{n} 个子任务",
+      "lang": "zh",
+      "params": {
+        "title": "跑步",
+        "n": 1
+      },
+      "value": "已删除「跑步」及以后的重复和1 个子任务"
+    },
+    {
+      "key": "已完成 {n} 次",
+      "lang": "zh",
+      "params": {
+        "n": 1
+      },
+      "value": "已完成 1 次"
+    },
+    {
+      "key": "已完成 {n} 次",
+      "lang": "zh",
+      "params": {
+        "n": 4
+      },
+      "value": "已完成 4 次"
+    },
+    {
+      "key": "{n} 个任务已移到今天",
+      "lang": "zh",
+      "params": {
+        "n": 1
+      },
+      "value": "1 个任务已移到今天"
+    },
+    {
+      "key": "{n} 个任务已移到今天",
+      "lang": "zh",
+      "params": {
+        "n": 3
+      },
+      "value": "3 个任务已移到今天"
+    },
+    {
+      "key": "已推迟到{date}",
+      "lang": "zh",
+      "params": {
+        "date": "Tomorrow"
+      },
+      "value": "已推迟到Tomorrow"
+    },
+    {
+      "key": "全部",
+      "lang": "en",
+      "params": {},
+      "value": "All"
+    },
+    {
+      "key": "本周",
+      "lang": "en",
+      "params": {},
+      "value": "This week"
+    },
+    {
+      "key": "已完成",
+      "lang": "en",
+      "params": {},
+      "value": "Done"
+    },
+    {
+      "key": "今天",
+      "lang": "en",
+      "params": {},
+      "value": "Today"
+    },
+    {
+      "key": "在{name}里新建",
+      "lang": "en",
+      "params": {
+        "name": "重要且紧急"
+      },
+      "value": "New task in 重要且紧急"
+    },
+    {
+      "key": "已移到「{name}」",
+      "lang": "en",
+      "params": {
+        "name": "不重要不紧急"
+      },
+      "value": "Moved to “不重要不紧急”"
+    },
+    {
+      "key": "没有需要马上处理的事",
+      "lang": "en",
+      "params": {},
+      "value": "Nothing needs you right now"
+    },
+    {
+      "key": "清清爽爽",
+      "lang": "en",
+      "params": {},
+      "value": "All clear"
+    },
+    {
+      "key": "长按任务拖到其他象限 · 点击查看详情",
+      "lang": "en",
+      "params": {},
+      "value": "Long-press a task to move it · Tap for details"
+    },
+    {
+      "key": "每天",
+      "lang": "en",
+      "params": {},
+      "value": "Daily"
+    },
+    {
+      "key": "每隔几天",
+      "lang": "en",
+      "params": {},
+      "value": "Every few days"
+    },
+    {
+      "key": "每周",
+      "lang": "en",
+      "params": {},
+      "value": "Weekly"
+    },
+    {
+      "key": "每月",
+      "lang": "en",
+      "params": {},
+      "value": "Monthly"
+    },
+    {
+      "key": "每年",
+      "lang": "en",
+      "params": {},
+      "value": "Yearly"
+    },
+    {
+      "key": "已结束",
+      "lang": "en",
+      "params": {},
+      "value": "Ended"
+    },
+    {
+      "key": "今天还剩 {n} 项",
+      "lang": "en",
+      "params": {
+        "n": 1
+      },
+      "value": "1 left today"
+    },
+    {
+      "key": "今天还剩 {n} 项",
+      "lang": "en",
+      "params": {
+        "n": 3
+      },
+      "value": "3 left today"
+    },
+    {
+      "key": "今天 {done}/{total} · 共 {n} 项打卡",
+      "lang": "en",
+      "params": {
+        "done": 1,
+        "total": 3,
+        "n": 1
+      },
+      "value": "Today 1/3 · 1 routine"
+    },
+    {
+      "key": "今天 {done}/{total} · 共 {n} 项打卡",
+      "lang": "en",
+      "params": {
+        "done": 2,
+        "total": 4,
+        "n": 5
+      },
+      "value": "Today 2/4 · 5 routines"
+    },
+    {
+      "key": "已删除「{title}」及 {n} 个子任务",
+      "lang": "en",
+      "params": {
+        "title": "周会",
+        "n": 1
+      },
+      "value": "Deleted “周会” and 1 subtask"
+    },
+    {
+      "key": "已删除「{title}」及 {n} 个子任务",
+      "lang": "en",
+      "params": {
+        "title": "周会",
+        "n": 3
+      },
+      "value": "Deleted “周会” and 3 subtasks"
+    },
+    {
+      "key": "今天没有要打卡的",
+      "lang": "en",
+      "params": {},
+      "value": "No routines today"
+    },
+    {
+      "key": "今天的卡都打完了",
+      "lang": "en",
+      "params": {},
+      "value": "All routines done for today"
+    },
+    {
+      "key": "还没有打卡任务",
+      "lang": "en",
+      "params": {},
+      "value": "No routines yet"
+    },
+    {
+      "key": "今天这次已跳过",
+      "lang": "en",
+      "params": {},
+      "value": "Skipped for today"
+    },
+    {
+      "key": "下一次已跳过",
+      "lang": "en",
+      "params": {},
+      "value": "Skipped the next one"
+    },
+    {
+      "key": "夜深了",
+      "lang": "en",
+      "params": {},
+      "value": "It's late"
+    },
+    {
+      "key": "早上好",
+      "lang": "en",
+      "params": {},
+      "value": "Good morning"
+    },
+    {
+      "key": "中午好",
+      "lang": "en",
+      "params": {},
+      "value": "Hello"
+    },
+    {
+      "key": "下午好",
+      "lang": "en",
+      "params": {},
+      "value": "Good afternoon"
+    },
+    {
+      "key": "晚上好",
+      "lang": "en",
+      "params": {},
+      "value": "Good evening"
+    },
+    {
+      "key": "今天还没有安排任务",
+      "lang": "en",
+      "params": {},
+      "value": "Nothing planned for today"
+    },
+    {
+      "key": "今天的任务全部完成了，真棒",
+      "lang": "en",
+      "params": {},
+      "value": "All done for today. Nice work"
+    },
+    {
+      "key": "今天还有 {n} 个任务待完成",
+      "lang": "en",
+      "params": {
+        "n": 1
+      },
+      "value": "1 task left today"
+    },
+    {
+      "key": "今天还有 {n} 个任务待完成",
+      "lang": "en",
+      "params": {
+        "n": 4
+      },
+      "value": "4 tasks left today"
+    },
+    {
+      "key": "{done} / {total} 已完成",
+      "lang": "en",
+      "params": {
+        "done": 2,
+        "total": 5
+      },
+      "value": "2 / 5 done"
+    },
+    {
+      "key": "本周完成",
+      "lang": "en",
+      "params": {},
+      "value": "Done this week"
+    },
+    {
+      "key": "待办总数",
+      "lang": "en",
+      "params": {},
+      "value": "To do"
+    },
+    {
+      "key": "已过期",
+      "lang": "en",
+      "params": {},
+      "value": "Overdue"
+    },
+    {
+      "key": "近 7 天完成",
+      "lang": "en",
+      "params": {},
+      "value": "Last 7 days"
+    },
+    {
+      "key": "共 {n} 个",
+      "lang": "en",
+      "params": {
+        "n": 1
+      },
+      "value": "1 total"
+    },
+    {
+      "key": "共 {n} 个",
+      "lang": "en",
+      "params": {
+        "n": 7
+      },
+      "value": "7 total"
+    },
+    {
+      "key": "跟随系统",
+      "lang": "en",
+      "params": {},
+      "value": "System"
+    },
+    {
+      "key": "通用",
+      "lang": "en",
+      "params": {},
+      "value": "General"
+    },
+    {
+      "key": "日历显示",
+      "lang": "en",
+      "params": {},
+      "value": "Calendar display"
+    },
+    {
+      "key": "农历与节气",
+      "lang": "en",
+      "params": {},
+      "value": "Lunar calendar & solar terms"
+    },
+    {
+      "key": "法定节假日与调休",
+      "lang": "en",
+      "params": {},
+      "value": "Public holidays & make-up workdays"
+    },
+    {
+      "key": "到点提醒",
+      "lang": "en",
+      "params": {},
+      "value": "Time reminders"
+    },
+    {
+      "key": "新任务默认提醒",
+      "lang": "en",
+      "params": {},
+      "value": "Default reminder"
+    },
+    {
+      "key": "会替换当前全部 {n} 条任务",
+      "lang": "en",
+      "params": {
+        "n": 1
+      },
+      "value": "Replaces all 1 current task"
+    },
+    {
+      "key": "会替换当前全部 {n} 条任务",
+      "lang": "en",
+      "params": {
+        "n": 12
+      },
+      "value": "Replaces all 12 current tasks"
+    },
+    {
+      "key": "会替换当前全部 {n} 条任务",
+      "lang": "en",
+      "params": {
+        "n": 0
+      },
+      "value": "Replaces all 0 current tasks"
+    },
+    {
+      "key": "用备份里的 {a} 条任务替换当前的 {b} 条？",
+      "lang": "en",
+      "params": {
+        "a": 3,
+        "b": 1
+      },
+      "value": "Replace your 1 task with the 3 tasks in the backup?"
+    },
+    {
+      "key": "已恢复 {n} 条任务",
+      "lang": "en",
+      "params": {
+        "n": 1
+      },
+      "value": "Restored 1 task"
+    },
+    {
+      "key": "已恢复 {n} 条任务",
+      "lang": "en",
+      "params": {
+        "n": 5
+      },
+      "value": "Restored 5 tasks"
+    },
+    {
+      "key": "连接码格式不对：应该是 地址#令牌",
+      "lang": "en",
+      "params": {},
+      "value": "Invalid connection code. It should look like address#token"
+    },
+    {
+      "key": "填入服务器启动时打印的连接码",
+      "lang": "en",
+      "params": {},
+      "value": "Enter the connection code the server printed at startup"
+    },
+    {
+      "key": "正在同步…",
+      "lang": "en",
+      "params": {},
+      "value": "Syncing…"
+    },
+    {
+      "key": "同步失败：{msg}",
+      "lang": "en",
+      "params": {
+        "msg": "Wrong token"
+      },
+      "value": "Sync failed: Wrong token"
+    },
+    {
+      "key": "已同步 · {time} · {host}",
+      "lang": "en",
+      "params": {
+        "time": "14:05",
+        "host": "192.168.1.5:18787"
+      },
+      "value": "Synced · 14:05 · 192.168.1.5:18787"
+    },
+    {
+      "key": "还没同步过",
+      "lang": "en",
+      "params": {},
+      "value": "Not synced yet"
+    },
+    {
+      "key": "同步完成",
+      "lang": "en",
+      "params": {},
+      "value": "Sync complete"
+    },
+    {
+      "key": "已删除「{title}」及{n} 个子任务",
+      "lang": "en",
+      "params": {
+        "title": "项目",
+        "n": 2
+      },
+      "value": "Deleted “项目” and 2 subtasks"
+    },
+    {
+      "key": "已删除「{title}」及以后的重复和{n} 个子任务",
+      "lang": "en",
+      "params": {
+        "title": "跑步",
+        "n": 1
+      },
+      "value": "Deleted “跑步”, future repeats and 1 subtask"
+    },
+    {
+      "key": "已完成 {n} 次",
+      "lang": "en",
+      "params": {
+        "n": 1
+      },
+      "value": "Done once"
+    },
+    {
+      "key": "已完成 {n} 次",
+      "lang": "en",
+      "params": {
+        "n": 4
+      },
+      "value": "Done 4 times"
+    },
+    {
+      "key": "{n} 个任务已移到今天",
+      "lang": "en",
+      "params": {
+        "n": 1
+      },
+      "value": "Moved 1 task to today"
+    },
+    {
+      "key": "{n} 个任务已移到今天",
+      "lang": "en",
+      "params": {
+        "n": 3
+      },
+      "value": "Moved 3 tasks to today"
+    },
+    {
+      "key": "已推迟到{date}",
+      "lang": "en",
+      "params": {
+        "date": "Tomorrow"
+      },
+      "value": "Postponed to tomorrow"
+    }
+  ]
+}
