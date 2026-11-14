@@ -1,0 +1,7284 @@
+{
+  "meta": {
+    "baseline": "97a7c4c17602327a42d30110806a6a1e6fa0e798",
+    "oracle": "src/lib/notify.js (function bodies verbatim; 4 stub imports + 4 absolute imports + 1 appended export)",
+    "generatedBy": "node ios/PlannerTests/Fixtures/generate_notify_fixtures.mjs",
+    "timezones": [
+      "Asia/Shanghai",
+      "America/New_York",
+      "Europe/London",
+      "Pacific/Auckland",
+      "Asia/Kolkata"
+    ],
+    "windowDays": 30,
+    "max": 60,
+    "labels": 7,
+    "idOf": 8,
+    "planCases": 40,
+    "notificationCases": 20
+  },
+  "labels": [
+    {
+      "m": null,
+      "zhLabel": "不提醒",
+      "zhShort": "null 分钟前",
+      "enLabel": "No reminder",
+      "enShort": "null min before"
+    },
+    {
+      "m": 0,
+      "zhLabel": "准时",
+      "zhShort": "准时",
+      "enLabel": "On time",
+      "enShort": "On time"
+    },
+    {
+      "m": 5,
+      "zhLabel": "提前 5 分钟",
+      "zhShort": "5 分钟前",
+      "enLabel": "5 minutes before",
+      "enShort": "5 min before"
+    },
+    {
+      "m": 15,
+      "zhLabel": "提前 15 分钟",
+      "zhShort": "15 分钟前",
+      "enLabel": "15 minutes before",
+      "enShort": "15 min before"
+    },
+    {
+      "m": 30,
+      "zhLabel": "提前 30 分钟",
+      "zhShort": "30 分钟前",
+      "enLabel": "30 minutes before",
+      "enShort": "30 min before"
+    },
+    {
+      "m": 60,
+      "zhLabel": "提前 1 小时",
+      "zhShort": "1 小时前",
+      "enLabel": "1 hour before",
+      "enShort": "1 hr before"
+    },
+    {
+      "m": 120,
+      "zhLabel": "提前 2 小时",
+      "zhShort": "2 小时前",
+      "enLabel": "2 hours before",
+      "enShort": "2 hr before"
+    }
+  ],
+  "idOf": [
+    {
+      "key": "a1|2026-11-14",
+      "expected": 1018718193
+    },
+    {
+      "key": "x|2026-01-01",
+      "expected": 11946298
+    },
+    {
+      "key": "",
+      "expected": 1
+    },
+    {
+      "key": "任务A|2026-11-14",
+      "expected": 1485623558
+    },
+    {
+      "key": "😀|2026-11-14",
+      "expected": 735047522
+    },
+    {
+      "key": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa|2026-11-14",
+      "expected": 2030548833
+    },
+    {
+      "key": "zzzzzz|2026-12-31",
+      "expected": 535226555
+    },
+    {
+      "key": "0|1970-01-01",
+      "expected": 512612659
+    }
+  ],
+  "planCases": [
+    {
+      "name": "basic-filter",
+      "nowMs": 1794628800000,
+      "tasks": [
+        {
+          "id": "t-once",
+          "title": "一次性",
+          "note": "",
+          "date": "2026-11-14",
+          "time": "18:00",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 0,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        },
+        {
+          "id": "t-past",
+          "title": "已过去",
+          "note": "",
+          "date": "2026-11-14",
+          "time": "09:00",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 0,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        },
+        {
+          "id": "t-noremind",
+          "title": "不提醒",
+          "note": "",
+          "date": "2026-11-14",
+          "time": "09:00",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": null,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        },
+        {
+          "id": "t-notime",
+          "title": "无时间",
+          "note": "",
+          "date": "2026-11-14",
+          "time": "",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 5,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        },
+        {
+          "id": "t-nodate",
+          "title": "无日期",
+          "note": "",
+          "date": "",
+          "time": "09:00",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 5,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        },
+        {
+          "id": "t-done",
+          "title": "已完成",
+          "note": "",
+          "date": "2026-11-14",
+          "time": "09:00",
+          "important": false,
+          "urgent": false,
+          "done": true,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 0,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        },
+        {
+          "id": "t-tomorrow",
+          "title": "明天",
+          "note": "",
+          "date": "2026-11-15",
+          "time": "08:30",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 15,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        }
+      ],
+      "taskCount": 7,
+      "expected": [
+        {
+          "at": 1794650400000,
+          "taskId": "t-once",
+          "date": "2026-11-14"
+        },
+        {
+          "at": 1794701700000,
+          "taskId": "t-tomorrow",
+          "date": "2026-11-15"
+        }
+      ],
+      "tz": "Asia/Shanghai"
+    },
+    {
+      "name": "repeat-d1-window",
+      "nowMs": 1794628800000,
+      "tasks": [
+        {
+          "id": "r-d1",
+          "title": "每天",
+          "note": "",
+          "date": "2026-11-01",
+          "time": "07:00",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "d1",
+          "doneDates": [
+            "2026-11-15",
+            "2026-11-17"
+          ],
+          "skipDates": [],
+          "remind": 5,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        }
+      ],
+      "taskCount": 1,
+      "expected": [
+        {
+          "at": 1794783300000,
+          "taskId": "r-d1",
+          "date": "2026-11-16"
+        },
+        {
+          "at": 1794956100000,
+          "taskId": "r-d1",
+          "date": "2026-11-18"
+        },
+        {
+          "at": 1795042500000,
+          "taskId": "r-d1",
+          "date": "2026-11-19"
+        },
+        {
+          "at": 1795128900000,
+          "taskId": "r-d1",
+          "date": "2026-11-20"
+        },
+        {
+          "at": 1795215300000,
+          "taskId": "r-d1",
+          "date": "2026-11-21"
+        },
+        {
+          "at": 1795301700000,
+          "taskId": "r-d1",
+          "date": "2026-11-22"
+        },
+        {
+          "at": 1795388100000,
+          "taskId": "r-d1",
+          "date": "2026-11-23"
+        },
+        {
+          "at": 1795474500000,
+          "taskId": "r-d1",
+          "date": "2026-11-24"
+        },
+        {
+          "at": 1795560900000,
+          "taskId": "r-d1",
+          "date": "2026-11-25"
+        },
+        {
+          "at": 1795647300000,
+          "taskId": "r-d1",
+          "date": "2026-11-26"
+        },
+        {
+          "at": 1795733700000,
+          "taskId": "r-d1",
+          "date": "2026-11-27"
+        },
+        {
+          "at": 1795820100000,
+          "taskId": "r-d1",
+          "date": "2026-11-28"
+        },
+        {
+          "at": 1795906500000,
+          "taskId": "r-d1",
+          "date": "2026-11-29"
+        },
+        {
+          "at": 1795992900000,
+          "taskId": "r-d1",
+          "date": "2026-11-30"
+        },
+        {
+          "at": 1796079300000,
+          "taskId": "r-d1",
+          "date": "2026-12-01"
+        },
+        {
+          "at": 1796165700000,
+          "taskId": "r-d1",
+          "date": "2026-12-02"
+        },
+        {
+          "at": 1796252100000,
+          "taskId": "r-d1",
+          "date": "2026-12-03"
+        },
+        {
+          "at": 1796338500000,
+          "taskId": "r-d1",
+          "date": "2026-12-04"
+        },
+        {
+          "at": 1796424900000,
+          "taskId": "r-d1",
+          "date": "2026-12-05"
+        },
+        {
+          "at": 1796511300000,
+          "taskId": "r-d1",
+          "date": "2026-12-06"
+        },
+        {
+          "at": 1796597700000,
+          "taskId": "r-d1",
+          "date": "2026-12-07"
+        },
+        {
+          "at": 1796684100000,
+          "taskId": "r-d1",
+          "date": "2026-12-08"
+        },
+        {
+          "at": 1796770500000,
+          "taskId": "r-d1",
+          "date": "2026-12-09"
+        },
+        {
+          "at": 1796856900000,
+          "taskId": "r-d1",
+          "date": "2026-12-10"
+        },
+        {
+          "at": 1796943300000,
+          "taskId": "r-d1",
+          "date": "2026-12-11"
+        },
+        {
+          "at": 1797029700000,
+          "taskId": "r-d1",
+          "date": "2026-12-12"
+        },
+        {
+          "at": 1797116100000,
+          "taskId": "r-d1",
+          "date": "2026-12-13"
+        },
+        {
+          "at": 1797202500000,
+          "taskId": "r-d1",
+          "date": "2026-12-14"
+        }
+      ],
+      "tz": "Asia/Shanghai"
+    },
+    {
+      "name": "repeat-weekly-and-until",
+      "nowMs": 1794628800000,
+      "tasks": [
+        {
+          "id": "r-w",
+          "title": "工作日",
+          "note": "",
+          "date": "2026-11-01",
+          "time": "09:30",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "w1:12345",
+          "doneDates": [],
+          "skipDates": [
+            "2026-11-18"
+          ],
+          "remind": 0,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        },
+        {
+          "id": "r-m",
+          "title": "每月",
+          "note": "",
+          "date": "2026-10-15",
+          "time": "10:00",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "m1",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 0,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        },
+        {
+          "id": "r-y",
+          "title": "每年",
+          "note": "",
+          "date": "2020-12-20",
+          "time": "20:00",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "y1",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 0,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        },
+        {
+          "id": "r-until",
+          "title": "到月底",
+          "note": "",
+          "date": "2026-11-01",
+          "time": "11:00",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "d1~2026-11-20",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 30,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        }
+      ],
+      "taskCount": 4,
+      "expected": [
+        {
+          "at": 1794708000000,
+          "taskId": "r-m",
+          "date": "2026-11-15"
+        },
+        {
+          "at": 1794709800000,
+          "taskId": "r-until",
+          "date": "2026-11-15"
+        },
+        {
+          "at": 1794792600000,
+          "taskId": "r-w",
+          "date": "2026-11-16"
+        },
+        {
+          "at": 1794796200000,
+          "taskId": "r-until",
+          "date": "2026-11-16"
+        },
+        {
+          "at": 1794879000000,
+          "taskId": "r-w",
+          "date": "2026-11-17"
+        },
+        {
+          "at": 1794882600000,
+          "taskId": "r-until",
+          "date": "2026-11-17"
+        },
+        {
+          "at": 1794969000000,
+          "taskId": "r-until",
+          "date": "2026-11-18"
+        },
+        {
+          "at": 1795051800000,
+          "taskId": "r-w",
+          "date": "2026-11-19"
+        },
+        {
+          "at": 1795055400000,
+          "taskId": "r-until",
+          "date": "2026-11-19"
+        },
+        {
+          "at": 1795138200000,
+          "taskId": "r-w",
+          "date": "2026-11-20"
+        },
+        {
+          "at": 1795141800000,
+          "taskId": "r-until",
+          "date": "2026-11-20"
+        },
+        {
+          "at": 1795397400000,
+          "taskId": "r-w",
+          "date": "2026-11-23"
+        },
+        {
+          "at": 1795483800000,
+          "taskId": "r-w",
+          "date": "2026-11-24"
+        },
+        {
+          "at": 1795570200000,
+          "taskId": "r-w",
+          "date": "2026-11-25"
+        },
+        {
+          "at": 1795656600000,
+          "taskId": "r-w",
+          "date": "2026-11-26"
+        },
+        {
+          "at": 1795743000000,
+          "taskId": "r-w",
+          "date": "2026-11-27"
+        },
+        {
+          "at": 1796002200000,
+          "taskId": "r-w",
+          "date": "2026-11-30"
+        },
+        {
+          "at": 1796088600000,
+          "taskId": "r-w",
+          "date": "2026-12-01"
+        },
+        {
+          "at": 1796175000000,
+          "taskId": "r-w",
+          "date": "2026-12-02"
+        },
+        {
+          "at": 1796261400000,
+          "taskId": "r-w",
+          "date": "2026-12-03"
+        },
+        {
+          "at": 1796347800000,
+          "taskId": "r-w",
+          "date": "2026-12-04"
+        },
+        {
+          "at": 1796607000000,
+          "taskId": "r-w",
+          "date": "2026-12-07"
+        },
+        {
+          "at": 1796693400000,
+          "taskId": "r-w",
+          "date": "2026-12-08"
+        },
+        {
+          "at": 1796779800000,
+          "taskId": "r-w",
+          "date": "2026-12-09"
+        },
+        {
+          "at": 1796866200000,
+          "taskId": "r-w",
+          "date": "2026-12-10"
+        },
+        {
+          "at": 1796952600000,
+          "taskId": "r-w",
+          "date": "2026-12-11"
+        },
+        {
+          "at": 1797211800000,
+          "taskId": "r-w",
+          "date": "2026-12-14"
+        }
+      ],
+      "tz": "Asia/Shanghai"
+    },
+    {
+      "name": "max-60-clamp",
+      "nowMs": 1793462400000,
+      "tasks": [
+        {
+          "id": "cap-A",
+          "title": "上限A",
+          "note": "",
+          "date": "2026-11-01",
+          "time": "07:00",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "d1",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 0,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        },
+        {
+          "id": "cap-B",
+          "title": "上限B",
+          "note": "",
+          "date": "2026-11-01",
+          "time": "08:00",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "d1",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 0,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        },
+        {
+          "id": "cap-C",
+          "title": "上限C",
+          "note": "",
+          "date": "2026-11-01",
+          "time": "09:00",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "d1",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 0,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        }
+      ],
+      "taskCount": 3,
+      "expected": [
+        {
+          "at": 1793487600000,
+          "taskId": "cap-A",
+          "date": "2026-11-01"
+        },
+        {
+          "at": 1793491200000,
+          "taskId": "cap-B",
+          "date": "2026-11-01"
+        },
+        {
+          "at": 1793494800000,
+          "taskId": "cap-C",
+          "date": "2026-11-01"
+        },
+        {
+          "at": 1793574000000,
+          "taskId": "cap-A",
+          "date": "2026-11-02"
+        },
+        {
+          "at": 1793577600000,
+          "taskId": "cap-B",
+          "date": "2026-11-02"
+        },
+        {
+          "at": 1793581200000,
+          "taskId": "cap-C",
+          "date": "2026-11-02"
+        },
+        {
+          "at": 1793660400000,
+          "taskId": "cap-A",
+          "date": "2026-11-03"
+        },
+        {
+          "at": 1793664000000,
+          "taskId": "cap-B",
+          "date": "2026-11-03"
+        },
+        {
+          "at": 1793667600000,
+          "taskId": "cap-C",
+          "date": "2026-11-03"
+        },
+        {
+          "at": 1793746800000,
+          "taskId": "cap-A",
+          "date": "2026-11-04"
+        },
+        {
+          "at": 1793750400000,
+          "taskId": "cap-B",
+          "date": "2026-11-04"
+        },
+        {
+          "at": 1793754000000,
+          "taskId": "cap-C",
+          "date": "2026-11-04"
+        },
+        {
+          "at": 1793833200000,
+          "taskId": "cap-A",
+          "date": "2026-11-05"
+        },
+        {
+          "at": 1793836800000,
+          "taskId": "cap-B",
+          "date": "2026-11-05"
+        },
+        {
+          "at": 1793840400000,
+          "taskId": "cap-C",
+          "date": "2026-11-05"
+        },
+        {
+          "at": 1793919600000,
+          "taskId": "cap-A",
+          "date": "2026-11-06"
+        },
+        {
+          "at": 1793923200000,
+          "taskId": "cap-B",
+          "date": "2026-11-06"
+        },
+        {
+          "at": 1793926800000,
+          "taskId": "cap-C",
+          "date": "2026-11-06"
+        },
+        {
+          "at": 1794006000000,
+          "taskId": "cap-A",
+          "date": "2026-11-07"
+        },
+        {
+          "at": 1794009600000,
+          "taskId": "cap-B",
+          "date": "2026-11-07"
+        },
+        {
+          "at": 1794013200000,
+          "taskId": "cap-C",
+          "date": "2026-11-07"
+        },
+        {
+          "at": 1794092400000,
+          "taskId": "cap-A",
+          "date": "2026-11-08"
+        },
+        {
+          "at": 1794096000000,
+          "taskId": "cap-B",
+          "date": "2026-11-08"
+        },
+        {
+          "at": 1794099600000,
+          "taskId": "cap-C",
+          "date": "2026-11-08"
+        },
+        {
+          "at": 1794178800000,
+          "taskId": "cap-A",
+          "date": "2026-11-09"
+        },
+        {
+          "at": 1794182400000,
+          "taskId": "cap-B",
+          "date": "2026-11-09"
+        },
+        {
+          "at": 1794186000000,
+          "taskId": "cap-C",
+          "date": "2026-11-09"
+        },
+        {
+          "at": 1794265200000,
+          "taskId": "cap-A",
+          "date": "2026-11-10"
+        },
+        {
+          "at": 1794268800000,
+          "taskId": "cap-B",
+          "date": "2026-11-10"
+        },
+        {
+          "at": 1794272400000,
+          "taskId": "cap-C",
+          "date": "2026-11-10"
+        },
+        {
+          "at": 1794351600000,
+          "taskId": "cap-A",
+          "date": "2026-11-11"
+        },
+        {
+          "at": 1794355200000,
+          "taskId": "cap-B",
+          "date": "2026-11-11"
+        },
+        {
+          "at": 1794358800000,
+          "taskId": "cap-C",
+          "date": "2026-11-11"
+        },
+        {
+          "at": 1794438000000,
+          "taskId": "cap-A",
+          "date": "2026-11-12"
+        },
+        {
+          "at": 1794441600000,
+          "taskId": "cap-B",
+          "date": "2026-11-12"
+        },
+        {
+          "at": 1794445200000,
+          "taskId": "cap-C",
+          "date": "2026-11-12"
+        },
+        {
+          "at": 1794524400000,
+          "taskId": "cap-A",
+          "date": "2026-11-13"
+        },
+        {
+          "at": 1794528000000,
+          "taskId": "cap-B",
+          "date": "2026-11-13"
+        },
+        {
+          "at": 1794531600000,
+          "taskId": "cap-C",
+          "date": "2026-11-13"
+        },
+        {
+          "at": 1794610800000,
+          "taskId": "cap-A",
+          "date": "2026-11-14"
+        },
+        {
+          "at": 1794614400000,
+          "taskId": "cap-B",
+          "date": "2026-11-14"
+        },
+        {
+          "at": 1794618000000,
+          "taskId": "cap-C",
+          "date": "2026-11-14"
+        },
+        {
+          "at": 1794697200000,
+          "taskId": "cap-A",
+          "date": "2026-11-15"
+        },
+        {
+          "at": 1794700800000,
+          "taskId": "cap-B",
+          "date": "2026-11-15"
+        },
+        {
+          "at": 1794704400000,
+          "taskId": "cap-C",
+          "date": "2026-11-15"
+        },
+        {
+          "at": 1794783600000,
+          "taskId": "cap-A",
+          "date": "2026-11-16"
+        },
+        {
+          "at": 1794787200000,
+          "taskId": "cap-B",
+          "date": "2026-11-16"
+        },
+        {
+          "at": 1794790800000,
+          "taskId": "cap-C",
+          "date": "2026-11-16"
+        },
+        {
+          "at": 1794870000000,
+          "taskId": "cap-A",
+          "date": "2026-11-17"
+        },
+        {
+          "at": 1794873600000,
+          "taskId": "cap-B",
+          "date": "2026-11-17"
+        },
+        {
+          "at": 1794877200000,
+          "taskId": "cap-C",
+          "date": "2026-11-17"
+        },
+        {
+          "at": 1794956400000,
+          "taskId": "cap-A",
+          "date": "2026-11-18"
+        },
+        {
+          "at": 1794960000000,
+          "taskId": "cap-B",
+          "date": "2026-11-18"
+        },
+        {
+          "at": 1794963600000,
+          "taskId": "cap-C",
+          "date": "2026-11-18"
+        },
+        {
+          "at": 1795042800000,
+          "taskId": "cap-A",
+          "date": "2026-11-19"
+        },
+        {
+          "at": 1795046400000,
+          "taskId": "cap-B",
+          "date": "2026-11-19"
+        },
+        {
+          "at": 1795050000000,
+          "taskId": "cap-C",
+          "date": "2026-11-19"
+        },
+        {
+          "at": 1795129200000,
+          "taskId": "cap-A",
+          "date": "2026-11-20"
+        },
+        {
+          "at": 1795132800000,
+          "taskId": "cap-B",
+          "date": "2026-11-20"
+        },
+        {
+          "at": 1795136400000,
+          "taskId": "cap-C",
+          "date": "2026-11-20"
+        }
+      ],
+      "tz": "Asia/Shanghai"
+    },
+    {
+      "name": "remind-crosses-midnight",
+      "nowMs": 1794671400000,
+      "tasks": [
+        {
+          "id": "x-1",
+          "title": "次日凌晨",
+          "note": "",
+          "date": "2026-11-15",
+          "time": "00:10",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 60,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        },
+        {
+          "id": "x-2",
+          "title": "今晚",
+          "note": "",
+          "date": "2026-11-14",
+          "time": "23:59",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 0,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        },
+        {
+          "id": "x-3",
+          "title": "已过提醒点",
+          "note": "",
+          "date": "2026-11-15",
+          "time": "00:30",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 60,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        }
+      ],
+      "taskCount": 3,
+      "expected": [
+        {
+          "at": 1794671940000,
+          "taskId": "x-2",
+          "date": "2026-11-14"
+        }
+      ],
+      "tz": "Asia/Shanghai"
+    },
+    {
+      "name": "quadrant-and-repeat-flags",
+      "nowMs": 1794628800000,
+      "tasks": [
+        {
+          "id": "q1",
+          "title": "象限1",
+          "note": "",
+          "date": "2026-11-16",
+          "time": "14:00",
+          "important": true,
+          "urgent": true,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "d2",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 30,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        },
+        {
+          "id": "q2",
+          "title": "象限2",
+          "note": "",
+          "date": "2026-11-16",
+          "time": "14:00",
+          "important": true,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 30,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        },
+        {
+          "id": "q3",
+          "title": "象限3",
+          "note": "",
+          "date": "2026-11-16",
+          "time": "14:00",
+          "important": false,
+          "urgent": true,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "d2",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 30,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        },
+        {
+          "id": "q4",
+          "title": "象限4",
+          "note": "",
+          "date": "2026-11-16",
+          "time": "14:00",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 30,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        }
+      ],
+      "taskCount": 4,
+      "expected": [
+        {
+          "at": 1794807000000,
+          "taskId": "q1",
+          "date": "2026-11-16"
+        },
+        {
+          "at": 1794807000000,
+          "taskId": "q2",
+          "date": "2026-11-16"
+        },
+        {
+          "at": 1794807000000,
+          "taskId": "q3",
+          "date": "2026-11-16"
+        },
+        {
+          "at": 1794807000000,
+          "taskId": "q4",
+          "date": "2026-11-16"
+        },
+        {
+          "at": 1794979800000,
+          "taskId": "q1",
+          "date": "2026-11-18"
+        },
+        {
+          "at": 1794979800000,
+          "taskId": "q3",
+          "date": "2026-11-18"
+        },
+        {
+          "at": 1795152600000,
+          "taskId": "q1",
+          "date": "2026-11-20"
+        },
+        {
+          "at": 1795152600000,
+          "taskId": "q3",
+          "date": "2026-11-20"
+        },
+        {
+          "at": 1795325400000,
+          "taskId": "q1",
+          "date": "2026-11-22"
+        },
+        {
+          "at": 1795325400000,
+          "taskId": "q3",
+          "date": "2026-11-22"
+        },
+        {
+          "at": 1795498200000,
+          "taskId": "q1",
+          "date": "2026-11-24"
+        },
+        {
+          "at": 1795498200000,
+          "taskId": "q3",
+          "date": "2026-11-24"
+        },
+        {
+          "at": 1795671000000,
+          "taskId": "q1",
+          "date": "2026-11-26"
+        },
+        {
+          "at": 1795671000000,
+          "taskId": "q3",
+          "date": "2026-11-26"
+        },
+        {
+          "at": 1795843800000,
+          "taskId": "q1",
+          "date": "2026-11-28"
+        },
+        {
+          "at": 1795843800000,
+          "taskId": "q3",
+          "date": "2026-11-28"
+        },
+        {
+          "at": 1796016600000,
+          "taskId": "q1",
+          "date": "2026-11-30"
+        },
+        {
+          "at": 1796016600000,
+          "taskId": "q3",
+          "date": "2026-11-30"
+        },
+        {
+          "at": 1796189400000,
+          "taskId": "q1",
+          "date": "2026-12-02"
+        },
+        {
+          "at": 1796189400000,
+          "taskId": "q3",
+          "date": "2026-12-02"
+        },
+        {
+          "at": 1796362200000,
+          "taskId": "q1",
+          "date": "2026-12-04"
+        },
+        {
+          "at": 1796362200000,
+          "taskId": "q3",
+          "date": "2026-12-04"
+        },
+        {
+          "at": 1796535000000,
+          "taskId": "q1",
+          "date": "2026-12-06"
+        },
+        {
+          "at": 1796535000000,
+          "taskId": "q3",
+          "date": "2026-12-06"
+        },
+        {
+          "at": 1796707800000,
+          "taskId": "q1",
+          "date": "2026-12-08"
+        },
+        {
+          "at": 1796707800000,
+          "taskId": "q3",
+          "date": "2026-12-08"
+        },
+        {
+          "at": 1796880600000,
+          "taskId": "q1",
+          "date": "2026-12-10"
+        },
+        {
+          "at": 1796880600000,
+          "taskId": "q3",
+          "date": "2026-12-10"
+        },
+        {
+          "at": 1797053400000,
+          "taskId": "q1",
+          "date": "2026-12-12"
+        },
+        {
+          "at": 1797053400000,
+          "taskId": "q3",
+          "date": "2026-12-12"
+        },
+        {
+          "at": 1797226200000,
+          "taskId": "q1",
+          "date": "2026-12-14"
+        },
+        {
+          "at": 1797226200000,
+          "taskId": "q3",
+          "date": "2026-12-14"
+        }
+      ],
+      "tz": "Asia/Shanghai"
+    },
+    {
+      "name": "dst-spring-forward",
+      "nowMs": 1772856000000,
+      "tasks": [
+        {
+          "id": "dst-gap",
+          "title": "跳跃时刻",
+          "note": "",
+          "date": "2026-03-08",
+          "time": "02:30",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 0,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        },
+        {
+          "id": "dst-ok",
+          "title": "正常时刻",
+          "note": "",
+          "date": "2026-03-08",
+          "time": "09:00",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 0,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        }
+      ],
+      "taskCount": 2,
+      "expected": [
+        {
+          "at": 1772908200000,
+          "taskId": "dst-gap",
+          "date": "2026-03-08"
+        },
+        {
+          "at": 1772931600000,
+          "taskId": "dst-ok",
+          "date": "2026-03-08"
+        }
+      ],
+      "tz": "Asia/Shanghai"
+    },
+    {
+      "name": "empty",
+      "nowMs": 1794628800000,
+      "tasks": [],
+      "taskCount": 0,
+      "expected": [],
+      "tz": "Asia/Shanghai"
+    },
+    {
+      "name": "basic-filter",
+      "nowMs": 1794675600000,
+      "tasks": [
+        {
+          "id": "t-once",
+          "title": "一次性",
+          "note": "",
+          "date": "2026-11-14",
+          "time": "18:00",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 0,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        },
+        {
+          "id": "t-past",
+          "title": "已过去",
+          "note": "",
+          "date": "2026-11-14",
+          "time": "09:00",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 0,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        },
+        {
+          "id": "t-noremind",
+          "title": "不提醒",
+          "note": "",
+          "date": "2026-11-14",
+          "time": "09:00",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": null,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        },
+        {
+          "id": "t-notime",
+          "title": "无时间",
+          "note": "",
+          "date": "2026-11-14",
+          "time": "",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 5,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        },
+        {
+          "id": "t-nodate",
+          "title": "无日期",
+          "note": "",
+          "date": "",
+          "time": "09:00",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 5,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        },
+        {
+          "id": "t-done",
+          "title": "已完成",
+          "note": "",
+          "date": "2026-11-14",
+          "time": "09:00",
+          "important": false,
+          "urgent": false,
+          "done": true,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 0,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        },
+        {
+          "id": "t-tomorrow",
+          "title": "明天",
+          "note": "",
+          "date": "2026-11-15",
+          "time": "08:30",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 15,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        }
+      ],
+      "taskCount": 7,
+      "expected": [
+        {
+          "at": 1794697200000,
+          "taskId": "t-once",
+          "date": "2026-11-14"
+        },
+        {
+          "at": 1794748500000,
+          "taskId": "t-tomorrow",
+          "date": "2026-11-15"
+        }
+      ],
+      "tz": "America/New_York"
+    },
+    {
+      "name": "repeat-d1-window",
+      "nowMs": 1794675600000,
+      "tasks": [
+        {
+          "id": "r-d1",
+          "title": "每天",
+          "note": "",
+          "date": "2026-11-01",
+          "time": "07:00",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "d1",
+          "doneDates": [
+            "2026-11-15",
+            "2026-11-17"
+          ],
+          "skipDates": [],
+          "remind": 5,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        }
+      ],
+      "taskCount": 1,
+      "expected": [
+        {
+          "at": 1794830100000,
+          "taskId": "r-d1",
+          "date": "2026-11-16"
+        },
+        {
+          "at": 1795002900000,
+          "taskId": "r-d1",
+          "date": "2026-11-18"
+        },
+        {
+          "at": 1795089300000,
+          "taskId": "r-d1",
+          "date": "2026-11-19"
+        },
+        {
+          "at": 1795175700000,
+          "taskId": "r-d1",
+          "date": "2026-11-20"
+        },
+        {
+          "at": 1795262100000,
+          "taskId": "r-d1",
+          "date": "2026-11-21"
+        },
+        {
+          "at": 1795348500000,
+          "taskId": "r-d1",
+          "date": "2026-11-22"
+        },
+        {
+          "at": 1795434900000,
+          "taskId": "r-d1",
+          "date": "2026-11-23"
+        },
+        {
+          "at": 1795521300000,
+          "taskId": "r-d1",
+          "date": "2026-11-24"
+        },
+        {
+          "at": 1795607700000,
+          "taskId": "r-d1",
+          "date": "2026-11-25"
+        },
+        {
+          "at": 1795694100000,
+          "taskId": "r-d1",
+          "date": "2026-11-26"
+        },
+        {
+          "at": 1795780500000,
+          "taskId": "r-d1",
+          "date": "2026-11-27"
+        },
+        {
+          "at": 1795866900000,
+          "taskId": "r-d1",
+          "date": "2026-11-28"
+        },
+        {
+          "at": 1795953300000,
+          "taskId": "r-d1",
+          "date": "2026-11-29"
+        },
+        {
+          "at": 1796039700000,
+          "taskId": "r-d1",
+          "date": "2026-11-30"
+        },
+        {
+          "at": 1796126100000,
+          "taskId": "r-d1",
+          "date": "2026-12-01"
+        },
+        {
+          "at": 1796212500000,
+          "taskId": "r-d1",
+          "date": "2026-12-02"
+        },
+        {
+          "at": 1796298900000,
+          "taskId": "r-d1",
+          "date": "2026-12-03"
+        },
+        {
+          "at": 1796385300000,
+          "taskId": "r-d1",
+          "date": "2026-12-04"
+        },
+        {
+          "at": 1796471700000,
+          "taskId": "r-d1",
+          "date": "2026-12-05"
+        },
+        {
+          "at": 1796558100000,
+          "taskId": "r-d1",
+          "date": "2026-12-06"
+        },
+        {
+          "at": 1796644500000,
+          "taskId": "r-d1",
+          "date": "2026-12-07"
+        },
+        {
+          "at": 1796730900000,
+          "taskId": "r-d1",
+          "date": "2026-12-08"
+        },
+        {
+          "at": 1796817300000,
+          "taskId": "r-d1",
+          "date": "2026-12-09"
+        },
+        {
+          "at": 1796903700000,
+          "taskId": "r-d1",
+          "date": "2026-12-10"
+        },
+        {
+          "at": 1796990100000,
+          "taskId": "r-d1",
+          "date": "2026-12-11"
+        },
+        {
+          "at": 1797076500000,
+          "taskId": "r-d1",
+          "date": "2026-12-12"
+        },
+        {
+          "at": 1797162900000,
+          "taskId": "r-d1",
+          "date": "2026-12-13"
+        },
+        {
+          "at": 1797249300000,
+          "taskId": "r-d1",
+          "date": "2026-12-14"
+        }
+      ],
+      "tz": "America/New_York"
+    },
+    {
+      "name": "repeat-weekly-and-until",
+      "nowMs": 1794675600000,
+      "tasks": [
+        {
+          "id": "r-w",
+          "title": "工作日",
+          "note": "",
+          "date": "2026-11-01",
+          "time": "09:30",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "w1:12345",
+          "doneDates": [],
+          "skipDates": [
+            "2026-11-18"
+          ],
+          "remind": 0,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        },
+        {
+          "id": "r-m",
+          "title": "每月",
+          "note": "",
+          "date": "2026-10-15",
+          "time": "10:00",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "m1",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 0,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        },
+        {
+          "id": "r-y",
+          "title": "每年",
+          "note": "",
+          "date": "2020-12-20",
+          "time": "20:00",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "y1",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 0,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        },
+        {
+          "id": "r-until",
+          "title": "到月底",
+          "note": "",
+          "date": "2026-11-01",
+          "time": "11:00",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "d1~2026-11-20",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 30,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        }
+      ],
+      "taskCount": 4,
+      "expected": [
+        {
+          "at": 1794754800000,
+          "taskId": "r-m",
+          "date": "2026-11-15"
+        },
+        {
+          "at": 1794756600000,
+          "taskId": "r-until",
+          "date": "2026-11-15"
+        },
+        {
+          "at": 1794839400000,
+          "taskId": "r-w",
+          "date": "2026-11-16"
+        },
+        {
+          "at": 1794843000000,
+          "taskId": "r-until",
+          "date": "2026-11-16"
+        },
+        {
+          "at": 1794925800000,
+          "taskId": "r-w",
+          "date": "2026-11-17"
+        },
+        {
+          "at": 1794929400000,
+          "taskId": "r-until",
+          "date": "2026-11-17"
+        },
+        {
+          "at": 1795015800000,
+          "taskId": "r-until",
+          "date": "2026-11-18"
+        },
+        {
+          "at": 1795098600000,
+          "taskId": "r-w",
+          "date": "2026-11-19"
+        },
+        {
+          "at": 1795102200000,
+          "taskId": "r-until",
+          "date": "2026-11-19"
+        },
+        {
+          "at": 1795185000000,
+          "taskId": "r-w",
+          "date": "2026-11-20"
+        },
+        {
+          "at": 1795188600000,
+          "taskId": "r-until",
+          "date": "2026-11-20"
+        },
+        {
+          "at": 1795444200000,
+          "taskId": "r-w",
+          "date": "2026-11-23"
+        },
+        {
+          "at": 1795530600000,
+          "taskId": "r-w",
+          "date": "2026-11-24"
+        },
+        {
+          "at": 1795617000000,
+          "taskId": "r-w",
+          "date": "2026-11-25"
+        },
+        {
+          "at": 1795703400000,
+          "taskId": "r-w",
+          "date": "2026-11-26"
+        },
+        {
+          "at": 1795789800000,
+          "taskId": "r-w",
+          "date": "2026-11-27"
+        },
+        {
+          "at": 1796049000000,
+          "taskId": "r-w",
+          "date": "2026-11-30"
+        },
+        {
+          "at": 1796135400000,
+          "taskId": "r-w",
+          "date": "2026-12-01"
+        },
+        {
+          "at": 1796221800000,
+          "taskId": "r-w",
+          "date": "2026-12-02"
+        },
+        {
+          "at": 1796308200000,
+          "taskId": "r-w",
+          "date": "2026-12-03"
+        },
+        {
+          "at": 1796394600000,
+          "taskId": "r-w",
+          "date": "2026-12-04"
+        },
+        {
+          "at": 1796653800000,
+          "taskId": "r-w",
+          "date": "2026-12-07"
+        },
+        {
+          "at": 1796740200000,
+          "taskId": "r-w",
+          "date": "2026-12-08"
+        },
+        {
+          "at": 1796826600000,
+          "taskId": "r-w",
+          "date": "2026-12-09"
+        },
+        {
+          "at": 1796913000000,
+          "taskId": "r-w",
+          "date": "2026-12-10"
+        },
+        {
+          "at": 1796999400000,
+          "taskId": "r-w",
+          "date": "2026-12-11"
+        },
+        {
+          "at": 1797258600000,
+          "taskId": "r-w",
+          "date": "2026-12-14"
+        }
+      ],
+      "tz": "America/New_York"
+    },
+    {
+      "name": "max-60-clamp",
+      "nowMs": 1793505600000,
+      "tasks": [
+        {
+          "id": "cap-A",
+          "title": "上限A",
+          "note": "",
+          "date": "2026-11-01",
+          "time": "07:00",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "d1",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 0,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        },
+        {
+          "id": "cap-B",
+          "title": "上限B",
+          "note": "",
+          "date": "2026-11-01",
+          "time": "08:00",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "d1",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 0,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        },
+        {
+          "id": "cap-C",
+          "title": "上限C",
+          "note": "",
+          "date": "2026-11-01",
+          "time": "09:00",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "d1",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 0,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        }
+      ],
+      "taskCount": 3,
+      "expected": [
+        {
+          "at": 1793534400000,
+          "taskId": "cap-A",
+          "date": "2026-11-01"
+        },
+        {
+          "at": 1793538000000,
+          "taskId": "cap-B",
+          "date": "2026-11-01"
+        },
+        {
+          "at": 1793541600000,
+          "taskId": "cap-C",
+          "date": "2026-11-01"
+        },
+        {
+          "at": 1793620800000,
+          "taskId": "cap-A",
+          "date": "2026-11-02"
+        },
+        {
+          "at": 1793624400000,
+          "taskId": "cap-B",
+          "date": "2026-11-02"
+        },
+        {
+          "at": 1793628000000,
+          "taskId": "cap-C",
+          "date": "2026-11-02"
+        },
+        {
+          "at": 1793707200000,
+          "taskId": "cap-A",
+          "date": "2026-11-03"
+        },
+        {
+          "at": 1793710800000,
+          "taskId": "cap-B",
+          "date": "2026-11-03"
+        },
+        {
+          "at": 1793714400000,
+          "taskId": "cap-C",
+          "date": "2026-11-03"
+        },
+        {
+          "at": 1793793600000,
+          "taskId": "cap-A",
+          "date": "2026-11-04"
+        },
+        {
+          "at": 1793797200000,
+          "taskId": "cap-B",
+          "date": "2026-11-04"
+        },
+        {
+          "at": 1793800800000,
+          "taskId": "cap-C",
+          "date": "2026-11-04"
+        },
+        {
+          "at": 1793880000000,
+          "taskId": "cap-A",
+          "date": "2026-11-05"
+        },
+        {
+          "at": 1793883600000,
+          "taskId": "cap-B",
+          "date": "2026-11-05"
+        },
+        {
+          "at": 1793887200000,
+          "taskId": "cap-C",
+          "date": "2026-11-05"
+        },
+        {
+          "at": 1793966400000,
+          "taskId": "cap-A",
+          "date": "2026-11-06"
+        },
+        {
+          "at": 1793970000000,
+          "taskId": "cap-B",
+          "date": "2026-11-06"
+        },
+        {
+          "at": 1793973600000,
+          "taskId": "cap-C",
+          "date": "2026-11-06"
+        },
+        {
+          "at": 1794052800000,
+          "taskId": "cap-A",
+          "date": "2026-11-07"
+        },
+        {
+          "at": 1794056400000,
+          "taskId": "cap-B",
+          "date": "2026-11-07"
+        },
+        {
+          "at": 1794060000000,
+          "taskId": "cap-C",
+          "date": "2026-11-07"
+        },
+        {
+          "at": 1794139200000,
+          "taskId": "cap-A",
+          "date": "2026-11-08"
+        },
+        {
+          "at": 1794142800000,
+          "taskId": "cap-B",
+          "date": "2026-11-08"
+        },
+        {
+          "at": 1794146400000,
+          "taskId": "cap-C",
+          "date": "2026-11-08"
+        },
+        {
+          "at": 1794225600000,
+          "taskId": "cap-A",
+          "date": "2026-11-09"
+        },
+        {
+          "at": 1794229200000,
+          "taskId": "cap-B",
+          "date": "2026-11-09"
+        },
+        {
+          "at": 1794232800000,
+          "taskId": "cap-C",
+          "date": "2026-11-09"
+        },
+        {
+          "at": 1794312000000,
+          "taskId": "cap-A",
+          "date": "2026-11-10"
+        },
+        {
+          "at": 1794315600000,
+          "taskId": "cap-B",
+          "date": "2026-11-10"
+        },
+        {
+          "at": 1794319200000,
+          "taskId": "cap-C",
+          "date": "2026-11-10"
+        },
+        {
+          "at": 1794398400000,
+          "taskId": "cap-A",
+          "date": "2026-11-11"
+        },
+        {
+          "at": 1794402000000,
+          "taskId": "cap-B",
+          "date": "2026-11-11"
+        },
+        {
+          "at": 1794405600000,
+          "taskId": "cap-C",
+          "date": "2026-11-11"
+        },
+        {
+          "at": 1794484800000,
+          "taskId": "cap-A",
+          "date": "2026-11-12"
+        },
+        {
+          "at": 1794488400000,
+          "taskId": "cap-B",
+          "date": "2026-11-12"
+        },
+        {
+          "at": 1794492000000,
+          "taskId": "cap-C",
+          "date": "2026-11-12"
+        },
+        {
+          "at": 1794571200000,
+          "taskId": "cap-A",
+          "date": "2026-11-13"
+        },
+        {
+          "at": 1794574800000,
+          "taskId": "cap-B",
+          "date": "2026-11-13"
+        },
+        {
+          "at": 1794578400000,
+          "taskId": "cap-C",
+          "date": "2026-11-13"
+        },
+        {
+          "at": 1794657600000,
+          "taskId": "cap-A",
+          "date": "2026-11-14"
+        },
+        {
+          "at": 1794661200000,
+          "taskId": "cap-B",
+          "date": "2026-11-14"
+        },
+        {
+          "at": 1794664800000,
+          "taskId": "cap-C",
+          "date": "2026-11-14"
+        },
+        {
+          "at": 1794744000000,
+          "taskId": "cap-A",
+          "date": "2026-11-15"
+        },
+        {
+          "at": 1794747600000,
+          "taskId": "cap-B",
+          "date": "2026-11-15"
+        },
+        {
+          "at": 1794751200000,
+          "taskId": "cap-C",
+          "date": "2026-11-15"
+        },
+        {
+          "at": 1794830400000,
+          "taskId": "cap-A",
+          "date": "2026-11-16"
+        },
+        {
+          "at": 1794834000000,
+          "taskId": "cap-B",
+          "date": "2026-11-16"
+        },
+        {
+          "at": 1794837600000,
+          "taskId": "cap-C",
+          "date": "2026-11-16"
+        },
+        {
+          "at": 1794916800000,
+          "taskId": "cap-A",
+          "date": "2026-11-17"
+        },
+        {
+          "at": 1794920400000,
+          "taskId": "cap-B",
+          "date": "2026-11-17"
+        },
+        {
+          "at": 1794924000000,
+          "taskId": "cap-C",
+          "date": "2026-11-17"
+        },
+        {
+          "at": 1795003200000,
+          "taskId": "cap-A",
+          "date": "2026-11-18"
+        },
+        {
+          "at": 1795006800000,
+          "taskId": "cap-B",
+          "date": "2026-11-18"
+        },
+        {
+          "at": 1795010400000,
+          "taskId": "cap-C",
+          "date": "2026-11-18"
+        },
+        {
+          "at": 1795089600000,
+          "taskId": "cap-A",
+          "date": "2026-11-19"
+        },
+        {
+          "at": 1795093200000,
+          "taskId": "cap-B",
+          "date": "2026-11-19"
+        },
+        {
+          "at": 1795096800000,
+          "taskId": "cap-C",
+          "date": "2026-11-19"
+        },
+        {
+          "at": 1795176000000,
+          "taskId": "cap-A",
+          "date": "2026-11-20"
+        },
+        {
+          "at": 1795179600000,
+          "taskId": "cap-B",
+          "date": "2026-11-20"
+        },
+        {
+          "at": 1795183200000,
+          "taskId": "cap-C",
+          "date": "2026-11-20"
+        }
+      ],
+      "tz": "America/New_York"
+    },
+    {
+      "name": "remind-crosses-midnight",
+      "nowMs": 1794718200000,
+      "tasks": [
+        {
+          "id": "x-1",
+          "title": "次日凌晨",
+          "note": "",
+          "date": "2026-11-15",
+          "time": "00:10",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 60,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        },
+        {
+          "id": "x-2",
+          "title": "今晚",
+          "note": "",
+          "date": "2026-11-14",
+          "time": "23:59",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 0,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        },
+        {
+          "id": "x-3",
+          "title": "已过提醒点",
+          "note": "",
+          "date": "2026-11-15",
+          "time": "00:30",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 60,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        }
+      ],
+      "taskCount": 3,
+      "expected": [
+        {
+          "at": 1794718740000,
+          "taskId": "x-2",
+          "date": "2026-11-14"
+        }
+      ],
+      "tz": "America/New_York"
+    },
+    {
+      "name": "quadrant-and-repeat-flags",
+      "nowMs": 1794675600000,
+      "tasks": [
+        {
+          "id": "q1",
+          "title": "象限1",
+          "note": "",
+          "date": "2026-11-16",
+          "time": "14:00",
+          "important": true,
+          "urgent": true,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "d2",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 30,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        },
+        {
+          "id": "q2",
+          "title": "象限2",
+          "note": "",
+          "date": "2026-11-16",
+          "time": "14:00",
+          "important": true,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 30,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        },
+        {
+          "id": "q3",
+          "title": "象限3",
+          "note": "",
+          "date": "2026-11-16",
+          "time": "14:00",
+          "important": false,
+          "urgent": true,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "d2",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 30,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        },
+        {
+          "id": "q4",
+          "title": "象限4",
+          "note": "",
+          "date": "2026-11-16",
+          "time": "14:00",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 30,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        }
+      ],
+      "taskCount": 4,
+      "expected": [
+        {
+          "at": 1794853800000,
+          "taskId": "q1",
+          "date": "2026-11-16"
+        },
+        {
+          "at": 1794853800000,
+          "taskId": "q2",
+          "date": "2026-11-16"
+        },
+        {
+          "at": 1794853800000,
+          "taskId": "q3",
+          "date": "2026-11-16"
+        },
+        {
+          "at": 1794853800000,
+          "taskId": "q4",
+          "date": "2026-11-16"
+        },
+        {
+          "at": 1795026600000,
+          "taskId": "q1",
+          "date": "2026-11-18"
+        },
+        {
+          "at": 1795026600000,
+          "taskId": "q3",
+          "date": "2026-11-18"
+        },
+        {
+          "at": 1795199400000,
+          "taskId": "q1",
+          "date": "2026-11-20"
+        },
+        {
+          "at": 1795199400000,
+          "taskId": "q3",
+          "date": "2026-11-20"
+        },
+        {
+          "at": 1795372200000,
+          "taskId": "q1",
+          "date": "2026-11-22"
+        },
+        {
+          "at": 1795372200000,
+          "taskId": "q3",
+          "date": "2026-11-22"
+        },
+        {
+          "at": 1795545000000,
+          "taskId": "q1",
+          "date": "2026-11-24"
+        },
+        {
+          "at": 1795545000000,
+          "taskId": "q3",
+          "date": "2026-11-24"
+        },
+        {
+          "at": 1795717800000,
+          "taskId": "q1",
+          "date": "2026-11-26"
+        },
+        {
+          "at": 1795717800000,
+          "taskId": "q3",
+          "date": "2026-11-26"
+        },
+        {
+          "at": 1795890600000,
+          "taskId": "q1",
+          "date": "2026-11-28"
+        },
+        {
+          "at": 1795890600000,
+          "taskId": "q3",
+          "date": "2026-11-28"
+        },
+        {
+          "at": 1796063400000,
+          "taskId": "q1",
+          "date": "2026-11-30"
+        },
+        {
+          "at": 1796063400000,
+          "taskId": "q3",
+          "date": "2026-11-30"
+        },
+        {
+          "at": 1796236200000,
+          "taskId": "q1",
+          "date": "2026-12-02"
+        },
+        {
+          "at": 1796236200000,
+          "taskId": "q3",
+          "date": "2026-12-02"
+        },
+        {
+          "at": 1796409000000,
+          "taskId": "q1",
+          "date": "2026-12-04"
+        },
+        {
+          "at": 1796409000000,
+          "taskId": "q3",
+          "date": "2026-12-04"
+        },
+        {
+          "at": 1796581800000,
+          "taskId": "q1",
+          "date": "2026-12-06"
+        },
+        {
+          "at": 1796581800000,
+          "taskId": "q3",
+          "date": "2026-12-06"
+        },
+        {
+          "at": 1796754600000,
+          "taskId": "q1",
+          "date": "2026-12-08"
+        },
+        {
+          "at": 1796754600000,
+          "taskId": "q3",
+          "date": "2026-12-08"
+        },
+        {
+          "at": 1796927400000,
+          "taskId": "q1",
+          "date": "2026-12-10"
+        },
+        {
+          "at": 1796927400000,
+          "taskId": "q3",
+          "date": "2026-12-10"
+        },
+        {
+          "at": 1797100200000,
+          "taskId": "q1",
+          "date": "2026-12-12"
+        },
+        {
+          "at": 1797100200000,
+          "taskId": "q3",
+          "date": "2026-12-12"
+        },
+        {
+          "at": 1797273000000,
+          "taskId": "q1",
+          "date": "2026-12-14"
+        },
+        {
+          "at": 1797273000000,
+          "taskId": "q3",
+          "date": "2026-12-14"
+        }
+      ],
+      "tz": "America/New_York"
+    },
+    {
+      "name": "dst-spring-forward",
+      "nowMs": 1772902800000,
+      "tasks": [
+        {
+          "id": "dst-gap",
+          "title": "跳跃时刻",
+          "note": "",
+          "date": "2026-03-08",
+          "time": "02:30",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 0,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        },
+        {
+          "id": "dst-ok",
+          "title": "正常时刻",
+          "note": "",
+          "date": "2026-03-08",
+          "time": "09:00",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 0,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        }
+      ],
+      "taskCount": 2,
+      "expected": [
+        {
+          "at": 1772955000000,
+          "taskId": "dst-gap",
+          "date": "2026-03-08"
+        },
+        {
+          "at": 1772974800000,
+          "taskId": "dst-ok",
+          "date": "2026-03-08"
+        }
+      ],
+      "tz": "America/New_York"
+    },
+    {
+      "name": "empty",
+      "nowMs": 1794675600000,
+      "tasks": [],
+      "taskCount": 0,
+      "expected": [],
+      "tz": "America/New_York"
+    },
+    {
+      "name": "basic-filter",
+      "nowMs": 1794657600000,
+      "tasks": [
+        {
+          "id": "t-once",
+          "title": "一次性",
+          "note": "",
+          "date": "2026-11-14",
+          "time": "18:00",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 0,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        },
+        {
+          "id": "t-past",
+          "title": "已过去",
+          "note": "",
+          "date": "2026-11-14",
+          "time": "09:00",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 0,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        },
+        {
+          "id": "t-noremind",
+          "title": "不提醒",
+          "note": "",
+          "date": "2026-11-14",
+          "time": "09:00",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": null,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        },
+        {
+          "id": "t-notime",
+          "title": "无时间",
+          "note": "",
+          "date": "2026-11-14",
+          "time": "",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 5,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        },
+        {
+          "id": "t-nodate",
+          "title": "无日期",
+          "note": "",
+          "date": "",
+          "time": "09:00",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 5,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        },
+        {
+          "id": "t-done",
+          "title": "已完成",
+          "note": "",
+          "date": "2026-11-14",
+          "time": "09:00",
+          "important": false,
+          "urgent": false,
+          "done": true,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 0,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        },
+        {
+          "id": "t-tomorrow",
+          "title": "明天",
+          "note": "",
+          "date": "2026-11-15",
+          "time": "08:30",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 15,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        }
+      ],
+      "taskCount": 7,
+      "expected": [
+        {
+          "at": 1794679200000,
+          "taskId": "t-once",
+          "date": "2026-11-14"
+        },
+        {
+          "at": 1794730500000,
+          "taskId": "t-tomorrow",
+          "date": "2026-11-15"
+        }
+      ],
+      "tz": "Europe/London"
+    },
+    {
+      "name": "repeat-d1-window",
+      "nowMs": 1794657600000,
+      "tasks": [
+        {
+          "id": "r-d1",
+          "title": "每天",
+          "note": "",
+          "date": "2026-11-01",
+          "time": "07:00",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "d1",
+          "doneDates": [
+            "2026-11-15",
+            "2026-11-17"
+          ],
+          "skipDates": [],
+          "remind": 5,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        }
+      ],
+      "taskCount": 1,
+      "expected": [
+        {
+          "at": 1794812100000,
+          "taskId": "r-d1",
+          "date": "2026-11-16"
+        },
+        {
+          "at": 1794984900000,
+          "taskId": "r-d1",
+          "date": "2026-11-18"
+        },
+        {
+          "at": 1795071300000,
+          "taskId": "r-d1",
+          "date": "2026-11-19"
+        },
+        {
+          "at": 1795157700000,
+          "taskId": "r-d1",
+          "date": "2026-11-20"
+        },
+        {
+          "at": 1795244100000,
+          "taskId": "r-d1",
+          "date": "2026-11-21"
+        },
+        {
+          "at": 1795330500000,
+          "taskId": "r-d1",
+          "date": "2026-11-22"
+        },
+        {
+          "at": 1795416900000,
+          "taskId": "r-d1",
+          "date": "2026-11-23"
+        },
+        {
+          "at": 1795503300000,
+          "taskId": "r-d1",
+          "date": "2026-11-24"
+        },
+        {
+          "at": 1795589700000,
+          "taskId": "r-d1",
+          "date": "2026-11-25"
+        },
+        {
+          "at": 1795676100000,
+          "taskId": "r-d1",
+          "date": "2026-11-26"
+        },
+        {
+          "at": 1795762500000,
+          "taskId": "r-d1",
+          "date": "2026-11-27"
+        },
+        {
+          "at": 1795848900000,
+          "taskId": "r-d1",
+          "date": "2026-11-28"
+        },
+        {
+          "at": 1795935300000,
+          "taskId": "r-d1",
+          "date": "2026-11-29"
+        },
+        {
+          "at": 1796021700000,
+          "taskId": "r-d1",
+          "date": "2026-11-30"
+        },
+        {
+          "at": 1796108100000,
+          "taskId": "r-d1",
+          "date": "2026-12-01"
+        },
+        {
+          "at": 1796194500000,
+          "taskId": "r-d1",
+          "date": "2026-12-02"
+        },
+        {
+          "at": 1796280900000,
+          "taskId": "r-d1",
+          "date": "2026-12-03"
+        },
+        {
+          "at": 1796367300000,
+          "taskId": "r-d1",
+          "date": "2026-12-04"
+        },
+        {
+          "at": 1796453700000,
+          "taskId": "r-d1",
+          "date": "2026-12-05"
+        },
+        {
+          "at": 1796540100000,
+          "taskId": "r-d1",
+          "date": "2026-12-06"
+        },
+        {
+          "at": 1796626500000,
+          "taskId": "r-d1",
+          "date": "2026-12-07"
+        },
+        {
+          "at": 1796712900000,
+          "taskId": "r-d1",
+          "date": "2026-12-08"
+        },
+        {
+          "at": 1796799300000,
+          "taskId": "r-d1",
+          "date": "2026-12-09"
+        },
+        {
+          "at": 1796885700000,
+          "taskId": "r-d1",
+          "date": "2026-12-10"
+        },
+        {
+          "at": 1796972100000,
+          "taskId": "r-d1",
+          "date": "2026-12-11"
+        },
+        {
+          "at": 1797058500000,
+          "taskId": "r-d1",
+          "date": "2026-12-12"
+        },
+        {
+          "at": 1797144900000,
+          "taskId": "r-d1",
+          "date": "2026-12-13"
+        },
+        {
+          "at": 1797231300000,
+          "taskId": "r-d1",
+          "date": "2026-12-14"
+        }
+      ],
+      "tz": "Europe/London"
+    },
+    {
+      "name": "repeat-weekly-and-until",
+      "nowMs": 1794657600000,
+      "tasks": [
+        {
+          "id": "r-w",
+          "title": "工作日",
+          "note": "",
+          "date": "2026-11-01",
+          "time": "09:30",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "w1:12345",
+          "doneDates": [],
+          "skipDates": [
+            "2026-11-18"
+          ],
+          "remind": 0,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        },
+        {
+          "id": "r-m",
+          "title": "每月",
+          "note": "",
+          "date": "2026-10-15",
+          "time": "10:00",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "m1",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 0,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        },
+        {
+          "id": "r-y",
+          "title": "每年",
+          "note": "",
+          "date": "2020-12-20",
+          "time": "20:00",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "y1",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 0,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        },
+        {
+          "id": "r-until",
+          "title": "到月底",
+          "note": "",
+          "date": "2026-11-01",
+          "time": "11:00",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "d1~2026-11-20",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 30,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        }
+      ],
+      "taskCount": 4,
+      "expected": [
+        {
+          "at": 1794736800000,
+          "taskId": "r-m",
+          "date": "2026-11-15"
+        },
+        {
+          "at": 1794738600000,
+          "taskId": "r-until",
+          "date": "2026-11-15"
+        },
+        {
+          "at": 1794821400000,
+          "taskId": "r-w",
+          "date": "2026-11-16"
+        },
+        {
+          "at": 1794825000000,
+          "taskId": "r-until",
+          "date": "2026-11-16"
+        },
+        {
+          "at": 1794907800000,
+          "taskId": "r-w",
+          "date": "2026-11-17"
+        },
+        {
+          "at": 1794911400000,
+          "taskId": "r-until",
+          "date": "2026-11-17"
+        },
+        {
+          "at": 1794997800000,
+          "taskId": "r-until",
+          "date": "2026-11-18"
+        },
+        {
+          "at": 1795080600000,
+          "taskId": "r-w",
+          "date": "2026-11-19"
+        },
+        {
+          "at": 1795084200000,
+          "taskId": "r-until",
+          "date": "2026-11-19"
+        },
+        {
+          "at": 1795167000000,
+          "taskId": "r-w",
+          "date": "2026-11-20"
+        },
+        {
+          "at": 1795170600000,
+          "taskId": "r-until",
+          "date": "2026-11-20"
+        },
+        {
+          "at": 1795426200000,
+          "taskId": "r-w",
+          "date": "2026-11-23"
+        },
+        {
+          "at": 1795512600000,
+          "taskId": "r-w",
+          "date": "2026-11-24"
+        },
+        {
+          "at": 1795599000000,
+          "taskId": "r-w",
+          "date": "2026-11-25"
+        },
+        {
+          "at": 1795685400000,
+          "taskId": "r-w",
+          "date": "2026-11-26"
+        },
+        {
+          "at": 1795771800000,
+          "taskId": "r-w",
+          "date": "2026-11-27"
+        },
+        {
+          "at": 1796031000000,
+          "taskId": "r-w",
+          "date": "2026-11-30"
+        },
+        {
+          "at": 1796117400000,
+          "taskId": "r-w",
+          "date": "2026-12-01"
+        },
+        {
+          "at": 1796203800000,
+          "taskId": "r-w",
+          "date": "2026-12-02"
+        },
+        {
+          "at": 1796290200000,
+          "taskId": "r-w",
+          "date": "2026-12-03"
+        },
+        {
+          "at": 1796376600000,
+          "taskId": "r-w",
+          "date": "2026-12-04"
+        },
+        {
+          "at": 1796635800000,
+          "taskId": "r-w",
+          "date": "2026-12-07"
+        },
+        {
+          "at": 1796722200000,
+          "taskId": "r-w",
+          "date": "2026-12-08"
+        },
+        {
+          "at": 1796808600000,
+          "taskId": "r-w",
+          "date": "2026-12-09"
+        },
+        {
+          "at": 1796895000000,
+          "taskId": "r-w",
+          "date": "2026-12-10"
+        },
+        {
+          "at": 1796981400000,
+          "taskId": "r-w",
+          "date": "2026-12-11"
+        },
+        {
+          "at": 1797240600000,
+          "taskId": "r-w",
+          "date": "2026-12-14"
+        }
+      ],
+      "tz": "Europe/London"
+    },
+    {
+      "name": "max-60-clamp",
+      "nowMs": 1793491200000,
+      "tasks": [
+        {
+          "id": "cap-A",
+          "title": "上限A",
+          "note": "",
+          "date": "2026-11-01",
+          "time": "07:00",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "d1",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 0,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        },
+        {
+          "id": "cap-B",
+          "title": "上限B",
+          "note": "",
+          "date": "2026-11-01",
+          "time": "08:00",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "d1",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 0,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        },
+        {
+          "id": "cap-C",
+          "title": "上限C",
+          "note": "",
+          "date": "2026-11-01",
+          "time": "09:00",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "d1",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 0,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        }
+      ],
+      "taskCount": 3,
+      "expected": [
+        {
+          "at": 1793516400000,
+          "taskId": "cap-A",
+          "date": "2026-11-01"
+        },
+        {
+          "at": 1793520000000,
+          "taskId": "cap-B",
+          "date": "2026-11-01"
+        },
+        {
+          "at": 1793523600000,
+          "taskId": "cap-C",
+          "date": "2026-11-01"
+        },
+        {
+          "at": 1793602800000,
+          "taskId": "cap-A",
+          "date": "2026-11-02"
+        },
+        {
+          "at": 1793606400000,
+          "taskId": "cap-B",
+          "date": "2026-11-02"
+        },
+        {
+          "at": 1793610000000,
+          "taskId": "cap-C",
+          "date": "2026-11-02"
+        },
+        {
+          "at": 1793689200000,
+          "taskId": "cap-A",
+          "date": "2026-11-03"
+        },
+        {
+          "at": 1793692800000,
+          "taskId": "cap-B",
+          "date": "2026-11-03"
+        },
+        {
+          "at": 1793696400000,
+          "taskId": "cap-C",
+          "date": "2026-11-03"
+        },
+        {
+          "at": 1793775600000,
+          "taskId": "cap-A",
+          "date": "2026-11-04"
+        },
+        {
+          "at": 1793779200000,
+          "taskId": "cap-B",
+          "date": "2026-11-04"
+        },
+        {
+          "at": 1793782800000,
+          "taskId": "cap-C",
+          "date": "2026-11-04"
+        },
+        {
+          "at": 1793862000000,
+          "taskId": "cap-A",
+          "date": "2026-11-05"
+        },
+        {
+          "at": 1793865600000,
+          "taskId": "cap-B",
+          "date": "2026-11-05"
+        },
+        {
+          "at": 1793869200000,
+          "taskId": "cap-C",
+          "date": "2026-11-05"
+        },
+        {
+          "at": 1793948400000,
+          "taskId": "cap-A",
+          "date": "2026-11-06"
+        },
+        {
+          "at": 1793952000000,
+          "taskId": "cap-B",
+          "date": "2026-11-06"
+        },
+        {
+          "at": 1793955600000,
+          "taskId": "cap-C",
+          "date": "2026-11-06"
+        },
+        {
+          "at": 1794034800000,
+          "taskId": "cap-A",
+          "date": "2026-11-07"
+        },
+        {
+          "at": 1794038400000,
+          "taskId": "cap-B",
+          "date": "2026-11-07"
+        },
+        {
+          "at": 1794042000000,
+          "taskId": "cap-C",
+          "date": "2026-11-07"
+        },
+        {
+          "at": 1794121200000,
+          "taskId": "cap-A",
+          "date": "2026-11-08"
+        },
+        {
+          "at": 1794124800000,
+          "taskId": "cap-B",
+          "date": "2026-11-08"
+        },
+        {
+          "at": 1794128400000,
+          "taskId": "cap-C",
+          "date": "2026-11-08"
+        },
+        {
+          "at": 1794207600000,
+          "taskId": "cap-A",
+          "date": "2026-11-09"
+        },
+        {
+          "at": 1794211200000,
+          "taskId": "cap-B",
+          "date": "2026-11-09"
+        },
+        {
+          "at": 1794214800000,
+          "taskId": "cap-C",
+          "date": "2026-11-09"
+        },
+        {
+          "at": 1794294000000,
+          "taskId": "cap-A",
+          "date": "2026-11-10"
+        },
+        {
+          "at": 1794297600000,
+          "taskId": "cap-B",
+          "date": "2026-11-10"
+        },
+        {
+          "at": 1794301200000,
+          "taskId": "cap-C",
+          "date": "2026-11-10"
+        },
+        {
+          "at": 1794380400000,
+          "taskId": "cap-A",
+          "date": "2026-11-11"
+        },
+        {
+          "at": 1794384000000,
+          "taskId": "cap-B",
+          "date": "2026-11-11"
+        },
+        {
+          "at": 1794387600000,
+          "taskId": "cap-C",
+          "date": "2026-11-11"
+        },
+        {
+          "at": 1794466800000,
+          "taskId": "cap-A",
+          "date": "2026-11-12"
+        },
+        {
+          "at": 1794470400000,
+          "taskId": "cap-B",
+          "date": "2026-11-12"
+        },
+        {
+          "at": 1794474000000,
+          "taskId": "cap-C",
+          "date": "2026-11-12"
+        },
+        {
+          "at": 1794553200000,
+          "taskId": "cap-A",
+          "date": "2026-11-13"
+        },
+        {
+          "at": 1794556800000,
+          "taskId": "cap-B",
+          "date": "2026-11-13"
+        },
+        {
+          "at": 1794560400000,
+          "taskId": "cap-C",
+          "date": "2026-11-13"
+        },
+        {
+          "at": 1794639600000,
+          "taskId": "cap-A",
+          "date": "2026-11-14"
+        },
+        {
+          "at": 1794643200000,
+          "taskId": "cap-B",
+          "date": "2026-11-14"
+        },
+        {
+          "at": 1794646800000,
+          "taskId": "cap-C",
+          "date": "2026-11-14"
+        },
+        {
+          "at": 1794726000000,
+          "taskId": "cap-A",
+          "date": "2026-11-15"
+        },
+        {
+          "at": 1794729600000,
+          "taskId": "cap-B",
+          "date": "2026-11-15"
+        },
+        {
+          "at": 1794733200000,
+          "taskId": "cap-C",
+          "date": "2026-11-15"
+        },
+        {
+          "at": 1794812400000,
+          "taskId": "cap-A",
+          "date": "2026-11-16"
+        },
+        {
+          "at": 1794816000000,
+          "taskId": "cap-B",
+          "date": "2026-11-16"
+        },
+        {
+          "at": 1794819600000,
+          "taskId": "cap-C",
+          "date": "2026-11-16"
+        },
+        {
+          "at": 1794898800000,
+          "taskId": "cap-A",
+          "date": "2026-11-17"
+        },
+        {
+          "at": 1794902400000,
+          "taskId": "cap-B",
+          "date": "2026-11-17"
+        },
+        {
+          "at": 1794906000000,
+          "taskId": "cap-C",
+          "date": "2026-11-17"
+        },
+        {
+          "at": 1794985200000,
+          "taskId": "cap-A",
+          "date": "2026-11-18"
+        },
+        {
+          "at": 1794988800000,
+          "taskId": "cap-B",
+          "date": "2026-11-18"
+        },
+        {
+          "at": 1794992400000,
+          "taskId": "cap-C",
+          "date": "2026-11-18"
+        },
+        {
+          "at": 1795071600000,
+          "taskId": "cap-A",
+          "date": "2026-11-19"
+        },
+        {
+          "at": 1795075200000,
+          "taskId": "cap-B",
+          "date": "2026-11-19"
+        },
+        {
+          "at": 1795078800000,
+          "taskId": "cap-C",
+          "date": "2026-11-19"
+        },
+        {
+          "at": 1795158000000,
+          "taskId": "cap-A",
+          "date": "2026-11-20"
+        },
+        {
+          "at": 1795161600000,
+          "taskId": "cap-B",
+          "date": "2026-11-20"
+        },
+        {
+          "at": 1795165200000,
+          "taskId": "cap-C",
+          "date": "2026-11-20"
+        }
+      ],
+      "tz": "Europe/London"
+    },
+    {
+      "name": "remind-crosses-midnight",
+      "nowMs": 1794700200000,
+      "tasks": [
+        {
+          "id": "x-1",
+          "title": "次日凌晨",
+          "note": "",
+          "date": "2026-11-15",
+          "time": "00:10",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 60,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        },
+        {
+          "id": "x-2",
+          "title": "今晚",
+          "note": "",
+          "date": "2026-11-14",
+          "time": "23:59",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 0,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        },
+        {
+          "id": "x-3",
+          "title": "已过提醒点",
+          "note": "",
+          "date": "2026-11-15",
+          "time": "00:30",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 60,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        }
+      ],
+      "taskCount": 3,
+      "expected": [
+        {
+          "at": 1794700740000,
+          "taskId": "x-2",
+          "date": "2026-11-14"
+        }
+      ],
+      "tz": "Europe/London"
+    },
+    {
+      "name": "quadrant-and-repeat-flags",
+      "nowMs": 1794657600000,
+      "tasks": [
+        {
+          "id": "q1",
+          "title": "象限1",
+          "note": "",
+          "date": "2026-11-16",
+          "time": "14:00",
+          "important": true,
+          "urgent": true,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "d2",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 30,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        },
+        {
+          "id": "q2",
+          "title": "象限2",
+          "note": "",
+          "date": "2026-11-16",
+          "time": "14:00",
+          "important": true,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 30,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        },
+        {
+          "id": "q3",
+          "title": "象限3",
+          "note": "",
+          "date": "2026-11-16",
+          "time": "14:00",
+          "important": false,
+          "urgent": true,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "d2",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 30,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        },
+        {
+          "id": "q4",
+          "title": "象限4",
+          "note": "",
+          "date": "2026-11-16",
+          "time": "14:00",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 30,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        }
+      ],
+      "taskCount": 4,
+      "expected": [
+        {
+          "at": 1794835800000,
+          "taskId": "q1",
+          "date": "2026-11-16"
+        },
+        {
+          "at": 1794835800000,
+          "taskId": "q2",
+          "date": "2026-11-16"
+        },
+        {
+          "at": 1794835800000,
+          "taskId": "q3",
+          "date": "2026-11-16"
+        },
+        {
+          "at": 1794835800000,
+          "taskId": "q4",
+          "date": "2026-11-16"
+        },
+        {
+          "at": 1795008600000,
+          "taskId": "q1",
+          "date": "2026-11-18"
+        },
+        {
+          "at": 1795008600000,
+          "taskId": "q3",
+          "date": "2026-11-18"
+        },
+        {
+          "at": 1795181400000,
+          "taskId": "q1",
+          "date": "2026-11-20"
+        },
+        {
+          "at": 1795181400000,
+          "taskId": "q3",
+          "date": "2026-11-20"
+        },
+        {
+          "at": 1795354200000,
+          "taskId": "q1",
+          "date": "2026-11-22"
+        },
+        {
+          "at": 1795354200000,
+          "taskId": "q3",
+          "date": "2026-11-22"
+        },
+        {
+          "at": 1795527000000,
+          "taskId": "q1",
+          "date": "2026-11-24"
+        },
+        {
+          "at": 1795527000000,
+          "taskId": "q3",
+          "date": "2026-11-24"
+        },
+        {
+          "at": 1795699800000,
+          "taskId": "q1",
+          "date": "2026-11-26"
+        },
+        {
+          "at": 1795699800000,
+          "taskId": "q3",
+          "date": "2026-11-26"
+        },
+        {
+          "at": 1795872600000,
+          "taskId": "q1",
+          "date": "2026-11-28"
+        },
+        {
+          "at": 1795872600000,
+          "taskId": "q3",
+          "date": "2026-11-28"
+        },
+        {
+          "at": 1796045400000,
+          "taskId": "q1",
+          "date": "2026-11-30"
+        },
+        {
+          "at": 1796045400000,
+          "taskId": "q3",
+          "date": "2026-11-30"
+        },
+        {
+          "at": 1796218200000,
+          "taskId": "q1",
+          "date": "2026-12-02"
+        },
+        {
+          "at": 1796218200000,
+          "taskId": "q3",
+          "date": "2026-12-02"
+        },
+        {
+          "at": 1796391000000,
+          "taskId": "q1",
+          "date": "2026-12-04"
+        },
+        {
+          "at": 1796391000000,
+          "taskId": "q3",
+          "date": "2026-12-04"
+        },
+        {
+          "at": 1796563800000,
+          "taskId": "q1",
+          "date": "2026-12-06"
+        },
+        {
+          "at": 1796563800000,
+          "taskId": "q3",
+          "date": "2026-12-06"
+        },
+        {
+          "at": 1796736600000,
+          "taskId": "q1",
+          "date": "2026-12-08"
+        },
+        {
+          "at": 1796736600000,
+          "taskId": "q3",
+          "date": "2026-12-08"
+        },
+        {
+          "at": 1796909400000,
+          "taskId": "q1",
+          "date": "2026-12-10"
+        },
+        {
+          "at": 1796909400000,
+          "taskId": "q3",
+          "date": "2026-12-10"
+        },
+        {
+          "at": 1797082200000,
+          "taskId": "q1",
+          "date": "2026-12-12"
+        },
+        {
+          "at": 1797082200000,
+          "taskId": "q3",
+          "date": "2026-12-12"
+        },
+        {
+          "at": 1797255000000,
+          "taskId": "q1",
+          "date": "2026-12-14"
+        },
+        {
+          "at": 1797255000000,
+          "taskId": "q3",
+          "date": "2026-12-14"
+        }
+      ],
+      "tz": "Europe/London"
+    },
+    {
+      "name": "dst-spring-forward",
+      "nowMs": 1772884800000,
+      "tasks": [
+        {
+          "id": "dst-gap",
+          "title": "跳跃时刻",
+          "note": "",
+          "date": "2026-03-08",
+          "time": "02:30",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 0,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        },
+        {
+          "id": "dst-ok",
+          "title": "正常时刻",
+          "note": "",
+          "date": "2026-03-08",
+          "time": "09:00",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 0,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        }
+      ],
+      "taskCount": 2,
+      "expected": [
+        {
+          "at": 1772937000000,
+          "taskId": "dst-gap",
+          "date": "2026-03-08"
+        },
+        {
+          "at": 1772960400000,
+          "taskId": "dst-ok",
+          "date": "2026-03-08"
+        }
+      ],
+      "tz": "Europe/London"
+    },
+    {
+      "name": "empty",
+      "nowMs": 1794657600000,
+      "tasks": [],
+      "taskCount": 0,
+      "expected": [],
+      "tz": "Europe/London"
+    },
+    {
+      "name": "basic-filter",
+      "nowMs": 1794610800000,
+      "tasks": [
+        {
+          "id": "t-once",
+          "title": "一次性",
+          "note": "",
+          "date": "2026-11-14",
+          "time": "18:00",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 0,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        },
+        {
+          "id": "t-past",
+          "title": "已过去",
+          "note": "",
+          "date": "2026-11-14",
+          "time": "09:00",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 0,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        },
+        {
+          "id": "t-noremind",
+          "title": "不提醒",
+          "note": "",
+          "date": "2026-11-14",
+          "time": "09:00",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": null,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        },
+        {
+          "id": "t-notime",
+          "title": "无时间",
+          "note": "",
+          "date": "2026-11-14",
+          "time": "",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 5,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        },
+        {
+          "id": "t-nodate",
+          "title": "无日期",
+          "note": "",
+          "date": "",
+          "time": "09:00",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 5,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        },
+        {
+          "id": "t-done",
+          "title": "已完成",
+          "note": "",
+          "date": "2026-11-14",
+          "time": "09:00",
+          "important": false,
+          "urgent": false,
+          "done": true,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 0,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        },
+        {
+          "id": "t-tomorrow",
+          "title": "明天",
+          "note": "",
+          "date": "2026-11-15",
+          "time": "08:30",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 15,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        }
+      ],
+      "taskCount": 7,
+      "expected": [
+        {
+          "at": 1794632400000,
+          "taskId": "t-once",
+          "date": "2026-11-14"
+        },
+        {
+          "at": 1794683700000,
+          "taskId": "t-tomorrow",
+          "date": "2026-11-15"
+        }
+      ],
+      "tz": "Pacific/Auckland"
+    },
+    {
+      "name": "repeat-d1-window",
+      "nowMs": 1794610800000,
+      "tasks": [
+        {
+          "id": "r-d1",
+          "title": "每天",
+          "note": "",
+          "date": "2026-11-01",
+          "time": "07:00",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "d1",
+          "doneDates": [
+            "2026-11-15",
+            "2026-11-17"
+          ],
+          "skipDates": [],
+          "remind": 5,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        }
+      ],
+      "taskCount": 1,
+      "expected": [
+        {
+          "at": 1794765300000,
+          "taskId": "r-d1",
+          "date": "2026-11-16"
+        },
+        {
+          "at": 1794938100000,
+          "taskId": "r-d1",
+          "date": "2026-11-18"
+        },
+        {
+          "at": 1795024500000,
+          "taskId": "r-d1",
+          "date": "2026-11-19"
+        },
+        {
+          "at": 1795110900000,
+          "taskId": "r-d1",
+          "date": "2026-11-20"
+        },
+        {
+          "at": 1795197300000,
+          "taskId": "r-d1",
+          "date": "2026-11-21"
+        },
+        {
+          "at": 1795283700000,
+          "taskId": "r-d1",
+          "date": "2026-11-22"
+        },
+        {
+          "at": 1795370100000,
+          "taskId": "r-d1",
+          "date": "2026-11-23"
+        },
+        {
+          "at": 1795456500000,
+          "taskId": "r-d1",
+          "date": "2026-11-24"
+        },
+        {
+          "at": 1795542900000,
+          "taskId": "r-d1",
+          "date": "2026-11-25"
+        },
+        {
+          "at": 1795629300000,
+          "taskId": "r-d1",
+          "date": "2026-11-26"
+        },
+        {
+          "at": 1795715700000,
+          "taskId": "r-d1",
+          "date": "2026-11-27"
+        },
+        {
+          "at": 1795802100000,
+          "taskId": "r-d1",
+          "date": "2026-11-28"
+        },
+        {
+          "at": 1795888500000,
+          "taskId": "r-d1",
+          "date": "2026-11-29"
+        },
+        {
+          "at": 1795974900000,
+          "taskId": "r-d1",
+          "date": "2026-11-30"
+        },
+        {
+          "at": 1796061300000,
+          "taskId": "r-d1",
+          "date": "2026-12-01"
+        },
+        {
+          "at": 1796147700000,
+          "taskId": "r-d1",
+          "date": "2026-12-02"
+        },
+        {
+          "at": 1796234100000,
+          "taskId": "r-d1",
+          "date": "2026-12-03"
+        },
+        {
+          "at": 1796320500000,
+          "taskId": "r-d1",
+          "date": "2026-12-04"
+        },
+        {
+          "at": 1796406900000,
+          "taskId": "r-d1",
+          "date": "2026-12-05"
+        },
+        {
+          "at": 1796493300000,
+          "taskId": "r-d1",
+          "date": "2026-12-06"
+        },
+        {
+          "at": 1796579700000,
+          "taskId": "r-d1",
+          "date": "2026-12-07"
+        },
+        {
+          "at": 1796666100000,
+          "taskId": "r-d1",
+          "date": "2026-12-08"
+        },
+        {
+          "at": 1796752500000,
+          "taskId": "r-d1",
+          "date": "2026-12-09"
+        },
+        {
+          "at": 1796838900000,
+          "taskId": "r-d1",
+          "date": "2026-12-10"
+        },
+        {
+          "at": 1796925300000,
+          "taskId": "r-d1",
+          "date": "2026-12-11"
+        },
+        {
+          "at": 1797011700000,
+          "taskId": "r-d1",
+          "date": "2026-12-12"
+        },
+        {
+          "at": 1797098100000,
+          "taskId": "r-d1",
+          "date": "2026-12-13"
+        },
+        {
+          "at": 1797184500000,
+          "taskId": "r-d1",
+          "date": "2026-12-14"
+        }
+      ],
+      "tz": "Pacific/Auckland"
+    },
+    {
+      "name": "repeat-weekly-and-until",
+      "nowMs": 1794610800000,
+      "tasks": [
+        {
+          "id": "r-w",
+          "title": "工作日",
+          "note": "",
+          "date": "2026-11-01",
+          "time": "09:30",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "w1:12345",
+          "doneDates": [],
+          "skipDates": [
+            "2026-11-18"
+          ],
+          "remind": 0,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        },
+        {
+          "id": "r-m",
+          "title": "每月",
+          "note": "",
+          "date": "2026-10-15",
+          "time": "10:00",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "m1",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 0,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        },
+        {
+          "id": "r-y",
+          "title": "每年",
+          "note": "",
+          "date": "2020-12-20",
+          "time": "20:00",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "y1",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 0,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        },
+        {
+          "id": "r-until",
+          "title": "到月底",
+          "note": "",
+          "date": "2026-11-01",
+          "time": "11:00",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "d1~2026-11-20",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 30,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        }
+      ],
+      "taskCount": 4,
+      "expected": [
+        {
+          "at": 1794690000000,
+          "taskId": "r-m",
+          "date": "2026-11-15"
+        },
+        {
+          "at": 1794691800000,
+          "taskId": "r-until",
+          "date": "2026-11-15"
+        },
+        {
+          "at": 1794774600000,
+          "taskId": "r-w",
+          "date": "2026-11-16"
+        },
+        {
+          "at": 1794778200000,
+          "taskId": "r-until",
+          "date": "2026-11-16"
+        },
+        {
+          "at": 1794861000000,
+          "taskId": "r-w",
+          "date": "2026-11-17"
+        },
+        {
+          "at": 1794864600000,
+          "taskId": "r-until",
+          "date": "2026-11-17"
+        },
+        {
+          "at": 1794951000000,
+          "taskId": "r-until",
+          "date": "2026-11-18"
+        },
+        {
+          "at": 1795033800000,
+          "taskId": "r-w",
+          "date": "2026-11-19"
+        },
+        {
+          "at": 1795037400000,
+          "taskId": "r-until",
+          "date": "2026-11-19"
+        },
+        {
+          "at": 1795120200000,
+          "taskId": "r-w",
+          "date": "2026-11-20"
+        },
+        {
+          "at": 1795123800000,
+          "taskId": "r-until",
+          "date": "2026-11-20"
+        },
+        {
+          "at": 1795379400000,
+          "taskId": "r-w",
+          "date": "2026-11-23"
+        },
+        {
+          "at": 1795465800000,
+          "taskId": "r-w",
+          "date": "2026-11-24"
+        },
+        {
+          "at": 1795552200000,
+          "taskId": "r-w",
+          "date": "2026-11-25"
+        },
+        {
+          "at": 1795638600000,
+          "taskId": "r-w",
+          "date": "2026-11-26"
+        },
+        {
+          "at": 1795725000000,
+          "taskId": "r-w",
+          "date": "2026-11-27"
+        },
+        {
+          "at": 1795984200000,
+          "taskId": "r-w",
+          "date": "2026-11-30"
+        },
+        {
+          "at": 1796070600000,
+          "taskId": "r-w",
+          "date": "2026-12-01"
+        },
+        {
+          "at": 1796157000000,
+          "taskId": "r-w",
+          "date": "2026-12-02"
+        },
+        {
+          "at": 1796243400000,
+          "taskId": "r-w",
+          "date": "2026-12-03"
+        },
+        {
+          "at": 1796329800000,
+          "taskId": "r-w",
+          "date": "2026-12-04"
+        },
+        {
+          "at": 1796589000000,
+          "taskId": "r-w",
+          "date": "2026-12-07"
+        },
+        {
+          "at": 1796675400000,
+          "taskId": "r-w",
+          "date": "2026-12-08"
+        },
+        {
+          "at": 1796761800000,
+          "taskId": "r-w",
+          "date": "2026-12-09"
+        },
+        {
+          "at": 1796848200000,
+          "taskId": "r-w",
+          "date": "2026-12-10"
+        },
+        {
+          "at": 1796934600000,
+          "taskId": "r-w",
+          "date": "2026-12-11"
+        },
+        {
+          "at": 1797193800000,
+          "taskId": "r-w",
+          "date": "2026-12-14"
+        }
+      ],
+      "tz": "Pacific/Auckland"
+    },
+    {
+      "name": "max-60-clamp",
+      "nowMs": 1793444400000,
+      "tasks": [
+        {
+          "id": "cap-A",
+          "title": "上限A",
+          "note": "",
+          "date": "2026-11-01",
+          "time": "07:00",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "d1",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 0,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        },
+        {
+          "id": "cap-B",
+          "title": "上限B",
+          "note": "",
+          "date": "2026-11-01",
+          "time": "08:00",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "d1",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 0,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        },
+        {
+          "id": "cap-C",
+          "title": "上限C",
+          "note": "",
+          "date": "2026-11-01",
+          "time": "09:00",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "d1",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 0,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        }
+      ],
+      "taskCount": 3,
+      "expected": [
+        {
+          "at": 1793469600000,
+          "taskId": "cap-A",
+          "date": "2026-11-01"
+        },
+        {
+          "at": 1793473200000,
+          "taskId": "cap-B",
+          "date": "2026-11-01"
+        },
+        {
+          "at": 1793476800000,
+          "taskId": "cap-C",
+          "date": "2026-11-01"
+        },
+        {
+          "at": 1793556000000,
+          "taskId": "cap-A",
+          "date": "2026-11-02"
+        },
+        {
+          "at": 1793559600000,
+          "taskId": "cap-B",
+          "date": "2026-11-02"
+        },
+        {
+          "at": 1793563200000,
+          "taskId": "cap-C",
+          "date": "2026-11-02"
+        },
+        {
+          "at": 1793642400000,
+          "taskId": "cap-A",
+          "date": "2026-11-03"
+        },
+        {
+          "at": 1793646000000,
+          "taskId": "cap-B",
+          "date": "2026-11-03"
+        },
+        {
+          "at": 1793649600000,
+          "taskId": "cap-C",
+          "date": "2026-11-03"
+        },
+        {
+          "at": 1793728800000,
+          "taskId": "cap-A",
+          "date": "2026-11-04"
+        },
+        {
+          "at": 1793732400000,
+          "taskId": "cap-B",
+          "date": "2026-11-04"
+        },
+        {
+          "at": 1793736000000,
+          "taskId": "cap-C",
+          "date": "2026-11-04"
+        },
+        {
+          "at": 1793815200000,
+          "taskId": "cap-A",
+          "date": "2026-11-05"
+        },
+        {
+          "at": 1793818800000,
+          "taskId": "cap-B",
+          "date": "2026-11-05"
+        },
+        {
+          "at": 1793822400000,
+          "taskId": "cap-C",
+          "date": "2026-11-05"
+        },
+        {
+          "at": 1793901600000,
+          "taskId": "cap-A",
+          "date": "2026-11-06"
+        },
+        {
+          "at": 1793905200000,
+          "taskId": "cap-B",
+          "date": "2026-11-06"
+        },
+        {
+          "at": 1793908800000,
+          "taskId": "cap-C",
+          "date": "2026-11-06"
+        },
+        {
+          "at": 1793988000000,
+          "taskId": "cap-A",
+          "date": "2026-11-07"
+        },
+        {
+          "at": 1793991600000,
+          "taskId": "cap-B",
+          "date": "2026-11-07"
+        },
+        {
+          "at": 1793995200000,
+          "taskId": "cap-C",
+          "date": "2026-11-07"
+        },
+        {
+          "at": 1794074400000,
+          "taskId": "cap-A",
+          "date": "2026-11-08"
+        },
+        {
+          "at": 1794078000000,
+          "taskId": "cap-B",
+          "date": "2026-11-08"
+        },
+        {
+          "at": 1794081600000,
+          "taskId": "cap-C",
+          "date": "2026-11-08"
+        },
+        {
+          "at": 1794160800000,
+          "taskId": "cap-A",
+          "date": "2026-11-09"
+        },
+        {
+          "at": 1794164400000,
+          "taskId": "cap-B",
+          "date": "2026-11-09"
+        },
+        {
+          "at": 1794168000000,
+          "taskId": "cap-C",
+          "date": "2026-11-09"
+        },
+        {
+          "at": 1794247200000,
+          "taskId": "cap-A",
+          "date": "2026-11-10"
+        },
+        {
+          "at": 1794250800000,
+          "taskId": "cap-B",
+          "date": "2026-11-10"
+        },
+        {
+          "at": 1794254400000,
+          "taskId": "cap-C",
+          "date": "2026-11-10"
+        },
+        {
+          "at": 1794333600000,
+          "taskId": "cap-A",
+          "date": "2026-11-11"
+        },
+        {
+          "at": 1794337200000,
+          "taskId": "cap-B",
+          "date": "2026-11-11"
+        },
+        {
+          "at": 1794340800000,
+          "taskId": "cap-C",
+          "date": "2026-11-11"
+        },
+        {
+          "at": 1794420000000,
+          "taskId": "cap-A",
+          "date": "2026-11-12"
+        },
+        {
+          "at": 1794423600000,
+          "taskId": "cap-B",
+          "date": "2026-11-12"
+        },
+        {
+          "at": 1794427200000,
+          "taskId": "cap-C",
+          "date": "2026-11-12"
+        },
+        {
+          "at": 1794506400000,
+          "taskId": "cap-A",
+          "date": "2026-11-13"
+        },
+        {
+          "at": 1794510000000,
+          "taskId": "cap-B",
+          "date": "2026-11-13"
+        },
+        {
+          "at": 1794513600000,
+          "taskId": "cap-C",
+          "date": "2026-11-13"
+        },
+        {
+          "at": 1794592800000,
+          "taskId": "cap-A",
+          "date": "2026-11-14"
+        },
+        {
+          "at": 1794596400000,
+          "taskId": "cap-B",
+          "date": "2026-11-14"
+        },
+        {
+          "at": 1794600000000,
+          "taskId": "cap-C",
+          "date": "2026-11-14"
+        },
+        {
+          "at": 1794679200000,
+          "taskId": "cap-A",
+          "date": "2026-11-15"
+        },
+        {
+          "at": 1794682800000,
+          "taskId": "cap-B",
+          "date": "2026-11-15"
+        },
+        {
+          "at": 1794686400000,
+          "taskId": "cap-C",
+          "date": "2026-11-15"
+        },
+        {
+          "at": 1794765600000,
+          "taskId": "cap-A",
+          "date": "2026-11-16"
+        },
+        {
+          "at": 1794769200000,
+          "taskId": "cap-B",
+          "date": "2026-11-16"
+        },
+        {
+          "at": 1794772800000,
+          "taskId": "cap-C",
+          "date": "2026-11-16"
+        },
+        {
+          "at": 1794852000000,
+          "taskId": "cap-A",
+          "date": "2026-11-17"
+        },
+        {
+          "at": 1794855600000,
+          "taskId": "cap-B",
+          "date": "2026-11-17"
+        },
+        {
+          "at": 1794859200000,
+          "taskId": "cap-C",
+          "date": "2026-11-17"
+        },
+        {
+          "at": 1794938400000,
+          "taskId": "cap-A",
+          "date": "2026-11-18"
+        },
+        {
+          "at": 1794942000000,
+          "taskId": "cap-B",
+          "date": "2026-11-18"
+        },
+        {
+          "at": 1794945600000,
+          "taskId": "cap-C",
+          "date": "2026-11-18"
+        },
+        {
+          "at": 1795024800000,
+          "taskId": "cap-A",
+          "date": "2026-11-19"
+        },
+        {
+          "at": 1795028400000,
+          "taskId": "cap-B",
+          "date": "2026-11-19"
+        },
+        {
+          "at": 1795032000000,
+          "taskId": "cap-C",
+          "date": "2026-11-19"
+        },
+        {
+          "at": 1795111200000,
+          "taskId": "cap-A",
+          "date": "2026-11-20"
+        },
+        {
+          "at": 1795114800000,
+          "taskId": "cap-B",
+          "date": "2026-11-20"
+        },
+        {
+          "at": 1795118400000,
+          "taskId": "cap-C",
+          "date": "2026-11-20"
+        }
+      ],
+      "tz": "Pacific/Auckland"
+    },
+    {
+      "name": "remind-crosses-midnight",
+      "nowMs": 1794653400000,
+      "tasks": [
+        {
+          "id": "x-1",
+          "title": "次日凌晨",
+          "note": "",
+          "date": "2026-11-15",
+          "time": "00:10",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 60,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        },
+        {
+          "id": "x-2",
+          "title": "今晚",
+          "note": "",
+          "date": "2026-11-14",
+          "time": "23:59",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 0,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        },
+        {
+          "id": "x-3",
+          "title": "已过提醒点",
+          "note": "",
+          "date": "2026-11-15",
+          "time": "00:30",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 60,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        }
+      ],
+      "taskCount": 3,
+      "expected": [
+        {
+          "at": 1794653940000,
+          "taskId": "x-2",
+          "date": "2026-11-14"
+        }
+      ],
+      "tz": "Pacific/Auckland"
+    },
+    {
+      "name": "quadrant-and-repeat-flags",
+      "nowMs": 1794610800000,
+      "tasks": [
+        {
+          "id": "q1",
+          "title": "象限1",
+          "note": "",
+          "date": "2026-11-16",
+          "time": "14:00",
+          "important": true,
+          "urgent": true,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "d2",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 30,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        },
+        {
+          "id": "q2",
+          "title": "象限2",
+          "note": "",
+          "date": "2026-11-16",
+          "time": "14:00",
+          "important": true,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 30,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        },
+        {
+          "id": "q3",
+          "title": "象限3",
+          "note": "",
+          "date": "2026-11-16",
+          "time": "14:00",
+          "important": false,
+          "urgent": true,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "d2",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 30,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        },
+        {
+          "id": "q4",
+          "title": "象限4",
+          "note": "",
+          "date": "2026-11-16",
+          "time": "14:00",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 30,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        }
+      ],
+      "taskCount": 4,
+      "expected": [
+        {
+          "at": 1794789000000,
+          "taskId": "q1",
+          "date": "2026-11-16"
+        },
+        {
+          "at": 1794789000000,
+          "taskId": "q2",
+          "date": "2026-11-16"
+        },
+        {
+          "at": 1794789000000,
+          "taskId": "q3",
+          "date": "2026-11-16"
+        },
+        {
+          "at": 1794789000000,
+          "taskId": "q4",
+          "date": "2026-11-16"
+        },
+        {
+          "at": 1794961800000,
+          "taskId": "q1",
+          "date": "2026-11-18"
+        },
+        {
+          "at": 1794961800000,
+          "taskId": "q3",
+          "date": "2026-11-18"
+        },
+        {
+          "at": 1795134600000,
+          "taskId": "q1",
+          "date": "2026-11-20"
+        },
+        {
+          "at": 1795134600000,
+          "taskId": "q3",
+          "date": "2026-11-20"
+        },
+        {
+          "at": 1795307400000,
+          "taskId": "q1",
+          "date": "2026-11-22"
+        },
+        {
+          "at": 1795307400000,
+          "taskId": "q3",
+          "date": "2026-11-22"
+        },
+        {
+          "at": 1795480200000,
+          "taskId": "q1",
+          "date": "2026-11-24"
+        },
+        {
+          "at": 1795480200000,
+          "taskId": "q3",
+          "date": "2026-11-24"
+        },
+        {
+          "at": 1795653000000,
+          "taskId": "q1",
+          "date": "2026-11-26"
+        },
+        {
+          "at": 1795653000000,
+          "taskId": "q3",
+          "date": "2026-11-26"
+        },
+        {
+          "at": 1795825800000,
+          "taskId": "q1",
+          "date": "2026-11-28"
+        },
+        {
+          "at": 1795825800000,
+          "taskId": "q3",
+          "date": "2026-11-28"
+        },
+        {
+          "at": 1795998600000,
+          "taskId": "q1",
+          "date": "2026-11-30"
+        },
+        {
+          "at": 1795998600000,
+          "taskId": "q3",
+          "date": "2026-11-30"
+        },
+        {
+          "at": 1796171400000,
+          "taskId": "q1",
+          "date": "2026-12-02"
+        },
+        {
+          "at": 1796171400000,
+          "taskId": "q3",
+          "date": "2026-12-02"
+        },
+        {
+          "at": 1796344200000,
+          "taskId": "q1",
+          "date": "2026-12-04"
+        },
+        {
+          "at": 1796344200000,
+          "taskId": "q3",
+          "date": "2026-12-04"
+        },
+        {
+          "at": 1796517000000,
+          "taskId": "q1",
+          "date": "2026-12-06"
+        },
+        {
+          "at": 1796517000000,
+          "taskId": "q3",
+          "date": "2026-12-06"
+        },
+        {
+          "at": 1796689800000,
+          "taskId": "q1",
+          "date": "2026-12-08"
+        },
+        {
+          "at": 1796689800000,
+          "taskId": "q3",
+          "date": "2026-12-08"
+        },
+        {
+          "at": 1796862600000,
+          "taskId": "q1",
+          "date": "2026-12-10"
+        },
+        {
+          "at": 1796862600000,
+          "taskId": "q3",
+          "date": "2026-12-10"
+        },
+        {
+          "at": 1797035400000,
+          "taskId": "q1",
+          "date": "2026-12-12"
+        },
+        {
+          "at": 1797035400000,
+          "taskId": "q3",
+          "date": "2026-12-12"
+        },
+        {
+          "at": 1797208200000,
+          "taskId": "q1",
+          "date": "2026-12-14"
+        },
+        {
+          "at": 1797208200000,
+          "taskId": "q3",
+          "date": "2026-12-14"
+        }
+      ],
+      "tz": "Pacific/Auckland"
+    },
+    {
+      "name": "dst-spring-forward",
+      "nowMs": 1772838000000,
+      "tasks": [
+        {
+          "id": "dst-gap",
+          "title": "跳跃时刻",
+          "note": "",
+          "date": "2026-03-08",
+          "time": "02:30",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 0,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        },
+        {
+          "id": "dst-ok",
+          "title": "正常时刻",
+          "note": "",
+          "date": "2026-03-08",
+          "time": "09:00",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 0,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        }
+      ],
+      "taskCount": 2,
+      "expected": [
+        {
+          "at": 1772890200000,
+          "taskId": "dst-gap",
+          "date": "2026-03-08"
+        },
+        {
+          "at": 1772913600000,
+          "taskId": "dst-ok",
+          "date": "2026-03-08"
+        }
+      ],
+      "tz": "Pacific/Auckland"
+    },
+    {
+      "name": "empty",
+      "nowMs": 1794610800000,
+      "tasks": [],
+      "taskCount": 0,
+      "expected": [],
+      "tz": "Pacific/Auckland"
+    },
+    {
+      "name": "basic-filter",
+      "nowMs": 1794637800000,
+      "tasks": [
+        {
+          "id": "t-once",
+          "title": "一次性",
+          "note": "",
+          "date": "2026-11-14",
+          "time": "18:00",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 0,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        },
+        {
+          "id": "t-past",
+          "title": "已过去",
+          "note": "",
+          "date": "2026-11-14",
+          "time": "09:00",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 0,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        },
+        {
+          "id": "t-noremind",
+          "title": "不提醒",
+          "note": "",
+          "date": "2026-11-14",
+          "time": "09:00",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": null,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        },
+        {
+          "id": "t-notime",
+          "title": "无时间",
+          "note": "",
+          "date": "2026-11-14",
+          "time": "",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 5,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        },
+        {
+          "id": "t-nodate",
+          "title": "无日期",
+          "note": "",
+          "date": "",
+          "time": "09:00",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 5,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        },
+        {
+          "id": "t-done",
+          "title": "已完成",
+          "note": "",
+          "date": "2026-11-14",
+          "time": "09:00",
+          "important": false,
+          "urgent": false,
+          "done": true,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 0,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        },
+        {
+          "id": "t-tomorrow",
+          "title": "明天",
+          "note": "",
+          "date": "2026-11-15",
+          "time": "08:30",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 15,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        }
+      ],
+      "taskCount": 7,
+      "expected": [
+        {
+          "at": 1794659400000,
+          "taskId": "t-once",
+          "date": "2026-11-14"
+        },
+        {
+          "at": 1794710700000,
+          "taskId": "t-tomorrow",
+          "date": "2026-11-15"
+        }
+      ],
+      "tz": "Asia/Kolkata"
+    },
+    {
+      "name": "repeat-d1-window",
+      "nowMs": 1794637800000,
+      "tasks": [
+        {
+          "id": "r-d1",
+          "title": "每天",
+          "note": "",
+          "date": "2026-11-01",
+          "time": "07:00",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "d1",
+          "doneDates": [
+            "2026-11-15",
+            "2026-11-17"
+          ],
+          "skipDates": [],
+          "remind": 5,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        }
+      ],
+      "taskCount": 1,
+      "expected": [
+        {
+          "at": 1794792300000,
+          "taskId": "r-d1",
+          "date": "2026-11-16"
+        },
+        {
+          "at": 1794965100000,
+          "taskId": "r-d1",
+          "date": "2026-11-18"
+        },
+        {
+          "at": 1795051500000,
+          "taskId": "r-d1",
+          "date": "2026-11-19"
+        },
+        {
+          "at": 1795137900000,
+          "taskId": "r-d1",
+          "date": "2026-11-20"
+        },
+        {
+          "at": 1795224300000,
+          "taskId": "r-d1",
+          "date": "2026-11-21"
+        },
+        {
+          "at": 1795310700000,
+          "taskId": "r-d1",
+          "date": "2026-11-22"
+        },
+        {
+          "at": 1795397100000,
+          "taskId": "r-d1",
+          "date": "2026-11-23"
+        },
+        {
+          "at": 1795483500000,
+          "taskId": "r-d1",
+          "date": "2026-11-24"
+        },
+        {
+          "at": 1795569900000,
+          "taskId": "r-d1",
+          "date": "2026-11-25"
+        },
+        {
+          "at": 1795656300000,
+          "taskId": "r-d1",
+          "date": "2026-11-26"
+        },
+        {
+          "at": 1795742700000,
+          "taskId": "r-d1",
+          "date": "2026-11-27"
+        },
+        {
+          "at": 1795829100000,
+          "taskId": "r-d1",
+          "date": "2026-11-28"
+        },
+        {
+          "at": 1795915500000,
+          "taskId": "r-d1",
+          "date": "2026-11-29"
+        },
+        {
+          "at": 1796001900000,
+          "taskId": "r-d1",
+          "date": "2026-11-30"
+        },
+        {
+          "at": 1796088300000,
+          "taskId": "r-d1",
+          "date": "2026-12-01"
+        },
+        {
+          "at": 1796174700000,
+          "taskId": "r-d1",
+          "date": "2026-12-02"
+        },
+        {
+          "at": 1796261100000,
+          "taskId": "r-d1",
+          "date": "2026-12-03"
+        },
+        {
+          "at": 1796347500000,
+          "taskId": "r-d1",
+          "date": "2026-12-04"
+        },
+        {
+          "at": 1796433900000,
+          "taskId": "r-d1",
+          "date": "2026-12-05"
+        },
+        {
+          "at": 1796520300000,
+          "taskId": "r-d1",
+          "date": "2026-12-06"
+        },
+        {
+          "at": 1796606700000,
+          "taskId": "r-d1",
+          "date": "2026-12-07"
+        },
+        {
+          "at": 1796693100000,
+          "taskId": "r-d1",
+          "date": "2026-12-08"
+        },
+        {
+          "at": 1796779500000,
+          "taskId": "r-d1",
+          "date": "2026-12-09"
+        },
+        {
+          "at": 1796865900000,
+          "taskId": "r-d1",
+          "date": "2026-12-10"
+        },
+        {
+          "at": 1796952300000,
+          "taskId": "r-d1",
+          "date": "2026-12-11"
+        },
+        {
+          "at": 1797038700000,
+          "taskId": "r-d1",
+          "date": "2026-12-12"
+        },
+        {
+          "at": 1797125100000,
+          "taskId": "r-d1",
+          "date": "2026-12-13"
+        },
+        {
+          "at": 1797211500000,
+          "taskId": "r-d1",
+          "date": "2026-12-14"
+        }
+      ],
+      "tz": "Asia/Kolkata"
+    },
+    {
+      "name": "repeat-weekly-and-until",
+      "nowMs": 1794637800000,
+      "tasks": [
+        {
+          "id": "r-w",
+          "title": "工作日",
+          "note": "",
+          "date": "2026-11-01",
+          "time": "09:30",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "w1:12345",
+          "doneDates": [],
+          "skipDates": [
+            "2026-11-18"
+          ],
+          "remind": 0,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        },
+        {
+          "id": "r-m",
+          "title": "每月",
+          "note": "",
+          "date": "2026-10-15",
+          "time": "10:00",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "m1",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 0,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        },
+        {
+          "id": "r-y",
+          "title": "每年",
+          "note": "",
+          "date": "2020-12-20",
+          "time": "20:00",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "y1",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 0,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        },
+        {
+          "id": "r-until",
+          "title": "到月底",
+          "note": "",
+          "date": "2026-11-01",
+          "time": "11:00",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "d1~2026-11-20",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 30,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        }
+      ],
+      "taskCount": 4,
+      "expected": [
+        {
+          "at": 1794717000000,
+          "taskId": "r-m",
+          "date": "2026-11-15"
+        },
+        {
+          "at": 1794718800000,
+          "taskId": "r-until",
+          "date": "2026-11-15"
+        },
+        {
+          "at": 1794801600000,
+          "taskId": "r-w",
+          "date": "2026-11-16"
+        },
+        {
+          "at": 1794805200000,
+          "taskId": "r-until",
+          "date": "2026-11-16"
+        },
+        {
+          "at": 1794888000000,
+          "taskId": "r-w",
+          "date": "2026-11-17"
+        },
+        {
+          "at": 1794891600000,
+          "taskId": "r-until",
+          "date": "2026-11-17"
+        },
+        {
+          "at": 1794978000000,
+          "taskId": "r-until",
+          "date": "2026-11-18"
+        },
+        {
+          "at": 1795060800000,
+          "taskId": "r-w",
+          "date": "2026-11-19"
+        },
+        {
+          "at": 1795064400000,
+          "taskId": "r-until",
+          "date": "2026-11-19"
+        },
+        {
+          "at": 1795147200000,
+          "taskId": "r-w",
+          "date": "2026-11-20"
+        },
+        {
+          "at": 1795150800000,
+          "taskId": "r-until",
+          "date": "2026-11-20"
+        },
+        {
+          "at": 1795406400000,
+          "taskId": "r-w",
+          "date": "2026-11-23"
+        },
+        {
+          "at": 1795492800000,
+          "taskId": "r-w",
+          "date": "2026-11-24"
+        },
+        {
+          "at": 1795579200000,
+          "taskId": "r-w",
+          "date": "2026-11-25"
+        },
+        {
+          "at": 1795665600000,
+          "taskId": "r-w",
+          "date": "2026-11-26"
+        },
+        {
+          "at": 1795752000000,
+          "taskId": "r-w",
+          "date": "2026-11-27"
+        },
+        {
+          "at": 1796011200000,
+          "taskId": "r-w",
+          "date": "2026-11-30"
+        },
+        {
+          "at": 1796097600000,
+          "taskId": "r-w",
+          "date": "2026-12-01"
+        },
+        {
+          "at": 1796184000000,
+          "taskId": "r-w",
+          "date": "2026-12-02"
+        },
+        {
+          "at": 1796270400000,
+          "taskId": "r-w",
+          "date": "2026-12-03"
+        },
+        {
+          "at": 1796356800000,
+          "taskId": "r-w",
+          "date": "2026-12-04"
+        },
+        {
+          "at": 1796616000000,
+          "taskId": "r-w",
+          "date": "2026-12-07"
+        },
+        {
+          "at": 1796702400000,
+          "taskId": "r-w",
+          "date": "2026-12-08"
+        },
+        {
+          "at": 1796788800000,
+          "taskId": "r-w",
+          "date": "2026-12-09"
+        },
+        {
+          "at": 1796875200000,
+          "taskId": "r-w",
+          "date": "2026-12-10"
+        },
+        {
+          "at": 1796961600000,
+          "taskId": "r-w",
+          "date": "2026-12-11"
+        },
+        {
+          "at": 1797220800000,
+          "taskId": "r-w",
+          "date": "2026-12-14"
+        }
+      ],
+      "tz": "Asia/Kolkata"
+    },
+    {
+      "name": "max-60-clamp",
+      "nowMs": 1793471400000,
+      "tasks": [
+        {
+          "id": "cap-A",
+          "title": "上限A",
+          "note": "",
+          "date": "2026-11-01",
+          "time": "07:00",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "d1",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 0,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        },
+        {
+          "id": "cap-B",
+          "title": "上限B",
+          "note": "",
+          "date": "2026-11-01",
+          "time": "08:00",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "d1",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 0,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        },
+        {
+          "id": "cap-C",
+          "title": "上限C",
+          "note": "",
+          "date": "2026-11-01",
+          "time": "09:00",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "d1",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 0,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        }
+      ],
+      "taskCount": 3,
+      "expected": [
+        {
+          "at": 1793496600000,
+          "taskId": "cap-A",
+          "date": "2026-11-01"
+        },
+        {
+          "at": 1793500200000,
+          "taskId": "cap-B",
+          "date": "2026-11-01"
+        },
+        {
+          "at": 1793503800000,
+          "taskId": "cap-C",
+          "date": "2026-11-01"
+        },
+        {
+          "at": 1793583000000,
+          "taskId": "cap-A",
+          "date": "2026-11-02"
+        },
+        {
+          "at": 1793586600000,
+          "taskId": "cap-B",
+          "date": "2026-11-02"
+        },
+        {
+          "at": 1793590200000,
+          "taskId": "cap-C",
+          "date": "2026-11-02"
+        },
+        {
+          "at": 1793669400000,
+          "taskId": "cap-A",
+          "date": "2026-11-03"
+        },
+        {
+          "at": 1793673000000,
+          "taskId": "cap-B",
+          "date": "2026-11-03"
+        },
+        {
+          "at": 1793676600000,
+          "taskId": "cap-C",
+          "date": "2026-11-03"
+        },
+        {
+          "at": 1793755800000,
+          "taskId": "cap-A",
+          "date": "2026-11-04"
+        },
+        {
+          "at": 1793759400000,
+          "taskId": "cap-B",
+          "date": "2026-11-04"
+        },
+        {
+          "at": 1793763000000,
+          "taskId": "cap-C",
+          "date": "2026-11-04"
+        },
+        {
+          "at": 1793842200000,
+          "taskId": "cap-A",
+          "date": "2026-11-05"
+        },
+        {
+          "at": 1793845800000,
+          "taskId": "cap-B",
+          "date": "2026-11-05"
+        },
+        {
+          "at": 1793849400000,
+          "taskId": "cap-C",
+          "date": "2026-11-05"
+        },
+        {
+          "at": 1793928600000,
+          "taskId": "cap-A",
+          "date": "2026-11-06"
+        },
+        {
+          "at": 1793932200000,
+          "taskId": "cap-B",
+          "date": "2026-11-06"
+        },
+        {
+          "at": 1793935800000,
+          "taskId": "cap-C",
+          "date": "2026-11-06"
+        },
+        {
+          "at": 1794015000000,
+          "taskId": "cap-A",
+          "date": "2026-11-07"
+        },
+        {
+          "at": 1794018600000,
+          "taskId": "cap-B",
+          "date": "2026-11-07"
+        },
+        {
+          "at": 1794022200000,
+          "taskId": "cap-C",
+          "date": "2026-11-07"
+        },
+        {
+          "at": 1794101400000,
+          "taskId": "cap-A",
+          "date": "2026-11-08"
+        },
+        {
+          "at": 1794105000000,
+          "taskId": "cap-B",
+          "date": "2026-11-08"
+        },
+        {
+          "at": 1794108600000,
+          "taskId": "cap-C",
+          "date": "2026-11-08"
+        },
+        {
+          "at": 1794187800000,
+          "taskId": "cap-A",
+          "date": "2026-11-09"
+        },
+        {
+          "at": 1794191400000,
+          "taskId": "cap-B",
+          "date": "2026-11-09"
+        },
+        {
+          "at": 1794195000000,
+          "taskId": "cap-C",
+          "date": "2026-11-09"
+        },
+        {
+          "at": 1794274200000,
+          "taskId": "cap-A",
+          "date": "2026-11-10"
+        },
+        {
+          "at": 1794277800000,
+          "taskId": "cap-B",
+          "date": "2026-11-10"
+        },
+        {
+          "at": 1794281400000,
+          "taskId": "cap-C",
+          "date": "2026-11-10"
+        },
+        {
+          "at": 1794360600000,
+          "taskId": "cap-A",
+          "date": "2026-11-11"
+        },
+        {
+          "at": 1794364200000,
+          "taskId": "cap-B",
+          "date": "2026-11-11"
+        },
+        {
+          "at": 1794367800000,
+          "taskId": "cap-C",
+          "date": "2026-11-11"
+        },
+        {
+          "at": 1794447000000,
+          "taskId": "cap-A",
+          "date": "2026-11-12"
+        },
+        {
+          "at": 1794450600000,
+          "taskId": "cap-B",
+          "date": "2026-11-12"
+        },
+        {
+          "at": 1794454200000,
+          "taskId": "cap-C",
+          "date": "2026-11-12"
+        },
+        {
+          "at": 1794533400000,
+          "taskId": "cap-A",
+          "date": "2026-11-13"
+        },
+        {
+          "at": 1794537000000,
+          "taskId": "cap-B",
+          "date": "2026-11-13"
+        },
+        {
+          "at": 1794540600000,
+          "taskId": "cap-C",
+          "date": "2026-11-13"
+        },
+        {
+          "at": 1794619800000,
+          "taskId": "cap-A",
+          "date": "2026-11-14"
+        },
+        {
+          "at": 1794623400000,
+          "taskId": "cap-B",
+          "date": "2026-11-14"
+        },
+        {
+          "at": 1794627000000,
+          "taskId": "cap-C",
+          "date": "2026-11-14"
+        },
+        {
+          "at": 1794706200000,
+          "taskId": "cap-A",
+          "date": "2026-11-15"
+        },
+        {
+          "at": 1794709800000,
+          "taskId": "cap-B",
+          "date": "2026-11-15"
+        },
+        {
+          "at": 1794713400000,
+          "taskId": "cap-C",
+          "date": "2026-11-15"
+        },
+        {
+          "at": 1794792600000,
+          "taskId": "cap-A",
+          "date": "2026-11-16"
+        },
+        {
+          "at": 1794796200000,
+          "taskId": "cap-B",
+          "date": "2026-11-16"
+        },
+        {
+          "at": 1794799800000,
+          "taskId": "cap-C",
+          "date": "2026-11-16"
+        },
+        {
+          "at": 1794879000000,
+          "taskId": "cap-A",
+          "date": "2026-11-17"
+        },
+        {
+          "at": 1794882600000,
+          "taskId": "cap-B",
+          "date": "2026-11-17"
+        },
+        {
+          "at": 1794886200000,
+          "taskId": "cap-C",
+          "date": "2026-11-17"
+        },
+        {
+          "at": 1794965400000,
+          "taskId": "cap-A",
+          "date": "2026-11-18"
+        },
+        {
+          "at": 1794969000000,
+          "taskId": "cap-B",
+          "date": "2026-11-18"
+        },
+        {
+          "at": 1794972600000,
+          "taskId": "cap-C",
+          "date": "2026-11-18"
+        },
+        {
+          "at": 1795051800000,
+          "taskId": "cap-A",
+          "date": "2026-11-19"
+        },
+        {
+          "at": 1795055400000,
+          "taskId": "cap-B",
+          "date": "2026-11-19"
+        },
+        {
+          "at": 1795059000000,
+          "taskId": "cap-C",
+          "date": "2026-11-19"
+        },
+        {
+          "at": 1795138200000,
+          "taskId": "cap-A",
+          "date": "2026-11-20"
+        },
+        {
+          "at": 1795141800000,
+          "taskId": "cap-B",
+          "date": "2026-11-20"
+        },
+        {
+          "at": 1795145400000,
+          "taskId": "cap-C",
+          "date": "2026-11-20"
+        }
+      ],
+      "tz": "Asia/Kolkata"
+    },
+    {
+      "name": "remind-crosses-midnight",
+      "nowMs": 1794680400000,
+      "tasks": [
+        {
+          "id": "x-1",
+          "title": "次日凌晨",
+          "note": "",
+          "date": "2026-11-15",
+          "time": "00:10",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 60,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        },
+        {
+          "id": "x-2",
+          "title": "今晚",
+          "note": "",
+          "date": "2026-11-14",
+          "time": "23:59",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 0,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        },
+        {
+          "id": "x-3",
+          "title": "已过提醒点",
+          "note": "",
+          "date": "2026-11-15",
+          "time": "00:30",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 60,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        }
+      ],
+      "taskCount": 3,
+      "expected": [
+        {
+          "at": 1794680940000,
+          "taskId": "x-2",
+          "date": "2026-11-14"
+        }
+      ],
+      "tz": "Asia/Kolkata"
+    },
+    {
+      "name": "quadrant-and-repeat-flags",
+      "nowMs": 1794637800000,
+      "tasks": [
+        {
+          "id": "q1",
+          "title": "象限1",
+          "note": "",
+          "date": "2026-11-16",
+          "time": "14:00",
+          "important": true,
+          "urgent": true,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "d2",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 30,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        },
+        {
+          "id": "q2",
+          "title": "象限2",
+          "note": "",
+          "date": "2026-11-16",
+          "time": "14:00",
+          "important": true,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 30,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        },
+        {
+          "id": "q3",
+          "title": "象限3",
+          "note": "",
+          "date": "2026-11-16",
+          "time": "14:00",
+          "important": false,
+          "urgent": true,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "d2",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 30,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        },
+        {
+          "id": "q4",
+          "title": "象限4",
+          "note": "",
+          "date": "2026-11-16",
+          "time": "14:00",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 30,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        }
+      ],
+      "taskCount": 4,
+      "expected": [
+        {
+          "at": 1794816000000,
+          "taskId": "q1",
+          "date": "2026-11-16"
+        },
+        {
+          "at": 1794816000000,
+          "taskId": "q2",
+          "date": "2026-11-16"
+        },
+        {
+          "at": 1794816000000,
+          "taskId": "q3",
+          "date": "2026-11-16"
+        },
+        {
+          "at": 1794816000000,
+          "taskId": "q4",
+          "date": "2026-11-16"
+        },
+        {
+          "at": 1794988800000,
+          "taskId": "q1",
+          "date": "2026-11-18"
+        },
+        {
+          "at": 1794988800000,
+          "taskId": "q3",
+          "date": "2026-11-18"
+        },
+        {
+          "at": 1795161600000,
+          "taskId": "q1",
+          "date": "2026-11-20"
+        },
+        {
+          "at": 1795161600000,
+          "taskId": "q3",
+          "date": "2026-11-20"
+        },
+        {
+          "at": 1795334400000,
+          "taskId": "q1",
+          "date": "2026-11-22"
+        },
+        {
+          "at": 1795334400000,
+          "taskId": "q3",
+          "date": "2026-11-22"
+        },
+        {
+          "at": 1795507200000,
+          "taskId": "q1",
+          "date": "2026-11-24"
+        },
+        {
+          "at": 1795507200000,
+          "taskId": "q3",
+          "date": "2026-11-24"
+        },
+        {
+          "at": 1795680000000,
+          "taskId": "q1",
+          "date": "2026-11-26"
+        },
+        {
+          "at": 1795680000000,
+          "taskId": "q3",
+          "date": "2026-11-26"
+        },
+        {
+          "at": 1795852800000,
+          "taskId": "q1",
+          "date": "2026-11-28"
+        },
+        {
+          "at": 1795852800000,
+          "taskId": "q3",
+          "date": "2026-11-28"
+        },
+        {
+          "at": 1796025600000,
+          "taskId": "q1",
+          "date": "2026-11-30"
+        },
+        {
+          "at": 1796025600000,
+          "taskId": "q3",
+          "date": "2026-11-30"
+        },
+        {
+          "at": 1796198400000,
+          "taskId": "q1",
+          "date": "2026-12-02"
+        },
+        {
+          "at": 1796198400000,
+          "taskId": "q3",
+          "date": "2026-12-02"
+        },
+        {
+          "at": 1796371200000,
+          "taskId": "q1",
+          "date": "2026-12-04"
+        },
+        {
+          "at": 1796371200000,
+          "taskId": "q3",
+          "date": "2026-12-04"
+        },
+        {
+          "at": 1796544000000,
+          "taskId": "q1",
+          "date": "2026-12-06"
+        },
+        {
+          "at": 1796544000000,
+          "taskId": "q3",
+          "date": "2026-12-06"
+        },
+        {
+          "at": 1796716800000,
+          "taskId": "q1",
+          "date": "2026-12-08"
+        },
+        {
+          "at": 1796716800000,
+          "taskId": "q3",
+          "date": "2026-12-08"
+        },
+        {
+          "at": 1796889600000,
+          "taskId": "q1",
+          "date": "2026-12-10"
+        },
+        {
+          "at": 1796889600000,
+          "taskId": "q3",
+          "date": "2026-12-10"
+        },
+        {
+          "at": 1797062400000,
+          "taskId": "q1",
+          "date": "2026-12-12"
+        },
+        {
+          "at": 1797062400000,
+          "taskId": "q3",
+          "date": "2026-12-12"
+        },
+        {
+          "at": 1797235200000,
+          "taskId": "q1",
+          "date": "2026-12-14"
+        },
+        {
+          "at": 1797235200000,
+          "taskId": "q3",
+          "date": "2026-12-14"
+        }
+      ],
+      "tz": "Asia/Kolkata"
+    },
+    {
+      "name": "dst-spring-forward",
+      "nowMs": 1772865000000,
+      "tasks": [
+        {
+          "id": "dst-gap",
+          "title": "跳跃时刻",
+          "note": "",
+          "date": "2026-03-08",
+          "time": "02:30",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 0,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        },
+        {
+          "id": "dst-ok",
+          "title": "正常时刻",
+          "note": "",
+          "date": "2026-03-08",
+          "time": "09:00",
+          "important": false,
+          "urgent": false,
+          "done": false,
+          "dropped": false,
+          "createdAt": 1700000000000,
+          "doneAt": null,
+          "repeat": "",
+          "doneDates": [],
+          "skipDates": [],
+          "remind": 0,
+          "parentId": "",
+          "updatedAt": 1700000000000
+        }
+      ],
+      "taskCount": 2,
+      "expected": [
+        {
+          "at": 1772917200000,
+          "taskId": "dst-gap",
+          "date": "2026-03-08"
+        },
+        {
+          "at": 1772940600000,
+          "taskId": "dst-ok",
+          "date": "2026-03-08"
+        }
+      ],
+      "tz": "Asia/Kolkata"
+    },
+    {
+      "name": "empty",
+      "nowMs": 1794637800000,
+      "tasks": [],
+      "taskCount": 0,
+      "expected": [],
+      "tz": "Asia/Kolkata"
+    }
+  ],
+  "notificationCases": [
+    {
+      "lang": "zh",
+      "taskId": "n1",
+      "date": "2026-11-16",
+      "at": 1795143600000,
+      "task": {
+        "id": "n1",
+        "title": "周报",
+        "note": "",
+        "date": "2026-11-16",
+        "time": "09:00",
+        "important": false,
+        "urgent": false,
+        "done": false,
+        "dropped": false,
+        "createdAt": 1700000000000,
+        "doneAt": null,
+        "repeat": "",
+        "doneDates": [],
+        "skipDates": [],
+        "remind": 0,
+        "parentId": "",
+        "updatedAt": 1700000000000
+      },
+      "expected": {
+        "id": 1499446400,
+        "title": "周报",
+        "body": "09:00 · 不重要不紧急",
+        "channelId": "reminders",
+        "extraId": "n1",
+        "extraOcc": "",
+        "scheduleAt": "2026-11-20T03:00:00.000Z"
+      }
+    },
+    {
+      "lang": "zh",
+      "taskId": "n1",
+      "date": "2026-11-17",
+      "at": 1795143600000,
+      "task": {
+        "id": "n1",
+        "title": "周报",
+        "note": "",
+        "date": "2026-11-16",
+        "time": "09:00",
+        "important": false,
+        "urgent": false,
+        "done": false,
+        "dropped": false,
+        "createdAt": 1700000000000,
+        "doneAt": null,
+        "repeat": "",
+        "doneDates": [],
+        "skipDates": [],
+        "remind": 0,
+        "parentId": "",
+        "updatedAt": 1700000000000
+      },
+      "expected": {
+        "id": 1499446401,
+        "title": "周报",
+        "body": "09:00 · 不重要不紧急",
+        "channelId": "reminders",
+        "extraId": "n1",
+        "extraOcc": "",
+        "scheduleAt": "2026-11-20T03:00:00.000Z"
+      }
+    },
+    {
+      "lang": "zh",
+      "taskId": "n2",
+      "date": "2026-11-16",
+      "at": 1795143600000,
+      "task": {
+        "id": "n2",
+        "title": "喝水",
+        "note": "",
+        "date": "2026-11-16",
+        "time": "09:30",
+        "important": true,
+        "urgent": true,
+        "done": false,
+        "dropped": false,
+        "createdAt": 1700000000000,
+        "doneAt": null,
+        "repeat": "d1",
+        "doneDates": [],
+        "skipDates": [],
+        "remind": 5,
+        "parentId": "",
+        "updatedAt": 1700000000000
+      },
+      "expected": {
+        "id": 1628529119,
+        "title": "喝水",
+        "body": "5 分钟后开始 · 09:30 · 每天 · 重要且紧急",
+        "channelId": "reminders",
+        "extraId": "n2",
+        "extraOcc": "2026-11-16",
+        "scheduleAt": "2026-11-20T03:00:00.000Z"
+      }
+    },
+    {
+      "lang": "zh",
+      "taskId": "n2",
+      "date": "2026-11-17",
+      "at": 1795143600000,
+      "task": {
+        "id": "n2",
+        "title": "喝水",
+        "note": "",
+        "date": "2026-11-16",
+        "time": "09:30",
+        "important": true,
+        "urgent": true,
+        "done": false,
+        "dropped": false,
+        "createdAt": 1700000000000,
+        "doneAt": null,
+        "repeat": "d1",
+        "doneDates": [],
+        "skipDates": [],
+        "remind": 5,
+        "parentId": "",
+        "updatedAt": 1700000000000
+      },
+      "expected": {
+        "id": 1628529120,
+        "title": "喝水",
+        "body": "5 分钟后开始 · 09:30 · 每天 · 重要且紧急",
+        "channelId": "reminders",
+        "extraId": "n2",
+        "extraOcc": "2026-11-17",
+        "scheduleAt": "2026-11-20T03:00:00.000Z"
+      }
+    },
+    {
+      "lang": "zh",
+      "taskId": "n3",
+      "date": "2026-11-16",
+      "at": 1795143600000,
+      "task": {
+        "id": "n3",
+        "title": "月度复盘",
+        "note": "",
+        "date": "2026-11-16",
+        "time": "10:00",
+        "important": true,
+        "urgent": false,
+        "done": false,
+        "dropped": false,
+        "createdAt": 1700000000000,
+        "doneAt": null,
+        "repeat": "m1~2026-12-31",
+        "doneDates": [],
+        "skipDates": [],
+        "remind": 60,
+        "parentId": "",
+        "updatedAt": 1700000000000
+      },
+      "expected": {
+        "id": 1757611838,
+        "title": "月度复盘",
+        "body": "1 小时后开始 · 10:00 · 每月16日 · 重要不紧急",
+        "channelId": "reminders",
+        "extraId": "n3",
+        "extraOcc": "2026-11-16",
+        "scheduleAt": "2026-11-20T03:00:00.000Z"
+      }
+    },
+    {
+      "lang": "zh",
+      "taskId": "n3",
+      "date": "2026-11-17",
+      "at": 1795143600000,
+      "task": {
+        "id": "n3",
+        "title": "月度复盘",
+        "note": "",
+        "date": "2026-11-16",
+        "time": "10:00",
+        "important": true,
+        "urgent": false,
+        "done": false,
+        "dropped": false,
+        "createdAt": 1700000000000,
+        "doneAt": null,
+        "repeat": "m1~2026-12-31",
+        "doneDates": [],
+        "skipDates": [],
+        "remind": 60,
+        "parentId": "",
+        "updatedAt": 1700000000000
+      },
+      "expected": {
+        "id": 1757611839,
+        "title": "月度复盘",
+        "body": "1 小时后开始 · 10:00 · 每月16日 · 重要不紧急",
+        "channelId": "reminders",
+        "extraId": "n3",
+        "extraOcc": "2026-11-17",
+        "scheduleAt": "2026-11-20T03:00:00.000Z"
+      }
+    },
+    {
+      "lang": "zh",
+      "taskId": "n4",
+      "date": "2026-11-16",
+      "at": 1795143600000,
+      "task": {
+        "id": "n4",
+        "title": "带/斜杠与\"引号\"",
+        "note": "",
+        "date": "2026-11-16",
+        "time": "23:00",
+        "important": false,
+        "urgent": false,
+        "done": false,
+        "dropped": false,
+        "createdAt": 1700000000000,
+        "doneAt": null,
+        "repeat": "",
+        "doneDates": [],
+        "skipDates": [],
+        "remind": 15,
+        "parentId": "",
+        "updatedAt": 1700000000000
+      },
+      "expected": {
+        "id": 1886694557,
+        "title": "带/斜杠与\"引号\"",
+        "body": "15 分钟后开始 · 23:00 · 不重要不紧急",
+        "channelId": "reminders",
+        "extraId": "n4",
+        "extraOcc": "",
+        "scheduleAt": "2026-11-20T03:00:00.000Z"
+      }
+    },
+    {
+      "lang": "zh",
+      "taskId": "n4",
+      "date": "2026-11-17",
+      "at": 1795143600000,
+      "task": {
+        "id": "n4",
+        "title": "带/斜杠与\"引号\"",
+        "note": "",
+        "date": "2026-11-16",
+        "time": "23:00",
+        "important": false,
+        "urgent": false,
+        "done": false,
+        "dropped": false,
+        "createdAt": 1700000000000,
+        "doneAt": null,
+        "repeat": "",
+        "doneDates": [],
+        "skipDates": [],
+        "remind": 15,
+        "parentId": "",
+        "updatedAt": 1700000000000
+      },
+      "expected": {
+        "id": 1886694558,
+        "title": "带/斜杠与\"引号\"",
+        "body": "15 分钟后开始 · 23:00 · 不重要不紧急",
+        "channelId": "reminders",
+        "extraId": "n4",
+        "extraOcc": "",
+        "scheduleAt": "2026-11-20T03:00:00.000Z"
+      }
+    },
+    {
+      "lang": "zh",
+      "taskId": "😀",
+      "date": "2026-11-16",
+      "at": 1795143600000,
+      "task": {
+        "id": "😀",
+        "title": "emoji 任务",
+        "note": "",
+        "date": "2026-11-16",
+        "time": "08:00",
+        "important": false,
+        "urgent": false,
+        "done": false,
+        "dropped": false,
+        "createdAt": 1700000000000,
+        "doneAt": null,
+        "repeat": "y1",
+        "doneDates": [],
+        "skipDates": [],
+        "remind": 30,
+        "parentId": "",
+        "updatedAt": 1700000000000
+      },
+      "expected": {
+        "id": 735047520,
+        "title": "emoji 任务",
+        "body": "30 分钟后开始 · 08:00 · 每年11月16日 · 不重要不紧急",
+        "channelId": "reminders",
+        "extraId": "😀",
+        "extraOcc": "2026-11-16",
+        "scheduleAt": "2026-11-20T03:00:00.000Z"
+      }
+    },
+    {
+      "lang": "zh",
+      "taskId": "😀",
+      "date": "2026-11-17",
+      "at": 1795143600000,
+      "task": {
+        "id": "😀",
+        "title": "emoji 任务",
+        "note": "",
+        "date": "2026-11-16",
+        "time": "08:00",
+        "important": false,
+        "urgent": false,
+        "done": false,
+        "dropped": false,
+        "createdAt": 1700000000000,
+        "doneAt": null,
+        "repeat": "y1",
+        "doneDates": [],
+        "skipDates": [],
+        "remind": 30,
+        "parentId": "",
+        "updatedAt": 1700000000000
+      },
+      "expected": {
+        "id": 735047519,
+        "title": "emoji 任务",
+        "body": "30 分钟后开始 · 08:00 · 每年11月16日 · 不重要不紧急",
+        "channelId": "reminders",
+        "extraId": "😀",
+        "extraOcc": "2026-11-17",
+        "scheduleAt": "2026-11-20T03:00:00.000Z"
+      }
+    },
+    {
+      "lang": "en",
+      "taskId": "n1",
+      "date": "2026-11-16",
+      "at": 1795143600000,
+      "task": {
+        "id": "n1",
+        "title": "周报",
+        "note": "",
+        "date": "2026-11-16",
+        "time": "09:00",
+        "important": false,
+        "urgent": false,
+        "done": false,
+        "dropped": false,
+        "createdAt": 1700000000000,
+        "doneAt": null,
+        "repeat": "",
+        "doneDates": [],
+        "skipDates": [],
+        "remind": 0,
+        "parentId": "",
+        "updatedAt": 1700000000000
+      },
+      "expected": {
+        "id": 1499446400,
+        "title": "周报",
+        "body": "09:00 · Neither",
+        "channelId": "reminders",
+        "extraId": "n1",
+        "extraOcc": "",
+        "scheduleAt": "2026-11-20T03:00:00.000Z"
+      }
+    },
+    {
+      "lang": "en",
+      "taskId": "n1",
+      "date": "2026-11-17",
+      "at": 1795143600000,
+      "task": {
+        "id": "n1",
+        "title": "周报",
+        "note": "",
+        "date": "2026-11-16",
+        "time": "09:00",
+        "important": false,
+        "urgent": false,
+        "done": false,
+        "dropped": false,
+        "createdAt": 1700000000000,
+        "doneAt": null,
+        "repeat": "",
+        "doneDates": [],
+        "skipDates": [],
+        "remind": 0,
+        "parentId": "",
+        "updatedAt": 1700000000000
+      },
+      "expected": {
+        "id": 1499446401,
+        "title": "周报",
+        "body": "09:00 · Neither",
+        "channelId": "reminders",
+        "extraId": "n1",
+        "extraOcc": "",
+        "scheduleAt": "2026-11-20T03:00:00.000Z"
+      }
+    },
+    {
+      "lang": "en",
+      "taskId": "n2",
+      "date": "2026-11-16",
+      "at": 1795143600000,
+      "task": {
+        "id": "n2",
+        "title": "喝水",
+        "note": "",
+        "date": "2026-11-16",
+        "time": "09:30",
+        "important": true,
+        "urgent": true,
+        "done": false,
+        "dropped": false,
+        "createdAt": 1700000000000,
+        "doneAt": null,
+        "repeat": "d1",
+        "doneDates": [],
+        "skipDates": [],
+        "remind": 5,
+        "parentId": "",
+        "updatedAt": 1700000000000
+      },
+      "expected": {
+        "id": 1628529119,
+        "title": "喝水",
+        "body": "Starts in 5 minutes · 09:30 · Daily · Important & urgent",
+        "channelId": "reminders",
+        "extraId": "n2",
+        "extraOcc": "2026-11-16",
+        "scheduleAt": "2026-11-20T03:00:00.000Z"
+      }
+    },
+    {
+      "lang": "en",
+      "taskId": "n2",
+      "date": "2026-11-17",
+      "at": 1795143600000,
+      "task": {
+        "id": "n2",
+        "title": "喝水",
+        "note": "",
+        "date": "2026-11-16",
+        "time": "09:30",
+        "important": true,
+        "urgent": true,
+        "done": false,
+        "dropped": false,
+        "createdAt": 1700000000000,
+        "doneAt": null,
+        "repeat": "d1",
+        "doneDates": [],
+        "skipDates": [],
+        "remind": 5,
+        "parentId": "",
+        "updatedAt": 1700000000000
+      },
+      "expected": {
+        "id": 1628529120,
+        "title": "喝水",
+        "body": "Starts in 5 minutes · 09:30 · Daily · Important & urgent",
+        "channelId": "reminders",
+        "extraId": "n2",
+        "extraOcc": "2026-11-17",
+        "scheduleAt": "2026-11-20T03:00:00.000Z"
+      }
+    },
+    {
+      "lang": "en",
+      "taskId": "n3",
+      "date": "2026-11-16",
+      "at": 1795143600000,
+      "task": {
+        "id": "n3",
+        "title": "月度复盘",
+        "note": "",
+        "date": "2026-11-16",
+        "time": "10:00",
+        "important": true,
+        "urgent": false,
+        "done": false,
+        "dropped": false,
+        "createdAt": 1700000000000,
+        "doneAt": null,
+        "repeat": "m1~2026-12-31",
+        "doneDates": [],
+        "skipDates": [],
+        "remind": 60,
+        "parentId": "",
+        "updatedAt": 1700000000000
+      },
+      "expected": {
+        "id": 1757611838,
+        "title": "月度复盘",
+        "body": "Starts in 1 hour · 10:00 · Monthly on the 16th · Important, not urgent",
+        "channelId": "reminders",
+        "extraId": "n3",
+        "extraOcc": "2026-11-16",
+        "scheduleAt": "2026-11-20T03:00:00.000Z"
+      }
+    },
+    {
+      "lang": "en",
+      "taskId": "n3",
+      "date": "2026-11-17",
+      "at": 1795143600000,
+      "task": {
+        "id": "n3",
+        "title": "月度复盘",
+        "note": "",
+        "date": "2026-11-16",
+        "time": "10:00",
+        "important": true,
+        "urgent": false,
+        "done": false,
+        "dropped": false,
+        "createdAt": 1700000000000,
+        "doneAt": null,
+        "repeat": "m1~2026-12-31",
+        "doneDates": [],
+        "skipDates": [],
+        "remind": 60,
+        "parentId": "",
+        "updatedAt": 1700000000000
+      },
+      "expected": {
+        "id": 1757611839,
+        "title": "月度复盘",
+        "body": "Starts in 1 hour · 10:00 · Monthly on the 16th · Important, not urgent",
+        "channelId": "reminders",
+        "extraId": "n3",
+        "extraOcc": "2026-11-17",
+        "scheduleAt": "2026-11-20T03:00:00.000Z"
+      }
+    },
+    {
+      "lang": "en",
+      "taskId": "n4",
+      "date": "2026-11-16",
+      "at": 1795143600000,
+      "task": {
+        "id": "n4",
+        "title": "带/斜杠与\"引号\"",
+        "note": "",
+        "date": "2026-11-16",
+        "time": "23:00",
+        "important": false,
+        "urgent": false,
+        "done": false,
+        "dropped": false,
+        "createdAt": 1700000000000,
+        "doneAt": null,
+        "repeat": "",
+        "doneDates": [],
+        "skipDates": [],
+        "remind": 15,
+        "parentId": "",
+        "updatedAt": 1700000000000
+      },
+      "expected": {
+        "id": 1886694557,
+        "title": "带/斜杠与\"引号\"",
+        "body": "Starts in 15 minutes · 23:00 · Neither",
+        "channelId": "reminders",
+        "extraId": "n4",
+        "extraOcc": "",
+        "scheduleAt": "2026-11-20T03:00:00.000Z"
+      }
+    },
+    {
+      "lang": "en",
+      "taskId": "n4",
+      "date": "2026-11-17",
+      "at": 1795143600000,
+      "task": {
+        "id": "n4",
+        "title": "带/斜杠与\"引号\"",
+        "note": "",
+        "date": "2026-11-16",
+        "time": "23:00",
+        "important": false,
+        "urgent": false,
+        "done": false,
+        "dropped": false,
+        "createdAt": 1700000000000,
+        "doneAt": null,
+        "repeat": "",
+        "doneDates": [],
+        "skipDates": [],
+        "remind": 15,
+        "parentId": "",
+        "updatedAt": 1700000000000
+      },
+      "expected": {
+        "id": 1886694558,
+        "title": "带/斜杠与\"引号\"",
+        "body": "Starts in 15 minutes · 23:00 · Neither",
+        "channelId": "reminders",
+        "extraId": "n4",
+        "extraOcc": "",
+        "scheduleAt": "2026-11-20T03:00:00.000Z"
+      }
+    },
+    {
+      "lang": "en",
+      "taskId": "😀",
+      "date": "2026-11-16",
+      "at": 1795143600000,
+      "task": {
+        "id": "😀",
+        "title": "emoji 任务",
+        "note": "",
+        "date": "2026-11-16",
+        "time": "08:00",
+        "important": false,
+        "urgent": false,
+        "done": false,
+        "dropped": false,
+        "createdAt": 1700000000000,
+        "doneAt": null,
+        "repeat": "y1",
+        "doneDates": [],
+        "skipDates": [],
+        "remind": 30,
+        "parentId": "",
+        "updatedAt": 1700000000000
+      },
+      "expected": {
+        "id": 735047520,
+        "title": "emoji 任务",
+        "body": "Starts in 30 minutes · 08:00 · Yearly on Nov 16 · Neither",
+        "channelId": "reminders",
+        "extraId": "😀",
+        "extraOcc": "2026-11-16",
+        "scheduleAt": "2026-11-20T03:00:00.000Z"
+      }
+    },
+    {
+      "lang": "en",
+      "taskId": "😀",
+      "date": "2026-11-17",
+      "at": 1795143600000,
+      "task": {
+        "id": "😀",
+        "title": "emoji 任务",
+        "note": "",
+        "date": "2026-11-16",
+        "time": "08:00",
+        "important": false,
+        "urgent": false,
+        "done": false,
+        "dropped": false,
+        "createdAt": 1700000000000,
+        "doneAt": null,
+        "repeat": "y1",
+        "doneDates": [],
+        "skipDates": [],
+        "remind": 30,
+        "parentId": "",
+        "updatedAt": 1700000000000
+      },
+      "expected": {
+        "id": 735047519,
+        "title": "emoji 任务",
+        "body": "Starts in 30 minutes · 08:00 · Yearly on Nov 16 · Neither",
+        "channelId": "reminders",
+        "extraId": "😀",
+        "extraOcc": "2026-11-17",
+        "scheduleAt": "2026-11-20T03:00:00.000Z"
+      }
+    }
+  ]
+}
