@@ -1,0 +1,953 @@
+{
+  "meta": {
+    "baseline_commit": "97a7c4c17602327a42d30110806a6a1e6fa0e798",
+    "generator": "ios/PlannerTests/Fixtures/generate_store_fixtures.mjs",
+    "oracle": "/tmp/t09_oracle/store.mjs (运行副本，仅替换 5 处环境依赖)",
+    "oracle_changed_lines": 5,
+    "fixed_local_now": "2026-11-13T12:00:00",
+    "timezone": "Asia/Shanghai",
+    "case_count": 21,
+    "note": "id 由确定性 randomUUID 生成（t09-1, t09-2 ...），每个 case 重置；deleted/savedData 按 key 排序规范化。"
+  },
+  "cases": [
+    {
+      "name": "empty_start",
+      "setup": {},
+      "ops": [],
+      "expect": {
+        "tasks": "[]",
+        "deleted": "{}",
+        "settings": "{\"lang\":\"auto\",\"showLunar\":true,\"showHoliday\":true,\"remindOn\":true,\"defaultRemind\":0,\"syncOn\":false,\"syncCode\":\"\"}",
+        "savedData": null,
+        "savedSettings": null,
+        "corruptCount": 0,
+        "payload": null
+      }
+    },
+    {
+      "name": "add_then_flush",
+      "setup": {},
+      "ops": [
+        {
+          "op": "add",
+          "fields": {
+            "title": "开会",
+            "date": "2026-11-13"
+          }
+        },
+        {
+          "op": "flush"
+        }
+      ],
+      "expect": {
+        "tasks": "[{\"id\":\"t09-1\",\"title\":\"开会\",\"note\":\"\",\"date\":\"2026-11-13\",\"time\":\"\",\"important\":false,\"urgent\":false,\"done\":false,\"dropped\":false,\"createdAt\":1794542400000,\"doneAt\":null,\"repeat\":\"\",\"doneDates\":[],\"skipDates\":[],\"remind\":null,\"parentId\":\"\",\"updatedAt\":1794542400001}]",
+        "deleted": "{}",
+        "settings": "{\"lang\":\"auto\",\"showLunar\":true,\"showHoliday\":true,\"remindOn\":true,\"defaultRemind\":0,\"syncOn\":false,\"syncCode\":\"\"}",
+        "savedData": "{\"version\":1,\"tasks\":[{\"id\":\"t09-1\",\"title\":\"开会\",\"note\":\"\",\"date\":\"2026-11-13\",\"time\":\"\",\"important\":false,\"urgent\":false,\"done\":false,\"dropped\":false,\"createdAt\":1794542400000,\"doneAt\":null,\"repeat\":\"\",\"doneDates\":[],\"skipDates\":[],\"remind\":null,\"parentId\":\"\",\"updatedAt\":1794542400001}],\"deleted\":{}}",
+        "savedSettings": null,
+        "corruptCount": 0,
+        "payload": null
+      }
+    },
+    {
+      "name": "update_stamp_and_tombstone",
+      "setup": {},
+      "ops": [
+        {
+          "op": "add",
+          "fields": {
+            "title": "写周报",
+            "date": "2026-11-13"
+          }
+        },
+        {
+          "op": "flush"
+        },
+        {
+          "op": "update",
+          "id": "t09-1",
+          "patch": {
+            "done": true
+          }
+        },
+        {
+          "op": "flush"
+        },
+        {
+          "op": "remove",
+          "id": "t09-1"
+        },
+        {
+          "op": "flush"
+        }
+      ],
+      "expect": {
+        "tasks": "[]",
+        "deleted": "{\"t09-1\":1794542400000}",
+        "settings": "{\"lang\":\"auto\",\"showLunar\":true,\"showHoliday\":true,\"remindOn\":true,\"defaultRemind\":0,\"syncOn\":false,\"syncCode\":\"\"}",
+        "savedData": "{\"version\":1,\"tasks\":[],\"deleted\":{\"t09-1\":1794542400000}}",
+        "savedSettings": null,
+        "corruptCount": 0,
+        "payload": null
+      }
+    },
+    {
+      "name": "undo_delete_clears_tombstone",
+      "setup": {},
+      "ops": [
+        {
+          "op": "add",
+          "fields": {
+            "title": "任务A"
+          }
+        },
+        {
+          "op": "flush"
+        },
+        {
+          "op": "remove",
+          "id": "t09-1"
+        },
+        {
+          "op": "flush"
+        },
+        {
+          "op": "undo"
+        },
+        {
+          "op": "flush"
+        }
+      ],
+      "expect": {
+        "tasks": "[{\"id\":\"t09-1\",\"title\":\"任务A\",\"note\":\"\",\"date\":\"\",\"time\":\"\",\"important\":false,\"urgent\":false,\"done\":false,\"dropped\":false,\"createdAt\":1794542400000,\"doneAt\":null,\"repeat\":\"\",\"doneDates\":[],\"skipDates\":[],\"remind\":null,\"parentId\":\"\",\"updatedAt\":1794542400002}]",
+        "deleted": "{}",
+        "settings": "{\"lang\":\"auto\",\"showLunar\":true,\"showHoliday\":true,\"remindOn\":true,\"defaultRemind\":0,\"syncOn\":false,\"syncCode\":\"\"}",
+        "savedData": "{\"version\":1,\"tasks\":[{\"id\":\"t09-1\",\"title\":\"任务A\",\"note\":\"\",\"date\":\"\",\"time\":\"\",\"important\":false,\"urgent\":false,\"done\":false,\"dropped\":false,\"createdAt\":1794542400000,\"doneAt\":null,\"repeat\":\"\",\"doneDates\":[],\"skipDates\":[],\"remind\":null,\"parentId\":\"\",\"updatedAt\":1794542400002}],\"deleted\":{}}",
+        "savedSettings": null,
+        "corruptCount": 0,
+        "payload": null
+      }
+    },
+    {
+      "name": "drop_and_undo",
+      "setup": {},
+      "ops": [
+        {
+          "op": "add",
+          "fields": {
+            "title": "不做了",
+            "date": "2026-11-14"
+          }
+        },
+        {
+          "op": "drop",
+          "id": "t09-1"
+        },
+        {
+          "op": "flush"
+        },
+        {
+          "op": "undo"
+        },
+        {
+          "op": "flush"
+        }
+      ],
+      "expect": {
+        "tasks": "[{\"id\":\"t09-1\",\"title\":\"不做了\",\"note\":\"\",\"date\":\"2026-11-14\",\"time\":\"\",\"important\":false,\"urgent\":false,\"done\":false,\"dropped\":false,\"createdAt\":1794542400000,\"doneAt\":null,\"repeat\":\"\",\"doneDates\":[],\"skipDates\":[],\"remind\":null,\"parentId\":\"\",\"updatedAt\":1794542400002}]",
+        "deleted": "{}",
+        "settings": "{\"lang\":\"auto\",\"showLunar\":true,\"showHoliday\":true,\"remindOn\":true,\"defaultRemind\":0,\"syncOn\":false,\"syncCode\":\"\"}",
+        "savedData": "{\"version\":1,\"tasks\":[{\"id\":\"t09-1\",\"title\":\"不做了\",\"note\":\"\",\"date\":\"2026-11-14\",\"time\":\"\",\"important\":false,\"urgent\":false,\"done\":false,\"dropped\":false,\"createdAt\":1794542400000,\"doneAt\":null,\"repeat\":\"\",\"doneDates\":[],\"skipDates\":[],\"remind\":null,\"parentId\":\"\",\"updatedAt\":1794542400002}],\"deleted\":{}}",
+        "savedSettings": null,
+        "corruptCount": 0,
+        "payload": null
+      }
+    },
+    {
+      "name": "toggle_one_shot",
+      "setup": {},
+      "ops": [
+        {
+          "op": "add",
+          "fields": {
+            "title": "一次性"
+          }
+        },
+        {
+          "op": "toggle",
+          "id": "t09-1",
+          "occ": ""
+        },
+        {
+          "op": "flush"
+        },
+        {
+          "op": "toggle",
+          "id": "t09-1",
+          "occ": ""
+        },
+        {
+          "op": "flush"
+        }
+      ],
+      "expect": {
+        "tasks": "[{\"id\":\"t09-1\",\"title\":\"一次性\",\"note\":\"\",\"date\":\"\",\"time\":\"\",\"important\":false,\"urgent\":false,\"done\":false,\"dropped\":false,\"createdAt\":1794542400000,\"doneAt\":null,\"repeat\":\"\",\"doneDates\":[],\"skipDates\":[],\"remind\":null,\"parentId\":\"\",\"updatedAt\":1794542400002}]",
+        "deleted": "{}",
+        "settings": "{\"lang\":\"auto\",\"showLunar\":true,\"showHoliday\":true,\"remindOn\":true,\"defaultRemind\":0,\"syncOn\":false,\"syncCode\":\"\"}",
+        "savedData": "{\"version\":1,\"tasks\":[{\"id\":\"t09-1\",\"title\":\"一次性\",\"note\":\"\",\"date\":\"\",\"time\":\"\",\"important\":false,\"urgent\":false,\"done\":false,\"dropped\":false,\"createdAt\":1794542400000,\"doneAt\":null,\"repeat\":\"\",\"doneDates\":[],\"skipDates\":[],\"remind\":null,\"parentId\":\"\",\"updatedAt\":1794542400002}],\"deleted\":{}}",
+        "savedSettings": null,
+        "corruptCount": 0,
+        "payload": null
+      }
+    },
+    {
+      "name": "toggle_repeat_by_occ",
+      "setup": {},
+      "ops": [
+        {
+          "op": "add",
+          "fields": {
+            "title": "每天喝水",
+            "date": "2026-11-01",
+            "repeat": "d1"
+          }
+        },
+        {
+          "op": "toggle",
+          "id": "t09-1",
+          "occ": "2026-11-13"
+        },
+        {
+          "op": "toggle",
+          "id": "t09-1",
+          "occ": "2026-11-14"
+        },
+        {
+          "op": "toggle",
+          "id": "t09-1",
+          "occ": "2026-11-13"
+        },
+        {
+          "op": "skip",
+          "id": "t09-1",
+          "occ": "2026-11-15"
+        },
+        {
+          "op": "flush"
+        },
+        {
+          "op": "undo"
+        },
+        {
+          "op": "flush"
+        }
+      ],
+      "expect": {
+        "tasks": "[{\"id\":\"t09-1\",\"title\":\"每天喝水\",\"note\":\"\",\"date\":\"2026-11-01\",\"time\":\"\",\"important\":false,\"urgent\":false,\"done\":false,\"dropped\":false,\"createdAt\":1794542400000,\"doneAt\":null,\"repeat\":\"d1\",\"doneDates\":[\"2026-11-14\"],\"skipDates\":[],\"remind\":null,\"parentId\":\"\",\"updatedAt\":1794542400002}]",
+        "deleted": "{}",
+        "settings": "{\"lang\":\"auto\",\"showLunar\":true,\"showHoliday\":true,\"remindOn\":true,\"defaultRemind\":0,\"syncOn\":false,\"syncCode\":\"\"}",
+        "savedData": "{\"version\":1,\"tasks\":[{\"id\":\"t09-1\",\"title\":\"每天喝水\",\"note\":\"\",\"date\":\"2026-11-01\",\"time\":\"\",\"important\":false,\"urgent\":false,\"done\":false,\"dropped\":false,\"createdAt\":1794542400000,\"doneAt\":null,\"repeat\":\"d1\",\"doneDates\":[\"2026-11-14\"],\"skipDates\":[],\"remind\":null,\"parentId\":\"\",\"updatedAt\":1794542400002}],\"deleted\":{}}",
+        "savedSettings": null,
+        "corruptCount": 0,
+        "payload": null
+      }
+    },
+    {
+      "name": "remove_with_children",
+      "setup": {},
+      "ops": [
+        {
+          "op": "add",
+          "fields": {
+            "title": "父任务"
+          }
+        },
+        {
+          "op": "addSub",
+          "parentId": "t09-1",
+          "fields": {
+            "title": "子任务1"
+          }
+        },
+        {
+          "op": "addSub",
+          "parentId": "t09-1",
+          "fields": {
+            "title": "子任务2"
+          }
+        },
+        {
+          "op": "remove",
+          "id": "t09-1"
+        },
+        {
+          "op": "flush"
+        },
+        {
+          "op": "undo"
+        },
+        {
+          "op": "flush"
+        }
+      ],
+      "expect": {
+        "tasks": "[{\"id\":\"t09-1\",\"title\":\"父任务\",\"note\":\"\",\"date\":\"\",\"time\":\"\",\"important\":false,\"urgent\":false,\"done\":false,\"dropped\":false,\"createdAt\":1794542400000,\"doneAt\":null,\"repeat\":\"\",\"doneDates\":[],\"skipDates\":[],\"remind\":null,\"parentId\":\"\",\"updatedAt\":1794542400001},{\"id\":\"t09-2\",\"title\":\"子任务1\",\"note\":\"\",\"date\":\"\",\"time\":\"\",\"important\":false,\"urgent\":false,\"done\":false,\"dropped\":false,\"createdAt\":1794542400000,\"doneAt\":null,\"repeat\":\"\",\"doneDates\":[],\"skipDates\":[],\"remind\":null,\"parentId\":\"t09-1\",\"updatedAt\":1794542400001},{\"id\":\"t09-3\",\"title\":\"子任务2\",\"note\":\"\",\"date\":\"\",\"time\":\"\",\"important\":false,\"urgent\":false,\"done\":false,\"dropped\":false,\"createdAt\":1794542400000,\"doneAt\":null,\"repeat\":\"\",\"doneDates\":[],\"skipDates\":[],\"remind\":null,\"parentId\":\"t09-1\",\"updatedAt\":1794542400001}]",
+        "deleted": "{}",
+        "settings": "{\"lang\":\"auto\",\"showLunar\":true,\"showHoliday\":true,\"remindOn\":true,\"defaultRemind\":0,\"syncOn\":false,\"syncCode\":\"\"}",
+        "savedData": "{\"version\":1,\"tasks\":[{\"id\":\"t09-1\",\"title\":\"父任务\",\"note\":\"\",\"date\":\"\",\"time\":\"\",\"important\":false,\"urgent\":false,\"done\":false,\"dropped\":false,\"createdAt\":1794542400000,\"doneAt\":null,\"repeat\":\"\",\"doneDates\":[],\"skipDates\":[],\"remind\":null,\"parentId\":\"\",\"updatedAt\":1794542400001},{\"id\":\"t09-2\",\"title\":\"子任务1\",\"note\":\"\",\"date\":\"\",\"time\":\"\",\"important\":false,\"urgent\":false,\"done\":false,\"dropped\":false,\"createdAt\":1794542400000,\"doneAt\":null,\"repeat\":\"\",\"doneDates\":[],\"skipDates\":[],\"remind\":null,\"parentId\":\"t09-1\",\"updatedAt\":1794542400001},{\"id\":\"t09-3\",\"title\":\"子任务2\",\"note\":\"\",\"date\":\"\",\"time\":\"\",\"important\":false,\"urgent\":false,\"done\":false,\"dropped\":false,\"createdAt\":1794542400000,\"doneAt\":null,\"repeat\":\"\",\"doneDates\":[],\"skipDates\":[],\"remind\":null,\"parentId\":\"t09-1\",\"updatedAt\":1794542400001}],\"deleted\":{}}",
+        "savedSettings": null,
+        "corruptCount": 0,
+        "payload": null
+      }
+    },
+    {
+      "name": "subtask_progress",
+      "setup": {},
+      "ops": [
+        {
+          "op": "add",
+          "fields": {
+            "title": "父任务",
+            "date": "2026-11-01",
+            "repeat": "d1",
+            "important": true
+          }
+        },
+        {
+          "op": "addSub",
+          "parentId": "t09-1",
+          "fields": {
+            "title": "子1"
+          }
+        },
+        {
+          "op": "addSub",
+          "parentId": "t09-1",
+          "fields": {
+            "title": "子2"
+          }
+        },
+        {
+          "op": "toggleSub",
+          "parentId": "t09-1",
+          "childId": "t09-2",
+          "occ": "2026-11-13"
+        },
+        {
+          "op": "toggleSub",
+          "parentId": "t09-1",
+          "childId": "t09-3",
+          "occ": "2026-11-13"
+        },
+        {
+          "op": "flush"
+        }
+      ],
+      "expect": {
+        "tasks": "[{\"id\":\"t09-1\",\"title\":\"父任务\",\"note\":\"\",\"date\":\"2026-11-01\",\"time\":\"\",\"important\":true,\"urgent\":false,\"done\":false,\"dropped\":false,\"createdAt\":1794542400000,\"doneAt\":null,\"repeat\":\"d1\",\"doneDates\":[],\"skipDates\":[],\"remind\":null,\"parentId\":\"\",\"updatedAt\":1794542400001},{\"id\":\"t09-2\",\"title\":\"子1\",\"note\":\"\",\"date\":\"\",\"time\":\"\",\"important\":true,\"urgent\":false,\"done\":false,\"dropped\":false,\"createdAt\":1794542400000,\"doneAt\":null,\"repeat\":\"\",\"doneDates\":[\"2026-11-13\"],\"skipDates\":[],\"remind\":null,\"parentId\":\"t09-1\",\"updatedAt\":1794542400001},{\"id\":\"t09-3\",\"title\":\"子2\",\"note\":\"\",\"date\":\"\",\"time\":\"\",\"important\":true,\"urgent\":false,\"done\":false,\"dropped\":false,\"createdAt\":1794542400000,\"doneAt\":null,\"repeat\":\"\",\"doneDates\":[\"2026-11-13\"],\"skipDates\":[],\"remind\":null,\"parentId\":\"t09-1\",\"updatedAt\":1794542400001}]",
+        "deleted": "{}",
+        "settings": "{\"lang\":\"auto\",\"showLunar\":true,\"showHoliday\":true,\"remindOn\":true,\"defaultRemind\":0,\"syncOn\":false,\"syncCode\":\"\"}",
+        "savedData": "{\"version\":1,\"tasks\":[{\"id\":\"t09-1\",\"title\":\"父任务\",\"note\":\"\",\"date\":\"2026-11-01\",\"time\":\"\",\"important\":true,\"urgent\":false,\"done\":false,\"dropped\":false,\"createdAt\":1794542400000,\"doneAt\":null,\"repeat\":\"d1\",\"doneDates\":[],\"skipDates\":[],\"remind\":null,\"parentId\":\"\",\"updatedAt\":1794542400001},{\"id\":\"t09-2\",\"title\":\"子1\",\"note\":\"\",\"date\":\"\",\"time\":\"\",\"important\":true,\"urgent\":false,\"done\":false,\"dropped\":false,\"createdAt\":1794542400000,\"doneAt\":null,\"repeat\":\"\",\"doneDates\":[\"2026-11-13\"],\"skipDates\":[],\"remind\":null,\"parentId\":\"t09-1\",\"updatedAt\":1794542400001},{\"id\":\"t09-3\",\"title\":\"子2\",\"note\":\"\",\"date\":\"\",\"time\":\"\",\"important\":true,\"urgent\":false,\"done\":false,\"dropped\":false,\"createdAt\":1794542400000,\"doneAt\":null,\"repeat\":\"\",\"doneDates\":[\"2026-11-13\"],\"skipDates\":[],\"remind\":null,\"parentId\":\"t09-1\",\"updatedAt\":1794542400001}],\"deleted\":{}}",
+        "savedSettings": null,
+        "corruptCount": 0,
+        "payload": null
+      }
+    },
+    {
+      "name": "add_defaults",
+      "setup": {},
+      "ops": [
+        {
+          "op": "add",
+          "fields": {
+            "title": "有时间",
+            "time": "09:00"
+          }
+        },
+        {
+          "op": "add",
+          "fields": {
+            "title": "重复无日期",
+            "repeat": "w1:135"
+          }
+        },
+        {
+          "op": "add",
+          "fields": {
+            "title": "显式提醒",
+            "time": "10:00",
+            "remind": 15
+          }
+        },
+        {
+          "op": "add",
+          "fields": {
+            "title": "显式不提醒",
+            "time": "11:00",
+            "remind": null
+          }
+        },
+        {
+          "op": "flush"
+        }
+      ],
+      "expect": {
+        "tasks": "[{\"id\":\"t09-1\",\"title\":\"有时间\",\"note\":\"\",\"date\":\"\",\"time\":\"09:00\",\"important\":false,\"urgent\":false,\"done\":false,\"dropped\":false,\"createdAt\":1794542400000,\"doneAt\":null,\"repeat\":\"\",\"doneDates\":[],\"skipDates\":[],\"remind\":0,\"parentId\":\"\",\"updatedAt\":1794542400001},{\"id\":\"t09-2\",\"title\":\"重复无日期\",\"note\":\"\",\"date\":\"2026-11-13\",\"time\":\"\",\"important\":false,\"urgent\":false,\"done\":false,\"dropped\":false,\"createdAt\":1794542400000,\"doneAt\":null,\"repeat\":\"w1:135\",\"doneDates\":[],\"skipDates\":[],\"remind\":null,\"parentId\":\"\",\"updatedAt\":1794542400001},{\"id\":\"t09-3\",\"title\":\"显式提醒\",\"note\":\"\",\"date\":\"\",\"time\":\"10:00\",\"important\":false,\"urgent\":false,\"done\":false,\"dropped\":false,\"createdAt\":1794542400000,\"doneAt\":null,\"repeat\":\"\",\"doneDates\":[],\"skipDates\":[],\"remind\":15,\"parentId\":\"\",\"updatedAt\":1794542400001},{\"id\":\"t09-4\",\"title\":\"显式不提醒\",\"note\":\"\",\"date\":\"\",\"time\":\"11:00\",\"important\":false,\"urgent\":false,\"done\":false,\"dropped\":false,\"createdAt\":1794542400000,\"doneAt\":null,\"repeat\":\"\",\"doneDates\":[],\"skipDates\":[],\"remind\":null,\"parentId\":\"\",\"updatedAt\":1794542400001}]",
+        "deleted": "{}",
+        "settings": "{\"lang\":\"auto\",\"showLunar\":true,\"showHoliday\":true,\"remindOn\":true,\"defaultRemind\":0,\"syncOn\":false,\"syncCode\":\"\"}",
+        "savedData": "{\"version\":1,\"tasks\":[{\"id\":\"t09-1\",\"title\":\"有时间\",\"note\":\"\",\"date\":\"\",\"time\":\"09:00\",\"important\":false,\"urgent\":false,\"done\":false,\"dropped\":false,\"createdAt\":1794542400000,\"doneAt\":null,\"repeat\":\"\",\"doneDates\":[],\"skipDates\":[],\"remind\":0,\"parentId\":\"\",\"updatedAt\":1794542400001},{\"id\":\"t09-2\",\"title\":\"重复无日期\",\"note\":\"\",\"date\":\"2026-11-13\",\"time\":\"\",\"important\":false,\"urgent\":false,\"done\":false,\"dropped\":false,\"createdAt\":1794542400000,\"doneAt\":null,\"repeat\":\"w1:135\",\"doneDates\":[],\"skipDates\":[],\"remind\":null,\"parentId\":\"\",\"updatedAt\":1794542400001},{\"id\":\"t09-3\",\"title\":\"显式提醒\",\"note\":\"\",\"date\":\"\",\"time\":\"10:00\",\"important\":false,\"urgent\":false,\"done\":false,\"dropped\":false,\"createdAt\":1794542400000,\"doneAt\":null,\"repeat\":\"\",\"doneDates\":[],\"skipDates\":[],\"remind\":15,\"parentId\":\"\",\"updatedAt\":1794542400001},{\"id\":\"t09-4\",\"title\":\"显式不提醒\",\"note\":\"\",\"date\":\"\",\"time\":\"11:00\",\"important\":false,\"urgent\":false,\"done\":false,\"dropped\":false,\"createdAt\":1794542400000,\"doneAt\":null,\"repeat\":\"\",\"doneDates\":[],\"skipDates\":[],\"remind\":null,\"parentId\":\"\",\"updatedAt\":1794542400001}],\"deleted\":{}}",
+        "savedSettings": null,
+        "corruptCount": 0,
+        "payload": null
+      }
+    },
+    {
+      "name": "replace_all_with_legacy_migration",
+      "setup": {
+        "data": {
+          "version": 1,
+          "tasks": [
+            {
+              "id": "p1",
+              "title": "旧父任务",
+              "note": "",
+              "date": "2026-11-13",
+              "time": "",
+              "important": true,
+              "urgent": false,
+              "done": false,
+              "dropped": false,
+              "createdAt": 1700000000000,
+              "doneAt": null,
+              "repeat": "",
+              "doneDates": [],
+              "skipDates": [],
+              "remind": null,
+              "parentId": "",
+              "updatedAt": 1700000000000,
+              "subtasks": [
+                {
+                  "id": "c1",
+                  "title": "旧子1",
+                  "done": true
+                },
+                {
+                  "title": "旧子2"
+                },
+                {
+                  "title": "  "
+                }
+              ]
+            }
+          ],
+          "deleted": {
+            "p1": 1794542400000,
+            "c1": 1794542400000,
+            "t09-1": 1794542400000
+          }
+        }
+      },
+      "ops": [
+        {
+          "op": "flush"
+        },
+        {
+          "op": "replaceAll",
+          "tasks": [
+            {
+              "id": "n1",
+              "title": "新任务",
+              "note": "",
+              "date": "2026-11-13",
+              "time": "",
+              "important": false,
+              "urgent": false,
+              "done": false,
+              "dropped": false,
+              "createdAt": 1700000000000,
+              "doneAt": null,
+              "repeat": "",
+              "doneDates": [],
+              "skipDates": [],
+              "remind": null,
+              "parentId": "",
+              "updatedAt": 1700000000000
+            }
+          ]
+        },
+        {
+          "op": "flush"
+        }
+      ],
+      "expect": {
+        "tasks": "[{\"id\":\"n1\",\"title\":\"新任务\",\"note\":\"\",\"date\":\"2026-11-13\",\"time\":\"\",\"important\":false,\"urgent\":false,\"done\":false,\"dropped\":false,\"createdAt\":1700000000000,\"doneAt\":null,\"repeat\":\"\",\"doneDates\":[],\"skipDates\":[],\"remind\":null,\"parentId\":\"\",\"updatedAt\":1794542400000}]",
+        "deleted": "{\"c1\":1794542400000,\"p1\":1794542400000,\"t09-1\":1794542400000}",
+        "settings": "{\"lang\":\"auto\",\"showLunar\":true,\"showHoliday\":true,\"remindOn\":true,\"defaultRemind\":0,\"syncOn\":false,\"syncCode\":\"\"}",
+        "savedData": "{\"version\":1,\"tasks\":[{\"id\":\"n1\",\"title\":\"新任务\",\"note\":\"\",\"date\":\"2026-11-13\",\"time\":\"\",\"important\":false,\"urgent\":false,\"done\":false,\"dropped\":false,\"createdAt\":1700000000000,\"doneAt\":null,\"repeat\":\"\",\"doneDates\":[],\"skipDates\":[],\"remind\":null,\"parentId\":\"\",\"updatedAt\":1794542400000}],\"deleted\":{\"c1\":1794542400000,\"p1\":1794542400000,\"t09-1\":1794542400000}}",
+        "savedSettings": null,
+        "corruptCount": 0,
+        "payload": null
+      }
+    },
+    {
+      "name": "settings_defaults_and_patch",
+      "setup": {},
+      "ops": [
+        {
+          "op": "settings",
+          "patch": {
+            "lang": "en",
+            "defaultRemind": 15,
+            "syncOn": true,
+            "syncCode": "http://x#1234567890123456"
+          }
+        },
+        {
+          "op": "add",
+          "fields": {
+            "title": "带默认提醒",
+            "time": "09:00"
+          }
+        },
+        {
+          "op": "flush"
+        }
+      ],
+      "expect": {
+        "tasks": "[{\"id\":\"t09-1\",\"title\":\"带默认提醒\",\"note\":\"\",\"date\":\"\",\"time\":\"09:00\",\"important\":false,\"urgent\":false,\"done\":false,\"dropped\":false,\"createdAt\":1794542400000,\"doneAt\":null,\"repeat\":\"\",\"doneDates\":[],\"skipDates\":[],\"remind\":15,\"parentId\":\"\",\"updatedAt\":1794542400001}]",
+        "deleted": "{}",
+        "settings": "{\"lang\":\"en\",\"showLunar\":true,\"showHoliday\":true,\"remindOn\":true,\"defaultRemind\":15,\"syncOn\":true,\"syncCode\":\"http://x#1234567890123456\"}",
+        "savedData": "{\"version\":1,\"tasks\":[{\"id\":\"t09-1\",\"title\":\"带默认提醒\",\"note\":\"\",\"date\":\"\",\"time\":\"09:00\",\"important\":false,\"urgent\":false,\"done\":false,\"dropped\":false,\"createdAt\":1794542400000,\"doneAt\":null,\"repeat\":\"\",\"doneDates\":[],\"skipDates\":[],\"remind\":15,\"parentId\":\"\",\"updatedAt\":1794542400001}],\"deleted\":{}}",
+        "savedSettings": "{\"lang\":\"en\",\"showLunar\":true,\"showHoliday\":true,\"remindOn\":true,\"defaultRemind\":15,\"syncOn\":true,\"syncCode\":\"http://x#1234567890123456\"}",
+        "corruptCount": 0,
+        "payload": null
+      }
+    },
+    {
+      "name": "settings_missing_lang",
+      "setup": {
+        "settings": {
+          "showLunar": false,
+          "defaultRemind": 30
+        }
+      },
+      "ops": [
+        {
+          "op": "settings",
+          "patch": {
+            "remindOn": false
+          }
+        }
+      ],
+      "expect": {
+        "tasks": "[]",
+        "deleted": "{}",
+        "settings": "{\"lang\":\"auto\",\"showLunar\":false,\"showHoliday\":true,\"remindOn\":false,\"defaultRemind\":30,\"syncOn\":false,\"syncCode\":\"\"}",
+        "savedData": null,
+        "savedSettings": "{\"lang\":\"auto\",\"showLunar\":false,\"showHoliday\":true,\"remindOn\":false,\"defaultRemind\":30,\"syncOn\":false,\"syncCode\":\"\"}",
+        "corruptCount": 0,
+        "payload": null
+      }
+    },
+    {
+      "name": "corrupt_data",
+      "setup": {
+        "data": "__NOT_JSON__"
+      },
+      "ops": [
+        {
+          "op": "flush"
+        }
+      ],
+      "expect": {
+        "tasks": "[]",
+        "deleted": "{}",
+        "settings": "{\"lang\":\"auto\",\"showLunar\":true,\"showHoliday\":true,\"remindOn\":true,\"defaultRemind\":0,\"syncOn\":false,\"syncCode\":\"\"}",
+        "savedData": "{\"version\":1,\"tasks\":[],\"deleted\":{}}",
+        "savedSettings": null,
+        "corruptCount": 1,
+        "payload": null
+      }
+    },
+    {
+      "name": "load_existing_with_deleted",
+      "setup": {
+        "data": {
+          "version": 1,
+          "tasks": [
+            {
+              "id": "a",
+              "title": "示例任务",
+              "note": "",
+              "date": "2026-11-13",
+              "time": "",
+              "important": false,
+              "urgent": false,
+              "done": false,
+              "dropped": false,
+              "createdAt": 1700000000000,
+              "doneAt": null,
+              "repeat": "",
+              "doneDates": [],
+              "skipDates": [],
+              "remind": null,
+              "parentId": "",
+              "updatedAt": 1700000000000
+            }
+          ],
+          "deleted": {
+            "gone": 1600000000000
+          }
+        }
+      },
+      "ops": [
+        {
+          "op": "add",
+          "fields": {
+            "title": "新任务"
+          }
+        },
+        {
+          "op": "flush"
+        }
+      ],
+      "expect": {
+        "tasks": "[{\"id\":\"a\",\"title\":\"示例任务\",\"note\":\"\",\"date\":\"2026-11-13\",\"time\":\"\",\"important\":false,\"urgent\":false,\"done\":false,\"dropped\":false,\"createdAt\":1700000000000,\"doneAt\":null,\"repeat\":\"\",\"doneDates\":[],\"skipDates\":[],\"remind\":null,\"parentId\":\"\",\"updatedAt\":1700000000000},{\"id\":\"t09-1\",\"title\":\"新任务\",\"note\":\"\",\"date\":\"\",\"time\":\"\",\"important\":false,\"urgent\":false,\"done\":false,\"dropped\":false,\"createdAt\":1794542400000,\"doneAt\":null,\"repeat\":\"\",\"doneDates\":[],\"skipDates\":[],\"remind\":null,\"parentId\":\"\",\"updatedAt\":1794542400001}]",
+        "deleted": "{\"gone\":1600000000000}",
+        "settings": "{\"lang\":\"auto\",\"showLunar\":true,\"showHoliday\":true,\"remindOn\":true,\"defaultRemind\":0,\"syncOn\":false,\"syncCode\":\"\"}",
+        "savedData": "{\"version\":1,\"tasks\":[{\"id\":\"a\",\"title\":\"示例任务\",\"note\":\"\",\"date\":\"2026-11-13\",\"time\":\"\",\"important\":false,\"urgent\":false,\"done\":false,\"dropped\":false,\"createdAt\":1700000000000,\"doneAt\":null,\"repeat\":\"\",\"doneDates\":[],\"skipDates\":[],\"remind\":null,\"parentId\":\"\",\"updatedAt\":1700000000000},{\"id\":\"t09-1\",\"title\":\"新任务\",\"note\":\"\",\"date\":\"\",\"time\":\"\",\"important\":false,\"urgent\":false,\"done\":false,\"dropped\":false,\"createdAt\":1794542400000,\"doneAt\":null,\"repeat\":\"\",\"doneDates\":[],\"skipDates\":[],\"remind\":null,\"parentId\":\"\",\"updatedAt\":1794542400001}],\"deleted\":{\"gone\":1600000000000}}",
+        "savedSettings": null,
+        "corruptCount": 0,
+        "payload": null
+      }
+    },
+    {
+      "name": "sync_payload",
+      "setup": {},
+      "ops": [
+        {
+          "op": "add",
+          "fields": {
+            "title": "A"
+          }
+        },
+        {
+          "op": "payload"
+        },
+        {
+          "op": "update",
+          "id": "t09-1",
+          "patch": {
+            "title": "A2"
+          }
+        },
+        {
+          "op": "payload"
+        },
+        {
+          "op": "flush"
+        }
+      ],
+      "expect": {
+        "tasks": "[{\"id\":\"t09-1\",\"title\":\"A2\",\"note\":\"\",\"date\":\"\",\"time\":\"\",\"important\":false,\"urgent\":false,\"done\":false,\"dropped\":false,\"createdAt\":1794542400000,\"doneAt\":null,\"repeat\":\"\",\"doneDates\":[],\"skipDates\":[],\"remind\":null,\"parentId\":\"\",\"updatedAt\":1794542400002}]",
+        "deleted": "{}",
+        "settings": "{\"lang\":\"auto\",\"showLunar\":true,\"showHoliday\":true,\"remindOn\":true,\"defaultRemind\":0,\"syncOn\":false,\"syncCode\":\"\"}",
+        "savedData": "{\"version\":1,\"tasks\":[{\"id\":\"t09-1\",\"title\":\"A2\",\"note\":\"\",\"date\":\"\",\"time\":\"\",\"important\":false,\"urgent\":false,\"done\":false,\"dropped\":false,\"createdAt\":1794542400000,\"doneAt\":null,\"repeat\":\"\",\"doneDates\":[],\"skipDates\":[],\"remind\":null,\"parentId\":\"\",\"updatedAt\":1794542400002}],\"deleted\":{}}",
+        "savedSettings": null,
+        "corruptCount": 0,
+        "payload": {
+          "tasks": "[{\"id\":\"t09-1\",\"title\":\"A2\",\"note\":\"\",\"date\":\"\",\"time\":\"\",\"important\":false,\"urgent\":false,\"done\":false,\"dropped\":false,\"createdAt\":1794542400000,\"doneAt\":null,\"repeat\":\"\",\"doneDates\":[],\"skipDates\":[],\"remind\":null,\"parentId\":\"\",\"updatedAt\":1794542400002}]",
+          "deleted": "{}"
+        }
+      }
+    },
+    {
+      "name": "apply_remote_newer_remote",
+      "setup": {
+        "data": {
+          "version": 1,
+          "tasks": [
+            {
+              "id": "a",
+              "title": "本地",
+              "note": "",
+              "date": "2026-11-13",
+              "time": "",
+              "important": false,
+              "urgent": false,
+              "done": false,
+              "dropped": false,
+              "createdAt": 1700000000000,
+              "doneAt": null,
+              "repeat": "",
+              "doneDates": [],
+              "skipDates": [],
+              "remind": null,
+              "parentId": "",
+              "updatedAt": 1000
+            }
+          ],
+          "deleted": {}
+        }
+      },
+      "ops": [
+        {
+          "op": "remote",
+          "state": {
+            "tasks": [
+              {
+                "id": "a",
+                "title": "远端",
+                "note": "",
+                "date": "2026-11-13",
+                "time": "",
+                "important": false,
+                "urgent": false,
+                "done": false,
+                "dropped": false,
+                "createdAt": 1700000000000,
+                "doneAt": null,
+                "repeat": "",
+                "doneDates": [],
+                "skipDates": [],
+                "remind": null,
+                "parentId": "",
+                "updatedAt": 2000
+              }
+            ],
+            "deleted": {}
+          }
+        },
+        {
+          "op": "flush"
+        }
+      ],
+      "expect": {
+        "tasks": "[{\"id\":\"a\",\"title\":\"远端\",\"note\":\"\",\"date\":\"2026-11-13\",\"time\":\"\",\"important\":false,\"urgent\":false,\"done\":false,\"dropped\":false,\"createdAt\":1700000000000,\"doneAt\":null,\"repeat\":\"\",\"doneDates\":[],\"skipDates\":[],\"remind\":null,\"parentId\":\"\",\"updatedAt\":2000}]",
+        "deleted": "{}",
+        "settings": "{\"lang\":\"auto\",\"showLunar\":true,\"showHoliday\":true,\"remindOn\":true,\"defaultRemind\":0,\"syncOn\":false,\"syncCode\":\"\"}",
+        "savedData": "{\"version\":1,\"tasks\":[{\"id\":\"a\",\"title\":\"远端\",\"note\":\"\",\"date\":\"2026-11-13\",\"time\":\"\",\"important\":false,\"urgent\":false,\"done\":false,\"dropped\":false,\"createdAt\":1700000000000,\"doneAt\":null,\"repeat\":\"\",\"doneDates\":[],\"skipDates\":[],\"remind\":null,\"parentId\":\"\",\"updatedAt\":2000}],\"deleted\":{}}",
+        "savedSettings": null,
+        "corruptCount": 0,
+        "payload": null
+      }
+    },
+    {
+      "name": "apply_remote_tombstone_and_revive",
+      "setup": {
+        "data": {
+          "version": 1,
+          "tasks": [
+            {
+              "id": "a",
+              "title": "本地",
+              "note": "",
+              "date": "2026-11-13",
+              "time": "",
+              "important": false,
+              "urgent": false,
+              "done": false,
+              "dropped": false,
+              "createdAt": 1700000000000,
+              "doneAt": null,
+              "repeat": "",
+              "doneDates": [],
+              "skipDates": [],
+              "remind": null,
+              "parentId": "",
+              "updatedAt": 1000
+            }
+          ],
+          "deleted": {}
+        }
+      },
+      "ops": [
+        {
+          "op": "remote",
+          "state": {
+            "tasks": [],
+            "deleted": {
+              "a": 3000
+            }
+          }
+        },
+        {
+          "op": "flush"
+        },
+        {
+          "op": "replaceAll",
+          "tasks": [
+            {
+              "id": "a",
+              "title": "复活",
+              "note": "",
+              "date": "2026-11-13",
+              "time": "",
+              "important": false,
+              "urgent": false,
+              "done": false,
+              "dropped": false,
+              "createdAt": 1700000000000,
+              "doneAt": null,
+              "repeat": "",
+              "doneDates": [],
+              "skipDates": [],
+              "remind": null,
+              "parentId": "",
+              "updatedAt": 4000
+            }
+          ]
+        },
+        {
+          "op": "flush"
+        }
+      ],
+      "expect": {
+        "tasks": "[{\"id\":\"a\",\"title\":\"复活\",\"note\":\"\",\"date\":\"2026-11-13\",\"time\":\"\",\"important\":false,\"urgent\":false,\"done\":false,\"dropped\":false,\"createdAt\":1700000000000,\"doneAt\":null,\"repeat\":\"\",\"doneDates\":[],\"skipDates\":[],\"remind\":null,\"parentId\":\"\",\"updatedAt\":1794542400000}]",
+        "deleted": "{}",
+        "settings": "{\"lang\":\"auto\",\"showLunar\":true,\"showHoliday\":true,\"remindOn\":true,\"defaultRemind\":0,\"syncOn\":false,\"syncCode\":\"\"}",
+        "savedData": "{\"version\":1,\"tasks\":[{\"id\":\"a\",\"title\":\"复活\",\"note\":\"\",\"date\":\"2026-11-13\",\"time\":\"\",\"important\":false,\"urgent\":false,\"done\":false,\"dropped\":false,\"createdAt\":1700000000000,\"doneAt\":null,\"repeat\":\"\",\"doneDates\":[],\"skipDates\":[],\"remind\":null,\"parentId\":\"\",\"updatedAt\":1794542400000}],\"deleted\":{}}",
+        "savedSettings": null,
+        "corruptCount": 0,
+        "payload": null
+      }
+    },
+    {
+      "name": "apply_remote_adds_task",
+      "setup": {
+        "data": {
+          "version": 1,
+          "tasks": [],
+          "deleted": {}
+        }
+      },
+      "ops": [
+        {
+          "op": "remote",
+          "state": {
+            "tasks": [
+              {
+                "id": "r1",
+                "title": "来自服务器",
+                "note": "",
+                "date": "2026-11-13",
+                "time": "",
+                "important": false,
+                "urgent": false,
+                "done": false,
+                "dropped": false,
+                "createdAt": 1700000000000,
+                "doneAt": null,
+                "repeat": "",
+                "doneDates": [],
+                "skipDates": [],
+                "remind": null,
+                "parentId": "",
+                "updatedAt": 5000
+              }
+            ],
+            "deleted": {}
+          }
+        },
+        {
+          "op": "flush"
+        }
+      ],
+      "expect": {
+        "tasks": "[{\"id\":\"r1\",\"title\":\"来自服务器\",\"note\":\"\",\"date\":\"2026-11-13\",\"time\":\"\",\"important\":false,\"urgent\":false,\"done\":false,\"dropped\":false,\"createdAt\":1700000000000,\"doneAt\":null,\"repeat\":\"\",\"doneDates\":[],\"skipDates\":[],\"remind\":null,\"parentId\":\"\",\"updatedAt\":5000}]",
+        "deleted": "{}",
+        "settings": "{\"lang\":\"auto\",\"showLunar\":true,\"showHoliday\":true,\"remindOn\":true,\"defaultRemind\":0,\"syncOn\":false,\"syncCode\":\"\"}",
+        "savedData": "{\"version\":1,\"tasks\":[{\"id\":\"r1\",\"title\":\"来自服务器\",\"note\":\"\",\"date\":\"2026-11-13\",\"time\":\"\",\"important\":false,\"urgent\":false,\"done\":false,\"dropped\":false,\"createdAt\":1700000000000,\"doneAt\":null,\"repeat\":\"\",\"doneDates\":[],\"skipDates\":[],\"remind\":null,\"parentId\":\"\",\"updatedAt\":5000}],\"deleted\":{}}",
+        "savedSettings": null,
+        "corruptCount": 0,
+        "payload": null
+      }
+    },
+    {
+      "name": "normalize_dirty_values",
+      "setup": {},
+      "ops": [
+        {
+          "op": "replaceAll",
+          "tasks": [
+            {
+              "id": "d1",
+              "title": "  脏数据  ",
+              "note": 5,
+              "date": "bad",
+              "time": "25:99",
+              "important": 1,
+              "urgent": "yes",
+              "done": 0,
+              "dropped": true,
+              "createdAt": 0,
+              "doneAt": 1700000001000,
+              "repeat": "daily",
+              "doneDates": [
+                "2026-11-13",
+                "x",
+                7
+              ],
+              "skipDates": [
+                "2026-11-14"
+              ],
+              "remind": -1,
+              "parentId": 0,
+              "updatedAt": 0
+            }
+          ]
+        },
+        {
+          "op": "flush"
+        }
+      ],
+      "expect": {
+        "tasks": "[{\"id\":\"d1\",\"title\":\"脏数据\",\"note\":\"5\",\"date\":\"\",\"time\":\"25:99\",\"important\":true,\"urgent\":true,\"done\":true,\"dropped\":true,\"createdAt\":1794542400000,\"doneAt\":1700000001000,\"repeat\":\"d1\",\"doneDates\":[\"2026-11-13\"],\"skipDates\":[\"2026-11-14\"],\"remind\":null,\"parentId\":\"\",\"updatedAt\":1794542400001}]",
+        "deleted": "{}",
+        "settings": "{\"lang\":\"auto\",\"showLunar\":true,\"showHoliday\":true,\"remindOn\":true,\"defaultRemind\":0,\"syncOn\":false,\"syncCode\":\"\"}",
+        "savedData": "{\"version\":1,\"tasks\":[{\"id\":\"d1\",\"title\":\"脏数据\",\"note\":\"5\",\"date\":\"\",\"time\":\"25:99\",\"important\":true,\"urgent\":true,\"done\":true,\"dropped\":true,\"createdAt\":1794542400000,\"doneAt\":1700000001000,\"repeat\":\"d1\",\"doneDates\":[\"2026-11-13\"],\"skipDates\":[\"2026-11-14\"],\"remind\":null,\"parentId\":\"\",\"updatedAt\":1794542400001}],\"deleted\":{}}",
+        "savedSettings": null,
+        "corruptCount": 0,
+        "payload": null
+      }
+    },
+    {
+      "name": "counts_and_children_sort",
+      "setup": {},
+      "ops": [
+        {
+          "op": "add",
+          "fields": {
+            "title": "父"
+          }
+        },
+        {
+          "op": "addSub",
+          "parentId": "t09-1",
+          "fields": {
+            "title": "子B"
+          }
+        },
+        {
+          "op": "addSub",
+          "parentId": "t09-1",
+          "fields": {
+            "title": "子A"
+          }
+        },
+        {
+          "op": "flush"
+        }
+      ],
+      "expect": {
+        "tasks": "[{\"id\":\"t09-1\",\"title\":\"父\",\"note\":\"\",\"date\":\"\",\"time\":\"\",\"important\":false,\"urgent\":false,\"done\":false,\"dropped\":false,\"createdAt\":1794542400000,\"doneAt\":null,\"repeat\":\"\",\"doneDates\":[],\"skipDates\":[],\"remind\":null,\"parentId\":\"\",\"updatedAt\":1794542400001},{\"id\":\"t09-2\",\"title\":\"子B\",\"note\":\"\",\"date\":\"\",\"time\":\"\",\"important\":false,\"urgent\":false,\"done\":false,\"dropped\":false,\"createdAt\":1794542400000,\"doneAt\":null,\"repeat\":\"\",\"doneDates\":[],\"skipDates\":[],\"remind\":null,\"parentId\":\"t09-1\",\"updatedAt\":1794542400001},{\"id\":\"t09-3\",\"title\":\"子A\",\"note\":\"\",\"date\":\"\",\"time\":\"\",\"important\":false,\"urgent\":false,\"done\":false,\"dropped\":false,\"createdAt\":1794542400000,\"doneAt\":null,\"repeat\":\"\",\"doneDates\":[],\"skipDates\":[],\"remind\":null,\"parentId\":\"t09-1\",\"updatedAt\":1794542400001}]",
+        "deleted": "{}",
+        "settings": "{\"lang\":\"auto\",\"showLunar\":true,\"showHoliday\":true,\"remindOn\":true,\"defaultRemind\":0,\"syncOn\":false,\"syncCode\":\"\"}",
+        "savedData": "{\"version\":1,\"tasks\":[{\"id\":\"t09-1\",\"title\":\"父\",\"note\":\"\",\"date\":\"\",\"time\":\"\",\"important\":false,\"urgent\":false,\"done\":false,\"dropped\":false,\"createdAt\":1794542400000,\"doneAt\":null,\"repeat\":\"\",\"doneDates\":[],\"skipDates\":[],\"remind\":null,\"parentId\":\"\",\"updatedAt\":1794542400001},{\"id\":\"t09-2\",\"title\":\"子B\",\"note\":\"\",\"date\":\"\",\"time\":\"\",\"important\":false,\"urgent\":false,\"done\":false,\"dropped\":false,\"createdAt\":1794542400000,\"doneAt\":null,\"repeat\":\"\",\"doneDates\":[],\"skipDates\":[],\"remind\":null,\"parentId\":\"t09-1\",\"updatedAt\":1794542400001},{\"id\":\"t09-3\",\"title\":\"子A\",\"note\":\"\",\"date\":\"\",\"time\":\"\",\"important\":false,\"urgent\":false,\"done\":false,\"dropped\":false,\"createdAt\":1794542400000,\"doneAt\":null,\"repeat\":\"\",\"doneDates\":[],\"skipDates\":[],\"remind\":null,\"parentId\":\"t09-1\",\"updatedAt\":1794542400001}],\"deleted\":{}}",
+        "savedSettings": null,
+        "corruptCount": 0,
+        "payload": null
+      }
+    }
+  ]
+}
