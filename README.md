@@ -4,18 +4,21 @@
 
 # 可及清单 · Reach List
 
+**English** · [简体中文](README.zh-CN.md)
+
 **A fast, beautiful daily planner for Android, built around a Chinese calendar and the Eisenhower matrix.**
 <br>
 **And your AI agent can read and manage your tasks, too.**
 
 [![Version](https://img.shields.io/badge/version-0.12.0-4a5cf0?style=flat-square)](package.json)
 [![Platform](https://img.shields.io/badge/platform-Android-3ddc84?style=flat-square&logo=android&logoColor=white)](#-install)
+[![iOS](https://img.shields.io/badge/iOS-26%2B-007AFF?style=flat-square&logo=apple&logoColor=white)](#-ios-native)
 [![Vue 3](https://img.shields.io/badge/Vue-3-42b883?style=flat-square&logo=vuedotjs&logoColor=white)](https://vuejs.org)
 [![Vite](https://img.shields.io/badge/Vite-8-646cff?style=flat-square&logo=vite&logoColor=white)](https://vite.dev)
 [![Capacitor](https://img.shields.io/badge/Capacitor-8-119eff?style=flat-square&logo=capacitor&logoColor=white)](https://capacitorjs.com)
 [![Agent Skill](https://img.shields.io/badge/agent-skill%20ready-d97757?style=flat-square)](#-let-your-ai-agent-manage-your-tasks)
 
-[Features](#-features) · [Screenshots](#-screenshots) · [Install](#-install) · [iOS](#-ios-native) · [Agent access](#-let-your-ai-agent-manage-your-tasks) · [Develop](#develop) · [简体中文](README.zh-CN.md)
+[Features](#-features) · [Screenshots](#-screenshots) · [Install](#-install) · [iOS](#-ios-native) · [Agent access](#-let-your-ai-agent-manage-your-tasks) · [Develop](#develop)
 
 <br>
 
