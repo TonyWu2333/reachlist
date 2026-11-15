@@ -1,0 +1,1027 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		000000000000000000000071 /* PlannerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000001 /* PlannerApp.swift */; };
+		000000000000000000000072 /* PrototypeRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000002 /* PrototypeRootView.swift */; };
+		000000000000000000000073 /* ATSProbe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000003 /* ATSProbe.swift */; };
+		000000000000000000000074 /* SwipeProbeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000004 /* SwipeProbeView.swift */; };
+		000000000000000000000075 /* GlassProbeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000005 /* GlassProbeView.swift */; };
+		000000000000000000000076 /* LocalizationProbe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000006 /* LocalizationProbe.swift */; };
+		000000000000000000000077 /* LocalizationProbeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000007 /* LocalizationProbeView.swift */; };
+		000000000000000000000078 /* PlannerTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000008 /* PlannerTask.swift */; };
+		000000000000000000000079 /* LegacyMigration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000009 /* LegacyMigration.swift */; };
+		00000000000000000000007A /* RepeatNormalization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00000000000000000000000A /* RepeatNormalization.swift */; };
+		00000000000000000000007B /* LunarData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00000000000000000000002F /* LunarData.swift */; };
+		00000000000000000000007C /* PlannerCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000030 /* PlannerCalendar.swift */; };
+		00000000000000000000007D /* DesignContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000014 /* DesignContract.swift */; };
+		00000000000000000000007E /* DesignTokens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000015 /* DesignTokens.swift */; };
+		00000000000000000000007F /* ReachIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000016 /* ReachIcon.swift */; };
+		000000000000000000000080 /* FeedbackContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000017 /* FeedbackContract.swift */; };
+		000000000000000000000081 /* HapticFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000018 /* HapticFeedback.swift */; };
+		000000000000000000000082 /* ClickGuard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000019 /* ClickGuard.swift */; };
+		000000000000000000000083 /* ToastCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00000000000000000000001A /* ToastCenter.swift */; };
+		000000000000000000000084 /* ReachSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00000000000000000000001B /* ReachSheet.swift */; };
+		000000000000000000000085 /* AppStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00000000000000000000001C /* AppStrings.swift */; };
+		000000000000000000000086 /* ReachText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00000000000000000000001D /* ReachText.swift */; };
+		000000000000000000000087 /* AppTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00000000000000000000001E /* AppTab.swift */; };
+		000000000000000000000088 /* DesignSystemPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00000000000000000000001F /* DesignSystemPreview.swift */; };
+		000000000000000000000089 /* AppRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000020 /* AppRootView.swift */; };
+		00000000000000000000008A /* TaskRowContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000022 /* TaskRowContract.swift */; };
+		00000000000000000000008B /* TaskRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000023 /* TaskRow.swift */; };
+		00000000000000000000008C /* TaskRowSwipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000024 /* TaskRowSwipe.swift */; };
+		00000000000000000000008D /* TaskRowGallery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000025 /* TaskRowGallery.swift */; };
+		00000000000000000000008E /* RepeatRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000026 /* RepeatRule.swift */; };
+		00000000000000000000008F /* PanelContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000027 /* PanelContract.swift */; };
+		000000000000000000000090 /* PropertyRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000028 /* PropertyRow.swift */; };
+		000000000000000000000091 /* DatePanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000029 /* DatePanelView.swift */; };
+		000000000000000000000092 /* TimePanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00000000000000000000002A /* TimePanelView.swift */; };
+		000000000000000000000093 /* RepeatPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00000000000000000000002B /* RepeatPanelView.swift */; };
+		000000000000000000000094 /* QuadrantPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00000000000000000000002C /* QuadrantPanelView.swift */; };
+		000000000000000000000095 /* RemindPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00000000000000000000002D /* RemindPanelView.swift */; };
+		000000000000000000000096 /* RepeatEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000034 /* RepeatEngine.swift */; };
+		000000000000000000000097 /* CalendarContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000036 /* CalendarContract.swift */; };
+		000000000000000000000098 /* CalendarStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000037 /* CalendarStrings.swift */; };
+		000000000000000000000099 /* CalendarDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000038 /* CalendarDataStore.swift */; };
+		00000000000000000000009A /* MonthGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000039 /* MonthGridView.swift */; };
+		00000000000000000000009B /* MonthPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00000000000000000000003A /* MonthPickerView.swift */; };
+		00000000000000000000009C /* DayAgendaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00000000000000000000003B /* DayAgendaView.swift */; };
+		00000000000000000000009D /* CalendarScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00000000000000000000003C /* CalendarScreen.swift */; };
+		00000000000000000000009E /* MergeEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00000000000000000000003E /* MergeEngine.swift */; };
+		00000000000000000000009F /* NaturalLanguageParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000041 /* NaturalLanguageParser.swift */; };
+		0000000000000000000000A0 /* PlannerStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000044 /* PlannerStorage.swift */; };
+		0000000000000000000000A1 /* TaskStoreCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000045 /* TaskStoreCore.swift */; };
+		0000000000000000000000A2 /* TaskStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000046 /* TaskStore.swift */; };
+		0000000000000000000000A3 /* SyncSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000049 /* SyncSettings.swift */; };
+		0000000000000000000000A4 /* SyncClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00000000000000000000004A /* SyncClient.swift */; };
+		0000000000000000000000A5 /* ReminderPlanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000050 /* ReminderPlanner.swift */; };
+		0000000000000000000000A6 /* ReminderScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000051 /* ReminderScheduler.swift */; };
+		0000000000000000000000A7 /* BackupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000052 /* BackupService.swift */; };
+		0000000000000000000000A8 /* FeatureStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000057 /* FeatureStrings.swift */; };
+		0000000000000000000000A9 /* AppSheetRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000058 /* AppSheetRoutes.swift */; };
+		0000000000000000000000AA /* QuadrantContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000059 /* QuadrantContract.swift */; };
+		0000000000000000000000AB /* QuadrantScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00000000000000000000005A /* QuadrantScreen.swift */; };
+		0000000000000000000000AC /* RoutineContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00000000000000000000005B /* RoutineContract.swift */; };
+		0000000000000000000000AD /* RoutineScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00000000000000000000005C /* RoutineScreen.swift */; };
+		0000000000000000000000AE /* SearchContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00000000000000000000005D /* SearchContract.swift */; };
+		0000000000000000000000AF /* SearchSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00000000000000000000005E /* SearchSheetView.swift */; };
+		0000000000000000000000B0 /* MeContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00000000000000000000005F /* MeContract.swift */; };
+		0000000000000000000000B1 /* MeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000060 /* MeScreen.swift */; };
+		0000000000000000000000B2 /* QuickAddContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000061 /* QuickAddContract.swift */; };
+		0000000000000000000000B3 /* QuickAddSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000062 /* QuickAddSheet.swift */; };
+		0000000000000000000000B4 /* TaskDetailContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000063 /* TaskDetailContract.swift */; };
+		0000000000000000000000B5 /* TaskDetailSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000064 /* TaskDetailSheet.swift */; };
+		0000000000000000000000B6 /* LocalizationDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000069 /* LocalizationDictionary.swift */; };
+		0000000000000000000000B7 /* LocalizationFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00000000000000000000006A /* LocalizationFunctions.swift */; };
+		0000000000000000000000B8 /* LocalizationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00000000000000000000006B /* LocalizationService.swift */; };
+		0000000000000000000000B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00000000000000000000000C /* Assets.xcassets */; };
+		0000000000000000000000BA /* lunar-data.json in Resources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000033 /* lunar-data.json */; };
+		0000000000000000000000BB /* merge_fixtures.json in Resources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000040 /* merge_fixtures.json */; };
+		0000000000000000000000BC /* parse_fixtures.json in Resources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000043 /* parse_fixtures.json */; };
+		0000000000000000000000BD /* store_fixtures.json in Resources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000048 /* store_fixtures.json */; };
+		0000000000000000000000BE /* sync_fixtures.json in Resources */ = {isa = PBXBuildFile; fileRef = 00000000000000000000004C /* sync_fixtures.json */; };
+		0000000000000000000000BF /* notify_fixtures.json in Resources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000055 /* notify_fixtures.json */; };
+		0000000000000000000000C0 /* backup_fixtures.json in Resources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000056 /* backup_fixtures.json */; };
+		0000000000000000000000C1 /* t16_fixtures.json in Resources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000067 /* t16_fixtures.json */; };
+		0000000000000000000000C2 /* t17_fixtures.json in Resources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000068 /* t17_fixtures.json */; };
+		0000000000000000000000C3 /* t19_fixtures.json in Resources */ = {isa = PBXBuildFile; fileRef = 00000000000000000000006D /* t19_fixtures.json */; };
+		0000000000000000000000C4 /* PlannerTaskNormalizationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000010 /* PlannerTaskNormalizationTests.swift */; };
+		0000000000000000000000C5 /* LegacyMigrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000011 /* LegacyMigrationTests.swift */; };
+		0000000000000000000000C6 /* ContractKeyOrderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000012 /* ContractKeyOrderTests.swift */; };
+		0000000000000000000000C7 /* PrototypeContractTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000013 /* PrototypeContractTests.swift */; };
+		0000000000000000000000C8 /* T13DesignSystemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000021 /* T13DesignSystemTests.swift */; };
+		0000000000000000000000C9 /* T14TaskRowPanelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00000000000000000000002E /* T14TaskRowPanelTests.swift */; };
+		0000000000000000000000CA /* T06CalendarContractTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000031 /* T06CalendarContractTests.swift */; };
+		0000000000000000000000CC /* T07RepeatEngineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000035 /* T07RepeatEngineTests.swift */; };
+		0000000000000000000000CD /* T15CalendarContractTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00000000000000000000003D /* T15CalendarContractTests.swift */; };
+		0000000000000000000000CE /* T05MergeEngineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00000000000000000000003F /* T05MergeEngineTests.swift */; };
+		0000000000000000000000CF /* T08NaturalLanguageParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000042 /* T08NaturalLanguageParserTests.swift */; };
+		0000000000000000000000D0 /* T09TaskStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000047 /* T09TaskStoreTests.swift */; };
+		0000000000000000000000D1 /* T10SyncClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00000000000000000000004B /* T10SyncClientTests.swift */; };
+		0000000000000000000000D2 /* T10EndToEndTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00000000000000000000004D /* T10EndToEndTests.swift */; };
+		0000000000000000000000D4 /* T11ReminderPlannerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000053 /* T11ReminderPlannerTests.swift */; };
+		0000000000000000000000D5 /* T12BackupServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000054 /* T12BackupServiceTests.swift */; };
+		0000000000000000000000D6 /* T16ContractTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000065 /* T16ContractTests.swift */; };
+		0000000000000000000000D7 /* T17ContractTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000066 /* T17ContractTests.swift */; };
+		0000000000000000000000D8 /* T19LocalizationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00000000000000000000006C /* T19LocalizationTests.swift */; };
+		0000000000000000000000D9 /* T18IntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00000000000000000000006E /* T18IntegrationTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		00000000000000000000010F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 00000000000000000000010D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 00000000000000000000010B;
+			remoteInfo = Planner;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		000000000000000000000001 /* PlannerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlannerApp.swift; sourceTree = "<group>"; };
+		000000000000000000000002 /* PrototypeRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrototypeRootView.swift; sourceTree = "<group>"; };
+		000000000000000000000003 /* ATSProbe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ATSProbe.swift; sourceTree = "<group>"; };
+		000000000000000000000004 /* SwipeProbeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeProbeView.swift; sourceTree = "<group>"; };
+		000000000000000000000005 /* GlassProbeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlassProbeView.swift; sourceTree = "<group>"; };
+		000000000000000000000006 /* LocalizationProbe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationProbe.swift; sourceTree = "<group>"; };
+		000000000000000000000007 /* LocalizationProbeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationProbeView.swift; sourceTree = "<group>"; };
+		000000000000000000000008 /* PlannerTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlannerTask.swift; sourceTree = "<group>"; };
+		000000000000000000000009 /* LegacyMigration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegacyMigration.swift; sourceTree = "<group>"; };
+		00000000000000000000000A /* RepeatNormalization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatNormalization.swift; sourceTree = "<group>"; };
+		00000000000000000000000B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		00000000000000000000000C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		00000000000000000000000D /* Signing.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Signing.xcconfig; sourceTree = "<group>"; };
+		00000000000000000000000E /* Version.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Version.xcconfig; sourceTree = "<group>"; };
+		00000000000000000000000F /* sync-version.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = sync-version.sh; sourceTree = "<group>"; };
+		000000000000000000000010 /* PlannerTaskNormalizationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlannerTaskNormalizationTests.swift; sourceTree = "<group>"; };
+		000000000000000000000011 /* LegacyMigrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegacyMigrationTests.swift; sourceTree = "<group>"; };
+		000000000000000000000012 /* ContractKeyOrderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractKeyOrderTests.swift; sourceTree = "<group>"; };
+		000000000000000000000013 /* PrototypeContractTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrototypeContractTests.swift; sourceTree = "<group>"; };
+		000000000000000000000014 /* DesignContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignContract.swift; sourceTree = "<group>"; };
+		000000000000000000000015 /* DesignTokens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignTokens.swift; sourceTree = "<group>"; };
+		000000000000000000000016 /* ReachIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachIcon.swift; sourceTree = "<group>"; };
+		000000000000000000000017 /* FeedbackContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackContract.swift; sourceTree = "<group>"; };
+		000000000000000000000018 /* HapticFeedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticFeedback.swift; sourceTree = "<group>"; };
+		000000000000000000000019 /* ClickGuard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClickGuard.swift; sourceTree = "<group>"; };
+		00000000000000000000001A /* ToastCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastCenter.swift; sourceTree = "<group>"; };
+		00000000000000000000001B /* ReachSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachSheet.swift; sourceTree = "<group>"; };
+		00000000000000000000001C /* AppStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStrings.swift; sourceTree = "<group>"; };
+		00000000000000000000001D /* ReachText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachText.swift; sourceTree = "<group>"; };
+		00000000000000000000001E /* AppTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTab.swift; sourceTree = "<group>"; };
+		00000000000000000000001F /* DesignSystemPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignSystemPreview.swift; sourceTree = "<group>"; };
+		000000000000000000000020 /* AppRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRootView.swift; sourceTree = "<group>"; };
+		000000000000000000000021 /* T13DesignSystemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = T13DesignSystemTests.swift; sourceTree = "<group>"; };
+		000000000000000000000022 /* TaskRowContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRowContract.swift; sourceTree = "<group>"; };
+		000000000000000000000023 /* TaskRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRow.swift; sourceTree = "<group>"; };
+		000000000000000000000024 /* TaskRowSwipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRowSwipe.swift; sourceTree = "<group>"; };
+		000000000000000000000025 /* TaskRowGallery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRowGallery.swift; sourceTree = "<group>"; };
+		000000000000000000000026 /* RepeatRule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatRule.swift; sourceTree = "<group>"; };
+		000000000000000000000027 /* PanelContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanelContract.swift; sourceTree = "<group>"; };
+		000000000000000000000028 /* PropertyRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyRow.swift; sourceTree = "<group>"; };
+		000000000000000000000029 /* DatePanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePanelView.swift; sourceTree = "<group>"; };
+		00000000000000000000002A /* TimePanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePanelView.swift; sourceTree = "<group>"; };
+		00000000000000000000002B /* RepeatPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatPanelView.swift; sourceTree = "<group>"; };
+		00000000000000000000002C /* QuadrantPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuadrantPanelView.swift; sourceTree = "<group>"; };
+		00000000000000000000002D /* RemindPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindPanelView.swift; sourceTree = "<group>"; };
+		00000000000000000000002E /* T14TaskRowPanelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = T14TaskRowPanelTests.swift; sourceTree = "<group>"; };
+		00000000000000000000002F /* LunarData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LunarData.swift; sourceTree = "<group>"; };
+		000000000000000000000030 /* PlannerCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlannerCalendar.swift; sourceTree = "<group>"; };
+		000000000000000000000031 /* T06CalendarContractTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = T06CalendarContractTests.swift; sourceTree = "<group>"; };
+		000000000000000000000033 /* lunar-data.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = lunar-data.json; sourceTree = "<group>"; };
+		000000000000000000000034 /* RepeatEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatEngine.swift; sourceTree = "<group>"; };
+		000000000000000000000035 /* T07RepeatEngineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = T07RepeatEngineTests.swift; sourceTree = "<group>"; };
+		000000000000000000000036 /* CalendarContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarContract.swift; sourceTree = "<group>"; };
+		000000000000000000000037 /* CalendarStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarStrings.swift; sourceTree = "<group>"; };
+		000000000000000000000038 /* CalendarDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDataStore.swift; sourceTree = "<group>"; };
+		000000000000000000000039 /* MonthGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthGridView.swift; sourceTree = "<group>"; };
+		00000000000000000000003A /* MonthPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthPickerView.swift; sourceTree = "<group>"; };
+		00000000000000000000003B /* DayAgendaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayAgendaView.swift; sourceTree = "<group>"; };
+		00000000000000000000003C /* CalendarScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarScreen.swift; sourceTree = "<group>"; };
+		00000000000000000000003D /* T15CalendarContractTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = T15CalendarContractTests.swift; sourceTree = "<group>"; };
+		00000000000000000000003E /* MergeEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MergeEngine.swift; sourceTree = "<group>"; };
+		00000000000000000000003F /* T05MergeEngineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = T05MergeEngineTests.swift; sourceTree = "<group>"; };
+		000000000000000000000040 /* merge_fixtures.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = merge_fixtures.json; sourceTree = "<group>"; };
+		000000000000000000000041 /* NaturalLanguageParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaturalLanguageParser.swift; sourceTree = "<group>"; };
+		000000000000000000000042 /* T08NaturalLanguageParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = T08NaturalLanguageParserTests.swift; sourceTree = "<group>"; };
+		000000000000000000000043 /* parse_fixtures.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = parse_fixtures.json; sourceTree = "<group>"; };
+		000000000000000000000044 /* PlannerStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlannerStorage.swift; sourceTree = "<group>"; };
+		000000000000000000000045 /* TaskStoreCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskStoreCore.swift; sourceTree = "<group>"; };
+		000000000000000000000046 /* TaskStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskStore.swift; sourceTree = "<group>"; };
+		000000000000000000000047 /* T09TaskStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = T09TaskStoreTests.swift; sourceTree = "<group>"; };
+		000000000000000000000048 /* store_fixtures.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = store_fixtures.json; sourceTree = "<group>"; };
+		000000000000000000000049 /* SyncSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncSettings.swift; sourceTree = "<group>"; };
+		00000000000000000000004A /* SyncClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncClient.swift; sourceTree = "<group>"; };
+		00000000000000000000004B /* T10SyncClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = T10SyncClientTests.swift; sourceTree = "<group>"; };
+		00000000000000000000004C /* sync_fixtures.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = sync_fixtures.json; sourceTree = "<group>"; };
+		00000000000000000000004D /* T10EndToEndTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = T10EndToEndTests.swift; sourceTree = "<group>"; };
+		00000000000000000000004E /* ATS-Development.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ATS-Development.xcconfig; sourceTree = "<group>"; };
+		000000000000000000000050 /* ReminderPlanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderPlanner.swift; sourceTree = "<group>"; };
+		000000000000000000000051 /* ReminderScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderScheduler.swift; sourceTree = "<group>"; };
+		000000000000000000000052 /* BackupService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupService.swift; sourceTree = "<group>"; };
+		000000000000000000000053 /* T11ReminderPlannerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = T11ReminderPlannerTests.swift; sourceTree = "<group>"; };
+		000000000000000000000054 /* T12BackupServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = T12BackupServiceTests.swift; sourceTree = "<group>"; };
+		000000000000000000000055 /* notify_fixtures.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = notify_fixtures.json; sourceTree = "<group>"; };
+		000000000000000000000056 /* backup_fixtures.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = backup_fixtures.json; sourceTree = "<group>"; };
+		000000000000000000000057 /* FeatureStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureStrings.swift; sourceTree = "<group>"; };
+		000000000000000000000058 /* AppSheetRoutes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSheetRoutes.swift; sourceTree = "<group>"; };
+		000000000000000000000059 /* QuadrantContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuadrantContract.swift; sourceTree = "<group>"; };
+		00000000000000000000005A /* QuadrantScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuadrantScreen.swift; sourceTree = "<group>"; };
+		00000000000000000000005B /* RoutineContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineContract.swift; sourceTree = "<group>"; };
+		00000000000000000000005C /* RoutineScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineScreen.swift; sourceTree = "<group>"; };
+		00000000000000000000005D /* SearchContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchContract.swift; sourceTree = "<group>"; };
+		00000000000000000000005E /* SearchSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSheetView.swift; sourceTree = "<group>"; };
+		00000000000000000000005F /* MeContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeContract.swift; sourceTree = "<group>"; };
+		000000000000000000000060 /* MeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeScreen.swift; sourceTree = "<group>"; };
+		000000000000000000000061 /* QuickAddContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickAddContract.swift; sourceTree = "<group>"; };
+		000000000000000000000062 /* QuickAddSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickAddSheet.swift; sourceTree = "<group>"; };
+		000000000000000000000063 /* TaskDetailContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailContract.swift; sourceTree = "<group>"; };
+		000000000000000000000064 /* TaskDetailSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailSheet.swift; sourceTree = "<group>"; };
+		000000000000000000000065 /* T16ContractTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = T16ContractTests.swift; sourceTree = "<group>"; };
+		000000000000000000000066 /* T17ContractTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = T17ContractTests.swift; sourceTree = "<group>"; };
+		000000000000000000000067 /* t16_fixtures.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = t16_fixtures.json; sourceTree = "<group>"; };
+		000000000000000000000068 /* t17_fixtures.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = t17_fixtures.json; sourceTree = "<group>"; };
+		000000000000000000000069 /* LocalizationDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationDictionary.swift; sourceTree = "<group>"; };
+		00000000000000000000006A /* LocalizationFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationFunctions.swift; sourceTree = "<group>"; };
+		00000000000000000000006B /* LocalizationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationService.swift; sourceTree = "<group>"; };
+		00000000000000000000006C /* T19LocalizationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = T19LocalizationTests.swift; sourceTree = "<group>"; };
+		00000000000000000000006D /* t19_fixtures.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = t19_fixtures.json; sourceTree = "<group>"; };
+		00000000000000000000006E /* T18IntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = T18IntegrationTests.swift; sourceTree = "<group>"; };
+		00000000000000000000006F /* Planner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Planner.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		000000000000000000000070 /* PlannerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlannerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0000000000000000000000FD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		000000000000000000000100 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0000000000000000000000DA /* Prototype */ = {
+			isa = PBXGroup;
+			children = (
+				000000000000000000000002 /* PrototypeRootView.swift */,
+				000000000000000000000003 /* ATSProbe.swift */,
+				000000000000000000000004 /* SwipeProbeView.swift */,
+				000000000000000000000005 /* GlassProbeView.swift */,
+				000000000000000000000006 /* LocalizationProbe.swift */,
+				000000000000000000000007 /* LocalizationProbeView.swift */,
+			);
+			path = Prototype;
+			sourceTree = "<group>";
+		};
+		0000000000000000000000DB /* DesignSystem */ = {
+			isa = PBXGroup;
+			children = (
+				000000000000000000000014 /* DesignContract.swift */,
+				000000000000000000000015 /* DesignTokens.swift */,
+				000000000000000000000016 /* ReachIcon.swift */,
+			);
+			path = DesignSystem;
+			sourceTree = "<group>";
+		};
+		0000000000000000000000DC /* Feedback */ = {
+			isa = PBXGroup;
+			children = (
+				000000000000000000000017 /* FeedbackContract.swift */,
+				000000000000000000000018 /* HapticFeedback.swift */,
+				000000000000000000000019 /* ClickGuard.swift */,
+				00000000000000000000001A /* ToastCenter.swift */,
+				00000000000000000000001B /* ReachSheet.swift */,
+			);
+			path = Feedback;
+			sourceTree = "<group>";
+		};
+		0000000000000000000000DD /* Skeleton */ = {
+			isa = PBXGroup;
+			children = (
+				00000000000000000000001C /* AppStrings.swift */,
+				00000000000000000000001D /* ReachText.swift */,
+				00000000000000000000001E /* AppTab.swift */,
+				00000000000000000000001F /* DesignSystemPreview.swift */,
+				000000000000000000000020 /* AppRootView.swift */,
+			);
+			path = Skeleton;
+			sourceTree = "<group>";
+		};
+		0000000000000000000000DE /* App */ = {
+			isa = PBXGroup;
+			children = (
+				000000000000000000000001 /* PlannerApp.swift */,
+				0000000000000000000000DA /* Prototype */,
+				0000000000000000000000DB /* DesignSystem */,
+				0000000000000000000000DC /* Feedback */,
+				0000000000000000000000DD /* Skeleton */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		0000000000000000000000DF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				000000000000000000000008 /* PlannerTask.swift */,
+				000000000000000000000009 /* LegacyMigration.swift */,
+				00000000000000000000000A /* RepeatNormalization.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		0000000000000000000000E0 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				00000000000000000000002F /* LunarData.swift */,
+				000000000000000000000030 /* PlannerCalendar.swift */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+		0000000000000000000000E1 /* Repeat */ = {
+			isa = PBXGroup;
+			children = (
+				000000000000000000000034 /* RepeatEngine.swift */,
+			);
+			path = Repeat;
+			sourceTree = "<group>";
+		};
+		0000000000000000000000E2 /* Sync */ = {
+			isa = PBXGroup;
+			children = (
+				00000000000000000000003E /* MergeEngine.swift */,
+				000000000000000000000049 /* SyncSettings.swift */,
+				00000000000000000000004A /* SyncClient.swift */,
+			);
+			path = Sync;
+			sourceTree = "<group>";
+		};
+		0000000000000000000000E3 /* Parse */ = {
+			isa = PBXGroup;
+			children = (
+				000000000000000000000041 /* NaturalLanguageParser.swift */,
+			);
+			path = Parse;
+			sourceTree = "<group>";
+		};
+		0000000000000000000000E4 /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				000000000000000000000044 /* PlannerStorage.swift */,
+				000000000000000000000045 /* TaskStoreCore.swift */,
+				000000000000000000000046 /* TaskStore.swift */,
+			);
+			path = Store;
+			sourceTree = "<group>";
+		};
+		0000000000000000000000E5 /* Notify */ = {
+			isa = PBXGroup;
+			children = (
+				000000000000000000000050 /* ReminderPlanner.swift */,
+				000000000000000000000051 /* ReminderScheduler.swift */,
+			);
+			path = Notify;
+			sourceTree = "<group>";
+		};
+		0000000000000000000000E6 /* Backup */ = {
+			isa = PBXGroup;
+			children = (
+				000000000000000000000052 /* BackupService.swift */,
+			);
+			path = Backup;
+			sourceTree = "<group>";
+		};
+		0000000000000000000000E7 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				0000000000000000000000DF /* Models */,
+				0000000000000000000000E0 /* Calendar */,
+				0000000000000000000000E1 /* Repeat */,
+				0000000000000000000000E2 /* Sync */,
+				0000000000000000000000E3 /* Parse */,
+				0000000000000000000000E4 /* Store */,
+				0000000000000000000000E5 /* Notify */,
+				0000000000000000000000E6 /* Backup */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		0000000000000000000000E8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				00000000000000000000000B /* Info.plist */,
+				00000000000000000000000C /* Assets.xcassets */,
+				000000000000000000000033 /* lunar-data.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		0000000000000000000000E9 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				00000000000000000000000D /* Signing.xcconfig */,
+				00000000000000000000000E /* Version.xcconfig */,
+				00000000000000000000000F /* sync-version.sh */,
+				00000000000000000000004E /* ATS-Development.xcconfig */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		0000000000000000000000EA /* TaskRow */ = {
+			isa = PBXGroup;
+			children = (
+				000000000000000000000022 /* TaskRowContract.swift */,
+				000000000000000000000023 /* TaskRow.swift */,
+				000000000000000000000024 /* TaskRowSwipe.swift */,
+				000000000000000000000025 /* TaskRowGallery.swift */,
+			);
+			path = TaskRow;
+			sourceTree = "<group>";
+		};
+		0000000000000000000000EB /* PropertyPanel */ = {
+			isa = PBXGroup;
+			children = (
+				000000000000000000000026 /* RepeatRule.swift */,
+				000000000000000000000027 /* PanelContract.swift */,
+				000000000000000000000028 /* PropertyRow.swift */,
+				000000000000000000000029 /* DatePanelView.swift */,
+				00000000000000000000002A /* TimePanelView.swift */,
+				00000000000000000000002B /* RepeatPanelView.swift */,
+				00000000000000000000002C /* QuadrantPanelView.swift */,
+				00000000000000000000002D /* RemindPanelView.swift */,
+			);
+			path = PropertyPanel;
+			sourceTree = "<group>";
+		};
+		0000000000000000000000EC /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				000000000000000000000036 /* CalendarContract.swift */,
+				000000000000000000000037 /* CalendarStrings.swift */,
+				000000000000000000000038 /* CalendarDataStore.swift */,
+				000000000000000000000039 /* MonthGridView.swift */,
+				00000000000000000000003A /* MonthPickerView.swift */,
+				00000000000000000000003B /* DayAgendaView.swift */,
+				00000000000000000000003C /* CalendarScreen.swift */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+		0000000000000000000000ED /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				000000000000000000000057 /* FeatureStrings.swift */,
+				000000000000000000000058 /* AppSheetRoutes.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		0000000000000000000000EE /* Quadrant */ = {
+			isa = PBXGroup;
+			children = (
+				000000000000000000000059 /* QuadrantContract.swift */,
+				00000000000000000000005A /* QuadrantScreen.swift */,
+			);
+			path = Quadrant;
+			sourceTree = "<group>";
+		};
+		0000000000000000000000EF /* Routine */ = {
+			isa = PBXGroup;
+			children = (
+				00000000000000000000005B /* RoutineContract.swift */,
+				00000000000000000000005C /* RoutineScreen.swift */,
+			);
+			path = Routine;
+			sourceTree = "<group>";
+		};
+		0000000000000000000000F0 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				00000000000000000000005D /* SearchContract.swift */,
+				00000000000000000000005E /* SearchSheetView.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		0000000000000000000000F1 /* Me */ = {
+			isa = PBXGroup;
+			children = (
+				00000000000000000000005F /* MeContract.swift */,
+				000000000000000000000060 /* MeScreen.swift */,
+			);
+			path = Me;
+			sourceTree = "<group>";
+		};
+		0000000000000000000000F2 /* QuickAdd */ = {
+			isa = PBXGroup;
+			children = (
+				000000000000000000000061 /* QuickAddContract.swift */,
+				000000000000000000000062 /* QuickAddSheet.swift */,
+			);
+			path = QuickAdd;
+			sourceTree = "<group>";
+		};
+		0000000000000000000000F3 /* TaskDetail */ = {
+			isa = PBXGroup;
+			children = (
+				000000000000000000000063 /* TaskDetailContract.swift */,
+				000000000000000000000064 /* TaskDetailSheet.swift */,
+			);
+			path = TaskDetail;
+			sourceTree = "<group>";
+		};
+		0000000000000000000000F4 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				0000000000000000000000ED /* Common */,
+				0000000000000000000000EA /* TaskRow */,
+				0000000000000000000000EB /* PropertyPanel */,
+				0000000000000000000000EC /* Calendar */,
+				0000000000000000000000EE /* Quadrant */,
+				0000000000000000000000EF /* Routine */,
+				0000000000000000000000F0 /* Search */,
+				0000000000000000000000F1 /* Me */,
+				0000000000000000000000F2 /* QuickAdd */,
+				0000000000000000000000F3 /* TaskDetail */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		0000000000000000000000F5 /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				000000000000000000000069 /* LocalizationDictionary.swift */,
+				00000000000000000000006A /* LocalizationFunctions.swift */,
+				00000000000000000000006B /* LocalizationService.swift */,
+			);
+			path = Localization;
+			sourceTree = "<group>";
+		};
+		0000000000000000000000F6 /* Planner */ = {
+			isa = PBXGroup;
+			children = (
+				0000000000000000000000DE /* App */,
+				0000000000000000000000E7 /* Core */,
+				0000000000000000000000F5 /* Localization */,
+				0000000000000000000000F4 /* Features */,
+				0000000000000000000000E8 /* Resources */,
+				0000000000000000000000E9 /* Config */,
+			);
+			path = Planner;
+			sourceTree = "<group>";
+		};
+		0000000000000000000000F7 /* Fixtures */ = {
+			isa = PBXGroup;
+			children = (
+				000000000000000000000040 /* merge_fixtures.json */,
+				000000000000000000000043 /* parse_fixtures.json */,
+				000000000000000000000048 /* store_fixtures.json */,
+				00000000000000000000004C /* sync_fixtures.json */,
+				000000000000000000000055 /* notify_fixtures.json */,
+				000000000000000000000056 /* backup_fixtures.json */,
+				000000000000000000000067 /* t16_fixtures.json */,
+				000000000000000000000068 /* t17_fixtures.json */,
+				00000000000000000000006D /* t19_fixtures.json */,
+			);
+			path = Fixtures;
+			sourceTree = "<group>";
+		};
+		0000000000000000000000F8 /* PlannerTests */ = {
+			isa = PBXGroup;
+			children = (
+				000000000000000000000010 /* PlannerTaskNormalizationTests.swift */,
+				000000000000000000000011 /* LegacyMigrationTests.swift */,
+				000000000000000000000012 /* ContractKeyOrderTests.swift */,
+				000000000000000000000013 /* PrototypeContractTests.swift */,
+				000000000000000000000021 /* T13DesignSystemTests.swift */,
+				00000000000000000000002E /* T14TaskRowPanelTests.swift */,
+				000000000000000000000031 /* T06CalendarContractTests.swift */,
+				000000000000000000000035 /* T07RepeatEngineTests.swift */,
+				00000000000000000000003D /* T15CalendarContractTests.swift */,
+				00000000000000000000003F /* T05MergeEngineTests.swift */,
+				000000000000000000000042 /* T08NaturalLanguageParserTests.swift */,
+				000000000000000000000047 /* T09TaskStoreTests.swift */,
+				00000000000000000000004B /* T10SyncClientTests.swift */,
+				00000000000000000000004D /* T10EndToEndTests.swift */,
+				000000000000000000000053 /* T11ReminderPlannerTests.swift */,
+				000000000000000000000054 /* T12BackupServiceTests.swift */,
+				000000000000000000000065 /* T16ContractTests.swift */,
+				000000000000000000000066 /* T17ContractTests.swift */,
+				00000000000000000000006C /* T19LocalizationTests.swift */,
+				00000000000000000000006E /* T18IntegrationTests.swift */,
+				0000000000000000000000F7 /* Fixtures */,
+			);
+			path = PlannerTests;
+			sourceTree = "<group>";
+		};
+		0000000000000000000000F9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				00000000000000000000006F /* Planner.app */,
+				000000000000000000000070 /* PlannerTests.xctest */,
+			);
+			sourceTree = "<group>";
+		};
+		0000000000000000000000FA /* main */ = {
+			isa = PBXGroup;
+			children = (
+				0000000000000000000000F6 /* Planner */,
+				0000000000000000000000F8 /* PlannerTests */,
+				0000000000000000000000F9 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		00000000000000000000010B /* Planner */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 000000000000000000000107 /* Build configuration list for PBXNativeTarget "Planner" */;
+			buildPhases = (
+				0000000000000000000000FB /* ShellScript */,
+				0000000000000000000000FC /* Sources */,
+				0000000000000000000000FD /* Frameworks */,
+				0000000000000000000000FE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Planner;
+			productName = Planner;
+			productReference = 00000000000000000000006F /* Planner.app */;
+			productType = "com.apple.product-type.application";
+		};
+		00000000000000000000010C /* PlannerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 00000000000000000000010A /* Build configuration list for PBXNativeTarget "PlannerTests" */;
+			buildPhases = (
+				0000000000000000000000FF /* Sources */,
+				000000000000000000000100 /* Frameworks */,
+				000000000000000000000101 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				00000000000000000000010E /* PBXTargetDependency */,
+			);
+			name = PlannerTests;
+			productName = PlannerTests;
+			productReference = 000000000000000000000070 /* PlannerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		00000000000000000000010D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastUpgradeCheck = 2720;
+				TargetAttributes = {
+					00000000000000000000010B = {
+						CreatedOnToolsVersion = 27.2;
+					};
+					00000000000000000000010C = {
+						CreatedOnToolsVersion = 27.2;
+						TestTargetID = 00000000000000000000010B;
+					};
+				};
+			};
+			buildConfigurationList = 000000000000000000000104 /* Build configuration list for PBXProject "Planner" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+				"zh-Hans",
+			);
+			mainGroup = 0000000000000000000000FA;
+			productRefGroup = 0000000000000000000000F9 /* Products group */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				00000000000000000000010B /* Planner */,
+				00000000000000000000010C /* PlannerTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0000000000000000000000FE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0000000000000000000000B9,
+				0000000000000000000000BA,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		000000000000000000000101 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0000000000000000000000BB,
+				0000000000000000000000BC,
+				0000000000000000000000BD,
+				0000000000000000000000BE,
+				0000000000000000000000BF,
+				0000000000000000000000C0,
+				0000000000000000000000C1,
+				0000000000000000000000C2,
+				0000000000000000000000C3,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0000000000000000000000FB /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/../package.json",
+			);
+			name = "Sync version from package.json (OPEN-11=A)";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Planner/Config/sync-version.sh\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0000000000000000000000FC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				000000000000000000000071,
+				000000000000000000000072,
+				000000000000000000000073,
+				000000000000000000000074,
+				000000000000000000000075,
+				000000000000000000000076,
+				000000000000000000000077,
+				000000000000000000000078,
+				000000000000000000000079,
+				00000000000000000000007A,
+				00000000000000000000007B,
+				00000000000000000000007C,
+				00000000000000000000007D,
+				00000000000000000000007E,
+				00000000000000000000007F,
+				000000000000000000000080,
+				000000000000000000000081,
+				000000000000000000000082,
+				000000000000000000000083,
+				000000000000000000000084,
+				000000000000000000000085,
+				000000000000000000000086,
+				000000000000000000000087,
+				000000000000000000000088,
+				000000000000000000000089,
+				00000000000000000000008A,
+				00000000000000000000008B,
+				00000000000000000000008C,
+				00000000000000000000008D,
+				00000000000000000000008E,
+				00000000000000000000008F,
+				000000000000000000000090,
+				000000000000000000000091,
+				000000000000000000000092,
+				000000000000000000000093,
+				000000000000000000000094,
+				000000000000000000000095,
+				000000000000000000000096,
+				000000000000000000000097,
+				000000000000000000000098,
+				000000000000000000000099,
+				00000000000000000000009A,
+				00000000000000000000009B,
+				00000000000000000000009C,
+				00000000000000000000009D,
+				00000000000000000000009E,
+				00000000000000000000009F,
+				0000000000000000000000A0,
+				0000000000000000000000A1,
+				0000000000000000000000A2,
+				0000000000000000000000A3,
+				0000000000000000000000A4,
+				0000000000000000000000A5,
+				0000000000000000000000A6,
+				0000000000000000000000A7,
+				0000000000000000000000A8,
+				0000000000000000000000A9,
+				0000000000000000000000AA,
+				0000000000000000000000AB,
+				0000000000000000000000AC,
+				0000000000000000000000AD,
+				0000000000000000000000AE,
+				0000000000000000000000AF,
+				0000000000000000000000B0,
+				0000000000000000000000B1,
+				0000000000000000000000B2,
+				0000000000000000000000B3,
+				0000000000000000000000B4,
+				0000000000000000000000B5,
+				0000000000000000000000B6,
+				0000000000000000000000B7,
+				0000000000000000000000B8,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0000000000000000000000FF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0000000000000000000000C4,
+				0000000000000000000000C5,
+				0000000000000000000000C6,
+				0000000000000000000000C7,
+				0000000000000000000000C8,
+				0000000000000000000000C9,
+				0000000000000000000000CA,
+				0000000000000000000000CC,
+				0000000000000000000000CD,
+				0000000000000000000000CE,
+				0000000000000000000000CF,
+				0000000000000000000000D0,
+				0000000000000000000000D1,
+				0000000000000000000000D2,
+				0000000000000000000000D4,
+				0000000000000000000000D5,
+				0000000000000000000000D6,
+				0000000000000000000000D7,
+				0000000000000000000000D8,
+				0000000000000000000000D9,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		00000000000000000000010E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 00000000000000000000010B /* Planner */;
+			targetProxy = 00000000000000000000010F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		000000000000000000000102 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 00000000000000000000000E /* Debug */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				SDKROOT = iphoneos;
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_TESTABILITY = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		000000000000000000000103 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 00000000000000000000000E /* Release */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				SDKROOT = iphoneos;
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		000000000000000000000105 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 00000000000000000000000D /* Debug */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Planner/Resources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+			};
+			name = Debug;
+		};
+		000000000000000000000106 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 00000000000000000000000D /* Release */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Planner/Resources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+			};
+			name = Release;
+		};
+		000000000000000000000108 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 00000000000000000000000D /* Debug */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tonywu.reach.list.Tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Planner.app/Planner";
+			};
+			name = Debug;
+		};
+		000000000000000000000109 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 00000000000000000000000D /* Release */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tonywu.reach.list.Tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Planner.app/Planner";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		000000000000000000000104 /* Build configuration list */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				000000000000000000000102 /* Debug */,
+				000000000000000000000103 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		000000000000000000000107 /* Build configuration list */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				000000000000000000000105 /* Debug */,
+				000000000000000000000106 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		00000000000000000000010A /* Build configuration list */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				000000000000000000000108 /* Debug */,
+				000000000000000000000109 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+	};
+	rootObject = 00000000000000000000010D /* Project object */;
+}
