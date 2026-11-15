@@ -15,7 +15,7 @@
 [![Capacitor](https://img.shields.io/badge/Capacitor-8-119eff?style=flat-square&logo=capacitor&logoColor=white)](https://capacitorjs.com)
 [![Agent Skill](https://img.shields.io/badge/agent-skill%20ready-d97757?style=flat-square)](#-let-your-ai-agent-manage-your-tasks)
 
-[Features](#-features) · [Screenshots](#-screenshots) · [Install](#-install) · [Agent access](#-let-your-ai-agent-manage-your-tasks) · [Develop](#develop) · [简体中文](README.zh-CN.md)
+[Features](#-features) · [Screenshots](#-screenshots) · [Install](#-install) · [iOS](#-ios-native) · [Agent access](#-let-your-ai-agent-manage-your-tasks) · [Develop](#develop) · [简体中文](README.zh-CN.md)
 
 <br>
 
@@ -80,6 +80,14 @@ npm run install-apk      # adb install to the connected phone
 For a signed release build see [Build & install on phone](#build--install-on-phone).
 
 Just want to look around? `npm run dev` and open it in a phone-sized browser viewport.
+
+## 📱 iOS (native)
+
+A native iOS implementation is maintained on the [`ios-native`](https://github.com/TonyWu2333/reachlist/tree/ios-native) branch. That branch keeps the entire web / Android project and adds an `ios/` directory, so all platforms live in one repository. It is maintained independently — iOS changes are not merged into `main`.
+
+Built with Swift and SwiftUI (iOS 26+), it already covers the calendar, Eisenhower matrix, routines, search, task details and quick add. The `ios/Planner/Core/` layer reimplements the data contracts from `src/lib/*.js` and `shared/merge.js` verbatim — lunar calendar, repeat rules, Chinese natural-language parsing, merge, task store, sync, reminders and backup. Golden fixtures generated from the real JS source are asserted by XCTest on a real device.
+
+To try it: check out `ios-native`, open `ios/Planner.xcodeproj` in Xcode, and set your own `DEVELOPMENT_TEAM` in `ios/Planner/Config/Signing.xcconfig`. See `ios/README.md` for details.
 
 ## 🤖 Let your AI agent manage your tasks
 

@@ -15,7 +15,7 @@
 [![Capacitor](https://img.shields.io/badge/Capacitor-8-119eff?style=flat-square&logo=capacitor&logoColor=white)](https://capacitorjs.com)
 [![Agent Skill](https://img.shields.io/badge/agent-skill%20ready-d97757?style=flat-square)](#-让-ai-agent-帮你管任务)
 
-[功能](#-功能) · [截图](#-截图) · [安装](#-安装) · [Agent 接入](#-让-ai-agent-帮你管任务) · [开发](#开发) · [English](README.md)
+[功能](#-功能) · [截图](#-截图) · [安装](#-安装) · [iOS](#-ios-原生版) · [Agent 接入](#-让-ai-agent-帮你管任务) · [开发](#开发) · [English](README.md)
 
 <br>
 
@@ -82,6 +82,14 @@ npm run install-apk      # 用 adb 安装到已连接的手机
 签名的正式版见 [构建并安装到手机](#构建并安装到手机)。
 
 只想看看效果？运行 `npm run dev`，在浏览器里用手机尺寸打开。
+
+## 📱 iOS 原生版
+
+iOS 原生实现维护在 [`ios-native`](https://github.com/TonyWu2333/reachlist/tree/ios-native) 分支。该分支保留 Web / Android 的全部代码，只新增 `ios/` 目录，多端共用一个仓库；分支独立维护，iOS 改动不合并进 `main`。
+
+用 Swift 与 SwiftUI 实现（iOS 26+），已覆盖日历、四象限、打卡、搜索、任务详情与快速添加。`ios/Planner/Core/` 下的农历日历、重复规则、中文自然语言解析、合并、存储、同步、提醒、备份等逻辑，与 `src/lib/*.js`、`shared/merge.js` 的数据契约逐字对齐；黄金夹具由真实 JS 源码生成，XCTest 在真机上做全量断言。
+
+想试一下：切到 `ios-native` 分支，用 Xcode 打开 `ios/Planner.xcodeproj`，把 `ios/Planner/Config/Signing.xcconfig` 里的 `DEVELOPMENT_TEAM` 改成自己的 Team ID。详见 `ios/README.md`。
 
 ## 🤖 让 AI agent 帮你管任务
 
