@@ -243,7 +243,7 @@ const heading = computed(() => {
   const isRel = n >= -1 && n <= (isEn() ? 1 : 2);
   return {
     title: isRel ? rel : md,
-    sub: [isRel && md, weekdayName(sel.value.getDay()), info.value.full].filter(Boolean).join(' · '),
+    sub: [isRel && md, weekdayName(sel.value.getDay()), state.settings.showLunar && info.value.full].filter(Boolean).join(' · '),
   };
 });
 // 今天所在的星期列高亮（当前显示的范围包含今天时）
@@ -309,7 +309,7 @@ defineExpose({ selected });
         <button class="cal-title" :aria-label="$t('选择年月')" @click="openPicker">
           <span v-if="isEn()" class="cal-month">{{ monthName(month) }}</span>
           <span v-else class="cal-month num">{{ month + 1 }}<small>月</small></span>
-          <span class="cal-sub"><span class="num">{{ year }}</span><em>{{ lunarYearLabel(year) }}</em></span>
+          <span class="cal-sub"><span class="num">{{ year }}</span><em v-if="state.settings.showLunar">{{ lunarYearLabel(year) }}</em></span>
           <Icon name="chevron-down" class="cal-caret" />
         </button>
         <div class="cal-tools">
