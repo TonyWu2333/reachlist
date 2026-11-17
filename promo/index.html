@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Reach List promo</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1920px; height: 1080px; overflow: hidden; background: #f6f5fd; }
+  body { font-family: -apple-system, "SF Pro Display", "Helvetica Neue", "PingFang SC", sans-serif; color: #16171a; -webkit-font-smoothing: antialiased; }
+  #stage { position: absolute; inset: 0; transform-origin: 60% 50%;
+    background: radial-gradient(1200px 800px at 15% 10%, #f1edff 0%, transparent 60%), radial-gradient(1000px 700px at 90% 90%, #e6ebff 0%, transparent 60%), #f6f5fd; }
+  .abs { position: absolute; }
+  .blob { position: absolute; border-radius: 50%; filter: blur(70px); opacity: .55; }
+  .fl { position: absolute; border-radius: 30%; opacity: .5; }
+
+  /* intro / outro */
+  #logo { left: 840px; top: 230px; width: 240px; height: 240px; border-radius: 56px; overflow: hidden; background: #fefefe;
+          box-shadow: 0 30px 70px rgba(91, 80, 220, .25), 0 0 0 1px rgba(0,0,0,.04); }
+  #logo img { width: 100%; height: 100%; display: block; }
+  #shine { position: absolute; top: -20%; left: 0; width: 45%; height: 140%; transform: rotate(20deg);
+           background: linear-gradient(90deg, transparent, rgba(255,255,255,.85), transparent); }
+  .center { left: 0; right: 0; text-align: center; }
+  #title { top: 510px; font-size: 104px; font-weight: 800; letter-spacing: -1px; }
+  #subtitle { top: 650px; font-size: 36px; color: #6b6f7d; }
+  #tagline { top: 650px; font-size: 46px; font-weight: 600; color: #4b5cf0; }
+  #repo { top: 740px; font-size: 30px; color: #6b6f7d; font-family: "SF Mono", Menlo, monospace; }
+  #agents { top: 810px; display: flex; justify-content: center; gap: 16px; }
+  .pill { display: inline-flex; align-items: center; gap: 10px; height: 56px; padding: 0 26px; border-radius: 99px; font-size: 26px; font-weight: 600;
+          background: #fff; box-shadow: 0 8px 24px rgba(40, 50, 120, .09); white-space: nowrap; }
+  .pill i { width: 12px; height: 12px; border-radius: 50%; display: block; flex: none; }
+
+  /* phone */
+  #phone { left: 1180px; top: 70px; width: 424px; height: 890px; perspective: 1800px; }
+  #pose { width: 100%; height: 100%; transform-style: preserve-3d; }
+  #pf { width: 100%; height: 100%; border-radius: 62px; background: #0d0d10; padding: 12px;
+        box-shadow: 0 50px 100px rgba(60, 70, 200, .28), 0 0 0 2px #2a2a30 inset; }
+  #screen { position: relative; width: 400px; height: 866px; border-radius: 50px; overflow: hidden; background: #f3f4f6; }
+  #screen img { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; }
+  #finger { width: 46px; height: 46px; border-radius: 50%; background: rgba(75, 92, 240, .32); box-shadow: 0 0 0 6px rgba(75, 92, 240, .12); opacity: 0; }
+  #hl { width: 372px; height: 64px; border-radius: 18px; background: rgba(75, 92, 240, .10); box-shadow: 0 0 0 3px rgba(75, 92, 240, .7); opacity: 0; }
+  .pt { width: 10px; height: 10px; border-radius: 50%; opacity: 0; }
+
+  /* text columns */
+  .scene { top: 0; width: 840px; height: 1080px; opacity: 0; }
+  .scene.l { left: 170px; } .scene.r { left: 880px; }
+  .kicker { position: absolute; top: 290px; font-size: 26px; font-weight: 700; color: #4b5cf0; letter-spacing: 5px; display: flex; align-items: center; gap: 16px; }
+  .kicker b { display: block; width: 44px; height: 4px; border-radius: 2px; background: #4b5cf0; transform-origin: left; }
+  .head { position: absolute; top: 335px; font-size: 100px; font-weight: 800; letter-spacing: -2px; line-height: 1.1; white-space: nowrap; }
+  .head .w { display: inline-block; white-space: nowrap; }
+  .head .c { display: inline-block; }
+  .sub { position: absolute; top: 470px; width: 780px; font-size: 36px; line-height: 1.4; color: #5d626c; }
+  .pills { position: absolute; top: 610px; display: flex; gap: 16px; flex-wrap: wrap; width: 800px; }
+  .pills .pill, #agents .pill { opacity: 0; }
+  .grid4 { display: grid; grid-template-columns: auto auto; justify-content: start; gap: 16px; }
+  .grid4 .pill { justify-content: flex-start; }
+  .card { position: absolute; top: 630px; padding: 26px 34px; border-radius: 28px; background: #fff; box-shadow: 0 16px 40px rgba(40, 50, 120, .12);
+          font-size: 34px; font-weight: 600; opacity: 0; display: flex; align-items: center; gap: 18px; white-space: nowrap; }
+  .card b { color: #f59e0b; }
+
+  /* terminal */
+  #term { position: absolute; top: 620px; width: 900px; border-radius: 26px; background: #15161c; color: #e7e9f0; overflow: hidden; opacity: 0;
+          box-shadow: 0 30px 70px rgba(20, 20, 50, .3); font-family: "SF Mono", Menlo, monospace; font-size: 22px; }
+  #term .bar { height: 48px; background: #22232b; display: flex; align-items: center; gap: 10px; padding: 0 22px; }
+  #term .bar i { width: 14px; height: 14px; border-radius: 50%; display: block; }
+  #term .bar span { margin-left: 14px; font-size: 19px; color: #8b8fa0; }
+  #term .body { padding: 22px 30px 26px; line-height: 1.7; min-height: 210px; }
+  #term .body div { white-space: pre-wrap; }
+  .t-user { color: #fff; } .t-tool { color: #9aa3ff; } .t-ok { color: #6ee7a8; }
+  #packet { width: 22px; height: 22px; border-radius: 50%; background: radial-gradient(circle, #fff 0%, #8f9bff 45%, rgba(75,92,240,0) 70%);
+            box-shadow: 0 0 30px 10px rgba(110, 120, 255, .45); opacity: 0; margin: -11px 0 0 -11px; }
+</style>
+</head>
+<body>
+<div id="stage">
+  <div class="blob" id="b1" style="left:-160px;top:600px;width:560px;height:560px;background:#c9c0ff"></div>
+  <div class="blob" id="b2" style="left:1480px;top:-180px;width:600px;height:600px;background:#c7d2ff"></div>
+  <div class="blob" id="b3" style="left:780px;top:760px;width:420px;height:420px;background:#e3d6ff"></div>
+  <div id="floaters"></div>
+
+  <div id="logo" class="abs"><img src="../docs/brand/list-icon-source.png"><div id="shine"></div></div>
+  <div id="title" class="abs center split">Reach List</div>
+  <div id="subtitle" class="abs center">The daily planner your AI agent can use too</div>
+  <div id="tagline" class="abs center">Within your reach — and your agent's.</div>
+  <div id="repo" class="abs center"><span id="repoText"></span></div>
+  <div id="agents" class="abs center">
+    <span class="pill">Claude Code</span><span class="pill">Codex</span><span class="pill">Hermes</span><span class="pill">Android · iOS</span><span class="pill">English / 中文</span>
+  </div>
+
+  <div id="phone" class="abs"><div id="pose"><div id="pf"><div id="screen"></div></div></div></div>
+
+  <div id="calendar" class="scene abs l">
+    <div class="kicker"><b></b>CALENDAR</div>
+    <div class="head split">Open to today</div>
+    <div class="sub">Month and week views. Tap any day to see what's on.</div>
+    <div class="pills"><span class="pill"><i style="background:#4b5cf0"></i>Month ⇄ week</span><span class="pill"><i style="background:#f59e0b"></i>Color-coded priorities</span><span class="pill"><i style="background:#ef4444"></i>Overdue at a glance</span></div>
+  </div>
+  <div id="quick" class="scene abs l">
+    <div class="kicker"><b></b>QUICK ADD</div>
+    <div class="head split">Add in seconds</div>
+    <div class="sub">Title, date, time, repeat and reminder in one small sheet.</div>
+    <div class="pills"><span class="pill">📅 Date</span><span class="pill">🕒 Time</span><span class="pill">🔁 Repeat</span><span class="pill">🔔 Reminder</span></div>
+  </div>
+  <div id="matrix" class="scene abs r">
+    <div class="kicker"><b></b>EISENHOWER MATRIX</div>
+    <div class="head split">Sort what matters</div>
+    <div class="sub">Drag tasks between quadrants. Filter by today or this week.</div>
+    <div class="pills grid4">
+      <span class="pill" style="color:#e5484d"><i style="background:#e5484d"></i>Important &amp; urgent</span>
+      <span class="pill" style="color:#e8930c"><i style="background:#f59e0b"></i>Important</span>
+      <span class="pill" style="color:#0b8fd4"><i style="background:#0ea5e9"></i>Urgent</span>
+      <span class="pill" style="color:#0f9f6e"><i style="background:#10b981"></i>Neither</span>
+    </div>
+  </div>
+  <div id="routine" class="scene abs r">
+    <div class="kicker"><b></b>ROUTINES</div>
+    <div class="head split">Build streaks</div>
+    <div class="sub">Daily, weekly or monthly. Tick it off and keep the streak going.</div>
+    <div class="card">🔥 <span>Learn 30 new words</span><b><span id="streakN">14</span>-day streak</b></div>
+  </div>
+  <div id="agent" class="scene abs l">
+    <div class="kicker"><b></b>AI AGENTS</div>
+    <div class="head split">Your agent can help</div>
+    <div class="sub">Self-hosted sync and a skill for Claude Code, Codex and Hermes.</div>
+    <div id="term">
+      <div class="bar"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i><span>agent</span></div>
+      <div class="body"><div class="t-user" id="t1"></div><div class="t-tool" id="t2"></div><div class="t-ok" id="t3"></div></div>
+    </div>
+  </div>
+  <div id="packet" class="abs"></div>
+</div>
+
+<script src="node_modules/gsap/dist/gsap.min.js"></script>
+<script src="timing.js"></script>
+<script>
+// index.html?lang=zh → Chinese copy and Chinese app screens (build/shots-zh/)
+const LANG = new URLSearchParams(location.search).get('lang') === 'zh' ? 'zh' : 'en';
+const SHOT_DIR = LANG === 'zh' ? 'build/shots-zh' : 'build/shots';
+document.write(`<script src="${SHOT_DIR}/meta.js"><\/script>`);
+</script>
+<script>
+gsap.ticker.lagSmoothing(0);
+if (LANG === 'zh') {
+  document.documentElement.lang = 'zh-CN';
+  const set = (sel, html) => (document.querySelector(sel).innerHTML = html);
+  const scene = (id, kicker, head, sub) => { set(`#${id} .kicker`, '<b></b>' + kicker); set(`#${id} .head`, head); set(`#${id} .sub`, sub); };
+  set('#title', '可及清单');
+  set('#subtitle', '你和 AI Agent 共用的待办清单');
+  set('#tagline', '待办、日历、打卡，Agent 也能帮你管。');
+  set('#agents', '<span class="pill">Claude Code</span><span class="pill">Codex</span><span class="pill">Hermes</span><span class="pill">Android · iOS</span><span class="pill">中文 / English</span>');
+  scene('calendar', '日历', '一个月，一屏看完', '月视图和周视图来回切，点哪天看哪天。');
+  set('#calendar .pills', '<span class="pill"><i style="background:#4b5cf0"></i>月 ⇄ 周</span><span class="pill"><i style="background:#f59e0b"></i>优先级按颜色区分</span><span class="pill"><i style="background:#ef4444"></i>过期的会标红</span>');
+  scene('quick', '快速添加', '想到就记', '日期、时间、重复、提醒，在同一张卡片里设好。');
+  set('#quick .pills', '<span class="pill">📅 日期</span><span class="pill">🕒 时间</span><span class="pill">🔁 重复</span><span class="pill">🔔 提醒</span>');
+  scene('matrix', '四象限', '先做重要的事', '按重要和紧急分四格，拖一下就能换。');
+  set('#matrix .pills', `<span class="pill" style="color:#e5484d"><i style="background:#e5484d"></i>重要且紧急</span>
+      <span class="pill" style="color:#e8930c"><i style="background:#f59e0b"></i>重要不紧急</span>
+      <span class="pill" style="color:#0b8fd4"><i style="background:#0ea5e9"></i>紧急不重要</span>
+      <span class="pill" style="color:#0f9f6e"><i style="background:#10b981"></i>不重要不紧急</span>`);
+  scene('routine', '打卡', '每天打个卡', '按天、按周、按月都行，连续几天都记着。');
+  set('#routine .card', '🔥 <span>背 30 个单词</span><b>连续 <span id="streakN">14</span> 天</b>');
+  scene('agent', 'AI AGENT', '跟 Agent 说一声就行', '自建同步，Claude Code、Codex、Hermes<br>都能直接读写你的清单。');
+}
+const S = Object.fromEntries(TIMING.scenes.map((s) => [s.id, s]));
+const tl = gsap.timeline({ paused: true, defaults: { ease: 'power3.out' } });
+const k = 400 / 390; // screen px per page px
+
+// ---------- build DOM: screens, particles, floaters, split text ----------
+const screen = document.getElementById('screen');
+const SHOTS = ['cal_0', 'cal_1', 'cal_2', 'cal_3', ...Array.from({ length: META.quickFrames + 1 }, (_, i) => 'quick_' + i),
+  'quad_all', 'quad_today', 'quad_week', 'routine_before', 'routine_after', 'agent_before', 'agent_after'];
+for (const s of SHOTS) screen.insertAdjacentHTML('beforeend', `<img id="s-${s}" src="${SHOT_DIR}/${s}.png">`);
+screen.insertAdjacentHTML('beforeend', '<div id="hl" class="abs"></div><div id="finger" class="abs"></div>');
+const COLORS = ['#4b5cf0', '#f59e0b', '#10b981', '#ef4444', '#8b5cf6', '#0ea5e9'];
+for (let i = 0; i < 16; i++) screen.insertAdjacentHTML('beforeend', `<div class="pt abs" style="background:${COLORS[i % 6]}"></div>`);
+let seed = 11; const rnd = () => ((seed = (seed * 16807) % 2147483647) / 2147483647);
+const fl = document.getElementById('floaters');
+for (let i = 0; i < 14; i++) {
+  const s = 14 + rnd() * 26;
+  fl.insertAdjacentHTML('beforeend', `<div class="fl" style="left:${rnd() * 1920}px;top:${rnd() * 1080}px;width:${s}px;height:${s}px;background:${COLORS[i % 6]};opacity:${0.08 + rnd() * 0.12};border-radius:${rnd() > .5 ? '50%' : '30%'}"></div>`);
+}
+document.querySelectorAll('.split').forEach((el) => {
+  el.innerHTML = el.textContent.split(' ').map((w) => `<span class="w">${[...w].map((c) => `<span class="c">${c}</span>`).join('')}</span>`).join(' ');
+});
+const TERM = LANG === 'zh' ? [
+  '> 提醒我明天 9 点给客户打电话，挺急的。',
+  '⏺ planner add 明天9点 给客户打电话 --quadrant 1',
+  '✓ 已添加 · 明天 09:00 · 重要且紧急',
+] : [
+  '> Remind me to call the client tomorrow at 9, it\'s urgent.',
+  `⏺ planner add "Call the client" \\\n    --date ${META.tomorrow} --time 09:00 --quadrant 1`,
+  '✓ Added · Tomorrow 09:00 · Important & urgent',
+];
+
+// ---------- beat grid: every event is placed with b(bar, beat) ----------
+const BEAT = TIMING.beat, BAR = TIMING.bar, T = TIMING.total;
+const b = (bar, beat = 0) => bar * BAR + beat * BEAT;
+const bar0 = (id) => S[id].bar;
+
+gsap.set('#screen img', { opacity: 0 });
+const at = (id) => '#s-' + id;
+const show = (id, t, d = 0.01) => tl.to(at(id), { opacity: 1, duration: d }, t);
+// page slide that starts on the beat and snaps in
+function slide(from, to, t, d = 0.5) {
+  tl.fromTo(at(to), { opacity: 1, xPercent: 100 }, { xPercent: 0, duration: d, ease: 'expo.out', immediateRender: false }, t);
+  tl.to(at(from), { xPercent: -28, duration: d, ease: 'expo.out' }, t);
+}
+// finger touches down on t; the screen reacts on t
+function tap(t, [x, y]) {
+  tl.set('#finger', { left: x * k - 23, top: y * k - 23 }, t - BEAT);
+  tl.fromTo('#finger', { opacity: 0, scale: 1.6 }, { opacity: 1, scale: 1, duration: BEAT * 0.8, immediateRender: false }, t - BEAT);
+  tl.to('#finger', { scale: 0.75, duration: 0.06, ease: 'power1.in' }, t - 0.06);
+  tl.to('#finger', { opacity: 0, scale: 1.15, duration: BEAT * 0.6 }, t + 0.08);
+}
+// kicker on t, letters every 1/8 beat from the next beat, subtitle on the beat after
+function textIn(id, t) {
+  const q = gsap.utils.selector('#' + id);
+  tl.set('#' + id, { opacity: 1, x: 0, y: 0, filter: 'blur(0px)' }, t);
+  tl.set(q('.head .c'), { opacity: 0, y: 80, rotationX: -70 }, t);
+  tl.set(q('.sub'), { opacity: 0, y: 24 }, t);
+  tl.fromTo(q('.kicker'), { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: BEAT, immediateRender: false }, t);
+  tl.fromTo(q('.kicker b'), { scaleX: 0 }, { scaleX: 1, duration: BEAT, immediateRender: false }, t);
+  tl.fromTo(q('.head .c'), { opacity: 0, y: 80, rotationX: -70 }, { opacity: 1, y: 0, rotationX: 0, duration: BEAT * 1.4, stagger: BEAT / 8, ease: 'back.out(1.6)', immediateRender: false }, t + BEAT);
+  tl.fromTo(q('.sub'), { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: BEAT * 1.2, immediateRender: false }, t + 2 * BEAT);
+}
+// starts leaving on the beat, crossfading with the next scene's text
+const textOut = (id, t) => tl.to('#' + id, { opacity: 0, y: -40, filter: 'blur(8px)', duration: BEAT * 0.6, ease: 'power2.out' }, t);
+// one pill every `step` beats, the first on t
+const popPills = (sel, t, step = 1) => tl.fromTo(sel, { opacity: 0, y: 30, scale: 0.8 }, { opacity: 1, y: 0, scale: 1, duration: BEAT * 0.9, stagger: BEAT * step, ease: 'back.out(2.2)', immediateRender: false }, t);
+// phone starts moving on the beat
+const pose = (t, v, d = BAR / 2) => tl.to('#pose', { ...v, duration: d, ease: 'expo.out' }, t);
+// a quick scale punch on a beat
+const kick = (sel, t, s = 1.05) => tl.fromTo(sel, { scale: s }, { scale: 1, duration: BEAT * 0.9, ease: 'power2.out', immediateRender: false }, t);
+const type = (sel, text, t, d) => { const o = { n: 0 }; tl.to(o, { n: text.length, duration: d, ease: 'none', onUpdate: () => (document.querySelector(sel).textContent = text.slice(0, Math.round(o.n))) }, t); };
+
+// ---------- ambient motion over the whole video ----------
+tl.fromTo('#stage', { scale: 1 }, { scale: 1.035, duration: T, ease: 'none' }, 0);
+tl.to('#b1', { x: 260, y: -140, duration: T, ease: 'sine.inOut' }, 0);
+tl.to('#b2', { x: -220, y: 160, duration: T, ease: 'sine.inOut' }, 0);
+tl.to('#b3', { x: 180, y: -220, duration: T, ease: 'sine.inOut' }, 0);
+document.querySelectorAll('.fl').forEach((el, i) => tl.to(el, { y: -160 - (i % 5) * 50, x: (i % 2 ? 1 : -1) * 40, rotation: (i % 3) * 90, duration: T, ease: 'none' }, 0));
+
+// ---------- intro (bars 0–3): rises with the fade-in, punches on bar 1, subtitle on bar 2 ----------
+tl.fromTo('#logo', { opacity: 0, scale: 0.6, y: 40 }, { opacity: 1, scale: 0.92, y: 0, duration: BAR, ease: 'sine.out' }, 0);
+tl.fromTo('#logo', { scale: 1.15 }, { scale: 1, duration: BEAT * 1.6, ease: 'elastic.out(1, 0.5)', immediateRender: false }, b(1));
+tl.fromTo('#title .c', { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: BEAT, stagger: BEAT / 4, ease: 'back.out(2)' }, b(1, 1));
+tl.fromTo('#shine', { xPercent: -160 }, { xPercent: 330, duration: BEAT * 1.5, ease: 'power2.inOut' }, b(1, 2));
+tl.fromTo('#subtitle', { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: BEAT * 1.2 }, b(2));
+kick('#logo', b(2, 2), 1.04);
+const introOut = b(bar0('calendar')) - BEAT;
+tl.to(['#logo', '#title', '#subtitle'], { opacity: 0, y: -50, scale: 0.94, duration: BEAT * 0.8, ease: 'power2.in', stagger: 0.04 }, introOut);
+
+// ---------- calendar (bars 2–5): tap through the next three days ----------
+const c = bar0('calendar');
+tl.fromTo('#phone', { opacity: 0, y: 260 }, { opacity: 1, y: 0, duration: BAR / 2, ease: 'expo.out' }, b(c));
+tl.fromTo('#pose', { rotationY: -38, rotationX: 10, rotationZ: 6 }, { rotationY: -10, rotationX: 0, rotationZ: 0, duration: BAR * 0.75, ease: 'expo.out' }, b(c));
+tl.to('#pf', { y: -14, duration: BAR / 2, yoyo: true, repeat: Math.round((T - b(c + 1)) / (BAR / 2)) - 1, ease: 'sine.inOut' }, b(c + 1));
+show('cal_0', b(c) - 0.05);
+textIn('calendar', b(c));
+popPills('#calendar .pill', b(c, 3), 1);
+[['cal_1', b(c + 1, 2)], ['cal_2', b(c + 2)], ['cal_3', b(c + 2, 2)]].forEach(([id, t]) => { tap(t, META[id]); show(id, t + 0.01); });
+pose(b(c + 2), { rotationY: -4 }, BAR);
+textOut('calendar', b(c + 3));
+
+// ---------- quick add (bars 5–7): one letter per 16th, chips on the beats ----------
+const q = bar0('quick');
+tap(b(q), META.fab);
+tl.fromTo(at('quick_0'), { opacity: 0 }, { opacity: 1, duration: 0.15, immediateRender: false }, b(q));
+textIn('quick', b(q));
+for (let i = 1; i <= META.quickFrames; i++) show('quick_' + i, b(q, 1) + (i - 1) * BEAT / 4);
+popPills('#quick .pill', b(q + 1), 1);
+pose(b(q + 1), { rotationY: -14, rotationZ: -1 }, BAR);
+textOut('quick', b(q + 2));
+
+// ---------- matrix (bars 7–9): phone crosses to the left ----------
+const m = bar0('matrix');
+slide('quick_' + META.quickFrames, 'quad_all', b(m));
+pose(b(m), { x: -860, rotationY: 12, rotationZ: 1 }, BAR * 0.6);
+textIn('matrix', b(m));
+popPills('#matrix .pill', b(m, 2), 0.5);
+tap(b(m + 1), META.quad_today); show('quad_today', b(m + 1) + 0.01);
+tap(b(m + 1, 2), META.quad_week); show('quad_week', b(m + 1, 2) + 0.01);
+textOut('matrix', b(m + 2));
+
+// ---------- routines (bars 9–11): check on the downbeat, burst, streak 14 → 15 ----------
+const r = bar0('routine');
+slide('quad_week', 'routine_before', b(r));
+pose(b(r), { rotationY: 6, rotationZ: -1 }, BAR / 2);
+textIn('routine', b(r));
+tl.fromTo('#routine .card', { opacity: 0, y: 40, scale: 0.85 }, { opacity: 1, y: 0, scale: 1, duration: BEAT * 1.2, ease: 'back.out(2)', immediateRender: false }, b(r, 3));
+const rt = b(r + 1);
+tap(rt, META.routine_after);
+show('routine_after', rt + 0.01);
+const [px, py] = META.routine_after;
+document.querySelectorAll('.pt').forEach((el, i) => {
+  const ang = (i / 16) * Math.PI * 2, d = 50 + (i % 4) * 18;
+  tl.set(el, { left: px * k - 5, top: py * k - 5 }, rt);
+  tl.fromTo(el, { opacity: 1, x: 0, y: 0, scale: 1 }, { opacity: 0, x: Math.cos(ang) * d, y: Math.sin(ang) * d, scale: 0.3, duration: BEAT * 1.6, ease: 'power3.out', immediateRender: false }, rt + 0.01);
+});
+const cnt = { n: 14 };
+tl.to(cnt, { n: 15, duration: BEAT / 2, ease: 'none', onUpdate: () => (document.getElementById('streakN').textContent = Math.round(cnt.n)) }, rt);
+kick('#routine .card', rt, 1.1);
+kick('#routine .card', b(r + 1, 2), 1.04);
+textOut('routine', b(r + 2));
+
+// ---------- agent (bars 11–14): type, send, the task lands on beat 3 of bar 13 ----------
+const a = bar0('agent');
+slide('routine_after', 'agent_before', b(a));
+pose(b(a), { x: 0, rotationY: -10, rotationZ: 0 }, BAR * 0.6);
+textIn('agent', b(a));
+tl.fromTo('#term', { opacity: 0, y: 60, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: BEAT * 1.4, immediateRender: false }, b(a, 3));
+type('#t1', TERM[0], b(a + 1), BEAT * 2);
+type('#t2', TERM[1], b(a + 1, 2), BEAT * 2);
+const pk = b(a + 2), land = b(a + 2, 2);
+tl.set('#packet', { left: 1020, top: 860 }, pk - 0.01);
+tl.fromTo('#packet', { opacity: 0 }, { opacity: 1, duration: 0.08, immediateRender: false }, pk);
+tl.to('#packet', { left: 1290, duration: land - pk, ease: 'power2.in' }, pk);
+tl.to('#packet', { top: 640, duration: land - pk, ease: 'sine.out' }, pk);
+tl.to('#packet', { opacity: 0, scale: 2.5, duration: BEAT / 2 }, land);
+tl.fromTo(at('agent_after'), { opacity: 0 }, { opacity: 1, duration: 0.15, immediateRender: false }, land);
+kick('#pf', land, 1.03);
+tl.set('#hl', { left: META.agentRow[0] * k - 186, top: META.agentRow[1] * k - 32 }, land);
+tl.fromTo('#hl', { opacity: 0, scale: 1.1 }, { opacity: 1, scale: 1, duration: BEAT, immediateRender: false }, land);
+type('#t3', TERM[2], land, BEAT);
+tl.to('#hl', { opacity: 0, duration: BEAT / 2 }, b(a + 3) - BEAT);
+textOut('agent', b(a + 3));
+
+// ---------- outro (bars 14–17): logo pops on the final chord ----------
+const o = bar0('outro');
+tl.to('#phone', { opacity: 0, y: -160, duration: BEAT, ease: 'power2.in' }, b(o) - BEAT);
+tl.fromTo('#logo', { opacity: 0, scale: 0.4, y: 40, rotation: 12 }, { opacity: 1, scale: 1, y: -40, rotation: 0, duration: BEAT * 2.4, ease: 'elastic.out(1, 0.6)', immediateRender: false }, b(o));
+tl.set('#title .c', { opacity: 0, y: 60 }, b(o));
+tl.fromTo('#title', { opacity: 1, y: -40, scale: 1 }, { opacity: 1, y: -40, scale: 1, duration: 0.01, immediateRender: false }, b(o));
+tl.fromTo('#title .c', { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: BEAT, stagger: BEAT / 4, ease: 'back.out(2)', immediateRender: false }, b(o, 1));
+tl.fromTo('#shine', { xPercent: -160 }, { xPercent: 330, duration: BEAT * 1.5, ease: 'power2.inOut', immediateRender: false }, b(o, 2));
+tl.fromTo('#tagline', { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: BEAT * 1.4 }, b(o + 1));
+tl.set('#repo', { opacity: 1 }, b(o + 1, 2));
+type('#repoText', 'github.com/TonyWu2333/reachlist', b(o + 1, 2), BEAT * 2);
+popPills('#agents .pill', b(o + 2), 0.5);
+
+window.DURATION = T;
+window.seekTo = (t) => { tl.time(t, false); };
+if (!navigator.webdriver) {
+  const audio = new Audio('build/audio-fit.wav');
+  addEventListener('click', () => { audio.play(); gsap.ticker.add(() => tl.time(audio.currentTime)); }, { once: true });
+}
+Promise.all([...document.images].map((im) => im.decode().catch(() => {}))).then(() => document.fonts.ready).then(() => (window.READY = true));
+</script>
+</body>
+</html>

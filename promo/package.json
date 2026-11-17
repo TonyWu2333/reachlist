@@ -1,0 +1,21 @@
+{
+  "name": "reachlist-promo",
+  "private": true,
+  "type": "module",
+  "description": "30-second promo video for 可及清单: app screenshots + GSAP scenes rendered frame by frame",
+  "scripts": {
+    "music": "uv run --with numpy --with imageio-ffmpeg python fit_music.py build/music/track.mp3",
+    "shots": "node shots.mjs",
+    "check": "node check.mjs",
+    "render": "node render.mjs build/frames",
+    "encode": "AUDIO=build/audio-fit.wav sh encode.sh",
+    "shots:zh": "PROMO_LANG=zh node shots.mjs",
+    "check:zh": "PROMO_LANG=zh node check.mjs",
+    "render:zh": "PROMO_LANG=zh node render.mjs build/frames-zh",
+    "encode:zh": "PROMO_LANG=zh AUDIO=build/audio-fit.wav sh encode.sh build/frames-zh"
+  },
+  "dependencies": {
+    "gsap": "^3.15.0",
+    "playwright-core": "^1.64.0"
+  }
+}

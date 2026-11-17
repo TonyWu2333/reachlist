@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Reach List cover</title>
+<!-- Video cover, 1920×1080. cover.html?lang=zh for the Chinese one. Rendered by cover.mjs. -->
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1920px; height: 1080px; overflow: hidden; }
+  body { font-family: -apple-system, "SF Pro Display", "Helvetica Neue", "PingFang SC", sans-serif; color: #16171a; -webkit-font-smoothing: antialiased;
+    background: radial-gradient(1200px 800px at 10% 0%, #ece6ff 0%, transparent 60%), radial-gradient(1100px 800px at 95% 100%, #dfe5ff 0%, transparent 60%), #f6f5fd; }
+  .abs { position: absolute; }
+  .blob { position: absolute; border-radius: 50%; filter: blur(80px); opacity: .55; }
+  .fl { position: absolute; }
+
+  #left { left: 150px; top: 0; height: 1080px; width: 900px; display: flex; flex-direction: column; justify-content: center; }
+  #brand { display: flex; align-items: center; gap: 30px; margin-bottom: 36px; }
+  #logo { width: 150px; height: 150px; border-radius: 36px; overflow: hidden; background: #fefefe; flex: none;
+          box-shadow: 0 24px 60px rgba(91, 80, 220, .25), 0 0 0 1px rgba(0,0,0,.04); }
+  #logo img { width: 100%; height: 100%; display: block; }
+  #title { font-size: 120px; font-weight: 800; letter-spacing: -2px; line-height: 1; }
+  #headline { font-size: 64px; font-weight: 800; line-height: 1.18; letter-spacing: -1px; }
+  #headline em { font-style: normal; background: linear-gradient(90deg, #4b5cf0, #8b5cf6); -webkit-background-clip: text; color: transparent; }
+  #sub { margin-top: 26px; font-size: 32px; color: #5d626c; }
+  #pills { margin-top: 44px; display: flex; gap: 14px; flex-wrap: wrap; width: 820px; }
+  .pill { display: inline-flex; align-items: center; gap: 10px; height: 54px; padding: 0 24px; border-radius: 99px; font-size: 24px; font-weight: 600;
+          background: #fff; box-shadow: 0 8px 24px rgba(40, 50, 120, .09); white-space: nowrap; }
+  .pill i { width: 11px; height: 11px; border-radius: 50%; display: block; flex: none; }
+
+  .phone { width: 424px; height: 890px; border-radius: 62px; background: #0d0d10; padding: 12px;
+           box-shadow: 0 50px 100px rgba(60, 70, 200, .28), 0 0 0 2px #2a2a30 inset; }
+  .phone .scr { width: 400px; height: 866px; border-radius: 50px; overflow: hidden; background: #f3f4f6; }
+  .phone img { width: 100%; height: 100%; display: block; }
+  #p1 { left: 1060px; top: 150px; transform: perspective(1800px) rotateY(14deg) rotateZ(-4deg) scale(.9); filter: saturate(.95); }
+  #p2 { left: 1380px; top: 95px; transform: perspective(1800px) rotateY(-12deg) rotateZ(3deg); }
+
+  #term { align-self: flex-start; margin-top: 44px; padding: 22px 30px; border-radius: 24px; background: #15161c; color: #e7e9f0; font: 22px/1.6 "SF Mono", Menlo, monospace;
+          box-shadow: 0 30px 70px rgba(20, 20, 50, .3); white-space: pre; }
+  #term .u { color: #fff; } #term .ok { color: #6ee7a8; }
+</style>
+</head>
+<body>
+<div class="blob" style="left:-160px;top:640px;width:560px;height:560px;background:#c9c0ff"></div>
+<div class="blob" style="left:1500px;top:-200px;width:620px;height:620px;background:#c7d2ff"></div>
+<div class="blob" style="left:900px;top:780px;width:420px;height:420px;background:#e3d6ff"></div>
+<div id="floaters"></div>
+
+<div id="left" class="abs">
+  <div id="brand"><div id="logo"><img src="../docs/brand/list-icon-source.png"></div><div id="title">Reach List</div></div>
+  <div id="headline">The daily planner<br>your <em>AI agent</em> can use too</div>
+  <div id="sub">Calendar · Quick add · Eisenhower matrix · Routines</div>
+  <div id="pills">
+    <span class="pill"><i style="background:#4b5cf0"></i>Claude Code</span><span class="pill"><i style="background:#10b981"></i>Codex</span>
+    <span class="pill"><i style="background:#f59e0b"></i>Hermes</span><span class="pill"><i style="background:#8b5cf6"></i>Android · iOS</span>
+  </div>
+  <div id="term"></div>
+</div>
+
+<div id="p1" class="phone abs"><div class="scr"><img id="i1"></div></div>
+<div id="p2" class="phone abs"><div class="scr"><img id="i2"></div></div>
+
+<script>
+const ZH = new URLSearchParams(location.search).get('lang') === 'zh';
+const dir = ZH ? 'build/shots-zh' : 'build/shots';
+document.getElementById('i1').src = `${dir}/quad_all.png`;
+document.getElementById('i2').src = `${dir}/cal_0.png`;
+const term = document.getElementById('term');
+if (ZH) {
+  document.documentElement.lang = 'zh-CN';
+  document.getElementById('title').textContent = '可及清单';
+  document.getElementById('headline').innerHTML = '你和 <em>AI Agent</em><br>共用的待办清单';
+  document.getElementById('sub').textContent = '日历 · 快速添加 · 四象限 · 打卡';
+  term.innerHTML = '<span class="u">&gt; 提醒我明天 9 点给客户打电话</span>\n<span class="ok">✓ 已添加 · 明天 09:00 · 重要且紧急</span>';
+} else {
+  term.innerHTML = '<span class="u">&gt; Remind me to call the client tomorrow at 9</span>\n<span class="ok">✓ Added · Tomorrow 09:00 · Important &amp; urgent</span>';
+}
+const COLORS = ['#4b5cf0', '#f59e0b', '#10b981', '#ef4444', '#8b5cf6', '#0ea5e9'];
+let seed = 7; const rnd = () => ((seed = (seed * 16807) % 2147483647) / 2147483647);
+for (let i = 0; i < 14; i++) {
+  const s = 14 + rnd() * 26;
+  document.getElementById('floaters').insertAdjacentHTML('beforeend', `<div class="fl" style="left:${rnd() * 1920}px;top:${rnd() * 1080}px;width:${s}px;height:${s}px;background:${COLORS[i % 6]};opacity:${0.08 + rnd() * 0.12};border-radius:${rnd() > .5 ? '50%' : '30%'}"></div>`);
+}
+Promise.all([...document.images].map((im) => im.decode().catch(() => {}))).then(() => document.fonts.ready).then(() => (window.READY = true));
+</script>
+</body>
+</html>

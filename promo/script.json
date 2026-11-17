@@ -1,0 +1,12 @@
+{
+  "bpm": 126,
+  "scenes": [
+    {"id": "intro",    "bars": 3},
+    {"id": "calendar", "bars": 3},
+    {"id": "quick",    "bars": 2},
+    {"id": "matrix",   "bars": 2},
+    {"id": "routine",  "bars": 2},
+    {"id": "agent",    "bars": 3},
+    {"id": "outro",    "bars": 3}
+  ]
+}
