@@ -17,13 +17,14 @@
 [![Vite](https://img.shields.io/badge/Vite-8-646cff?style=flat-square&logo=vite&logoColor=white)](https://vite.dev)
 [![Capacitor](https://img.shields.io/badge/Capacitor-8-119eff?style=flat-square&logo=capacitor&logoColor=white)](https://capacitorjs.com)
 [![Agent Skill](https://img.shields.io/badge/agent-skill%20ready-d97757?style=flat-square)](#-让-ai-agent-帮你管任务)
-[![YouTube](https://img.shields.io/badge/%E5%AE%A3%E4%BC%A0%E7%89%87-YouTube-ff0000?style=flat-square&logo=youtube&logoColor=white)](https://youtu.be/Brhdqhpqzpw)
 
 [功能](#-功能) · [截图](#-截图) · [安装](#-安装) · [iOS](#-ios-原生版) · [Agent 接入](#-让-ai-agent-帮你管任务) · [开发](#开发) · [▶ 宣传片](https://youtu.be/Brhdqhpqzpw)
 
 <br>
 
 <img src="docs/screenshots/hero.png" alt="可及清单截图：日历、四象限、打卡、快速添加" width="100%">
+
+<a href="https://youtu.be/Brhdqhpqzpw"><img src="docs/promo/video-zh.jpg" alt="在 YouTube 上观看可及清单宣传片" width="100%"></a>
 
 </div>
 

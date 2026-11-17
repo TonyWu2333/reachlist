@@ -36,6 +36,9 @@
 
   #term { align-self: flex-start; margin-top: 44px; padding: 22px 30px; border-radius: 24px; background: #15161c; color: #e7e9f0; font: 22px/1.6 "SF Mono", Menlo, monospace;
           box-shadow: 0 30px 70px rgba(20, 20, 50, .3); white-space: pre; }
+  #play { z-index: 5; left: 1400px; top: 600px; width: 150px; height: 150px; margin: -75px 0 0 -75px; border-radius: 50%; display: none;
+          background: rgba(22, 23, 26, .78); backdrop-filter: blur(12px); box-shadow: 0 20px 50px rgba(20, 20, 60, .35), 0 0 0 6px rgba(255,255,255,.55); }
+  #play::after { content: ''; position: absolute; left: 58px; top: 45px; border-left: 52px solid #fff; border-top: 30px solid transparent; border-bottom: 30px solid transparent; }
   #term .u { color: #fff; } #term .ok { color: #6ee7a8; }
 </style>
 </head>
@@ -57,10 +60,12 @@
 </div>
 
 <div id="p1" class="phone abs"><div class="scr"><img id="i1"></div></div>
+<div id="play" class="abs"></div>
 <div id="p2" class="phone abs"><div class="scr"><img id="i2"></div></div>
 
 <script>
 const ZH = new URLSearchParams(location.search).get('lang') === 'zh';
+if (new URLSearchParams(location.search).has('play')) document.getElementById('play').style.display = 'block';
 const dir = ZH ? 'build/shots-zh' : 'build/shots';
 document.getElementById('i1').src = `${dir}/quad_all.png`;
 document.getElementById('i2').src = `${dir}/cal_0.png`;

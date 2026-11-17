@@ -17,13 +17,14 @@
 [![Vite](https://img.shields.io/badge/Vite-8-646cff?style=flat-square&logo=vite&logoColor=white)](https://vite.dev)
 [![Capacitor](https://img.shields.io/badge/Capacitor-8-119eff?style=flat-square&logo=capacitor&logoColor=white)](https://capacitorjs.com)
 [![Agent Skill](https://img.shields.io/badge/agent-skill%20ready-d97757?style=flat-square)](#-let-your-ai-agent-manage-your-tasks)
-[![YouTube](https://img.shields.io/badge/promo%20video-YouTube-ff0000?style=flat-square&logo=youtube&logoColor=white)](https://youtu.be/Brhdqhpqzpw)
 
 [Features](#-features) · [Screenshots](#-screenshots) · [Install](#-install) · [iOS](#-ios-native) · [Agent access](#-let-your-ai-agent-manage-your-tasks) · [Develop](#develop) · [▶ Promo video](https://youtu.be/Brhdqhpqzpw)
 
 <br>
 
 <img src="docs/screenshots/en/hero.png" alt="Reach List screenshots: calendar, Eisenhower matrix, routines, quick add" width="100%">
+
+<a href="https://youtu.be/Brhdqhpqzpw"><img src="docs/promo/video-en.jpg" alt="Watch the Reach List promo video on YouTube" width="100%"></a>
 
 </div>
 
