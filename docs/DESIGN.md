@@ -22,10 +22,10 @@ Source of truth for values: `src/style.css` (tokens) and `scripts/gen-icons.py` 
 | Series | 可及 / Reach | |
 | App | 可及 + a short noun for what it holds | 可及清单, 可及收藏, 可及邮箱 |
 | English app name | Reach + noun | Reach List |
-| Android application id | `com.tonywu.reach.<noun>` for new apps | `com.tonywu.reach.mail` |
+| App id (Android application id, iOS bundle id) | `com.tonywu.reach.<noun>` | `com.tonywu.reach.list` (iOS), `com.tonywu.reach.mail` |
 | Agent skill | `reach-<noun>` | `reach-list` |
 
-可及清单 keeps its original application id `com.tonywu.planner`, and its skill is still called `planner`. Changing the application id would install a second app with empty data.
+On Android, 可及清单 keeps its original application id `com.tonywu.planner` (the iOS app, on the `ios-native` branch, uses `com.tonywu.reach.list`), and its skill is still called `planner`. Changing the application id would install a second app with empty data.
 
 ## 3. Mascot and brand mark
 

@@ -6,7 +6,7 @@
 
 **English** · [简体中文](README.zh-CN.md)
 
-**A fast, beautiful daily planner for Android, built around a Chinese calendar and the Eisenhower matrix.**
+**A fast, beautiful daily planner for Android and iOS, built around a Chinese calendar and the Eisenhower matrix.**
 <br>
 **And your AI agent can read and manage your tasks, too.**
 
@@ -17,8 +17,9 @@
 [![Vite](https://img.shields.io/badge/Vite-8-646cff?style=flat-square&logo=vite&logoColor=white)](https://vite.dev)
 [![Capacitor](https://img.shields.io/badge/Capacitor-8-119eff?style=flat-square&logo=capacitor&logoColor=white)](https://capacitorjs.com)
 [![Agent Skill](https://img.shields.io/badge/agent-skill%20ready-d97757?style=flat-square)](#-let-your-ai-agent-manage-your-tasks)
+[![YouTube](https://img.shields.io/badge/promo%20video-YouTube-ff0000?style=flat-square&logo=youtube&logoColor=white)](https://youtu.be/Brhdqhpqzpw)
 
-[Features](#-features) · [Screenshots](#-screenshots) · [Install](#-install) · [iOS](#-ios-native) · [Agent access](#-let-your-ai-agent-manage-your-tasks) · [Develop](#develop)
+[Features](#-features) · [Screenshots](#-screenshots) · [Install](#-install) · [iOS](#-ios-native) · [Agent access](#-let-your-ai-agent-manage-your-tasks) · [Develop](#develop) · [▶ Promo video](https://youtu.be/Brhdqhpqzpw)
 
 <br>
 
@@ -71,7 +72,7 @@ Most to-do apps are either too simple to plan with or too heavy to open every mo
 
 ## 📲 Install
 
-There is no store listing yet. Build the APK yourself (needs JDK 21 and the Android SDK):
+There is no store listing yet. For iPhone, see [iOS (native)](#-ios-native). On Android, build the APK yourself (needs JDK 21 and the Android SDK):
 
 ```bash
 git clone https://github.com/TonyWu2333/reachlist.git && cd reachlist

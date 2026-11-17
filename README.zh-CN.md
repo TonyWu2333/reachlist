@@ -6,7 +6,7 @@
 
 [English](README.md) · **简体中文**
 
-**轻快、好看的安卓日程应用：农历日历 + 四象限 + 打卡。**
+**轻快、好看的日程应用，支持安卓和 iOS：农历日历 + 四象限 + 打卡。**
 <br>
 **你的 AI agent 也能直接看和改你的任务。**
 
@@ -17,8 +17,9 @@
 [![Vite](https://img.shields.io/badge/Vite-8-646cff?style=flat-square&logo=vite&logoColor=white)](https://vite.dev)
 [![Capacitor](https://img.shields.io/badge/Capacitor-8-119eff?style=flat-square&logo=capacitor&logoColor=white)](https://capacitorjs.com)
 [![Agent Skill](https://img.shields.io/badge/agent-skill%20ready-d97757?style=flat-square)](#-让-ai-agent-帮你管任务)
+[![YouTube](https://img.shields.io/badge/%E5%AE%A3%E4%BC%A0%E7%89%87-YouTube-ff0000?style=flat-square&logo=youtube&logoColor=white)](https://youtu.be/Brhdqhpqzpw)
 
-[功能](#-功能) · [截图](#-截图) · [安装](#-安装) · [iOS](#-ios-原生版) · [Agent 接入](#-让-ai-agent-帮你管任务) · [开发](#开发)
+[功能](#-功能) · [截图](#-截图) · [安装](#-安装) · [iOS](#-ios-原生版) · [Agent 接入](#-让-ai-agent-帮你管任务) · [开发](#开发) · [▶ 宣传片](https://youtu.be/Brhdqhpqzpw)
 
 <br>
 
@@ -73,7 +74,7 @@
 
 ## 📲 安装
 
-暂时没有上架应用商店，需要自己构建 APK（需要 JDK 21 和 Android SDK）：
+暂时没有上架应用商店。iPhone 见 [iOS 原生版](#-ios-原生版)；安卓需要自己构建 APK（需要 JDK 21 和 Android SDK）：
 
 ```bash
 git clone https://github.com/TonyWu2333/reachlist.git && cd reachlist
