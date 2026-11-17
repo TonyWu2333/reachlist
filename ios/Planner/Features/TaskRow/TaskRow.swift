@@ -12,8 +12,13 @@ struct TaskRow: View {
     var showDate = false
     var hideRepeat = false
     var hideParent = false
+    /// 分组卡片（如日程页）由外层统一画整组底色，行本身不再单独画卡片。
+    var showsCardBackground = true
 
     var onToggle: () -> Void = {}
+    /// 勾选触点按下的瞬间回调（参数 = 目标完成态），供调用方做乐观更新；
+    /// 数据仍按 TaskRowContract.toggleDelayMilliseconds 延迟到 onToggle 提交。
+    var onToggleIntent: (Bool) -> Void = { _ in }
     var onOpen: () -> Void = {}
 
     @Environment(\.colorScheme) private var scheme
@@ -45,7 +50,8 @@ struct TaskRow: View {
     }
 
     var body: some View {
-        HStack(alignment: compact ? .top : .center, spacing: compact ? 8 : 12) {
+        HStack(alignment: compact ? .top : .center,
+               spacing: compact ? 8 : TaskRowContract.rowSpacing) {
             checkButton
             VStack(alignment: .leading, spacing: 2) {
                 titleView
@@ -53,13 +59,13 @@ struct TaskRow: View {
             }
             if !compact && !model.task.time.isEmpty { timeView }
         }
-        .padding(.horizontal, compact ? 6 : 14)
+        .padding(.horizontal, compact ? 6 : TaskRowContract.rowHorizontalInset)
         .padding(.vertical, compact ? 7 : 8)
         .frame(minHeight: compact ? nil : DesignTokens.rowMinHeight, alignment: .leading)
         // 卡片是这一行唯一的视觉层：不描边、不加阴影。
         // 行与行之间靠 --bg 底色 + 3pt 行间距分开，不再画线（见 TaskRowGallery.reachCardRow）。
         .background {
-            if !compact {
+            if !compact && showsCardBackground {
                 RoundedRectangle(cornerRadius: DesignTokens.cornerMedium)
                     .fill(DesignTokens.color("--surface", scheme: scheme))
             }
@@ -102,9 +108,11 @@ struct TaskRow: View {
     }
 
     /// TaskRow.vue:toggle —— 先播 380ms，再提交；期间 pending 防止重复触发。
+    /// onToggleIntent 在按下瞬间同步触发，调用方可据此做乐观更新（如打卡页进度环）。
     private func toggle() {
         guard !pending else { return }
         pending = true
+        onToggleIntent(!model.isDone)
         guardUntil = Int64((Date().timeIntervalSince1970 * 1000).rounded())
             + Int64(FeedbackContract.clickGuardMilliseconds)
         if !model.isDone { HapticFeedback.play(.light) }

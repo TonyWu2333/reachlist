@@ -13,42 +13,37 @@ struct TaskDetailSheet: View {
     let route: DetailRoute
     var onClose: () -> Void = {}
 
-    @State private var nav: DetailNav
+    /// 根页默认就是 route.id；只有从日历直达子任务、点「‹ 父任务」后才改写成父任务。
+    /// 早期把 route.id 拷进 `@State nav`：sheet 内容首次呈现可能复用启动期以占位
+    /// route（空 id）建好的实例，而 `@State` 初值只取一次，详情页会一直停在「—」。
+    @State private var parentRoot: String? = nil
     @State private var path: [String] = []
 
-    init(route: DetailRoute, onClose: @escaping () -> Void = {}) {
-        self.route = route
-        self.onClose = onClose
-        _nav = State(initialValue: DetailNav(rootId: route.id))
-    }
+    private var rootId: String { parentRoot ?? route.id }
 
     var body: some View {
         NavigationStack(path: $path) {
-            TaskDetailPage(
-                id: nav.rootId, route: route,
-                onPushSub: { path.append($0) },
-                onBack: { parentId in
-                    if !path.isEmpty { path.removeLast() }
-                    else { _ = nav.goBack(parentId: parentId) }
-                },
-                onClose: close
-            )
-            .navigationDestination(for: String.self) { childId in
-                TaskDetailPage(
-                    id: childId, route: route,
-                    onPushSub: { path.append($0) },
-                    onBack: { parentId in
-                        if !path.isEmpty { path.removeLast() }
-                        else { _ = nav.goBack(parentId: parentId) }
-                    },
-                    onClose: close
-                )
-            }
+            page(id: rootId)
+                .navigationDestination(for: String.self) { childId in
+                    page(id: childId)
+                }
         }
-        .onChange(of: route.id) { _, new in
-            nav.reset(rootId: new)
+        .onChange(of: route.id) { _, _ in
+            parentRoot = nil
             path = []
         }
+    }
+
+    private func page(id: String) -> some View {
+        TaskDetailPage(
+            id: id, route: route,
+            onPushSub: { path.append($0) },
+            onBack: { parentId in
+                if !path.isEmpty { path.removeLast() }
+                else if let parentId, !parentId.isEmpty { parentRoot = parentId }
+            },
+            onClose: close
+        )
     }
 
     private func close() {

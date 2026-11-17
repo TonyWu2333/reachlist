@@ -26,6 +26,22 @@ extension View {
                               surfaceToken: surfaceToken, content: content)
         }
     }
+
+    /// 带载荷的呈现：内容由 item 驱动，呈现时才把该 item 传给内容闭包。
+    /// 任务详情用这条路径：`isPresented + 外部 route` 的组合下，sheet 内容可能复用
+    /// 启动期就建好的旧实例，首次打开会拿到占位空 id。
+    func reachSheet<Item: Identifiable, Content: View>(
+        item: Binding<Item?>,
+        detents: Set<PresentationDetent> = [.medium, .large],
+        topInset: CGFloat = 20,
+        surfaceToken: String = "--surface",
+        @ViewBuilder content: @escaping (Item) -> Content
+    ) -> some View {
+        sheet(item: item) { value in
+            ReachSheetSurface(detents: detents, topInset: topInset,
+                              surfaceToken: surfaceToken) { content(value) }
+        }
+    }
 }
 
 /// 所有系统 sheet 的统一内容容器。

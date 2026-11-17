@@ -11,6 +11,7 @@ struct RoutineScreen: View {
     @EnvironmentObject private var toastCenter: ToastCenter
     @Environment(\.appLanguage) private var lang
     @Environment(\.colorScheme) private var scheme
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
 
     var onOpen: (String, String) -> Void = { _, _ in }
     var onAdd: (QuickAddDefaults) -> Void = { _ in }
@@ -22,6 +23,25 @@ struct RoutineScreen: View {
     private var summary: (headline: String, detail: String) {
         RoutineContract.summary(store.tasks, today: today, lang: lang)
     }
+    /// 勾选按下但数据尚未提交（380ms 窗口内）的乐观目标：key = taskID|occ。
+    @State private var toggleIntents: [String: Bool] = [:]
+
+    /// 进度环数值 = 事实层 progress 叠加未提交的勾选意图，使进度环在按下瞬间响应，
+    /// 不必等 TaskRow 的 380ms 提交延迟；onToggle 提交后意图清除，数值连续不变。
+    private var progress: Double {
+        let list = RoutineContract.todayList(store.tasks, today: today)
+        guard !list.isEmpty else { return 0 }
+        var done = RoutineContract.doneToday(store.tasks, today: today)
+        for task in list {
+            guard let intent = toggleIntents[Self.intentKey(task.id, today)] else { continue }
+            let nowDone = task.doneDates.contains(today)
+            if intent && !nowDone { done += 1 }
+            else if !intent && nowDone { done -= 1 }
+        }
+        return Double(done) / Double(list.count)
+    }
+
+    static func intentKey(_ taskID: String, _ occ: String) -> String { "\(taskID)|\(occ)" }
 
     var body: some View {
         ZStack(alignment: .bottomTrailing) {
@@ -42,7 +62,7 @@ struct RoutineScreen: View {
                             summaryCard
                                 .listRowSeparator(.hidden)
                                 .listRowBackground(Color.clear)
-                                .listRowInsets(EdgeInsets(top: 0, leading: 16, bottom: 4, trailing: 16))
+                                .listRowInsets(EdgeInsets(top: 0, leading: 1, bottom: 4, trailing: 1))
                         }
                         ForEach(groups, id: \.key) { group in
                             Section {
@@ -114,10 +134,16 @@ struct RoutineScreen: View {
             ZStack {
                 Circle().stroke(DesignTokens.color("--fill-2", scheme: scheme), lineWidth: 4)
                 Circle()
-                    .trim(from: 0, to: RoutineContract.progress(store.tasks, today: today))
+                    .trim(from: 0, to: progress)
                     .stroke(DesignTokens.color("--accent", scheme: scheme),
                             style: StrokeStyle(lineWidth: 4, lineCap: .round))
                     .rotationEffect(.degrees(-90))
+                    // 打卡 / 取消勾选后 progress 变化：trim 是 SwiftUI 可动画的 Shape 参数。
+                    // 进度归 0 时用 easeOut（spring 会下冲过 0，弧线从空里冒一下再缩没，出现闪烁）；
+                    // 其余进度用 spring 带回弹。系统「减弱动态效果」开启时不播动画。
+                    .animation(reduceMotion ? nil : (progress == 0
+                        ? .easeOut(duration: 0.3)
+                        : .spring(duration: 0.5, bounce: 0.28)), value: progress)
             }
             .frame(width: 36, height: 36)
             VStack(alignment: .leading, spacing: 3) {
@@ -175,7 +201,15 @@ struct RoutineScreen: View {
         return TaskRow(
             model: model, showDate: !item.isToday && !item.occ.isEmpty,
             hideRepeat: hideRepeat,
-            onToggle: { store.toggleDone(id: item.task.id, occ: item.occ) },
+            onToggle: {
+                // 380ms 后数据真正提交：清除乐观意图，progress 回落到事实层数值（两者此刻相等，动画连续）。
+                toggleIntents[Self.intentKey(item.task.id, item.occ)] = nil
+                store.toggleDone(id: item.task.id, occ: item.occ)
+            },
+            onToggleIntent: { intent in
+                // 按下勾选圈的瞬间即更新进度环，不等 380ms 提交延迟。
+                toggleIntents[Self.intentKey(item.task.id, item.occ)] = intent
+            },
             onOpen: { onOpen(item.task.id, item.occ) }
         )
             .background(DesignTokens.color("--surface", scheme: scheme))

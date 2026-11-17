@@ -1,4 +1,4 @@
-import Foundation
+import SwiftUI
 
 // MARK: - M-19 TaskRow：事实层
 //
@@ -51,6 +51,14 @@ struct TaskRowModel {
 }
 
 enum TaskRowContract {
+
+    /// 非紧凑态的水平内边距与图标—文字间距；分割线的缩进由它们推导，不写死数字。
+    static let rowHorizontalInset: CGFloat = 14
+    static let rowSpacing: CGFloat = 12
+    /// 分割线起点对齐标题文字：内边距 + 勾选触点宽 + 间距。
+    static var separatorInset: CGFloat {
+        rowHorizontalInset + DesignTokens.touchTarget + rowSpacing
+    }
 
     /// TaskRow.vue:COMPLETE_AT
     static let completeAt: Double = 76

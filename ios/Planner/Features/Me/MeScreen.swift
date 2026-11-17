@@ -48,6 +48,10 @@ struct MeScreen: View {
     @State private var pendingImportText: String?
     @State private var notifyDenied = false
 
+    /// 卡片左右留白与底部 Tab Bar 玻璃胶囊对齐（实测 21..409 pt @430pt 宽）。
+    /// 本页是 ScrollView 自绘卡片，不经过 insetGrouped 的 20pt 页边距，需显式给 21。
+    private let pageInset: CGFloat = 21
+
     private var today: String { PlannerCalendar.today() }
     private var settings: UISettings { store.settings }
     private var bars: [MeDayBar] { MeContract.last7(store.tasks, today: today, lang: lang) }
@@ -100,11 +104,11 @@ struct MeScreen: View {
                 card {
                     toggleRow(icon: .bell, color: .orange,
                               title: AppStrings.t("到点提醒", lang: lang),
-                              detail: AppStrings.t("设了时间的任务会发系统通知，App 关着也会响", lang: lang),
+                              detail: AppStrings.t("设置时间的任务会发送系统通知", lang: lang),
                               value: binding(\.remindOn))
                     actionRow(icon: .clock, color: .indigo,
                               title: AppStrings.t("新任务默认提醒", lang: lang),
-                              detail: AppStrings.t("点一下切换；单个任务可以在详情里改", lang: lang),
+                              detail: AppStrings.t("单个任务时间可以在详情页修改", lang: lang),
                               value: PanelCatalog.remindLabel(settings.defaultRemind, isEnglish: lang == "en"),
                               disabled: !settings.remindOn) {
                         store.settings.defaultRemind = MeContract.cycleDefaultRemind(settings.defaultRemind)
@@ -115,7 +119,7 @@ struct MeScreen: View {
                     Text(AppStrings.t("通知权限没开，提醒发不出来：系统设置 → 应用 → 可及清单 → 通知，打开“允许通知”。", lang: lang))
                         .font(.caption)
                         .foregroundStyle(DesignTokens.color("--danger", scheme: scheme))
-                        .padding(.horizontal, 20)
+                        .padding(.horizontal, pageInset)
                 }
 
                 groupTitle("数据")
@@ -250,7 +254,7 @@ struct MeScreen: View {
             ], startPoint: .topLeading, endPoint: .bottomTrailing)
         )
         .clipShape(RoundedRectangle(cornerRadius: DesignTokens.cornerLarge))
-        .padding(.horizontal, 16)
+        .padding(.horizontal, pageInset)
     }
 
     private var stats: some View {
@@ -260,7 +264,7 @@ struct MeScreen: View {
             stat(MeContract.overdue(store.tasks, today: today), "已过期",
                  warn: MeContract.overdue(store.tasks, today: today) > 0)
         }
-        .padding(.horizontal, 16).padding(.top, 12)
+        .padding(.horizontal, pageInset).padding(.top, 12)
     }
 
     private func stat(_ n: Int, _ key: String, warn: Bool = false) -> some View {
@@ -310,7 +314,7 @@ struct MeScreen: View {
         .padding(16)
         .background(DesignTokens.color("--surface", scheme: scheme))
         .clipShape(RoundedRectangle(cornerRadius: DesignTokens.cornerLarge))
-        .padding(.horizontal, 16).padding(.top, 12)
+        .padding(.horizontal, pageInset).padding(.top, 12)
     }
 
     // MARK: 分组与行
@@ -319,14 +323,14 @@ struct MeScreen: View {
         Text(AppStrings.t(key, lang: lang))
             .font(.caption.weight(.semibold))
             .foregroundStyle(DesignTokens.color("--text-3", scheme: scheme))
-            .padding(.horizontal, 32).padding(.top, 22).padding(.bottom, 8)
+            .padding(.horizontal, pageInset + 16).padding(.top, 22).padding(.bottom, 8)
     }
 
     private func card<Content: View>(@ViewBuilder content: () -> Content) -> some View {
         VStack(spacing: 0) { content() }
             .background(DesignTokens.color("--surface", scheme: scheme))
             .clipShape(RoundedRectangle(cornerRadius: DesignTokens.cornerLarge))
-            .padding(.horizontal, 16)
+            .padding(.horizontal, pageInset)
     }
 
     private func iconBox(_ name: ReachIconName, color: Color) -> some View {

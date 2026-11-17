@@ -26,14 +26,14 @@ struct CalendarScreen: View {
     @State private var selected = PlannerCalendar.today()
     @State private var mode: CalendarMode = .month
     @State private var pickerOpen = false
-    @State private var dragX: CGFloat = 0
-    @State private var sliding = false
-    @State private var isHorizontalDrag: Bool? = nil
-    @State private var gestureStart: Date? = nil
     @State private var overridePane: Int? = nil
     @State private var overrideDate = ""
-    @State private var viewportWidth: CGFloat = 390
+    /// 箭头翻页 / 点相邻月日期时的动画请求；实际位移在 `CalendarGridPager` 内部完成，
+    /// 拖拽帧只重算网格层，不会带着整页（概览卡 / 日程 List / 顶栏）一起重算。
+    @State private var slideRequest: SlideRequest? = nil
     @State private var clickGuard = ClickGuard()
+    /// dots 与 42 格日期按输入缓存：拖拽时 body 每帧都会读，重算会明显掉帧。
+    @State private var renderCache = CalendarRenderCache()
 
     private var isEnglish: Bool { lang == "en" }
     private var today: String { PlannerCalendar.today() }
@@ -54,7 +54,31 @@ struct CalendarScreen: View {
         CalendarContract.drop(rows: currentGeom.rows, rowHeight: Double(rowHeight), mode: mode)
     }
     private var dots: [String: [CalendarDot]] {
-        CalendarContract.dots(tasks: store.tasks, panes: panes)
+        let key = "\(selected)|\(mode.rawValue)|\(today)|\(overridePane ?? -2)|\(overrideDate)"
+        if renderCache.dotsKey == key, renderCache.dotsTasks == store.tasks {
+            return renderCache.dots
+        }
+        let value = CalendarContract.dots(tasks: store.tasks, panes: panes)
+        renderCache.dotsKey = key
+        renderCache.dotsTasks = store.tasks
+        renderCache.dots = value
+        return value
+    }
+    /// 每个格子页对应的 42 格日期，按年月缓存（相邻月最多 3 份）。
+    private var rowsByN: [Int: [[CalendarDayCell]]] {
+        var out: [Int: [[CalendarDayCell]]] = [:]
+        for slot in slots {
+            let key = "\(slot.geometry.year)-\(slot.geometry.month0)-\(today)"
+            if let hit = renderCache.rows[key] {
+                out[slot.n] = hit
+            } else {
+                let rows = CalendarContract.monthGrid(
+                    year: slot.geometry.year, month0: slot.geometry.month0, today: today)
+                renderCache.rows[key] = rows
+                out[slot.n] = rows
+            }
+        }
+        return out
     }
     private var todayCol: Int {
         CalendarContract.todayColumn(selected: selected, mode: mode, today: today)
@@ -98,15 +122,20 @@ struct CalendarScreen: View {
                     .offset(y: baseTop + drop - 8)
                     .zIndex(2)
 
-                gridLayer(width: width)
-                    // frame 默认 .center 对齐会把 6 行网格垂直居中进 1 行容器，
-                    // 顶部溢出约 2.5 行并被标题栏盖住；必须顶对齐，让内容从容器 y=0 开始。
-                    .frame(width: width, height: rowHeight, alignment: .topLeading)
-                    .clipShape(CalendarClipShape(width: width, height: rowHeight, extendBottom: drop + 6))
-                    .offset(y: headerHeight + weekdayHeight)
-                    .contentShape(Rectangle())
-                    .highPriorityGesture(calendarGesture(width: width))
-                    .zIndex(3)
+                CalendarGridPager(
+                    slots: slots, panes: panes, rowsByN: rowsByN,
+                    selected: selected, today: today, mode: mode,
+                    showLunar: store.settings.showLunar,
+                    showHoliday: store.settings.showHoliday,
+                    dots: dots, lunar: lunar,
+                    width: width, rowHeight: rowHeight, drop: drop,
+                    clickGuard: clickGuard, slideRequest: slideRequest,
+                    onSelect: selectDay,
+                    onSettleSlide: commitSlide,
+                    onToggleMode: { setMode(mode == .month ? .week : .month) }
+                )
+                .offset(y: headerHeight + weekdayHeight)
+                .zIndex(3)
 
                 Button {
                     onAddTask(.onDate(selected))
@@ -121,8 +150,6 @@ struct CalendarScreen: View {
                 .position(x: width - 49, y: geo.size.height - 49)
                 .zIndex(5)
             }
-            .onAppear { viewportWidth = width }
-            .onChange(of: width) { _, new in viewportWidth = new }
         }
         .background(DesignTokens.color("--bg", scheme: scheme))
         .reachSheet(isPresented: $pickerOpen) {
@@ -214,38 +241,6 @@ struct CalendarScreen: View {
         .padding(.horizontal, 4)
     }
 
-    // MARK: 三页常驻轨道（F-02.2）
-
-    private func gridLayer(width: CGFloat) -> some View {
-        ZStack(alignment: .topLeading) {
-            ForEach(slots, id: \.n) { slot in
-                MonthGridView(
-                    geometry: slot.geometry,
-                    selected: slot.n == 0 ? selected : slot.geometry.date,
-                    today: today, mode: mode,
-                    showLunar: store.settings.showLunar, showHoliday: store.settings.showHoliday,
-                    dots: dots, lunar: lunar,
-                    onSelect: selectDay
-                )
-                .frame(width: width)
-                .offset(
-                    x: CGFloat(slot.n) * width + dragX,
-                    y: CalendarContract.shiftOf(slot.geometry, mode: mode, rowHeight: Double(rowHeight))
-                )
-            }
-        }
-    }
-
-    /// 左右裁掉相邻页、上下放出 drop（对应 Web 的 clipPath）。
-    private struct CalendarClipShape: Shape {
-        let width: CGFloat
-        let height: CGFloat
-        let extendBottom: CGFloat
-        func path(in rect: CGRect) -> Path {
-            Path(CGRect(x: 0, y: -2000, width: width, height: 2000 + height + extendBottom))
-        }
-    }
-
     // MARK: 把手（F-02.3）
 
     private var handle: some View {
@@ -263,60 +258,20 @@ struct CalendarScreen: View {
         .buttonStyle(.plain)
     }
 
-    // MARK: 手势（CalendarView.vue:167-226）
-
-    private func calendarGesture(width: CGFloat) -> some Gesture {
-        DragGesture(minimumDistance: 8, coordinateSpace: .local)
-            .onChanged { value in
-                guard !sliding else { return }
-                if isHorizontalDrag == nil {
-                    isHorizontalDrag = abs(value.translation.width) > abs(value.translation.height)
-                    gestureStart = Date()
-                }
-                if isHorizontalDrag == true { dragX = value.translation.width }
-            }
-            .onEnded { value in
-                let horizontal = isHorizontalDrag
-                isHorizontalDrag = nil
-                guard !sliding else { return }
-                if horizontal == true {
-                    clickGuard.block()
-                    let elapsed = max(0.001, Date().timeIntervalSince(gestureStart ?? Date()))
-                    let velocity = abs(value.translation.width) / elapsed
-                    let n = value.translation.width < 0 ? 1 : -1
-                    if CalendarContract.shouldSlide(dx: value.translation.width, width: width, velocity: velocity) {
-                        slide(to: n, width: width)
-                    } else {
-                        withAnimation(.easeOut(duration: 0.25)) { dragX = 0 }
-                    }
-                } else if horizontal == false && abs(value.translation.height) > CalendarContract.verticalSwitchDistance {
-                    clickGuard.block()
-                    setMode(value.translation.height < 0 ? .week : .month)
-                }
-                gestureStart = nil
-            }
-    }
-
     // MARK: 导航（CalendarView.vue:97-164）
 
-    private func slide(to n: Int, width: CGFloat) {
-        guard !sliding, panes.indices.contains(n + 1) else { return }
-        sliding = true
-        HapticFeedback.play(.select)
-        let target = panes[n + 1].date
-        withAnimation(.easeInOut(duration: Double(CalendarContract.slideMilliseconds) / 1000)) {
-            dragX = -CGFloat(n) * width
-        }
-        Task { @MainActor in
-            try? await Task.sleep(nanoseconds: UInt64(CalendarContract.slideMilliseconds) * 1_000_000)
-            selected = target
-            overridePane = nil
-            dragX = 0
-            sliding = false
-        }
+    /// 只发请求，位移与动画在 `CalendarGridPager` 里；本页状态不变时不会重算网格。
+    private func requestSlide(_ n: Int) {
+        guard panes.indices.contains(n + 1) else { return }
+        slideRequest = SlideRequest(n: n, target: panes[n + 1].date)
     }
 
-    private func shift(_ n: Int) { slide(to: n, width: viewportWidth) }
+    private func commitSlide(_ target: String) {
+        selected = target
+        overridePane = nil
+    }
+
+    private func shift(_ n: Int) { requestSlide(n) }
 
     private func go(_ date: String) {
         guard date != selected else { return }
@@ -328,7 +283,7 @@ struct CalendarScreen: View {
             if same {
                 overridePane = n
                 overrideDate = date
-                slide(to: n, width: viewportWidth)
+                requestSlide(n)
                 return
             }
         }
@@ -370,5 +325,140 @@ struct CalendarScreen: View {
         let key = "\(y)-\(PlannerCalendar.pad(m0 + 1))"
         guard key != String(selected.prefix(7)) else { return }
         go(today.hasPrefix(key) ? today : "\(key)-01")
+    }
+}
+
+// MARK: - 月历轨道（拖拽隔离层）
+
+/// 箭头翻页 / 点击相邻月日期的动画请求。
+private struct SlideRequest: Equatable {
+    var n: Int
+    var target: String
+    var id = UUID()
+}
+
+/// 月历派生数据的会话级缓存（只在 View body 的主线程读写）。
+private final class CalendarRenderCache {
+    var dotsKey = ""
+    var dotsTasks: [PlannerTask] = []
+    var dots: [String: [CalendarDot]] = [:]
+    var rows: [String: [[CalendarDayCell]]] = [:]
+}
+
+/// 左右裁掉相邻页、上下放出 drop（对应 Web 的 clipPath）。
+private struct CalendarClipShape: Shape {
+    let width: CGFloat
+    let height: CGFloat
+    let extendBottom: CGFloat
+    func path(in rect: CGRect) -> Path {
+        Path(CGRect(x: 0, y: -2000, width: width, height: 2000 + height + extendBottom))
+    }
+}
+
+/// 三页常驻轨道 + 拖拽手势。
+///
+/// 把 `dragX` 留在这个子视图里：手指移动时只有网格层重算，
+/// `CalendarScreen` 的 body（概览卡、日程 List、顶栏、FAB）不参与每帧重算。
+private struct CalendarGridPager: View {
+    let slots: [CalendarPaneSlot]
+    let panes: [MonthGeometry]
+    let rowsByN: [Int: [[CalendarDayCell]]]
+    let selected: String
+    let today: String
+    let mode: CalendarMode
+    let showLunar: Bool
+    let showHoliday: Bool
+    let dots: [String: [CalendarDot]]
+    let lunar: LunarData?
+    let width: CGFloat
+    let rowHeight: CGFloat
+    let drop: CGFloat
+    let clickGuard: ClickGuard
+    let slideRequest: SlideRequest?
+    let onSelect: (String) -> Void
+    let onSettleSlide: (String) -> Void
+    let onToggleMode: () -> Void
+
+    @State private var dragX: CGFloat = 0
+    @State private var isHorizontalDrag: Bool? = nil
+    @State private var gestureStart: Date? = nil
+    @State private var animating = false
+
+    var body: some View {
+        ZStack(alignment: .topLeading) {
+            ForEach(slots, id: \.n) { slot in
+                MonthGridView(
+                    rows: rowsByN[slot.n] ?? [],
+                    selected: slot.n == 0 ? selected : slot.geometry.date,
+                    today: today, mode: mode,
+                    showLunar: showLunar, showHoliday: showHoliday,
+                    dots: dots, lunar: lunar,
+                    onSelect: onSelect
+                )
+                .frame(width: width)
+                .offset(
+                    x: CGFloat(slot.n) * width + dragX,
+                    y: CalendarContract.shiftOf(slot.geometry, mode: mode, rowHeight: Double(rowHeight))
+                )
+            }
+        }
+        .frame(width: width, height: rowHeight, alignment: .topLeading)
+        .clipShape(CalendarClipShape(width: width, height: rowHeight, extendBottom: drop + 6))
+        // 命中区必须与可视网格一致：Rectangle() 会按 1 行 frame 收缩，第 2 行起日期点不动。
+        .contentShape(CalendarClipShape(width: width, height: rowHeight, extendBottom: drop))
+        .highPriorityGesture(gesture)
+        .onChange(of: slideRequest?.id) { _, _ in
+            guard let request = slideRequest else { return }
+            animateSlide(to: request.n, target: request.target)
+        }
+    }
+
+    private var gesture: some Gesture {
+        DragGesture(minimumDistance: 8, coordinateSpace: .local)
+            .onChanged { value in
+                guard !animating else { return }
+                if isHorizontalDrag == nil {
+                    isHorizontalDrag = abs(value.translation.width) > abs(value.translation.height)
+                    gestureStart = Date()
+                }
+                if isHorizontalDrag == true { dragX = value.translation.width }
+            }
+            .onEnded { value in
+                let horizontal = isHorizontalDrag
+                isHorizontalDrag = nil
+                let start = gestureStart
+                gestureStart = nil
+                guard !animating else { return }
+                if horizontal == true {
+                    clickGuard.block()
+                    let elapsed = max(0.001, Date().timeIntervalSince(start ?? Date()))
+                    let velocity = abs(value.translation.width) / elapsed
+                    let n = value.translation.width < 0 ? 1 : -1
+                    if CalendarContract.shouldSlide(dx: value.translation.width, width: width, velocity: velocity),
+                       panes.indices.contains(n + 1) {
+                        animateSlide(to: n, target: panes[n + 1].date)
+                    } else {
+                        withAnimation(.easeOut(duration: 0.25)) { dragX = 0 }
+                    }
+                } else if horizontal == false && abs(value.translation.height) > CalendarContract.verticalSwitchDistance {
+                    clickGuard.block()
+                    onToggleMode()
+                }
+            }
+    }
+
+    private func animateSlide(to n: Int, target: String) {
+        guard !animating else { return }
+        animating = true
+        HapticFeedback.play(.select)
+        withAnimation(.easeInOut(duration: Double(CalendarContract.slideMilliseconds) / 1000)) {
+            dragX = -CGFloat(n) * width
+        }
+        Task { @MainActor in
+            try? await Task.sleep(nanoseconds: UInt64(CalendarContract.slideMilliseconds) * 1_000_000)
+            onSettleSlide(target)
+            dragX = 0
+            animating = false
+        }
     }
 }

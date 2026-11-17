@@ -49,6 +49,7 @@ struct AppRootView: View {
     @StateObject private var toastCenter = ToastCenter()
     @StateObject private var notificationRouter = NotificationTapRouter()
     @Environment(\.scenePhase) private var scenePhase
+    @Environment(\.colorScheme) private var scheme
 
     @State private var syncClient: SyncClient?
     @State private var reminderScheduler: ReminderScheduler?
@@ -60,8 +61,7 @@ struct AppRootView: View {
     @State private var quickOpen = false
     @State private var quickDefaults = QuickAddDefaults.empty
     @State private var searchOpen = false
-    @State private var detailOpen = false
-    @State private var detailRoute = DetailRoute(id: "")
+    @State private var detailRoute: DetailRoute? = nil
     @State private var selfCheckOpen = false
 
     private var lang: String {
@@ -85,6 +85,9 @@ struct AppRootView: View {
                     NavigationStack {
                         content(for: tab)
                     }
+                    // TabView 级 tint 只服务于 tab bar 选中色：内容层必须显式清空，
+                    // 否则长按菜单里的分享（黑）/ 删除（红）等系统控件会被继承成主色。
+                    .tint(nil)
                 } label: {
                     Label {
                         Text(tab.title(lang: lang))
@@ -96,6 +99,9 @@ struct AppRootView: View {
                 }
             }
         }
+        // 选中 tab 用项目主色 --accent（与日历页 FAB「+」同色），而非系统默认蓝。
+        // 未选中仍交给系统次级色；背景保留 TabView 自带 Liquid Glass。
+        .tint(DesignTokens.color("--accent", scheme: scheme))
         .environment(\.appLanguage, lang)
         .environmentObject(toastCenter)
         .environmentObject(uiStore)
@@ -152,11 +158,14 @@ struct AppRootView: View {
                 .environmentObject(uiStore)
                 .environment(\.appLanguage, lang)
         }
-        .reachSheet(isPresented: $detailOpen, detents: [.large]) {
-            TaskDetailSheet(route: detailRoute, onClose: { detailOpen = false })
+        // 任务详情走 item 驱动：内容由本次要打开的任务现场生成，避免复用启动期
+        // 以占位空 route 建好的旧实例，导致首次打开整页只显示「—」。
+        .reachSheet(item: $detailRoute, detents: [.large]) { route in
+            TaskDetailSheet(route: route, onClose: { detailRoute = nil })
                 .environmentObject(uiStore)
                 .environmentObject(toastCenter)
                 .environment(\.appLanguage, lang)
+                .id(route.id)
         }
         // T-13 自检页保留为「我的」页的回溯入口，供 A-42 / A-44 真机人工观察。
         .fullScreenCover(isPresented: $selfCheckOpen) {
@@ -239,7 +248,6 @@ struct AppRootView: View {
 
     private func openDetail(_ id: String, _ occ: String) {
         detailRoute = DetailRoute(id: id, occ: occ)
-        detailOpen = true
     }
 
     /// 搜索结果先关搜索 sheet（对应上游 pick 的 blur），再推详情；

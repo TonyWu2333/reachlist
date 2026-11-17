@@ -30,7 +30,7 @@ struct QuickAddDefaults: Equatable, Sendable {
 }
 
 /// TaskDetail 的 `taskId + occ`；occ 是从日历某一天点进来的重复实例日期。
-struct DetailRoute: Equatable, Sendable {
+struct DetailRoute: Identifiable, Equatable, Sendable {
     var id: String
     var occ: String = ""
 }

@@ -12,3 +12,43 @@ xcuserdata/
 *.xcuserstate
 DerivedData/
 Signing.local.xcconfig
+
+# 内部协作文档（本机开发需要，不进上游）
+docs/ios-engineering-guide.md
+docs/ios-native-plan.md
+
+# 本机隐私覆盖文件（真实 Team ID / 令牌 / 本机 IP 只留本机）
+*.local.xcconfig
+*.local.swift
+*.local.json
+*.local.mjs
+*.local.yaml
+*.local.yml
+.env
+.env.*
+secrets.*
+*.p12
+*.mobileprovision
+*.cer
+*.pem
+*.key
+
+# iOS 过程文件 / DEV-ONLY（临时工具、探针、截图、浏览器快照）
+ios/tools/
+ios/app截图/
+ios/外部参考图片/
+ios/PlannerTests/ZZ*.swift
+.playwright-cli/
+playwright-report/
+test-results/
+now.yaml
+*.log
+*.tmp
+*.bak
+*.orig
+*.rej
+tmp/
+temp/
+.cache/
+.idea/
+.vscode/

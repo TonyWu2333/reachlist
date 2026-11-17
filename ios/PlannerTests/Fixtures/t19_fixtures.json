@@ -160,9 +160,9 @@
     "农历与节气",
     "法定节假日与调休",
     "到点提醒",
-    "设了时间的任务会发系统通知，App 关着也会响",
+    "设置时间的任务会发送系统通知",
     "新任务默认提醒",
-    "点一下切换；单个任务可以在详情里改",
+    "单个任务时间可以在详情页修改",
     "通知权限没开，提醒发不出来：系统设置 → 应用 → 可及清单 → 通知，打开“允许通知”。",
     "数据",
     "导出备份",
@@ -358,9 +358,9 @@
     "农历与节气",
     "法定节假日与调休",
     "到点提醒",
-    "设了时间的任务会发系统通知，App 关着也会响",
+    "设置时间的任务会发送系统通知",
     "新任务默认提醒",
-    "点一下切换；单个任务可以在详情里改",
+    "单个任务时间可以在详情页修改",
     "通知权限没开，提醒发不出来：系统设置 → 应用 → 可及清单 → 通知，打开“允许通知”。",
     "数据",
     "导出备份",
@@ -8672,52 +8672,52 @@
       "expected": "Time reminders"
     },
     {
-      "key": "设了时间的任务会发系统通知，App 关着也会响",
+      "key": "设置时间的任务会发送系统通知",
       "lang": "zh",
       "params": {},
-      "expected": "设了时间的任务会发系统通知，App 关着也会响"
+      "expected": "设置时间的任务会发送系统通知"
     },
     {
-      "key": "设了时间的任务会发系统通知，App 关着也会响",
+      "key": "设置时间的任务会发送系统通知",
       "lang": "zh",
       "params": {},
-      "expected": "设了时间的任务会发系统通知，App 关着也会响"
+      "expected": "设置时间的任务会发送系统通知"
     },
     {
-      "key": "设了时间的任务会发系统通知，App 关着也会响",
+      "key": "设置时间的任务会发送系统通知",
       "lang": "zh",
       "params": {},
-      "expected": "设了时间的任务会发系统通知，App 关着也会响"
+      "expected": "设置时间的任务会发送系统通知"
     },
     {
-      "key": "设了时间的任务会发系统通知，App 关着也会响",
+      "key": "设置时间的任务会发送系统通知",
       "lang": "zh",
       "params": {},
-      "expected": "设了时间的任务会发系统通知，App 关着也会响"
+      "expected": "设置时间的任务会发送系统通知"
     },
     {
-      "key": "设了时间的任务会发系统通知，App 关着也会响",
+      "key": "设置时间的任务会发送系统通知",
       "lang": "en",
       "params": {},
-      "expected": "Tasks with a time send a notification, even when the app is closed"
+      "expected": "Tasks with a set time send a system notification"
     },
     {
-      "key": "设了时间的任务会发系统通知，App 关着也会响",
+      "key": "设置时间的任务会发送系统通知",
       "lang": "en",
       "params": {},
-      "expected": "Tasks with a time send a notification, even when the app is closed"
+      "expected": "Tasks with a set time send a system notification"
     },
     {
-      "key": "设了时间的任务会发系统通知，App 关着也会响",
+      "key": "设置时间的任务会发送系统通知",
       "lang": "en",
       "params": {},
-      "expected": "Tasks with a time send a notification, even when the app is closed"
+      "expected": "Tasks with a set time send a system notification"
     },
     {
-      "key": "设了时间的任务会发系统通知，App 关着也会响",
+      "key": "设置时间的任务会发送系统通知",
       "lang": "en",
       "params": {},
-      "expected": "Tasks with a time send a notification, even when the app is closed"
+      "expected": "Tasks with a set time send a system notification"
     },
     {
       "key": "新任务默认提醒",
@@ -8768,52 +8768,52 @@
       "expected": "Default reminder"
     },
     {
-      "key": "点一下切换；单个任务可以在详情里改",
+      "key": "单个任务时间可以在详情页修改",
       "lang": "zh",
       "params": {},
-      "expected": "点一下切换；单个任务可以在详情里改"
+      "expected": "单个任务时间可以在详情页修改"
     },
     {
-      "key": "点一下切换；单个任务可以在详情里改",
+      "key": "单个任务时间可以在详情页修改",
       "lang": "zh",
       "params": {},
-      "expected": "点一下切换；单个任务可以在详情里改"
+      "expected": "单个任务时间可以在详情页修改"
     },
     {
-      "key": "点一下切换；单个任务可以在详情里改",
+      "key": "单个任务时间可以在详情页修改",
       "lang": "zh",
       "params": {},
-      "expected": "点一下切换；单个任务可以在详情里改"
+      "expected": "单个任务时间可以在详情页修改"
     },
     {
-      "key": "点一下切换；单个任务可以在详情里改",
+      "key": "单个任务时间可以在详情页修改",
       "lang": "zh",
       "params": {},
-      "expected": "点一下切换；单个任务可以在详情里改"
+      "expected": "单个任务时间可以在详情页修改"
     },
     {
-      "key": "点一下切换；单个任务可以在详情里改",
+      "key": "单个任务时间可以在详情页修改",
       "lang": "en",
       "params": {},
-      "expected": "Tap to change. You can also set it per task"
+      "expected": "You can change an individual task's time in its detail page"
     },
     {
-      "key": "点一下切换；单个任务可以在详情里改",
+      "key": "单个任务时间可以在详情页修改",
       "lang": "en",
       "params": {},
-      "expected": "Tap to change. You can also set it per task"
+      "expected": "You can change an individual task's time in its detail page"
     },
     {
-      "key": "点一下切换；单个任务可以在详情里改",
+      "key": "单个任务时间可以在详情页修改",
       "lang": "en",
       "params": {},
-      "expected": "Tap to change. You can also set it per task"
+      "expected": "You can change an individual task's time in its detail page"
     },
     {
-      "key": "点一下切换；单个任务可以在详情里改",
+      "key": "单个任务时间可以在详情页修改",
       "lang": "en",
       "params": {},
-      "expected": "Tap to change. You can also set it per task"
+      "expected": "You can change an individual task's time in its detail page"
     },
     {
       "key": "通知权限没开，提醒发不出来：系统设置 → 应用 → 可及清单 → 通知，打开“允许通知”。",
@@ -11949,7 +11949,7 @@
     "添加打卡",
     "清空",
     "滑动试试：右滑完成，左滑推迟/放弃/删除",
-    "点一下切换；单个任务可以在详情里改",
+    "单个任务时间可以在详情页修改",
     "版本",
     "生成 JSON 文件，发到微信或网盘保存",
     "用备份里的 {a} 条任务替换当前的 {b} 条？",
@@ -11962,7 +11962,7 @@
     "自定义图标",
     "色板",
     "让电脑或服务器上的 agent（Claude Code、Codex、Hermes）也能看和改你的任务",
-    "设了时间的任务会发系统通知，App 关着也会响",
+    "设置时间的任务会发送系统通知",
     "设计系统自检",
     "试试输入「明天下午3点开会」，自动识别时间",
     "试试输入「每天 跑步」或「每周五晚上8点 周会」",

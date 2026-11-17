@@ -7,7 +7,8 @@ import SwiftUI
 // 呈现层按 §5.0 / OPEN-18 用系统 Button + 语义色，不复刻 CSS 的阴影与固定字号阶梯。
 
 struct MonthGridView: View {
-    let geometry: MonthGeometry
+    /// 由调用方预先算好并缓存：月历每帧重算 42 格日期是滑动掉帧的一部分。
+    let rows: [[CalendarDayCell]]
     let selected: String
     let today: String
     let mode: CalendarMode
@@ -22,9 +23,8 @@ struct MonthGridView: View {
     private var rowHeight: CGFloat { showLunar ? 54 : 46 }
 
     var body: some View {
-        let grid = CalendarContract.monthGrid(year: geometry.year, month0: geometry.month0, today: today)
         VStack(spacing: 0) {
-            ForEach(Array(grid.enumerated()), id: \.offset) { _, row in
+            ForEach(Array(rows.enumerated()), id: \.offset) { _, row in
                 HStack(spacing: 0) {
                     ForEach(row) { cell in
                         cellView(cell)
@@ -82,6 +82,10 @@ struct MonthGridView: View {
             .frame(width: 42, height: rowHeight - 4)
             .background(background(cell: cell, isSelected: isSelected))
             .opacity(cell.isOut && mode == .month ? 0.28 : 1)
+            // 日期胶囊保持 42pt 视觉宽度，但整格（含左右空隙）都可点：
+            // 只命中胶囊时会觉得「点到格子边缘没反应」。
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .contentShape(Rectangle())
         }
         .buttonStyle(.plain)
         .accessibilityLabel(cell.key)

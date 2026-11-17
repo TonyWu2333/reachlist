@@ -4,9 +4,33 @@
 # 本脚本同时被 App target 的 Run Script 构建阶段调用，保持版本自动同步。
 set -eu
 
-ROOT="$(cd "$(dirname "$0")/../../.." && pwd)"
-PKG="${ROOT}/package.json"
 OUT="$(dirname "$0")/Version.xcconfig"
+
+# ROOT 解析：脚本位于 <仓库根>/ios/Planner/Config/，仓库根有两层深度——
+#   上游 planner   → <仓库根>/ios/Planner/Config/（深 3 层）
+#   独立仓库副本   → <仓库根>/Planner/Config/    （深 2 层）
+# 原来写死 ../../.. 在独立仓库里会越过仓库根、落到父目录去找 package.json。
+# 改为：从脚本所在目录逐级向上找第一个含 package.json 的目录（最多 4 级）。
+DIR="$(cd "$(dirname "$0")" && pwd)"
+ROOT=""
+d="$DIR"
+i=0
+while [ "$i" -lt 4 ]; do
+  if [ -f "$d/package.json" ]; then ROOT="$d"; break; fi
+  d="$(dirname "$d")"
+  i=$((i + 1))
+done
+if [ -z "$ROOT" ]; then
+  # 独立仓库（reachlist-ios）只含 iOS 工程，不含 Web 侧 package.json。
+  # 此时保留已提交的 Version.xcconfig 原值，不让版本同步阶段中断构建。
+  if [ -f "$OUT" ]; then
+    echo "sync-version: 未找到 package.json，沿用已提交的 $(basename "$OUT")（跳过版本同步）"
+    exit 0
+  fi
+  echo "sync-version: 未找到 package.json，且无 $(basename "$OUT") 可沿用" >&2
+  exit 1
+fi
+PKG="${ROOT}/package.json"
 
 VERSION="$(node -p "require('${PKG}').version")"
 # 与 android/app/build.gradle:21 一致：versionCode = major*10000 + minor*100 + patch

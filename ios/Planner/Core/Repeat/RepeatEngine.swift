@@ -36,8 +36,36 @@ enum RepeatEngine {
         "daily": "d1", "weekdays": "w1:12345", "monthly": "m1",
     ]
 
+    /// `parse` 会被 `occursOn` 逐日调用：月历一次 body 展开就可能上千次。
+    /// 每次新建并编译 `NSRegularExpression` 约几十微秒，是滑动掉帧的主要来源；
+    /// 规则串取值有限且不可变，这里按原串缓存解析结果（含 nil）。
+    private final class RuleCache: @unchecked Sendable {
+        private let lock = NSLock()
+        private var map: [String: Rule?] = [:]
+
+        func value(for raw: String, _ make: () -> Rule?) -> Rule? {
+            lock.lock()
+            if let hit = map[raw] {
+                lock.unlock()
+                return hit
+            }
+            lock.unlock()
+            let made = make()
+            lock.lock()
+            map[raw] = made
+            lock.unlock()
+            return made
+        }
+    }
+    nonisolated(unsafe) private static let ruleCache = RuleCache()
+
     /// parseRule：不认识返回 nil。w 规则没有星期时无效。
     static func parse(_ raw: String) -> Rule? {
+        guard !raw.isEmpty else { return nil }
+        return ruleCache.value(for: raw) { parseUncached(raw) }
+    }
+
+    private static func parseUncached(_ raw: String) -> Rule? {
         guard !raw.isEmpty else { return nil }
         guard let re = try? NSRegularExpression(pattern: pattern),
               let m = re.firstMatch(in: raw, range: NSRange(raw.startIndex..., in: raw)),
