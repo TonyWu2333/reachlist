@@ -14,7 +14,7 @@ npm run encode    # → out/reach-list-promo.mp4   (`sh encode.sh` without AUDIO
 
 Chinese version: the same cut with Chinese copy and Chinese app screens (`index.html?lang=zh`). After `npm run music`, run `npm run shots:zh`, `check:zh`, `render:zh` and `encode:zh` → `out/reach-list-promo-zh.mp4`. All scripts read `PROMO_LANG=zh`.
 
-Covers: `node cover.mjs` renders `cover.html` (English and `?lang=zh`) with the app screens from `npm run shots` / `shots:zh` → `out/cover-en.png`, `out/cover-zh.png`.
+Covers: `node cover.mjs` renders `cover.html` (English and `?lang=zh`) with the app screens from `npm run shots` / `shots:zh` → `out/cover-en.png`, `out/cover-zh.png`, plus the README thumbnails with a play button in `docs/promo/`.
 
 How the sync works:
 
