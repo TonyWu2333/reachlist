@@ -25,9 +25,9 @@ export default {
   农历与节气: 'Lunar calendar & solar terms',
   法定节假日与调休: 'Public holidays & make-up workdays',
   到点提醒: 'Time reminders',
-  '设了时间的任务会发系统通知，App 关着也会响': 'Tasks with a time send a notification, even when the app is closed',
+  '设置时间的任务会发送系统通知': 'Tasks with a set time send a system notification',
   新任务默认提醒: 'Default reminder',
-  '点一下切换；单个任务可以在详情里改': 'Tap to change. You can also set it per task',
+  '单个任务时间可以在详情页修改': "You can change an individual task's time in its detail page",
   '通知权限没开，提醒发不出来：系统设置 → 应用 → 可及清单 → 通知，打开“允许通知”。':
     'Notifications are off, so reminders can’t be delivered. Go to Settings → Apps → Reach List → Notifications and turn on “Allow notifications”.',
   数据: 'Data',
