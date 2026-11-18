@@ -174,12 +174,12 @@ async function onSyncNow() {
     <section class="list">
       <button class="li" @click="toggle('remindOn')">
         <span class="li-ico" style="--c: #f59e0b"><Icon name="bell" /></span>
-        <span class="li-main">{{ $t('到点提醒') }}<small>{{ $t('设了时间的任务会发系统通知，App 关着也会响') }}</small></span>
+        <span class="li-main">{{ $t('到点提醒') }}<small>{{ $t('设置时间的任务会发送系统通知') }}</small></span>
         <span class="switch" :class="{ on: state.settings.remindOn }"><i /></span>
       </button>
       <button class="li" :disabled="!state.settings.remindOn" @click="cycleDefaultRemind">
         <span class="li-ico" style="--c: #4b5cf0"><Icon name="clock" /></span>
-        <span class="li-main">{{ $t('新任务默认提醒') }}<small>{{ $t('点一下切换；单个任务可以在详情里改') }}</small></span>
+        <span class="li-main">{{ $t('新任务默认提醒') }}<small>{{ $t('单个任务时间可以在详情页修改') }}</small></span>
         <span class="li-val">{{ remindLabel(state.settings.defaultRemind) }}</span>
       </button>
     </section>
