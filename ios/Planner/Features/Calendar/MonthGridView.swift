@@ -6,6 +6,17 @@ import SwiftUI
 // 农历/节气/节日小字、休/班角标、象限彩点最多 3 个、全完成灰点。
 // 呈现层按 §5.0 / OPEN-18 用系统 Button + 语义色，不复刻 CSS 的阴影与固定字号阶梯。
 
+/// 只比数据输入：onSelect 闭包每次父 body 都重建、lunar 是静态打包数据，均不参与比较。
+/// 收拢拖动/翻页位移让父视图逐帧更新时，数据未变就跳过 42 格 body 重算（§7.2）。
+/// 环境（深浅色）失效不走 ==，仍会正常刷新。View 是 @MainActor，conformance 必须同隔离域。
+extension MonthGridView: @MainActor Equatable {
+    static func == (lhs: MonthGridView, rhs: MonthGridView) -> Bool {
+        lhs.rows == rhs.rows && lhs.selected == rhs.selected && lhs.today == rhs.today
+            && lhs.mode == rhs.mode && lhs.showLunar == rhs.showLunar
+            && lhs.showHoliday == rhs.showHoliday && lhs.dots == rhs.dots
+    }
+}
+
 struct MonthGridView: View {
     /// 由调用方预先算好并缓存：月历每帧重算 42 格日期是滑动掉帧的一部分。
     let rows: [[CalendarDayCell]]

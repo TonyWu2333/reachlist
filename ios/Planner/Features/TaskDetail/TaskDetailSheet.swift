@@ -386,6 +386,9 @@ private struct TaskDetailPage: View {
                 .padding(.top, 18)
             TextEditor(text: $draftNote)
                 .font(.body)
+                // 去掉 TextEditor 自带的系统白底（长方形白框），只留外层 --surface-2 圆角灰框。
+                // 与搜索 / 打卡 / 日程页的 TextEditor / List 同款处理（§7.2）。
+                .scrollContentBackground(.hidden)
                 .frame(minHeight: 84)
                 .padding(8)
                 .background(DesignTokens.color("--surface-2", scheme: scheme))

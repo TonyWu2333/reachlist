@@ -34,3 +34,10 @@ struct DetailRoute: Identifiable, Equatable, Sendable {
     var id: String
     var occ: String = ""
 }
+
+/// QuickAdd 的呈现载荷。`id` 每次打开都换新：同一象限连续新建也必须重建 sheet 内容
+/// 与 `@State`，否则首次打开会复用启动期以 `.empty` 建好的旧实例，象限默认值丢失。
+struct QuickAddRoute: Identifiable, Equatable, Sendable {
+    let id = UUID()
+    var defaults: QuickAddDefaults = .empty
+}

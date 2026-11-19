@@ -25,6 +25,9 @@ struct CalendarScreen: View {
 
     @State private var selected = PlannerCalendar.today()
     @State private var mode: CalendarMode = .month
+    /// 跟手收拢进度（0 = 周，1 = 月）；nil = 不在拖动中，几何由 mode 派生。
+    /// 拖动期间 mode 不变（三页轨道内容不切换），只有位移 / 裁剪窗口随手指连续变化。
+    @State private var collapseFraction: CGFloat? = nil
     @State private var pickerOpen = false
     @State private var overridePane: Int? = nil
     @State private var overrideDate = ""
@@ -42,17 +45,33 @@ struct CalendarScreen: View {
     private let headerHeight: CGFloat = 72
     private let weekdayHeight: CGFloat = 28
 
-    private var panes: [MonthGeometry] {
-        CalendarContract.panes(
+    /// panes/slots 含几十次日期运算；收拢拖动期间逐帧不变，必须缓存（§7.2）。
+    private var trackGeometry: (panes: [MonthGeometry], slots: [CalendarPaneSlot]) {
+        let key = "\(selected)|\(mode.rawValue)|\(today)|\(overridePane ?? -2)|\(overrideDate)"
+        if renderCache.geomKey == key {
+            return (renderCache.panes, renderCache.slots)
+        }
+        let p = CalendarContract.panes(
             selected: selected, mode: mode, today: today,
             override: overridePane.map { (n: $0, date: overrideDate) }
         )
+        let s = CalendarContract.slots(p, mode: mode)
+        renderCache.geomKey = key
+        renderCache.panes = p
+        renderCache.slots = s
+        return (p, s)
     }
-    private var slots: [CalendarPaneSlot] { CalendarContract.slots(panes, mode: mode) }
+    private var panes: [MonthGeometry] { trackGeometry.panes }
+    private var slots: [CalendarPaneSlot] { trackGeometry.slots }
     private var currentGeom: MonthGeometry { panes[1] }
+    /// 月视图完全展开时的下推全程；拖动进度按它归一化。
+    private var fullDrop: CGFloat { CGFloat(currentGeom.rows - 1) * rowHeight }
     private var drop: CGFloat {
-        CalendarContract.drop(rows: currentGeom.rows, rowHeight: Double(rowHeight), mode: mode)
+        if let f = collapseFraction { return fullDrop * f }
+        return CalendarContract.drop(rows: currentGeom.rows, rowHeight: Double(rowHeight), mode: mode)
     }
+    /// 把手胶囊宽度等视觉态用的连续展开度（拖动中跟手，松手后随动画收敛）。
+    private var expansion: CGFloat { collapseFraction ?? (mode == .month ? 1 : 0) }
     private var dots: [String: [CalendarDot]] {
         let key = "\(selected)|\(mode.rawValue)|\(today)|\(overridePane ?? -2)|\(overrideDate)"
         if renderCache.dotsKey == key, renderCache.dotsTasks == store.tasks {
@@ -113,6 +132,7 @@ struct CalendarScreen: View {
                     onAdd: { date in onAddTask(.onDate(date)) },
                     store: store
                 )
+                .equatable()
                 .frame(width: width, height: max(120, geo.size.height - baseTop))
                 .offset(y: baseTop + drop)
                 .zIndex(1)
@@ -120,7 +140,9 @@ struct CalendarScreen: View {
                 handle
                     .frame(width: width)
                     .offset(y: baseTop + drop - 8)
-                    .zIndex(2)
+                    // 必须盖过网格（zIndex 3）：网格命中区放出到 drop+6，
+                    // 把手若在其下，拖动会被网格手势截走（旧版只能点不能拖的根因）。
+                    .zIndex(4)
 
                 CalendarGridPager(
                     slots: slots, panes: panes, rowsByN: rowsByN,
@@ -129,10 +151,12 @@ struct CalendarScreen: View {
                     showHoliday: store.settings.showHoliday,
                     dots: dots, lunar: lunar,
                     width: width, rowHeight: rowHeight, drop: drop,
+                    collapseFraction: collapseFraction,
                     clickGuard: clickGuard, slideRequest: slideRequest,
                     onSelect: selectDay,
                     onSettleSlide: commitSlide,
-                    onToggleMode: { setMode(mode == .month ? .week : .month) }
+                    onCollapseDrag: { collapseFraction = $0 },
+                    onCollapseCommit: commitCollapse
                 )
                 .offset(y: headerHeight + weekdayHeight)
                 .zIndex(3)
@@ -143,10 +167,14 @@ struct CalendarScreen: View {
                     ReachIcon(name: .plus, size: 28)
                         .foregroundStyle(DesignTokens.color("--on-accent", scheme: scheme))
                         .frame(width: 58, height: 58)
-                        .background(RoundedRectangle(cornerRadius: 20)
-                            .fill(DesignTokens.color("--accent", scheme: scheme)))
                 }
                 .buttonStyle(.plain)
+                // S1.6 FAB：系统 Liquid Glass，只替换材质，不改 58pt / cornerRadius 20 几何
+                // 与 onAddTask(.onDate(selected)) 行为；tint 保留 --accent 品牌色。
+                .glassEffect(
+                    .regular.tint(DesignTokens.color("--accent", scheme: scheme)).interactive(),
+                    in: .rect(cornerRadius: 20)
+                )
                 .position(x: width - 49, y: geo.size.height - 49)
                 .zIndex(5)
             }
@@ -243,19 +271,55 @@ struct CalendarScreen: View {
 
     // MARK: 把手（F-02.3）
 
+    /// 点击切换 + 上下拖动跟手收拢。命中区从本地 y=8 开始（网格末行底边之下），
+    /// 不抢最后一行日期的点按；视觉与旧版逐 pt 一致：白面网格底边..+14、胶囊中心 +3。
+    /// 不能用 ZStack+offset 摆白面：offset 不计入布局尺寸，ZStack 只取子视图布局高，
+    /// 外层 frame 会把它居中下移，网格底边露灰缝、白带宽出一截（2026-11-19 用户报障）。
     private var handle: some View {
-        Button {
-            setMode(mode == .month ? .week : .month)
-        } label: {
-            ZStack {
-                Rectangle().fill(DesignTokens.color("--surface", scheme: scheme))
+        Rectangle()
+            .fill(DesignTokens.color("--surface", scheme: scheme))
+            .frame(height: 14)
+            .overlay(alignment: .top) {
                 Capsule()
                     .fill(DesignTokens.color("--fill-2", scheme: scheme))
-                    .frame(width: mode == .month ? 34 : 22, height: 5)
+                    .frame(width: 22 + 12 * expansion, height: 5)
+                    .offset(y: 0.5)
             }
-            .frame(height: 22)
+            .padding(.top, 8)
+            .frame(height: 34, alignment: .top)
+            .contentShape(HandleHitShape())
+        .gesture(handleGesture)
+        .accessibilityElement()
+        .accessibilityAddTraits(.isButton)
+        .accessibilityLabel(AppStrings.t(mode == .month ? "收起为周视图" : "展开月视图", lang: lang))
+        .accessibilityAction { setMode(mode == .month ? .week : .month) }
+    }
+
+    /// 把手自身随 drop 移动，translation 必须取全局坐标，
+    /// 否则视图跟着手指走会把位移反复计入（自激抖动）。
+    private var handleGesture: some Gesture {
+        DragGesture(minimumDistance: 0, coordinateSpace: .global)
+            .onChanged { value in
+                collapseFraction = CalendarContract.collapseFraction(
+                    mode: mode, translation: Double(value.translation.height), fullDrop: Double(fullDrop))
+            }
+            .onEnded { value in
+                if abs(value.translation.height) < 6 && abs(value.translation.width) < 6 {
+                    collapseFraction = nil
+                    setMode(mode == .month ? .week : .month)
+                    return
+                }
+                clickGuard.block()
+                commitCollapse(to: CalendarContract.collapseTarget(
+                    mode: mode, predictedTranslation: Double(value.predictedEndTranslation.height),
+                    fullDrop: Double(fullDrop)))
+            }
+    }
+
+    private struct HandleHitShape: Shape {
+        func path(in rect: CGRect) -> Path {
+            Path(CGRect(x: 0, y: 8, width: rect.width, height: rect.height - 8))
         }
-        .buttonStyle(.plain)
     }
 
     // MARK: 导航（CalendarView.vue:97-164）
@@ -302,9 +366,22 @@ struct CalendarScreen: View {
     }
 
     private func setMode(_ next: CalendarMode) {
-        guard mode != next else { return }
+        guard mode != next else { collapseFraction = nil; return }
         HapticFeedback.play(.light)
-        withAnimation(.easeInOut(duration: 0.42)) { mode = next }
+        withAnimation(.easeInOut(duration: 0.42)) {
+            mode = next
+            collapseFraction = nil
+        }
+    }
+
+    /// 拖动松手：从当前跟手进度收敛到目标模式。mode 与 collapseFraction 同一事务切换，
+    /// 位移 / 裁剪窗口 / 把手 / 日程列表从手指松开处连续动画到终态，不回跳。
+    private func commitCollapse(to next: CalendarMode) {
+        if mode != next { HapticFeedback.play(.light) }
+        withAnimation(.easeOut(duration: 0.32)) {
+            mode = next
+            collapseFraction = nil
+        }
     }
 
     private func goToday() {
@@ -343,13 +420,22 @@ private final class CalendarRenderCache {
     var dotsTasks: [PlannerTask] = []
     var dots: [String: [CalendarDot]] = [:]
     var rows: [String: [[CalendarDayCell]]] = [:]
+    var geomKey = ""
+    var panes: [MonthGeometry] = []
+    var slots: [CalendarPaneSlot] = []
 }
 
 /// 左右裁掉相邻页、上下放出 drop（对应 Web 的 clipPath）。
+/// height / extendBottom 必须可动画：月/周切换时裁剪窗口要与网格位移同曲线伸缩，
+/// 否则窗口高度瞬间跳变，下面几行会凭空出现 / 消失（2026-11-19 用户报障）。
 private struct CalendarClipShape: Shape {
     let width: CGFloat
-    let height: CGFloat
-    let extendBottom: CGFloat
+    var height: CGFloat
+    var extendBottom: CGFloat
+    var animatableData: AnimatablePair<CGFloat, CGFloat> {
+        get { AnimatablePair(height, extendBottom) }
+        set { height = newValue.first; extendBottom = newValue.second }
+    }
     func path(in rect: CGRect) -> Path {
         Path(CGRect(x: 0, y: -2000, width: width, height: 2000 + height + extendBottom))
     }
@@ -357,8 +443,9 @@ private struct CalendarClipShape: Shape {
 
 /// 三页常驻轨道 + 拖拽手势。
 ///
-/// 把 `dragX` 留在这个子视图里：手指移动时只有网格层重算，
-/// `CalendarScreen` 的 body（概览卡、日程 List、顶栏、FAB）不参与每帧重算。
+/// `dragX` 留在这个子视图里：横向翻页只有网格层逐帧重算。
+/// 竖向收拢经父级 collapseFraction（把手与列表要一起跟手），每帧开销靠
+/// MonthGridView / DayAgendaView 的 Equatable 跳过与 panes/slots 缓存压住（§7.2）。
 private struct CalendarGridPager: View {
     let slots: [CalendarPaneSlot]
     let panes: [MonthGeometry]
@@ -373,11 +460,13 @@ private struct CalendarGridPager: View {
     let width: CGFloat
     let rowHeight: CGFloat
     let drop: CGFloat
+    let collapseFraction: CGFloat?
     let clickGuard: ClickGuard
     let slideRequest: SlideRequest?
     let onSelect: (String) -> Void
     let onSettleSlide: (String) -> Void
-    let onToggleMode: () -> Void
+    let onCollapseDrag: (CGFloat) -> Void
+    let onCollapseCommit: (CalendarMode) -> Void
 
     @State private var dragX: CGFloat = 0
     @State private var isHorizontalDrag: Bool? = nil
@@ -395,10 +484,12 @@ private struct CalendarGridPager: View {
                     dots: dots, lunar: lunar,
                     onSelect: onSelect
                 )
+                .equatable()
                 .frame(width: width)
                 .offset(
                     x: CGFloat(slot.n) * width + dragX,
-                    y: CalendarContract.shiftOf(slot.geometry, mode: mode, rowHeight: Double(rowHeight))
+                    y: collapseFraction.map { -CGFloat(slot.geometry.row) * rowHeight * (1 - $0) }
+                        ?? CGFloat(CalendarContract.shiftOf(slot.geometry, mode: mode, rowHeight: Double(rowHeight)))
                 )
             }
         }
@@ -421,7 +512,13 @@ private struct CalendarGridPager: View {
                     isHorizontalDrag = abs(value.translation.width) > abs(value.translation.height)
                     gestureStart = Date()
                 }
-                if isHorizontalDrag == true { dragX = value.translation.width }
+                if isHorizontalDrag == true {
+                    dragX = value.translation.width
+                } else if isHorizontalDrag == false {
+                    onCollapseDrag(CalendarContract.collapseFraction(
+                        mode: mode, translation: Double(value.translation.height),
+                        fullDrop: Double(panes[1].rows - 1) * Double(rowHeight)))
+                }
             }
             .onEnded { value in
                 let horizontal = isHorizontalDrag
@@ -440,9 +537,11 @@ private struct CalendarGridPager: View {
                     } else {
                         withAnimation(.easeOut(duration: 0.25)) { dragX = 0 }
                     }
-                } else if horizontal == false && abs(value.translation.height) > CalendarContract.verticalSwitchDistance {
+                } else if horizontal == false {
                     clickGuard.block()
-                    onToggleMode()
+                    onCollapseCommit(CalendarContract.collapseTarget(
+                        mode: mode, predictedTranslation: Double(value.predictedEndTranslation.height),
+                        fullDrop: Double(panes[1].rows - 1) * Double(rowHeight)))
                 }
             }
     }

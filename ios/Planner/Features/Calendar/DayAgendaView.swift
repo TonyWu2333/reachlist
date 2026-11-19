@@ -5,6 +5,17 @@ import SwiftUI
 // 未完成/已完成分组、逾期分组（仅今天、全部移到今天带撤销）、进度环（排除 dropped）、
 // 分组头文案、空态、任务行滑动操作与撤销 toast。任务行复用 T-14 的 M-19。
 
+/// 只比数据输入：闭包每次父 body 都重建、lunar 静态、store 恒为同一实例。
+/// 收拢拖动让父视图逐帧更新时，数据未变就跳过 List body 重算（§7.2）。
+/// store 的 @ObservedObject 与环境失效不走 ==，任务变更/深浅色仍正常刷新。
+/// View 是 @MainActor，conformance 必须同隔离域。
+extension DayAgendaView: @MainActor Equatable {
+    static func == (lhs: DayAgendaView, rhs: DayAgendaView) -> Bool {
+        lhs.selected == rhs.selected && lhs.today == rhs.today
+            && lhs.isEnglish == rhs.isEnglish && lhs.store === rhs.store
+    }
+}
+
 struct DayAgendaView: View {
     let selected: String
     let today: String
@@ -43,7 +54,7 @@ struct DayAgendaView: View {
     var body: some View {
         VStack(spacing: 0) {
             // 标题块固定在 List 之外：列表滚动／顶部裁切不再切到标题、进度环与节假日标签。
-            // 顶部 24pt 让标题避开浮在列表之上的把手条（把手盖住本视图顶部约 14pt）。
+            // 顶部 38pt 让标题避开浮在列表之上的把手条（把手命中区盖住本视图顶部约 26pt）。
             agendaHeader
                 // 21pt = insetGrouped 的 20pt 分组页边距 + 1pt 行边距，标题与卡片左缘对齐。
                 .padding(.horizontal, 21)
@@ -278,22 +289,23 @@ struct DayAgendaView: View {
                 }
             }
             .overlay(alignment: .bottom) {
-                if edge.hasSeparator {
-                    // 不透明分隔线：先铺 surface 再叠 --fill-2，等价于「白底上的分隔灰」。
-                    // 这样即使压在左滑变灰的行上，也不会二次变深。
-                    Rectangle()
-                        .fill(DesignTokens.color("--surface", scheme: scheme))
-                        .overlay {
-                            Rectangle()
-                                .fill(DesignTokens.color("--fill-2", scheme: scheme))
-                        }
-                        .frame(height: 1)
-                        // 起始位置对齐标题文字：行内边距 + 勾选触点 + 图标文字间距。
-                        .padding(.leading, TaskRowContract.separatorInset)
-                        .padding(.trailing, TaskRowContract.rowHorizontalInset)
-                        .opacity(hideSeparator ? 0 : 1)
-                        .animation(.easeOut(duration: 0.22), value: hideSeparator)
-                }
+                // 常驻绘制、用 opacity 控制显隐：下方行被勾选移除后本行成为组尾，
+                // 分割线要随让位动画淡出而不是瞬间消失（条件移除做不到）。
+                let showsSeparator = edge.hasSeparator && !hideSeparator
+                // 不透明分隔线：先铺 surface 再叠 --fill-2，等价于「白底上的分隔灰」。
+                // 这样即使压在左滑变灰的行上，也不会二次变深。
+                Rectangle()
+                    .fill(DesignTokens.color("--surface", scheme: scheme))
+                    .overlay {
+                        Rectangle()
+                            .fill(DesignTokens.color("--fill-2", scheme: scheme))
+                    }
+                    .frame(height: 1)
+                    // 起始位置对齐标题文字：行内边距 + 勾选触点 + 图标文字间距。
+                    .padding(.leading, TaskRowContract.separatorInset)
+                    .padding(.trailing, TaskRowContract.rowHorizontalInset)
+                    .opacity(showsSeparator ? 1 : 0)
+                    .animation(.easeOut(duration: 0.22), value: showsSeparator)
             }
             .taskRowSwipeActions(
                 model: m, lang: lang,
@@ -350,7 +362,14 @@ struct DayAgendaView: View {
     }
 
     private func toggle(_ inst: RepeatInstance) {
-        store.toggleDone(id: inst.task.id, occ: inst.occ)
+        // 让位动画：与四象限跨象限写回同一条 spring（0.42 / 0.72，见
+        // QuadrantScreen.snapFlightSeconds）。勾选行移出后，上下其余行弹性补位；
+        // 取消勾选（行插回）与左滑「完成」同走这里，共用同一曲线。
+        // 日程列表是纯 SwiftUI List，withAnimation 直接驱动行增删与布局，
+        // 不需要四象限那套 UIKit 桥接动画。
+        withAnimation(.spring(response: 0.42, dampingFraction: 0.72)) {
+            store.toggleDone(id: inst.task.id, occ: inst.occ)
+        }
         HapticFeedback.play(.success)
     }
 
@@ -464,14 +483,31 @@ private enum GroupRowEdge {
 }
 
 private struct GroupCardShape: Shape {
-    let edge: GroupRowEdge
+    // 存圆角值而不是 edge 枚举：首/尾行被勾选移除后，新首/尾行的圆角要从 0
+    // 平滑长到 14（让位动画的一部分），animatableData 才能逐帧插值；
+    // 枚举切换只能跳变，会让滑动中的卡片边角「咔」地变圆。
+    var topRadius: CGFloat
+    var bottomRadius: CGFloat
+
+    init(edge: GroupRowEdge) {
+        topRadius = edge.topRadius
+        bottomRadius = edge.bottomRadius
+    }
+
+    var animatableData: AnimatablePair<CGFloat, CGFloat> {
+        get { AnimatablePair(topRadius, bottomRadius) }
+        set {
+            topRadius = newValue.first
+            bottomRadius = newValue.second
+        }
+    }
 
     func path(in rect: CGRect) -> Path {
         UnevenRoundedRectangle(
-            topLeadingRadius: edge.topRadius,
-            bottomLeadingRadius: edge.bottomRadius,
-            bottomTrailingRadius: edge.bottomRadius,
-            topTrailingRadius: edge.topRadius,
+            topLeadingRadius: topRadius,
+            bottomLeadingRadius: bottomRadius,
+            bottomTrailingRadius: bottomRadius,
+            topTrailingRadius: topRadius,
             style: .continuous
         )
         .path(in: rect)

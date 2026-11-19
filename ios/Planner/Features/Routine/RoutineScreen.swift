@@ -103,11 +103,16 @@ struct RoutineScreen: View {
                 ReachIcon(name: .plus, size: 28)
                     .foregroundStyle(DesignTokens.color("--on-accent", scheme: scheme))
                     .frame(width: 58, height: 58)
-                    .background(RoundedRectangle(cornerRadius: 20)
-                        .fill(DesignTokens.color("--accent", scheme: scheme)))
             }
             .buttonStyle(.plain)
-            .padding(.trailing, 20).padding(.bottom, 22)
+            // S3.5 FAB：与 S1.6 完全相同的系统 Liquid Glass（带 tint 蓝底 + 白色「+」），
+            // 只替换材质；几何 58pt / cornerRadius 20 / 距右、距底各 20pt 与日程页对齐，
+            // onAdd(.routine()) 行为与默认值注入不变。
+            .glassEffect(
+                .regular.tint(DesignTokens.color("--accent", scheme: scheme)).interactive(),
+                in: .rect(cornerRadius: 20)
+            )
+            .padding(.trailing, 20).padding(.bottom, 20)
             .accessibilityLabel(AppStrings.t("新建打卡", lang: lang))
         }
     }

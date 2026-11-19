@@ -58,8 +58,7 @@ struct AppRootView: View {
     @State private var activeDay = AppRootView.currentDay()
     @State private var dayChangeCount = 0
 
-    @State private var quickOpen = false
-    @State private var quickDefaults = QuickAddDefaults.empty
+    @State private var quickRoute: QuickAddRoute? = nil
     @State private var searchOpen = false
     @State private var detailRoute: DetailRoute? = nil
     @State private var selfCheckOpen = false
@@ -146,12 +145,15 @@ struct AppRootView: View {
         // 固定 .large：早前按面板展开态在 .medium ↔ .large 之间切换，
         // 与键盘收放动画叠加会让整张 sheet 上下抖动（用户 2026-11-15 反馈）。
         // 内容已放进 ScrollView，单一档位也不会再裁掉月历。
-        .reachSheet(isPresented: $quickOpen, detents: [.large],
-                    topInset: 4, surfaceToken: "--bg") {
-            QuickAddSheet(defaults: quickDefaults, onClose: { quickOpen = false })
+        // 快速添加同样走 item 驱动：内容由本次默认值现场生成。走 isPresented + 外部
+        // defaults 时，首次打开会复用启动期以 .empty 建好的实例，象限默认值丢失。
+        .reachSheet(item: $quickRoute, detents: [.large],
+                    topInset: 4, surfaceToken: "--bg") { route in
+            QuickAddSheet(defaults: route.defaults, onClose: { quickRoute = nil })
                 .environmentObject(uiStore)
                 .environmentObject(toastCenter)
                 .environment(\.appLanguage, lang)
+                .id(route.id)
         }
         .reachSheet(isPresented: $searchOpen, detents: [.large], topInset: 4) {
             SearchSheetView(onOpen: openDetailFromSearch, onClose: { searchOpen = false })
@@ -242,8 +244,7 @@ struct AppRootView: View {
     // MARK: App.vue:34-37 的路由
 
     private func openQuick(_ defaults: QuickAddDefaults) {
-        quickDefaults = defaults
-        quickOpen = true
+        quickRoute = QuickAddRoute(defaults: defaults)
     }
 
     private func openDetail(_ id: String, _ occ: String) {

@@ -59,7 +59,6 @@ enum CalendarContract {
     static let horizontalThresholdRatio = 0.22
     static let velocityThreshold = 0.4
     static let velocityMinDistance = 30.0
-    static let verticalSwitchDistance = 35.0
     static let agendaCollapseDistance = 40.0
     static let agendaExpandDistance = 60.0
     /// 表头星期顺序：周一 … 周日（JS `[1,2,3,4,5,6,0]`）
@@ -165,6 +164,19 @@ enum CalendarContract {
 
     static func shiftOf(_ p: MonthGeometry, mode: CalendarMode, rowHeight: Double = rowHeight) -> Double {
         mode == .month ? 0 : -Double(p.row) * rowHeight
+    }
+
+    /// 把手 / 网格竖拖的跟手收拢进度：0 = 周视图，1 = 月视图。
+    /// 以当前模式为基准叠加位移占全程 (rows-1)*rowH 的比例，夹在 0…1。
+    static func collapseFraction(mode: CalendarMode, translation: Double, fullDrop: Double) -> Double {
+        let base = mode == .month ? 1.0 : 0.0
+        guard fullDrop > 0 else { return base }
+        return min(1, max(0, base + translation / fullDrop))
+    }
+
+    /// 松手落点：用预测终点（含惯性）投影，过半展开收在月视图，否则收在周视图。
+    static func collapseTarget(mode: CalendarMode, predictedTranslation: Double, fullDrop: Double) -> CalendarMode {
+        collapseFraction(mode: mode, translation: predictedTranslation, fullDrop: fullDrop) >= 0.5 ? .month : .week
     }
 
     /// 跟手翻页判定：超视宽 22%，或速度 > 0.4 且位移 > 30。

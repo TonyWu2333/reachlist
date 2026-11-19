@@ -95,6 +95,30 @@ final class T15CalendarContractTests: XCTestCase {
         XCTAssertFalse(CalendarContract.shouldSlide(dx: 30, width: 390, velocity: 0.1))
     }
 
+    // MARK: F-02.3 把手跟手收拢（iOS 交互适配，替代 Web 固定 35pt 竖滑阈值）
+
+    func testCollapseFractionFollowsTranslation() {
+        let full = CalendarContract.drop(rows: 6, mode: .month)   // 270
+        XCTAssertEqual(CalendarContract.collapseFraction(mode: .month, translation: 0, fullDrop: full), 1)
+        XCTAssertEqual(CalendarContract.collapseFraction(mode: .month, translation: -135, fullDrop: full), 0.5)
+        XCTAssertEqual(CalendarContract.collapseFraction(mode: .month, translation: -400, fullDrop: full), 0, "夹在下界")
+        XCTAssertEqual(CalendarContract.collapseFraction(mode: .week, translation: 90, fullDrop: full), 1.0 / 3, accuracy: 1e-9)
+        XCTAssertEqual(CalendarContract.collapseFraction(mode: .week, translation: 500, fullDrop: full), 1, "夹在上界")
+        XCTAssertEqual(CalendarContract.collapseFraction(mode: .week, translation: -50, fullDrop: full), 0)
+        XCTAssertEqual(CalendarContract.collapseFraction(mode: .week, translation: 10, fullDrop: 0), 0, "全程为 0 退回基准")
+        XCTAssertEqual(CalendarContract.collapseFraction(mode: .month, translation: 10, fullDrop: 0), 1)
+    }
+
+    func testCollapseTargetUsesProjectedEnd() {
+        let full = CalendarContract.drop(rows: 6, mode: .month)
+        XCTAssertEqual(CalendarContract.collapseTarget(mode: .month, predictedTranslation: -200, fullDrop: full), .week)
+        XCTAssertEqual(CalendarContract.collapseTarget(mode: .month, predictedTranslation: -100, fullDrop: full), .month, "未过半收回原模式")
+        XCTAssertEqual(CalendarContract.collapseTarget(mode: .week, predictedTranslation: 140, fullDrop: full), .month)
+        XCTAssertEqual(CalendarContract.collapseTarget(mode: .week, predictedTranslation: 20, fullDrop: full), .week)
+        XCTAssertEqual(CalendarContract.collapseTarget(mode: .month, predictedTranslation: -135, fullDrop: full), .month, "恰好一半保持展开（>= 0.5）")
+        XCTAssertEqual(CalendarContract.collapseTarget(mode: .month, predictedTranslation: -136, fullDrop: full), .week)
+    }
+
     // MARK: F-02.5 / 标题区
 
     func testHeadingChineseAndEnglish() throws {
